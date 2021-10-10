@@ -12,20 +12,16 @@ interface MarkdownFrontmatter {
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
-let title = 'Example Blog';
+let title = 'Andrew Hudson\'s Blog';
 let description = 'The perfect starter for your perfect blog.';
-let permalink = 'https://example.com/';
+let permalink = 'https://andrewhudson.dev/';
 
 // Data Fetching: List all Markdown posts in the repo.
-try {
-  const allPosts = Astro.fetchContent('./posts/*.md');
+let allPosts = Astro.fetchContent('./posts/**/*.md');
   // console.log(allPosts);
 
-} catch (error) {
-  console.error(error);
-}
 
-// allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
+allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -85,10 +81,9 @@ try {
       <article class="content">
         <section class="intro">
           <h1 class="latest">{title}</h1>
-          <p>{description}</p>
         </section>
         <section>
-          <!-- {allPosts.map(p => <BlogPostPreview post={p} />)} -->
+          {allPosts.map(p => <BlogPostPreview post={p} />)}
         </section>
       </article>
     </div>
