@@ -9,7 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "0.0.0-compiler-202195205843"
+    "astro": "0.0.0-compiler-20219819163"
   },
   "dependencies": {
     "gray-matter": "4.0.3"
