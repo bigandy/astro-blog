@@ -1,0 +1,17 @@
+{
+  "name": "@example/blog",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "astro": "0.0.0-compiler-202195205843"
+  },
+  "dependencies": {
+    "gray-matter": "4.0.3"
+  }
+}
