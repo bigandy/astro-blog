@@ -5,8 +5,10 @@ date: 2020-11-29
 draft: false
 description:
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week:
 
 - Made a nextjs dashboard page in my House Next Pi project with all the useful daily info for Arthur think Date/Time/Temp out/ Temp In/ Season etc.

@@ -4,8 +4,10 @@ date: 2018-10-18 07:31:57
 draft: false
 description: "This week was mostly about learning and reading."
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week has mostly been about:
 
 *   Studying Advanced React and GraphQL course

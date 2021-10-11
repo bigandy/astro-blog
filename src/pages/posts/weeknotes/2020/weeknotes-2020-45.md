@@ -5,8 +5,10 @@ date: 2020-11-08
 draft: false
 description: Marion's birthday weekend without the kids.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week:
 
 -   Friday to Sunday the kids were with my parents and this allowed us our first child-free time since pre-covid times.

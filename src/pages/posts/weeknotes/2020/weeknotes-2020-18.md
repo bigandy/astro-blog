@@ -4,8 +4,10 @@ date: 2020-05-03
 draft: false
 description: Lockdown continues.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 Lockdown continues. Super bored of it all but we are all coping well otherwise. Had a number of zoom calls over the weekend so was good to catch up. Mood depends hugely on the weather but gladly the weather has been superb again. So great!
 
 On Friday at work we had our first ever dev conference where everyone gave a presentation on a topic that interests them. I gave mine on Advanced Level CSS which was specifically on new features coming to the browser, including Houdini, and Container Queries. I made lots of demos which was pretty time consuming but fun, but didn't give me much time to focus on the slides themselves I will do more of that next time. Next time I think I will do a presentation on Web Components.

@@ -4,8 +4,10 @@ date: 2019-03-26 11:09:37
 draft: false
 description: "Beautiful spring weather has finally arrived; Arthur mastered cycling; Emma is climbing the stairs and the cycling season has started."
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 Beautiful spring weather has finally arrived, Arthur mastered cycling, Emma is climbing the stairs and the cycling season has started proper.
 
 *   Watched (and slept through much of) the first classic of the cycling season - [Milan San Remo](http://inrng.com/2019/03/moment-2019-milan-sanremo-was-won/). Can't wait for the proper spring classics to begin with two of my favourite races Tour of Flanders and Paris Roubaix.

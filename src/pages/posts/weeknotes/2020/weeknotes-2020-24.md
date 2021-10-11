@@ -4,8 +4,10 @@ date: 2020-06-14
 draft: false
 description: Cafe open!
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 -   Holy smokes Emma slept until 0740 on Thursday, which was super great but I still woke up at 0610 and got to read my book and - then later - have breakfast with Arthur.
 
 -   Marion and I celebrated our wedding anniversary and had an excellent take-away from the Italian place in town.

@@ -4,8 +4,10 @@ date: 2018-10-04 17:11:07
 draft: false
 description: ""
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week has been mostly about:
 
 *   Learning loads about Gatsby, setting up [andrewhudson.me](https://andrewhudson.me) using Gatsby v2 including creation of a couple of plugins to pull in data from this site, and Strava.

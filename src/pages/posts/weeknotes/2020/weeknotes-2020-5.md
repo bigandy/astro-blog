@@ -4,8 +4,10 @@ date: 2020-02-02
 draft: false
 description: Finished reading The Three Body Problem, running lots, went to Newbury
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - **Running**: A long run on Friday evening after work: [Cholsey River Mud Run](https://www.strava.com/activities/3059652396), a [10km run on Sunday evening](https://www.strava.com/activities/3066132923), plus two shorter runs during the week: [After Work River Run](https://www.strava.com/activities/3056824308) and [Sliding around in the mud Lunch Run](https://www.strava.com/activities/3050560327). Overall I was pretty knackered this week and probably lack of sleep was a big part of this.
 
 - **Saturday**: I took Arthur to his swimming lesson for the first time (usually we both do it, or Marion) and then after going home we all drove to Newbury to meet a friend for a freezing cold but brilliantly sunny walk along the canal and lunch.

@@ -4,8 +4,10 @@ date: 2019-11-16
 draft: false
 description: So much rain!
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - This (Saturday) morning we all took ourselves to the Ridgeway and walked along breathing the cold humid (but fresh!) air and getting some views of the distant lands.
 - so much rain has fallen, the river is so swollen and running along it last night was too difficult. I had to stop and wade through ankle deep stretches. Also I could use a decent running light as the beam of light from my phone's torch is too poor to run with. [Here's the run](https://www.strava.com/activities/2866812104).
 - Work has been pretty hectic lately, not on Serene this sprint but on another older project.

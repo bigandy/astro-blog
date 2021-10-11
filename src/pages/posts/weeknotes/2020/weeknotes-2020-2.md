@@ -4,8 +4,10 @@ date: 2020-01-12
 draft: false
 description: Back in England, return to work. Weekend in London
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - Back at work on Monday and planning for the Winter Retreat at work.
 
 - Emma has been ill again with an ear infection, much like Arthur when he was the same age. When she's ill like this she does not sleep very well which has a knock-on effect of meaning one or both of Marion or I not sleeping well either.

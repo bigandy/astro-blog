@@ -4,8 +4,10 @@ date: 2020-08-16
 draft: false
 description: Our first holiday since last Christmas.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 ## Three and a half weeks in France
 
 The first week and a half was our working from home in France experience and the final 2 weeks was our actual holiday. We stayed with Marion's parents just outside of La Rochelle on the west coast of France.

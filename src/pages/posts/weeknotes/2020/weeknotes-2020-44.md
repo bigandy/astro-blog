@@ -5,8 +5,10 @@ date: 2020-11-01
 draft: false
 description: The final week before lockdown number two.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week:
 
 -   I had a lazy post-birthday cake eating week where I didn't go running and wallowed in the darkness of the coming winter.

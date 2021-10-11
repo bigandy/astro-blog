@@ -5,8 +5,10 @@ date: 2020-12-06
 draft: false
 description: Advent here, Christmas Decorations up. LEDS on!
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week:
 
 - Continuing to make progress with the House Controller Next project. This week I have hooked up the DHT22 sensor to record temperature and humidity values (currently inside only). I am storing the data in Hasura (for the moment; probably will go to SQLite and Prisma if I can get the latter working on my Pi) and accessing it via GraphQL which is super cool. The data is not that interesting (because it is inside and doesn't vary that much) and I will look to see if I can get another sensor that I can put in a shady part of the back garden so I have inside and outside measurements.

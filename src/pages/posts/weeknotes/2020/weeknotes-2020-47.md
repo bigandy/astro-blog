@@ -5,8 +5,10 @@ date: 2020-11-22
 draft: false
 description: Ran four times! Continued with Next and Pi.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week:
 
 - Arthur has a woobly front tooth!

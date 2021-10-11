@@ -4,8 +4,10 @@ date: 2020-02-16
 draft: false
 description: A week of solo parenting and reading books.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - **Running**: Three runs in three days (Mon, Tue, and Wednesday) and then a short run on Sunday.
 
 - **Solo Parenting**: Marion was in South Africa with work so I was solo parent for the week from Sunday afternoon until Saturday morning. The children were well behaved but Arthur woke up a lot in the night, and Emma always wakes up before 6. I was exhausted by the end of the week!

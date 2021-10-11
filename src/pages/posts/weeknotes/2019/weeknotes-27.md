@@ -4,8 +4,10 @@ date: 2019-12-16
 draft: false
 description: Almost Christmas. A marathon?
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - Winding down at work for Christmas and at home too.
 
 - Weekend: Arthur's Swimming lesson on Saturday morning then drove to Reading to get some Christmas presents. Sunday I went for a 6.8 mile run and we went to the playground in Crowmarsh in the afternoon. A chilled one for sure.

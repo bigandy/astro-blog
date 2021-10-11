@@ -4,8 +4,10 @@ date: 2019-03-01 11:54:30
 draft: false
 description: "Hot winter weather, a date day at the Spa and weekend at the parents were followed by an exciting week of Electron development."
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week was:
 
 *   Exercise this week was 60+ lengths of swimming at the spa, a [long (9 mile) run up Grim's Ditch](https://www.strava.com/activities/2174886281), plus two visits to the gym.

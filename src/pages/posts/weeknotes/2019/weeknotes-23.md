@@ -4,8 +4,10 @@ date: 2019-11-01
 draft: false
 description: "November Already! Serene launches! Cambridge visited!"
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 ## Serene is launched into the world!
 At the start of October at work we launched a project that I have been working on for the last 10 months - [Serene](https://sereneapp.com/), a MacOS productivity app with companion Chrome and Firefox extensions - on [Product Hunt](https://www.producthunt.com/posts/serene-f25ac3a9-1910-42c7-8ec4-c24acf3a8331). The launch was successful and I'm looking forward to working on adding new features to this in the next months!
 

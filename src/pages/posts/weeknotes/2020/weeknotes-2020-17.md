@@ -4,8 +4,10 @@ date: 2020-04-12
 draft: false
 description: Sunny sunshine Blue skies.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - **Running**: Started running more often. Emma wakes up super early so I go at ~0615 on Mon, Wed and Fri. Fitness not really there but good to go out and have some _me_ time.
 
 - **Weather**: was superb most of last week and continued to explore the fields around with the kids and blow lots of Dandelion seeds.

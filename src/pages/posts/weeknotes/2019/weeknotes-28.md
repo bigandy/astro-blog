@@ -4,8 +4,10 @@ date: 2019-12-29
 draft: false
 description: Christmas in France. Running with Marion.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - Today is the Sunday between Christmas and NYE and we staying with Marion's parents. Marion’s brother Aurele his wife Marie Atrid and their daughter Julia are here too - in the west of France near La Rochelle. Outside it is freezing cold so we are inside in front of the fire and a Disney film.
 
 - Marion and I went together for two runs this week!

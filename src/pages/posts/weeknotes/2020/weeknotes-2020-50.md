@@ -5,8 +5,10 @@ date: 2020-12-13
 draft: false
 description: LEDS. Christmas Lights. CX.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week:
 
 - I finished the [Client-side GraphQL Course on Frontend Masters](https://frontendmasters.com/courses/client-graphql-react/) which was pretty interesting. I then started the [Advanced GraphQL](https://frontendmasters.com/courses/advanced-graphql-v2/) course also by the amazing [Scott Moss](https://twitter.com/scotups).

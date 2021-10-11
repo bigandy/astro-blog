@@ -4,8 +4,10 @@ date: 2019-12-02
 draft: false
 description: Running Races!
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - Yesterday morning I ran [Watlington 10k off-road 10k](https://www.strava.com/activities/2903761828) which was really good fun and very tough with two very steep hills to struggle up and sprint down. I'm pretty happy with my time especially that I beat the bloke in the black t-shirt to the line and have this horrible chesty cough &amp; cold!
 
 - We put up the Christmas tree and went to Wallingford yesterday to see the Christmas lights and fireworks,  with Arthur doing almost all of the tree decorating!

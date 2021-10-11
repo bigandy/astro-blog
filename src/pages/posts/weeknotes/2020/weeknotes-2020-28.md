@@ -4,8 +4,10 @@ date: 2020-07-12
 draft: false
 description: Fondue BBQ!
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 -   On Saturday we had a long long overdue fondue with friends morphed into a BBQ as it is summer and we needed to be outdoors to reduce the risk of catching _the virus_. As a result that was all we did on Saturday: eat cheese and meat and then fall into a deep cheese coma.
 
 -   On Sunday I got up super early went for a run and then when I got back we went to Pangbourne where Marion and friends had a paddleboard booked for an hour. I entertained the kids. Then it was our turn and I pumped up the canoe and went for a trip along the river. Emma had different ideas and cried constantly so we had to go back with her so it was just Arthur and I on the boat. I really enjoy going on the river!

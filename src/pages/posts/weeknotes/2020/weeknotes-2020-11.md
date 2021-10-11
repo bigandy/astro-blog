@@ -4,8 +4,10 @@ date: 2020-03-15
 draft: false
 description: The Virus has arrived!
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - **The Virus**: While the impact of Corona virus is starting to ramp up in the UK we are still able to move about and the children are in school/nursery. My parents holiday was ended early and they are currently on their way back from the Canary islands. It is difficult to not have some anxiety over the situation and I have started to avoid checking the news and on social media.
 
 - **Running**: I ran on Monday, Tuesday, Wednesday and Friday which meant that I had a few days of non-running over the weekend. 20.1 miles in total.

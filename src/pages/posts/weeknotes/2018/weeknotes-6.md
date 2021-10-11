@@ -4,8 +4,10 @@ date: 2018-10-12 12:08:55
 draft: false
 description: "I've done a lot of learning this week and also I went for a big family walk last Sunday."
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This week has mostly been about:
 
 *   Started [WesBos' new Advanced React and GraphQL course](https://advancedreact.com/) that I won after catching a paper airplane at a conference earlier this year - thanks [Wes](https://twitter.com/wesbos)!.

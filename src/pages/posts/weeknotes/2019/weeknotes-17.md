@@ -4,8 +4,10 @@ date: 2019-03-19 08:58:47
 draft: false
 description: ""
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 This was the last week for me:
 
 *   A lot of [other people are doing weeknotes](https://adactio.com/journal/14955). I personally love doing them as it gives me a chance to reflect on the past week and share some personal things that I would normally not write.

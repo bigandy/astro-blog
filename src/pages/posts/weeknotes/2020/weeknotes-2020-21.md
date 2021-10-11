@@ -4,8 +4,10 @@ date: 2020-05-24
 draft: false
 description: Goodbye Digital Ocean.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 ## Goodbye Digital Ocean.
 
 I finally moved away from Digital Ocean. For about 10 years I have been using them because I had an array of WordPress projects and I was also interested in having a server that I could tinker with and change settings and get things like PHP 7, and http/2 running on it before they were 'cool'.

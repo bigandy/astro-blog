@@ -4,8 +4,10 @@ date: 2020-01-26
 draft: false
 description: Design Museum and Cirque du Soleil in London!
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - **Sunday and Saturday**: Marion and I were in London as we were given tickets to Cirque du Soleil at the Royal Albert Hall, and before that we went to the Design Museum which is something that I have been really wanting to do for ages so it was great to go there. A section on re-imagining everyday objects such as plastic bottles and coffee cups so they could be made in a more energy efficient way or last longer. The spectacle at the Cirque du Soleil was impressive but not until the second half, the first half was a bit slow and not much in the way of world class circus work. We found an excellent place to have brunch "Gails" and wandered around Kensington and South Kensington on Sunday.
 
 - **Running**: A long run on Friday evening as I knew I needed to get a run in before going away for the weekend. [8 miles after work along the Ridgeway](https://www.strava.com/activities/3039522042) in the gradually darkening evening. Heard owls toowhit-toowoo-ing and was very muddy on the way back. On Wednesday I did a [6.9 mile run to Cholsey and back along the river](https://www.strava.com/activities/3033994973). The puddles still had thick layers of ice in them and I got wet feet in places. Monday was an [after work 5](https://www.strava.com/activities/3028253588).

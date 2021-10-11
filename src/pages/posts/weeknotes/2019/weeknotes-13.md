@@ -4,8 +4,10 @@ date: 2019-01-16 10:51:15
 draft: false
 description: ""
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 Exercise
 --------
 

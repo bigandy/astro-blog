@@ -4,8 +4,10 @@ date: 2020-01-05
 draft: false
 description: New Year in Brittany. Home to a water leak.
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 - Happy New Year! I'm sitting in the lounge at home - and the kids are in bed asleep so I can relax - after a long day of travelling and looking after our kids whilst tired from lack of sleep.
 
 - First thing I received when I got home was a blast of chilly water in my face. The pipe connection under our sink had broken and the water leaked straight into my face and legs. Fortunately I could stop the flow quickly. Currently waiting for a plumber to call.

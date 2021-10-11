@@ -4,8 +4,10 @@ date: 2019-04-05 07:26:01
 draft: false
 description: ""
 tags: ['weeknotes']
----
+author: 'andrew'
+layout: '../../../../layouts/BlogPost.astro'
 
+---
 We have finally moved house!
 
 *   Last week was super stressful and tiring
