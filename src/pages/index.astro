@@ -5,7 +5,7 @@ import BlogHeader from '../components/BlogHeader.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 
 interface MarkdownFrontmatter {
-  publishDate: number;
+  date: number;
 }
 
 // Component Script:
@@ -21,7 +21,7 @@ let allPosts = Astro.fetchContent('./posts/**/*.md');
   // console.log(allPosts);
 
 
-allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
+allPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/

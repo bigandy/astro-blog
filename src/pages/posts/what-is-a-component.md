@@ -1,6 +1,7 @@
 ---
 title: 'What is a component?'
 description: "I want to define what we will call a component. What it is and most importantly what it is not"
+date: 2021-10-04
 publishDate: 'Monday, October 4 2021'
 author: 'andrew'
 

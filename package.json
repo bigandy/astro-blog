@@ -12,6 +12,7 @@
     "astro": "^0.20.9"
   },
   "dependencies": {
+    "dayjs": "1.10.7",
     "gray-matter": "4.0.3"
   }
 }
