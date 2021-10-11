@@ -8,4 +8,4 @@ author: 'Andrew'
 layout: '../../layouts/BlogPost.astro'
 ---
 
-![sackboy](/shared/2009/01/sackboy.jpg "sackboy") is what everyone really needs on a cold Tuesday morning. [thanks idodds](http://www.flickr.com/photos/ldodds/). ggggGoing to work now.
+is what everyone really needs on a cold Tuesday morning. [thanks idodds](http://www.flickr.com/photos/ldodds/). ggggGoing to work now.

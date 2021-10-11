@@ -8,4 +8,4 @@ author: 'Andrew'
 layout: '../../layouts/BlogPost.astro'
 ---
 
-![cloud_aeroplane](/shared/2009/01/cloud_aeroplane-300x205.jpg "cloud_aeroplane") for [my bro](http://www.rob-hudson.com/ "my bro's site") and all those interested in streaming radio over the internet, this is an article about [cloud music](http://www.guardian.co.uk/technology/2009/jan/22/digitalmusic-drm "cloud music (guardian.co.uk)") (e.g. live.fm, pandora, deezer). i.e. music which is streamed from the internet. Is this the solution to online music piracy?
+for [my bro](http://www.rob-hudson.com/ "my bro's site") and all those interested in streaming radio over the internet, this is an article about [cloud music](http://www.guardian.co.uk/technology/2009/jan/22/digitalmusic-drm "cloud music (guardian.co.uk)") (e.g. live.fm, pandora, deezer). i.e. music which is streamed from the internet. Is this the solution to online music piracy?

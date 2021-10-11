@@ -8,4 +8,4 @@ author: 'Andrew'
 layout: '../../layouts/BlogPost.astro'
 ---
 
-Kittens now are ~4 weeks old still being nursed by their mum. Here's a photo: ![](/shared/2012/09/photo.jpg "photo")
+Kittens now are ~4 weeks old still being nursed by their mum.
