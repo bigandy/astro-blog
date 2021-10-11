@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 
 const { post } = Astro.props;
 ---
-<article class="post-preview">
+<article class="post-preview layout-inner">
   <header>
     <h3 class="publish-date">{dayjs(post.date).format('dddd, DD MMMM YYYY')}</h3>
     <a href={post.url}><h1 class="title">{post.title}</h1></a>
