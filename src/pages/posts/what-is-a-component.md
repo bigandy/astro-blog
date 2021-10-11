@@ -4,6 +4,7 @@ description: "I want to define what we will call a component. What it is and mos
 date: 2021-10-04
 publishDate: 'Monday, October 4 2021'
 author: 'Andrew'
+draft: true
 layout: '../../layouts/BlogPost.astro'
 ---
 

@@ -13,23 +13,28 @@ interface MarkdownFrontmatter {
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = 'Andrew Hudson\'s Blog';
-let description = 'The perfect starter for your perfect blog.';
+let description = 'Senior Software Engineer looking for answers.';
 let permalink = 'https://andrewhudson.dev/';
 
 // Data Fetching: List all Markdown posts in the repo.
-
 let allPosts = [];
 try {
   allPosts = Astro.fetchContent('./posts/**/*.md');
   allPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
+  const now = new Date();
+  allPosts = allPosts.filter((post) => {
+    // Get rid of draft posts first
+    if (post.draft && post.draft === true) {
+      return false;
+    }
+
+    // get rid of future posts
+    return new Date(post.date).getTime() <= now.getTime();
+  })
 } catch (error) {
   console.error(error)
 }
-
-  // console.log(allPosts);
-
-
-
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/

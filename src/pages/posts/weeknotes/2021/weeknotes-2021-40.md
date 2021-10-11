@@ -1,7 +1,7 @@
 ---
 title: Indian Summer
 date: 2021-10-10
-draft: false
+draft: true
 description: TBD
 tags: ['weeknotes']
 layout: '../../../../layouts/BlogPost.astro'
