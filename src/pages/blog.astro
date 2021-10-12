@@ -1,0 +1,39 @@
+---
+// Component Imports
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import BlogPostPreview from '../components/BlogPostPreview.astro';
+
+// Data Fetching: List all Markdown posts in the repo.
+let allPosts = [];
+try {
+  const now = new Date();
+  // Get all the posts from the posts directory
+  allPosts = Astro.fetchContent('./posts/**/*.md');
+  allPosts = allPosts.filter((post) => {
+    // Get rid of draft posts first
+    if (post.draft && post.draft === true) {
+      return false;
+    }
+
+    // get rid of future posts
+    return new Date(post.date).getTime() <= now.getTime();
+  })
+  allPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
+ // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
+  allPosts = allPosts.slice(0, 9);
+
+
+
+} catch (error) {
+  console.error(error)
+}
+
+let title = 'Blog';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<DefaultLayout title={title}>
+  {allPosts.slice(0, 9).map(p => <BlogPostPreview post={p} />)}
+</DefaultLayout>
