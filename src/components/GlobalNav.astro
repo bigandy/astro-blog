@@ -1,23 +1,44 @@
 ---
+const pages = {
+	home: {
+		url: '/',
+		title: 'Home'
+	},
+	blog: {
+		url: '/blog',
+		title: 'Blog'
+	},
+	cv: {
+		url: '/cv',
+		title: 'CV'
+	},
+	about: {
+		url: '/about',
+		title: 'About'
+	},
+	now: {
+		url: '/now',
+		title: 'Now'
+	}
+};
+
+const requestPathname = Astro.request.url.pathname;
 
 ---
 <nav class="layout">
 	<ul class="layout-inner">
-		<li>
-			<a href="/">Home</a>
-		</li>
-		<li>
-			<a href="/blog">Blog</a>
-		</li>
-		<li>
-			<a href="/cv">CV</a>
-		</li>
+		{Object.values(pages).map(entry => {
+			const className = requestPathname === entry.url && 'active';
+			return (
+				<li>
+					<a class={className} href={entry.url}>{entry.title}</a>
+				</li>
+			)
+		})}
 	</ul>
 </nav>
 
 <style>
-
-
 li {
 	display: inline-grid;
 	margin-right: 1em;
@@ -28,6 +49,6 @@ a {
 }
 
 .active {
-	border-bottom-color: orange;
+	border-bottom-color: var(--theme-accent);
 }
 </style>

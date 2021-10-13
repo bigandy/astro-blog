@@ -1,14 +1,13 @@
 ---
 title: Indian Summer
 date: 2021-10-10
-draft: true
+draft: false
 description: TBD
 tags: ['weeknotes']
 layout: '../../../../layouts/BlogPost.astro'
 ---
 
 This week has been all about:
-
 
 - I have started switching this site away from 11ty (it was ace but I want something different) to Astro (I've moved a few posts over and it has been very easy). It looks like Astro gets all the benefits of a static site generator but with the addition of a super ace dev environment, plus the option to have all the code as React (or other framework) components, with the further option to make it dynamic should you wish.
 
