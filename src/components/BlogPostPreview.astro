@@ -17,7 +17,7 @@ const { post } = Astro.props;
   </main>
 </article>
 
-<style>
+<style lang="scss">
 .content :global(main > * + *) {
   margin-top: 1rem;
 }
@@ -26,6 +26,11 @@ const { post } = Astro.props;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
   border-bottom: 4px solid var(--theme-divider);
+
+  &:first-of-type {
+    border-top: 4px solid var(--theme-divider);
+    padding-block-start: 2rem;
+  }
 }
 
 header {
@@ -34,7 +39,6 @@ header {
   text-align: left;
   align-items: flex-start;
   justify-content: center;
-
   padding-bottom: 2rem;
 }
 

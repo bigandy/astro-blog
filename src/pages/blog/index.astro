@@ -1,14 +1,15 @@
 ---
 // Component Imports
-import DefaultLayout from '../layouts/DefaultLayout.astro';
-import BlogPostPreview from '../components/BlogPostPreview.astro';
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import BlogPostPreview from '../../components/BlogPostPreview.astro';
+import ForwardArrow from '../../components/ForwardArrow.astro';
 
 // Data Fetching: List all Markdown posts in the repo.
 let allPosts = [];
 try {
   const now = new Date();
   // Get all the posts from the posts directory
-  allPosts = Astro.fetchContent('./posts/**/*.md');
+  allPosts = Astro.fetchContent('../posts/**/*.md');
   allPosts = allPosts.filter((post) => {
     // Get rid of draft posts first
     if (post.draft && post.draft === true) {
@@ -36,4 +37,6 @@ let title = 'Blog';
 ---
 <DefaultLayout title={title}>
   {allPosts.slice(0, 9).map(p => <BlogPostPreview post={p} />)}
+
+  <ForwardArrow url="/blog/2" title="See more posts"/>
 </DefaultLayout>
