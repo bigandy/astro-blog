@@ -1,6 +1,5 @@
 .cv h2 {
   margin-top: 0.5em;
-  margin-bottom: 0;
   border-bottom: 2px solid green;
   display: inline-block;
 }
@@ -9,8 +8,20 @@
   margin-top: 0;
 }
 
+.cv :is(h3) {
+  margin-top: 0;
+  font-size: 24px;
+}
+
 .cv ul:not(.nav) {
   margin-left: 1.5em;
+  /* margin-left: 0; */
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.cv :is(li, p) {
+  font-size: 18px;
 }
 
 .contact {
@@ -20,13 +31,24 @@
 .contact a {
   display: inline-block;
   margin-right: 1em;
+
+}
+
+.cv a {
+  color: green;
+  text-decoration: underline;
 }
 
 @media print {
-  .contact {
-    margin-bottom: 0;
+  .cv a {
+    color: black;
   }
 
+  .cv ul.skills {
+    margin-bottom: 0.5rem;
+  }
+
+  .cv nav,
   .cv header,
   .cv footer {
     display: none;
@@ -35,6 +57,11 @@
   .cv h1 {
     margin-bottom: 1rem;
   }
+
+  .cv h2 {
+    font-size: 28px;
+  }
+
   .cv h1::before {
     content: "Andrew Hudson - ";
   }

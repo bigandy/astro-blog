@@ -1,28 +1,28 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro';
+import CVLayout from '../layouts/CVLayout.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
-<DefaultLayout title="CV">
-	<link  rel="stylesheet" href="/cv.css" />
+<CVLayout title="CV" className="cv">
 	<div class="contact"><a href="mailto:ahudson@gmail.com">ahudson@gmail.com</a><a href="tel:07736063671" class="tel">077 36063 671</a></div>
 
 	<h2 id="personal-statement">Personal Statement</h2>
 
-	<p>I am a full-stack software engineer with 11+ years experience creating highly performant and usable products, websites, desktop applications and browser extensions.</p>
+	<p>I am a full-stack software engineer with 11+ years experience creating highly performant and usable products, websites, desktop applications, and browser extensions.</p>
 
 	<h2 id="skills">Skills</h2>
 
-	<ul class="grid p-grid--halfs">
-		<li>TypeScript, JS, CSS, CSS-in-JS and Node</li>
-		<li>React, GraphQL and Apollo</li>
-		<li>Firebase firestore and serverless functions</li>
-		<li>Electron and Browser Extensions</li>
-		<li>Gatsby, Next.js, and Eleventy</li>
-		<li>Modular Components using Storybook to document and test</li>
+	<ul class="skills">
+		<li>TypeScript, React, and Node</li>
+		<li>All the variations of CSS (scss / CSS / CSS-in-JS / CSS Modules)</li>
+		<li>GraphQL, Apollo, and Databases (Firebase and Postgres)</li>
+		<li>Serverless functions with custom API routes</li>
+		<li>Electron and Browser Extension development</li>
+		<li>Gatsby, Next.js, Eleventy, and CMS including WordPress</li>
+		<li>Engineering modular components and showcasing with Storybook to document and test</li>
 	</ul>
 
 	<h2 id="experience">Experience</h2>
@@ -30,11 +30,13 @@ import BlogPostPreview from '../components/BlogPostPreview.astro';
 	<h3>Venture Harbour – <em>Software Engineer</em> – 10.2017 – Present</h3>
 
 	<ul>
-		<li>Webapp development with Nextjs, GraphQL and Typescript.</li>
-		<li>Desktop Application and Browser Extension development with React, nodejs, web-sockets, and Firebase.</li>
-		<li>Styling with CSS Modules, CSS-in-JS, and scss, and implementation of a design system using Storybook.</li>
-		<li>Created multiple PWA using custom WordPress logic and Workbox.</li>
+		<li>Web app development with Next.js, GraphQL and Typescript.</li>
+		<li>Crafting beautiful, usable components, pages, and sites from designs in Figma.</li>
 		<li>Peer review and test colleagues code</li>
+		<li>Break down problems into solutions and solutions into tasks, estimating time and sharing with the team</li>
+		<li>Research solutions and create custom demos before moving into code</li>
+		<li>Desktop Application and Browser Extension development with React, nodejs, web-sockets, and Firebase.</li>
+		<li>I have created multiple PWA using custom WordPress code and Workbox.</li>
 		<li>Optimise Performance of each of our sites and products and automate testing and CI for each - deployment.</li>
 		<li>Internal conference presentations to colleagues.</li>
 	</ul>
@@ -137,4 +139,4 @@ import BlogPostPreview from '../components/BlogPostPreview.astro';
 		<li>Photography</li>
 		<li>Coffee</li>
 	</ul>
-</DefaultLayout>
+</CVLayout>
