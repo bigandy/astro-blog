@@ -4,7 +4,11 @@
 npm init astro -- --template blog
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/snowpackjs/astro/tree/latest/examples/blog)
+A really cool site built with Astro!
+
+This was started from the Blog template.
+
+Woop!
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
