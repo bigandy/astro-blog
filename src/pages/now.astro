@@ -9,7 +9,28 @@ import {Markdown} from 'astro/components';
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
+
+<style lang="scss">
+
+.container {
+	--color-for-bg: purple;
+	border-left: 10px solid transparent;
+	border-image: paint(astro);
+	padding-left: 10px;
+	border-left-width: 100px;
+    border-left-style: solid;
+    border-image-source: paint(astro);
+    border-image-repeat: repeat;
+    border-image-slice: 1%;
+
+//   &:hover {
+// 	  --color-for-bg: hsla(55, 90%, 60%, 1.0);
+//   }
+}
+
+</style>
 <DefaultLayout title={title}>
+	<div class="container">
 	<Markdown>
 
 		Last updated: 23 February 2021.
@@ -29,4 +50,14 @@ import {Markdown} from 'astro/components';
 
 		Credit for now page: first seen on [Derek Sivers now page](https://sivers.org/now)
 	</Markdown>
+	</div>
 </DefaultLayout>
+
+<script>
+if ('paintWorklet' in CSS) {
+	console.log('supports paintWorklet')
+	CSS.paintWorklet.addModule('/js/paint.js');
+} else {
+	console.log("doesn't support paintWorklet")
+}
+</script>
