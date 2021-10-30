@@ -63,18 +63,12 @@ const { title, author, date, heroImage, alt } = Astro.props;
 }
 
 header {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
   border-bottom: 4px solid var(--theme-divider);
 }
 
-.title,
 .author,
 .publish-date {
   margin: 0;
@@ -88,5 +82,6 @@ header {
 .title {
   font-size: 2.25rem;
   font-weight: 700;
+  margin-block: 1rem;
 }
 </style>

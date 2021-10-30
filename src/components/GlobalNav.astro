@@ -26,7 +26,7 @@ const requestPathname = Astro.request.url.pathname;
 
 ---
 <nav class="layout">
-	<ul class="layout-inner">
+	<ul class="layout-inner nav">
 		{Object.values(pages).map(entry => {
 			const className = requestPathname === entry.url && 'active';
 			return (

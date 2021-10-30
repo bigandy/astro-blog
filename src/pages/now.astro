@@ -2,34 +2,18 @@
 // Component Imports
 import DefaultLayout from '../layouts/DefaultLayout.astro';
 
-const title = 'Now';
+
 
 import {Markdown} from 'astro/components';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
+
+const title = 'Now';
 ---
 
-<style lang="scss">
-
-.container {
-	--color-for-bg: purple;
-	border-left: 10px solid transparent;
-	border-image: paint(astro);
-	padding-left: 10px;
-	border-left-width: 100px;
-    border-left-style: solid;
-    border-image-source: paint(astro);
-    border-image-repeat: repeat;
-    border-image-slice: 1%;
-
-//   &:hover {
-// 	  --color-for-bg: hsla(55, 90%, 60%, 1.0);
-//   }
-}
-
-</style>
 <DefaultLayout title={title}>
+<link rel="stylesheet" href="/css/now.css" />
 	<div class="container">
 	<Markdown>
 
