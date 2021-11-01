@@ -1,8 +1,8 @@
 ---
 // Component Imports
-import FullScreenLayout from '../layouts/FullScreenLayout.astro';
+import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
 
-const title = 'Canvas 1';
+const title = 'Canvas 1 - Drawing Rectangles';
 ---
 
 <FullScreenLayout title={title}>
@@ -23,7 +23,6 @@ ctx.fillStyle = 'green';
 ctx.fillRect(0, height / 2, width / 2, height / 2);
 ctx.fillStyle = 'orange';
 ctx.fillRect(width / 2, height / 2, width / 2, height / 2);
-
 </script>
 
 <style>

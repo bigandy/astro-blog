@@ -1,0 +1,65 @@
+---
+// Component Imports
+import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
+
+const title = 'Canvas 3 - animating circle around other circle';
+---
+
+<FullScreenLayout title={title}>
+	<div class="container">
+        <canvas id="canvas" height="500" width="1000">
+        </canvas>
+	</div>
+</FullScreenLayout>
+
+<script>
+const canvas = document.getElementById('canvas');
+const {width, height} = canvas;
+const ctx = canvas.getContext('2d');
+
+let velocityX = 0.05;
+let radians = 0;
+
+
+const drawCircle = (x, y, size, color = 'red') => {
+	ctx.beginPath();
+	ctx.arc(x, y, size, 0, 2 * Math.PI);
+	ctx.fillStyle = color;
+	ctx.fill();
+	ctx.closePath();
+};
+
+// x, y, radius, start angle (in radians), end angle (in radians)
+const drawCircles = (x, y, radians) => {
+
+	// animate this circle
+	drawCircle(x + width / 2, y + height / 2, 20, 'red');
+
+
+	// These circles stay the same. For now
+	drawCircle(width / 2, height / 2, 100, 'black');
+	// drawCircle(width / 4, height / 4, 40, 'blue');
+}
+
+function draw() {
+	radians += velocityX;
+	x = Math.cos(radians) * 150;
+	y = Math.sin(radians) * 150;
+    ctx.clearRect(0, 0, width, height);
+    drawCircles(x, y);
+}
+
+setInterval(draw, 10);
+
+
+// Want to move the red circle around the black dot.
+
+
+</script>
+
+<style>
+canvas {
+    width: 100%;
+	border: 1px solid;
+}
+</style>
