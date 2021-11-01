@@ -1,0 +1,55 @@
+---
+// Component Imports
+import BaseHead from '../components/BaseHead.astro';
+import GlobalNav from '../components/GlobalNav.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import BlogPostPreview from '../components/BlogPostPreview.astro';
+
+interface MarkdownFrontmatter {
+  date: number;
+}
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+
+const {title, head} = Astro.props;
+
+let description = 'Senior Software Engineer looking for answers.';
+let permalink = 'https://andrewhudson.dev/';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+---
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} />
+
+    <link rel="stylesheet" href="/css/blog.css" />
+
+    {head}
+
+    <style lang="scss">
+      body {
+        width: 100%;
+        display: grid;
+      }
+
+
+        .slot {
+            margin-block-start: 2em;
+            padding-inline: 1em;
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <section class="slot">
+            <h1 class="title">{title}</h1>
+        <slot />
+    </section>
+  </body>
+</html>

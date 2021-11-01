@@ -1,0 +1,33 @@
+---
+// Component Imports
+import FullScreenLayout from '../layouts/FullScreenLayout.astro';
+
+const title = 'Canvas 1';
+---
+
+<FullScreenLayout title={title}>
+	<div class="container">
+        <canvas id="canvas" height="500" width="1000">
+        </canvas>
+	</div>
+</FullScreenLayout>
+
+<script>
+const canvas = document.getElementById('canvas');
+const {width, height} = canvas;
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = 'red';
+ctx.fillRect(0, 0, width, height / 2);
+ctx.fillStyle = 'green';
+ctx.fillRect(0, height / 2, width / 2, height / 2);
+ctx.fillStyle = 'orange';
+ctx.fillRect(width / 2, height / 2, width / 2, height / 2);
+
+</script>
+
+<style>
+canvas {
+    width: 100%;
+}
+</style>
