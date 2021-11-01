@@ -1,0 +1,46 @@
+---
+// Component Imports
+import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
+
+const title = 'Canvas 4 - some random squares';
+---
+
+<FullScreenLayout title={title}>
+	<div class="container">
+        <canvas id="canvas" height="500" width="1000">
+        </canvas>
+	</div>
+</FullScreenLayout>
+
+<script>
+const canvas = document.getElementById('canvas');
+const {width, height} = canvas;
+const ctx = canvas.getContext('2d');
+
+const drawSquare = (x, y, size, color = 'red') => {
+    const opacity = Date.now() % 3 === 0 ? '0.75' : '0.24';
+
+	ctx.fillStyle = `hsl(${Math.floor(x)}, 100%, 50%, ${opacity})`;
+	ctx.fillRect(x, y, size * 3, size / 2);
+};
+
+let x = Math.random() * Math.cos(Date.now());
+let y = Math.random() * Math.tan(Date.now());
+function draw() {
+        x = x <= width ? x + Math.cos(Math.random()) * (width / 10) : Math.random() * 100;
+        y = y <= height ? y + Math.tan(Math.random()) * (width / 10) : Math.random() * 100;
+
+        drawSquare(x, y, 10);
+    }
+
+for (let j = 0; j <= 10000; j++) {
+    draw();
+}
+</script>
+
+<style>
+canvas {
+    width: 100%;
+	border: 1px solid;
+}
+</style>
