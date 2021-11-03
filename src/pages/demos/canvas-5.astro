@@ -3,12 +3,12 @@
 import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
 import Canvas from '../../components/Canvas.astro';
 
-const title = 'Canvas 4 - some random squares';
+const title = 'Canvas 5 - some random circles';
 ---
 
 <FullScreenLayout title={title}>
 	<div class="container">
-        <Canvas reload />
+		<Canvas reload />
 	</div>
 </FullScreenLayout>
 
@@ -17,27 +17,36 @@ const canvas = document.getElementById('canvas');
 const {width, height} = canvas;
 const ctx = canvas.getContext('2d');
 
-const drawSquare = (x, y, size, color = 'red') => {
-    const opacity = Date.now() % 3 === 0 ? '0.75' : '0.24';
 
-	ctx.fillStyle = `hsl(${Math.floor(x)}, 100%, 50%, ${opacity})`;
-	ctx.fillRect(x, y, size * 3, size / 2);
+let x = 0;
+let y = 0;
+
+
+
+
+const drawCircle = (x, y, size, color = 'red') => {
+	ctx.beginPath();
+	ctx.arc(x, y, size, 0, 2 * Math.PI);
+	ctx.fillStyle = color;
+	ctx.fill();
+	ctx.closePath();
 };
-
-let x = Math.random() * Math.cos(Date.now());
-let y = Math.random() * Math.tan(Date.now());
 
 const init = () => {
-	for (let j = 0; j <= 10000; j++) {
-        draw();
-    }
+	for (let j = 0; j <= 100; j++) {
+		draw();
+	}
 };
-init();
+
 
 function draw() {
     x = x <= width ? x + Math.cos(Math.random()) * (width / 10) : Math.random() * 100;
     y = y <= height ? y + Math.tan(Math.random()) * (width / 10) : Math.random() * 100;
 
-    drawSquare(x, y, 10);
+	const color = `hsl(${Math.floor(x)}, 100%, 50%, ${Math.random() * 1})`;
+    drawCircle(x, y, Math.random() * (Math.random() * 100), color);
 }
+
+init();
 </script>
+

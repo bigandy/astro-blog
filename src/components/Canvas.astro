@@ -1,0 +1,28 @@
+---
+const {reload} = Astro.props;
+---
+
+{reload && <button id="reload">Reload the canvas</button>}
+<canvas id="canvas" height="500" width="1000">
+</canvas>
+
+{reload && (
+	<script>
+	const reloadButton = document.getElementById('reload');
+
+	reloadButton.addEventListener('click', () => {
+		ctx.clearRect(0,0, width, height);
+		init();
+	});
+	</script>
+)
+}
+
+<style>
+canvas {
+    margin-top: 1em;
+    width: 100%;
+	border: 1px solid;
+}
+</style>
+
