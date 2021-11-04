@@ -1,14 +1,14 @@
 ---
 // Component Imports
 import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
+import Canvas from '../../components/Canvas.astro';
 
 const title = 'Canvas 1 - Drawing Rectangles';
 ---
 
 <FullScreenLayout title={title}>
 	<div class="container">
-        <canvas id="canvas" height="500" width="1000">
-        </canvas>
+        <Canvas />
 	</div>
 </FullScreenLayout>
 
@@ -25,8 +25,3 @@ ctx.fillStyle = 'orange';
 ctx.fillRect(width / 2, height / 2, width / 2, height / 2);
 </script>
 
-<style>
-canvas {
-    width: 100%;
-}
-</style>

@@ -3,12 +3,12 @@
 import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
 import Canvas from '../../components/Canvas.astro';
 
-const title = 'Canvas 2 - drawing circles';
+const title = 'Canvas 6 - click on canvas';
 ---
 
 <FullScreenLayout title={title}>
 	<div class="container">
-        <Canvas />
+		<Canvas clear />
 	</div>
 </FullScreenLayout>
 
@@ -16,6 +16,7 @@ const title = 'Canvas 2 - drawing circles';
 const canvas = document.getElementById('canvas');
 const {width, height} = canvas;
 const ctx = canvas.getContext('2d');
+
 
 const drawCircle = (x, y, size, color = 'red') => {
 	ctx.beginPath();
@@ -25,13 +26,18 @@ const drawCircle = (x, y, size, color = 'red') => {
 	ctx.closePath();
 };
 
-// Make a circle
-const middle = (height / 2, width / 2);
 
-// x, y, radius, start angle (in radians), end angle (in radians)
-drawCircle(width / 2, height / 2, 100, 'black');
-drawCircle(width / 3, height / 3, 20, 'red');
-drawCircle(width / 4, height / 4, 40, 'blue');
+const handleClick = (e) => {
+	const {offsetLeft, offsetTop} = canvas;
+	const {clientX, clientY} = e;
+
+	const x = clientX - offsetLeft;
+	const y = clientY - offsetTop;
+
+	drawCircle(x, y, Math.random() * 100, 'rgb(255 0 0 / 0.5)')
+};
 
 
+canvas.addEventListener('click', handleClick, false);
 </script>
+

@@ -1,11 +1,10 @@
 ---
-const {reload} = Astro.props;
+const {reload, clear} = Astro.props;
 ---
-
 {reload && <button id="reload">Reload the canvas</button>}
+{clear && <button id="clear">Clear the canvas</button>}
 <canvas id="canvas" height="500" width="1000">
 </canvas>
-
 {reload && (
 	<script>
 	const reloadButton = document.getElementById('reload');
@@ -18,10 +17,23 @@ const {reload} = Astro.props;
 )
 }
 
+{clear && (
+	<script>
+	const clearButton = document.getElementById('clear');
+
+	clearButton.addEventListener('click', () => {
+		ctx.clearRect(0,0, width, height);
+	});
+	</script>
+)
+}
+
 <style>
+button {
+	display: block;
+}
 canvas {
     margin-top: 1em;
-    width: 100%;
 	border: 1px solid;
 }
 </style>

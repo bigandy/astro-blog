@@ -1,14 +1,14 @@
 ---
 // Component Imports
 import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
+import Canvas from '../../components/Canvas.astro';
 
 const title = 'Canvas 3 - animating circle around other circle';
 ---
 
 <FullScreenLayout title={title}>
 	<div class="container">
-        <canvas id="canvas" height="500" width="1000">
-        </canvas>
+        <Canvas />
 	</div>
 </FullScreenLayout>
 
@@ -57,9 +57,3 @@ setInterval(draw, 10);
 
 </script>
 
-<style>
-canvas {
-    width: 100%;
-	border: 1px solid;
-}
-</style>
