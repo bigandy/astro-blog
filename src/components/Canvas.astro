@@ -1,9 +1,9 @@
 ---
-const {reload, clear, width = 1000, height = 500} = Astro.props;
+const {reload, clear, width = 800, height = 500} = Astro.props;
 ---
 {reload && <button id="reload">Reload the canvas</button>}
 {clear && <button id="clear">Clear the canvas</button>}
-<canvas id="canvas" height={height} width={height}>
+<canvas id="canvas" height={height} width={width}>
 </canvas>
 {reload && (
 	<script>

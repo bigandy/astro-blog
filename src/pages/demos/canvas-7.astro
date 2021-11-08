@@ -8,7 +8,7 @@ const title = 'Canvas 7 - spirograph pt.1';
 
 <FullScreenLayout title={title}>
 	<div class="container">
-		<Canvas clear width={800} height={800}/>
+		<Canvas width={800} height={800}/>
 	</div>
 </FullScreenLayout>
 
@@ -30,8 +30,8 @@ const ctx = canvas.getContext('2d');
             var cx = canvas.width / 2;
             var cy = canvas.height / 2;
             var radius1 = canvas.width * 0.15;
-            var radius2 = canvas.width * 0.4;
-            var ratio = 500000000000000000;
+            var radius2 = canvas.width * 0.15;
+            var ratio = 5000;
 
             // Calculate x, y
             var x = cx + radius1 * Math.cos(theta - offset);
