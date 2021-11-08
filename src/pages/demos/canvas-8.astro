@@ -1,0 +1,75 @@
+---
+// Component Imports
+import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
+import Canvas from '../../components/Canvas.astro';
+
+const title = 'Canvas 8 - spirograph gone crazy';
+---
+
+<FullScreenLayout title={title}>
+	<div class="container">
+		<Canvas clear width={800} height={800}/>
+	</div>
+</FullScreenLayout>
+
+<script>
+const canvas = document.getElementById('canvas');
+const {width, height} = canvas;
+const ctx = canvas.getContext('2d');
+
+        // Resize canvas
+        // canvas.width = window.innerWidth;
+        // canvas.height = window.innerHeight;
+
+        // Draw Spirograph
+        function drawSpirograph() {
+
+            var offset = -Math.PI / 2;
+
+            // Calculate center point and radius
+            var cx = canvas.width / 2;
+            var cy = canvas.height / 2;
+            var radius1 = canvas.width * 0.15;
+            var radius2 = canvas.width * 0.2;
+            var ratio = 50;
+
+            // Calculate x, y
+            var x = cx + radius1 * Math.cos(theta - offset);
+            var y = cy + radius1 * Math.sin(theta - offset);
+
+            // Clear canvas
+            ctx.fillStyle = 'rgba(255,0,0,0.5)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw spirograph
+            ctx.beginPath();
+            ctx.moveTo(
+                cx + radius1 * Math.cos(-offset) + radius2 * Math.cos(-offset * ratio),
+                cy + radius1 * Math.sin(-offset) + radius2 * Math.sin(-offset * ratio)
+            );
+            for (var i = -offset; i <= Math.min(theta - offset, Math.PI * 2 - offset); i += 0.005) {
+                x = cx + radius1 * Math.cos(i)  + radius2 * Math.cos(i * ratio) * Math.random() * 1;
+                y = cy + radius1 * Math.sin(i)  + radius2 * Math.sin(i * ratio) * Math.random() * 1;
+                ctx.lineTo(x, y);
+            }
+            // ctx.lineCap = 'round';
+            ctx.lineWidth = canvas.height * 0.01;
+            ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+            ctx.stroke();
+            ctx.beginPath();
+        }
+
+        // Draw frame
+        var theta = 0;
+        function tick() {
+            drawSpirograph(theta);
+            theta = theta + 1;
+            requestAnimationFrame(tick);
+        }
+        tick();
+
+
+
+</script>
+
+
