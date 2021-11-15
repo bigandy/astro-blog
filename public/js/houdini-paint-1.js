@@ -1,23 +1,3 @@
-// class AstroPaintBg {
-//   // static get inputProperties() { return ['--color-for-bg']; }
-//   // static get inputArguments() { return ['*','<color>']; }
-
-//   static get inputProperties() {
-//     return ["--color-1", '--color-2'];
-//   }
-
-//   paint(ctx, size, props) {
-//     const fillColor = props.get("--color-for-bg");
-//     ctx.fillStyle = fillColor;
-
-//     ctx.rect(0, 0, size.width, size.height);
-//     ctx.fill();
-//     ctx.beginPath();
-//   }
-// }
-
-// registerPaint("astro", AstroPaintBg);
-
 class CheckerboardPainter {
   static get inputProperties() {
     return ["--color-1", "--color-2", "--square-dimension"];
@@ -34,7 +14,7 @@ class CheckerboardPainter {
 
     const size =
       properties.get("--square-dimension").length > 0
-        ? properties.get("--square-dimension")
+        ? Math.max(properties.get("--square-dimension"), 5)
         : 32;
 
     for (let y = 0; y < geom.height / size; y++) {
