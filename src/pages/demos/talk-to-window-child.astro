@@ -1,0 +1,54 @@
+---
+// Component Imports
+import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
+
+const title = 'Talk to Window Child';
+---
+
+<FullScreenLayout title={title}>
+	<form id="form">
+
+		<label for="name">Enter your name</label>
+		<input type="text" id="name" />
+
+		<button type="submit">Submit</button>
+
+	</form>
+</FullScreenLayout>
+
+<script>
+
+const { host, protocol } = window.location;
+const domain = protocol + '//' + host;
+const form = document.getElementById('form');
+const name = document.getElementById('name');
+
+// Listen to messages, looking out for ones from the parent window.
+window.addEventListener("message", (event) => {
+	// Do we trust the sender of this message?
+	// Get rid of ones we don't want, including browser reload messages (which only occur in dev)
+	if (event.origin !== domain || typeof event.data.message === 'string') {
+		return;
+	}
+
+	// if we receive a message with data.type === close, close the window
+	if (event.data.type === 'close') {
+		window.close();
+	}
+}, false);
+
+
+// Listen to form submission
+form.addEventListener('submit', function (e) {
+	e.preventDefault();
+
+	// simulate an authenticated message to the parent window
+	window.opener.postMessage({
+		author: 'andrew',
+		type: 'authenticated',
+		name: name.value
+	}, domain);
+}, false);
+
+
+</script>
