@@ -14,7 +14,7 @@ interface MarkdownFrontmatter {
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 
-const {title, head} = Astro.props;
+const { title, head, backLink = '/demos' } = Astro.props;
 
 let description = 'Senior Software Engineer looking for answers.';
 let permalink = 'https://andrewhudson.dev/';
@@ -48,6 +48,7 @@ let permalink = 'https://andrewhudson.dev/';
   <body>
 
     <section class="slot">
+       {backLink && <a href={backLink}>&larr; Back</a>}
             <h1 class="title">{title}</h1>
         <slot />
     </section>

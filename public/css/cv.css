@@ -1,6 +1,10 @@
+.cv {
+  --theme-accent: hotpink
+}
+
 .cv h2 {
   margin-top: 0.5em;
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid var(--theme-accent);
   display: inline-block;
 }
 
@@ -15,7 +19,6 @@
 
 .cv ul:not(.nav) {
   margin-left: 1.5em;
-  /* margin-left: 0; */
   padding-left: 0;
   margin-bottom: 2rem;
 }
@@ -31,11 +34,10 @@
 .contact a {
   display: inline-block;
   margin-right: 1em;
-
 }
 
 .cv a {
-  color: green;
+  /* color: green; */
   text-decoration: underline;
 }
 
