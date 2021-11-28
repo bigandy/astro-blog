@@ -11,7 +11,7 @@ const {title, description, date, author, heroImage, permalink, alt} = content;
 <html lang={ content.lang || 'en' }>
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" href="/css/blog.css" />
+    <link rel="stylesheet" type="text/css" href={Astro.resolve('../css/blog.css')} />
   </head>
 
   <body>

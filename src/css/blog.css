@@ -54,7 +54,7 @@
 
 body {
   background: var(--theme-bg);
-  color: var(--theme-text);
+  color: var(--theme-text); 
 }
 
 :root.theme-dark {
