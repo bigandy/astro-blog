@@ -22,6 +22,7 @@ p {
 </style>
 
 <script>
+const timeout = 1000;
 const { host, protocol } = window.location;
 const domain = protocol + '//' + host;
 const openButton = document.getElementById('open');
@@ -39,7 +40,10 @@ const showWindow = () => {
 		windowObjectReference.focus();
 		return;
 	} else {
-		windowObjectReference = window.open(domain + '/demos/talk-to-window-child', 'myNewWindow', 'width=400,height=400,top=0, left=800');
+		windowObjectReference = window.open(domain + '/demos/talk-to-window-child',
+		'myNewWindow',
+		'width=400,height=400,top=0, left=800'
+		);
 	}
 };
 
@@ -50,16 +54,26 @@ window.addEventListener('message', function(event) {
 	output.innerHTML = `<strong>Message from the popup window</strong>:<br /> ${event.data.name}`;
 
 	if (event.data.type === 'authenticated') {
+		output.innerHTML = `<strong>Message from the popup window</strong>:<br /> Name: ${event.data.name}<br />`;
 		if (windowObjectReference) {
 			console.log('i want to send this message', { coolstuff: true, type: 'close' });
 			windowObjectReference.postMessage( { coolstuff: true, type: 'close' }, domain);
 			windowObjectReference = null;
 
-			output.innerHTML = 'form successfully closed';
+			output.innerHTML = `<strong>Message from the popup window</strong>:<br /> Name: ${event.data.name}<br />`;
+
+			setTimeout(() => {
+				output.innerHTML = 'form successfully closed';
+			}, timeout);
+
+			// output.innerHTML = 'form successfully closed';
 			// windowObjectReference.close(); // can also use this to close the window if needed.
 		} else {
-			console.error('cannot close popup, please manually close window')
-			output.innerHTML = 'You will need to manually close the form';
+			console.error('cannot close popup, please manually close window');
+
+			setTimeout(() => {
+				output.innerHTML = 'You will need to manually close the form';
+			}, timeout);
 		}
 	}
 }, false);
