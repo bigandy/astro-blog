@@ -8,7 +8,7 @@ layout: '../../../../layouts/BlogPost.astro'
 ---
 
 # Summary of week
-- has been a busy week in which I went to the gym twice, went night riding to the pub with some mates, met colleagues twice, had a curry with friends, and a weekend with snow and Christmas lights.
+It has been a very busy week in which I went to the gym twice, went night riding to the pub with some mates, met colleagues twice, had a curry with friends, and a weekend with snow and Christmas lights.
 
 ## Gym
 Pre-pandemic I bought a 10 pass at the local gym but never got to use it because of the pandemic. I finally did start to use it last week and went twice. I love that they open at 6am so I can go before the kids are awake and be back in time to help take them to school/nursery. 
