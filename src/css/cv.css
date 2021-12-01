@@ -20,7 +20,7 @@
 .cv ul:not(.nav) {
   margin-left: 1.5em;
   padding-left: 0;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
 }
 
 .cv article :is(li, p) {
@@ -36,8 +36,7 @@
   margin-right: 1em;
 }
 
-.cv a {
-  /* color: green; */
+.cv article a {
   text-decoration: underline;
 }
 
