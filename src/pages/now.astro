@@ -13,10 +13,9 @@ const title = 'Now';
 ---
 
 <DefaultLayout title={title}>
-<link rel="stylesheet" href="/css/now.css" />
+<link rel="stylesheet" href={Astro.resolve('../css/now.css')} />
 	<div class="container">
 	<Markdown>
-
 		Last updated: 23 February 2021.
 
 		## Life
