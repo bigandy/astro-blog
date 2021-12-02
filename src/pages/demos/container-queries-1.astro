@@ -1,0 +1,125 @@
+---
+// Component Imports
+import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
+
+const title = 'Continer Queries 1 - Intro';
+---
+
+<FullScreenLayout title={title}>
+	<p>If things are working, and you are using a container queries compliant browser (currently Chrome Canary only). </p>
+	<div class="container">
+
+		<div class="left">
+
+		<article class="block">
+				<header>
+					<h2>This is a block with some text in the title</h2>
+				</header>
+				<section>
+
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, sequi! Voluptas, at voluptatibus rerum odio, facere voluptate libero ipsa quam et magni cupiditate adipisci possimus excepturi vitae, repudiandae praesentium iure?</p>
+
+
+					<button>This is a button</button>
+				</section>
+			</article>
+
+			<article class="block">
+				<header>
+					<h2>This is a block with some text in the title</h2>
+				</header>
+				<section>
+
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, sequi! Voluptas, at voluptatibus rerum odio, facere voluptate libero ipsa quam et magni cupiditate adipisci possimus excepturi vitae, repudiandae praesentium iure?</p>
+
+
+					<button>This is a button</button>
+				</section>
+			</article>
+
+			<article class="block">
+				<header>
+					<h2>This is a block with some text in the title</h2>
+				</header>
+				<section>
+
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, sequi! Voluptas, at voluptatibus rerum odio, facere voluptate libero ipsa quam et magni cupiditate adipisci possimus excepturi vitae, repudiandae praesentium iure?</p>
+
+
+					<button>This is a button</button>
+				</section>
+			</article>
+		</div>
+		<div class="right">
+
+
+
+			<article class="block">
+				<header>
+					<h2>This is a block with some text in the title</h2>
+				</header>
+				<section>
+
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, sequi! Voluptas, at voluptatibus rerum odio, facere voluptate libero ipsa quam et magni cupiditate adipisci possimus excepturi vitae, repudiandae praesentium iure?</p>
+
+
+					<button>This is a button</button>
+				</section>
+			</article>
+
+			<article class="block">
+				<header>
+					<h2>This is a block with some text in the title</h2>
+				</header>
+				<section>
+
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, sequi! Voluptas, at voluptatibus rerum odio, facere voluptate libero ipsa quam et magni cupiditate adipisci possimus excepturi vitae, repudiandae praesentium iure?</p>
+
+
+					<button>This is a button</button>
+				</section>
+			</article>
+
+			<article class="block">
+				<header>
+					<h2>This is a block with some text in the title</h2>
+				</header>
+				<section>
+
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, sequi! Voluptas, at voluptatibus rerum odio, facere voluptate libero ipsa quam et magni cupiditate adipisci possimus excepturi vitae, repudiandae praesentium iure?</p>
+
+
+					<button>This is a button</button>
+				</section>
+			</article>
+
+		</div>
+	</div>
+
+</FullScreenLayout>
+
+<style>
+.container {
+	max-width: 1500px;
+	margin-inline: auto;
+	gap: 1em;
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+
+	contain: layout inline-size block-size style;
+}
+
+.block {
+	border: 1px solid black;
+	border-radius: 30px;
+	padding: 2em;
+}
+
+
+@container (min-width: 400px) {
+	.block {
+		border-color: red;
+	}
+  }
+
+</style>
