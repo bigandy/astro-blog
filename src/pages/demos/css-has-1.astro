@@ -1,0 +1,55 @@
+---
+// Component Imports
+import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
+import Canvas from '../../components/Canvas.astro';
+import { Markdown } from 'astro/components';
+
+const title = ':has() - CSS Parent Selector';
+---
+
+<FullScreenLayout title={title}>
+	<div class="container">
+
+
+		<p>Ever wanted to be able to style a parent depending on the content that it contains? The `:has()` selector allows you to do this</p>
+
+		<Markdown>
+
+		```css
+		div {
+			border: 1px solid black;
+		}
+
+		div:has(button) {
+			border-color: red;
+		}
+		```
+		</Markdown>
+
+
+
+		<div class="example">
+			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt architecto soluta asperiores harum illum labore, necessitatibus reiciendis quasi laudantium doloribus excepturi illo temporibus ab. Eligendi sequi quas eum ipsam aperiam.</p>
+				<button>Click me</button>
+		</div>
+		<div class="example">
+			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam adipisci tempore quibusdam dignissimos fuga, animi nam ab, earum tempora commodi ratione. Tenetur nisi voluptates eius debitis accusantium, itaque cum. Rem.</p>
+		</div>
+
+	</div>
+</FullScreenLayout>
+
+<style style="display: block">
+.example {
+	max-width: 600px;
+	border: 1px solid black;
+	margin-block: 2em;
+	margin-inline: auto;
+	padding: 1em;
+}
+
+.example:has(button) {
+	border-color: red;
+}
+</style>
+
