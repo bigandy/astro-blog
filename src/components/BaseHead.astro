@@ -10,7 +10,12 @@ const { title, description, permalink } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<!-- Fonts -->
+<link rel="preload" href="/fonts/inter/Inter-Bold.woff2" as="font" />
+<link rel="preload" href="/fonts/inter/Inter-Regular.woff2" as="font" />
 
 
 <!-- Primary Meta Tags -->
@@ -32,6 +37,4 @@ const { title, description, permalink } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content="https://astro.build/social.jpg?v=1" />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.gstatic.com" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;700&display=swap">
+

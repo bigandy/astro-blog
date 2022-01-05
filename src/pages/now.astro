@@ -13,16 +13,17 @@ const title = 'Now';
 ---
 
 <DefaultLayout title={title}>
-<link rel="stylesheet" href={Astro.resolve('../css/now.css')} />
 	<div class="container">
 	<Markdown>
 		Last updated: 03 February 2022.
 
 		## Life
-		Covid continues. Went to France to see Marion's family for Christmas. Lots of Covid tests were done. Before travel to France, after travel to France, before travel to England, after travel to England. Also one of the people we came into contact with tested positive a number of days after we met them so another test for us (all tests were negative, fortunately). After all of this testing it was a good Christmas and New Year break, much food was eaten and rest.
+		Covid continues. Went to France to see Marion's family for Christmas. Aside from all of the covid-19 testing it was great to get away and to see family. Much food was eaten and rest was had.
+
+		For New Year we rented a holiday cottage in West Wittering with my side of the family. Much food was eaten and rest was had. On New Years Day we had a swim in the sea.
 
 		## Learning
-		Over the Christmas break I managed to do a lot of reading ("The Manager's Path" and started "Staff Engineer"), plus some coding. I am interested lately in learning about React Native so I am working my way through a course on Frontend Masters.
+		Over the Christmas break I managed to do a lot of reading ("The Manager's Path" and started "Staff Engineer"), plus some coding. I am interested lately in learning about React Native so I am working my way through a course on Frontend Masters. On the CSS front I am fascinated by all of the new CSS features that are coming especially container queries.
 
 		## Fitness
 		Mostly mountain biking and walking at the moment. Once the Covid situation is a bit better I will go to the gym again.
@@ -35,12 +36,3 @@ const title = 'Now';
 	</Markdown>
 	</div>
 </DefaultLayout>
-
-<script>
-if ('paintWorklet' in CSS) {
-	console.log('supports paintWorklet')
-	CSS.paintWorklet.addModule('/js/paint.js');
-} else {
-	console.log("doesn't support paintWorklet")
-}
-</script>

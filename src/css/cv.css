@@ -1,5 +1,5 @@
 .cv {
-  --theme-accent: hotpink
+  --theme-accent: hotpink;
 }
 
 .cv h2 {
@@ -12,15 +12,25 @@
   margin-top: 0;
 }
 
-.cv :is(h3) {
-  margin-top: 0;
+.cv h3 {
   font-size: 24px;
 }
 
-.cv ul:not(.nav) {
-  margin-left: 1.5em;
-  padding-left: 0;
-  margin-bottom: 2rem;
+.cv :is(h2 + h3) {
+   margin-top: 0;
+}
+
+.cv :is(h3) {
+  margin-top: 2rem;
+}
+
+ol,
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.25rem;
 }
 
 .cv article :is(li, p) {
