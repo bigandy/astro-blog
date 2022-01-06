@@ -12,7 +12,7 @@ layout: '../../../../layouts/BlogPostLayout.astro'
 Over the Christmas and New Year break I:
 
 - went to France to see Marion's side of the family and eat lots of delicious food and sit in front of the fire and read, go for occasional walks, and throw stones in the water.
-- take lots of Covid tests to allow all me to travel to France
+- take lots of Covid tests to allow us all to travel to France
 - have a UK-based gathering of my side of the family in West Wittering (we had originally planned to do it in Brittany but the French government changed their travel rules)
 - swam in the sea on New Years Day. It was very cold in the sea but super mild out.
 - experienced the warmest New Years Day on record.
