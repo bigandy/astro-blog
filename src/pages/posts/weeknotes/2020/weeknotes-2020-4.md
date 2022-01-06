@@ -5,7 +5,7 @@ draft: false
 description: Design Museum and Cirque du Soleil in London!
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **Sunday and Saturday**: Marion and I were in London as we were given tickets to Cirque du Soleil at the Royal Albert Hall, and before that we went to the Design Museum which is something that I have been really wanting to do for ages so it was great to go there. A section on re-imagining everyday objects such as plastic bottles and coffee cups so they could be made in a more energy efficient way or last longer. The spectacle at the Cirque du Soleil was impressive but not until the second half, the first half was a bit slow and not much in the way of world class circus work. We found an excellent place to have brunch "Gails" and wandered around Kensington and South Kensington on Sunday.

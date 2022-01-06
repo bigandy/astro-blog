@@ -5,7 +5,7 @@ draft: false
 description: Arthur turned 5 and I went to Sheffield for Frontend North Conference.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **Running**: I had been planning to run Maverick Dark Oxfordshire on Saturday evening but it was Arthur's birthday and Marion would be away for a week in South Africa so I cancelled it and did an [Up and down hills and over the River (5.84 miles)](https://www.strava.com/activities/3083408469) and on Wednesday I did an [Emma woke me up 5 miler](https://www.strava.com/activities/3072990401). Sadly on Sunday it was way too windy for a run.

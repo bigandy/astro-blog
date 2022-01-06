@@ -5,7 +5,7 @@ draft: false
 description: "I have finally joined the gym (thanks to work paying for it!) so have been thrice. Also: #ffconf"
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 *   Joined the gym last Monday and have been 3 times in total (including before work today) - aiming to go 2x a week - Mon and Weds.

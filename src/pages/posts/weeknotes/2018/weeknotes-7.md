@@ -5,7 +5,7 @@ draft: false
 description: "This week was mostly about learning and reading."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week has mostly been about:

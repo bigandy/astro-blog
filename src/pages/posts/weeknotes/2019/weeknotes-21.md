@@ -5,7 +5,7 @@ draft: false
 description: "A wedding in the French Alps, Swimming in Lake Annecy, JAMStack Conference London"
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 Since last time I have:

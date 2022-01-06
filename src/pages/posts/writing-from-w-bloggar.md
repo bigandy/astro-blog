@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 While I listen to the latest podcast from [The Big Web Show](http://5by5.tv/bigwebshow/16 "big web show #16") (a weekly show about different topics related to the web, hosted by [Zeldman](http://www.zeldman.com/ "Jeffrey Zeldman's Site") and [Dan Benjamin](http://hivelogic.com/ "Dan Benjamin's Hivelogic Website")) I try out a new tool for blogging.

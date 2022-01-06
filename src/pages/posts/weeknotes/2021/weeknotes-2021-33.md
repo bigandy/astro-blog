@@ -5,7 +5,7 @@ publishDate: 'August 16 2021'
 draft: false
 description: 'Weeknotes 2021 #33'
 tags: ['weeknotes']
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 ---
 
 Again this year we are in France for the majority of our summer. We are staying at Marions parents and also spent a week in the Pyrenees and a week with friends here on the West Coast of France.

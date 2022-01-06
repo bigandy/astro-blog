@@ -6,7 +6,7 @@ description: ""
 tags: ['developing','hide']
 author: 'Andrew'
 
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 ```
 #!/bin/bash

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['Running']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 man that one was a tough one, the legs restricted by my running tights, the lungs by flegm, and the head by a desire to be back in bed due to illness. I ran to work, and coughed lots. That's all folks...!

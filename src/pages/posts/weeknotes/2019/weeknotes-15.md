@@ -5,7 +5,7 @@ draft: false
 description: "Hot winter weather, a date day at the Spa and weekend at the parents were followed by an exciting week of Electron development."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week was:

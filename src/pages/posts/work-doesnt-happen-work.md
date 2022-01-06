@@ -5,7 +5,7 @@ draft: false
 description: "An excellent TED video where Jason Fried explains why work doesn't happen at work"
 tags: ['thoughts']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 http://www.ted.com/talks/jason\_fried\_why\_work\_doesn\_t\_happen\_at\_work

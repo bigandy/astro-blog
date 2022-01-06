@@ -6,7 +6,7 @@ publishDate: 'January 3 2021'
 draft: false
 description:
 tags: ['weeknotes']
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 ---
 
 Over the Christmas and New Year break I:

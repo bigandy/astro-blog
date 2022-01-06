@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['aside','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Reading writing and listening. Today is mid-summer and fete de la musique, a time of music and celebration. I am reading listening to Nada Surf, reading "Zen and the Art of Motorcycle Maintenance" and writing this short aside.

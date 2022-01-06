@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['goals','life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Now that my first post of 2011 is under my belt I can feel confident to write some more. You see for me the more I write the easier writing becomes. Yes yes yes onwards with the post! In the previous post I wrote down the key highlights of what I did in 2010 and now in this post I will write what I hope to do this year.

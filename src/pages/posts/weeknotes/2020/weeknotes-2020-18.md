@@ -5,7 +5,7 @@ draft: false
 description: Lockdown continues.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 Lockdown continues. Super bored of it all but we are all coping well otherwise. Had a number of zoom calls over the weekend so was good to catch up. Mood depends hugely on the weather but gladly the weather has been superb again. So great!

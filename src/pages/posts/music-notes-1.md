@@ -2,7 +2,7 @@
 title: "Music I'm Currently Listening to"
 description: The top 3 albums I am listening to.
 date: 2019-03-27
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 tags: ['music']
 ---
 

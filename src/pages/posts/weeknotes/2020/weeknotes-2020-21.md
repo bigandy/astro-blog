@@ -5,7 +5,7 @@ draft: false
 description: Goodbye Digital Ocean.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 ## Goodbye Digital Ocean.

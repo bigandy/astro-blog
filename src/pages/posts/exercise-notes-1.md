@@ -3,7 +3,7 @@ title: 'Exercise Notes #1'
 description: This is the first of many exercise notes where I focus on what exercise I have been doing and how I'm feeling.
 date: 2019-03-20
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 tags: ['exercise']
 ---
 

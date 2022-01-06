@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['2012','life','summary']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Here are the highlights of 2012:

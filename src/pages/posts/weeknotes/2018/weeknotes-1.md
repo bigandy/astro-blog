@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 Inspired by Rachel Andrew's [weeknotes](https://rachelandrew.co.uk/archives/2018/01/12/weeknotes-1/) I am going to write some of the things that I have been doing every week. Here is the first one:

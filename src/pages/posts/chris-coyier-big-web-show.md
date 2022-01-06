@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['big web show','chris coyier','css','css tricks','podcast','Aside','zeldman']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Right now listening to the [latest Big Web Show](http://5by5.tv/bigwebshow/74) with [Chris Coyier](http://css-tricks.com/) being interviewed by [Jeffrey Zeldman](http://www.zeldman.com/)

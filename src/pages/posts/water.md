@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['thoughts']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 https://www.youtube.com/watch?v=8CrOL-ydFMI via/[CSS Tricks](http://css-tricks.com/web-devvy-ways-practice-gratitude-empathy/)

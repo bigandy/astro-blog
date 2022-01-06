@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Another Shrove Tuesday arrives and now we're going to head out to Pancakes at Dave's.

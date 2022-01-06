@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 is what everyone really needs on a cold Tuesday morning. [thanks idodds](http://www.flickr.com/photos/ldodds/). ggggGoing to work now.

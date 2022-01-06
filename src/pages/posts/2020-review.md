@@ -6,7 +6,7 @@ draft: false
 description: Some highlights of 2020
 tags: ['review']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 # This Year

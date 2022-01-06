@@ -5,7 +5,7 @@ draft: false
 description: "Here is how you can use the WP API to pull in the 10 latest posts using Angular."
 tags: ['developing']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 I wanted to be able to use the WP API to show my latest posts on an external site, and here's how I did it using Angular. You need:

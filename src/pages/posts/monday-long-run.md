@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['Running']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Last night I went for my longest run since Feb with 10.4 miles through Caversham, Emmer Green and along the flooded river.

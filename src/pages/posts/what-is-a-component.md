@@ -5,7 +5,7 @@ date: 2021-10-04
 publishDate: 'Monday, October 4 2021'
 author: 'Andrew'
 draft: true
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 # What is a component?

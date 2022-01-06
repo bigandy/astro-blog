@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Weekends always come so quickly but never last for long. It's been another busy couple of months: my new job, completing the GR20, and returning to running. Stay tuned for catch-up.

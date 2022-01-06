@@ -5,7 +5,7 @@ draft: false
 description: A week of solo parenting and reading books.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **Running**: Three runs in three days (Mon, Tue, and Wednesday) and then a short run on Sunday.

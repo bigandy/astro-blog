@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 This is the first time that I have started to make a plugin and here I shall write about the process of making it. To begin with I will explain why you might want to make a plugin, then I will go into the process behind creating one.

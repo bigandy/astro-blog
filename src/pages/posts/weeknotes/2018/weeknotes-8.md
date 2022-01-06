@@ -5,7 +5,7 @@ draft: false
 description: "This week was spent mostly on trains, with a little bit of wedding and birthday in between."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week was a busy one.

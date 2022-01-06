@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['media','photography','tutorial','tutorial','upload','wordpress']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 1.  Take photos off of camera

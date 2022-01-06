@@ -5,7 +5,7 @@ draft: false
 description: "We put the house on the market, I worked on a PWA, and I continued my juggling practice."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week we stepped up our house searching, put our house on the market. I spent most of the working week putting the finishing touches to a PWA.

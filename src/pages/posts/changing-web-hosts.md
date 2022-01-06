@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['aws','developing','dream host','ec2','media temple','rack space','Web host']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 For the last six years my sites have been hosted by Dreamhost and for the vast majority of that time I have been a happy customer. Unlimited email addresses, sites, sub-domains, and databases. Easy to use web interface, and excellent customer support. So why am I looking to move away?

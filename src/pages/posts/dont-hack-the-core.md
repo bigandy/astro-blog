@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['developing','Image']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 As often as you are tempted it's a very bad idea to hack the WordPress core. Each time an update is made, your changes are over-written. A very bad practice!

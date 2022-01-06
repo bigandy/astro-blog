@@ -11,6 +11,7 @@ const {title, description, date, author, heroImage, permalink, alt} = content;
 <html lang={ content.lang || 'en' }>
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
+    <link rel="stylesheet" href={Astro.resolve('../css/global.css')} />
   </head>
 
   <body>
@@ -28,7 +29,5 @@ const {title, description, date, author, heroImage, permalink, alt} = content;
 .container {
   max-width: 90%;
   margin-inline: auto;
-  font-family: 'Open Sans', sans-serif;
-  line-height: 1.5;
 }
 </style>

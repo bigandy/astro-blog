@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 [kid cudi](http://www.myspace.com/kidcudi) [Essie Jain](http://www.myspace.com/essiejain)

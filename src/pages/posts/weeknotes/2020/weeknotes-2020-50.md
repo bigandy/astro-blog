@@ -6,7 +6,7 @@ draft: false
 description: LEDS. Christmas Lights. CX.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week:

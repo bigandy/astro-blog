@@ -6,7 +6,7 @@ draft: false
 description: The final week before lockdown number two.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week:

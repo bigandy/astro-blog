@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Sorting out photos on the computer. Have not put any photos online in a long time but looking into sorting that out. Also looking into batch processing, web optimising and such like.

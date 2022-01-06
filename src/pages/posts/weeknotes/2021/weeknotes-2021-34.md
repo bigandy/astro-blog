@@ -5,7 +5,7 @@ date: 2021-08-24
 publishDate: 'August 24 2021'
 draft: false
 tags: ['weeknotes']
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 ---
 
 - A final week of working from France before we drove back to the UK

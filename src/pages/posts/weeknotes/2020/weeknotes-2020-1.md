@@ -5,7 +5,7 @@ draft: false
 description: New Year in Brittany. Home to a water leak.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - Happy New Year! I'm sitting in the lounge at home - and the kids are in bed asleep so I can relax - after a long day of travelling and looking after our kids whilst tired from lack of sleep.

@@ -5,7 +5,7 @@ draft: false
 description: Almost Christmas. A marathon?
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - Winding down at work for Christmas and at home too.

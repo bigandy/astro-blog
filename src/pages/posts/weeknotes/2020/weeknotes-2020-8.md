@@ -5,7 +5,7 @@ draft: false
 description: Windy rainy & Ikea.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **Running**: A [13.2 mile long run on Sunday](https://www.strava.com/activities/3124339648) just because I wanted to do a 10 mile run to complete 20 miles for the week but got carried away and finally made it past Nuffield along the Ridgeway. Two other smaller runs on paths that were not near the river (super flooded at the moment): [Avoiding the floods after work run](https://www.strava.com/activities/3116912488) and [5 miles after work : Crowmarsh + Andrew Road!](https://www.strava.com/activities/3111100378).

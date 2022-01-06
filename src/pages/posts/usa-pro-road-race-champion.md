@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['cycling']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 This guy became the USA Pro road race champion. http://vimeo.com/81173752

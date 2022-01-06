@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['aside','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Back from a week in Tuscany. A wedding, the furnace of mid-summer Florence and mosquitos. All this mixed with plenty of deliciously sun-soaked (often red-flagged) beaches, plenty of bottles of Chianti and oodles of pizza. A great holiday!

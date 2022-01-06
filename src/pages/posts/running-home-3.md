@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['Running']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 I ran home from work on Friday and took my time, and was slowed more by having to wait at traffic lights to cross the road. Was cold and didn't have long-sleeved top as had forgotten at home to bring it. The sun was out and sky was blue!

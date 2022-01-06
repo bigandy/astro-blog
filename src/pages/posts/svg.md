@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['hide']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Here's an inline SVG image. ![kiwi](https://big-andy.co.uk/content/uploads/kiwi.svg)

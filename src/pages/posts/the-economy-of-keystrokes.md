@@ -5,7 +5,7 @@ draft: false
 description: "Earlier today I watched this is a excellent video about writing code that can be read, understood, documented and accessible to all that will use it in the future (be that you, your team or anyone else)."
 tags: ['developing']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Earlier today I watched this is a excellent video about writing code that can be read, understood, documented and accessible to all that will use it in the future (be that you, your team or anyone else).

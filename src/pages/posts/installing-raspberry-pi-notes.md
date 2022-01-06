@@ -5,7 +5,7 @@ date: 2021-04-10
 draft: false
 tags: ['how-to']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 -   get the image: https://www.raspberrypi.org/software/operating-systems/

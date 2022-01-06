@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['music','Video']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 This is what the internet was made for. Incredible! http://www.youtube.com/watch?v=KaOC9danxNo

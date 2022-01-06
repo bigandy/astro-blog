@@ -5,7 +5,7 @@ draft: true
 description: 2020 Goals
 tags: ['goals', '2020']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 ## 2020 Goals

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['developing','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Flying past is the time, with no time to breathe or lookup and take in the scenery or contemplate what has happened or what is happening.

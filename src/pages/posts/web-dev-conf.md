@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['dev','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 I'm really looking forward to tonight because tonight I am going to Bristol for my first ever “[Web Developers Conference](http://webdevconf.com/)”.

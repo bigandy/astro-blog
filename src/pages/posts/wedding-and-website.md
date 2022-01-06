@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['css3','development','html5','life','marriage','wedding']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Yeah it's been really hectic lately, life that is! I've been working on a wordpress website for a designer called Kat, Marion and I have found a venue for our wedding and a date.

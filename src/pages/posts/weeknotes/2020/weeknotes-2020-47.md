@@ -6,7 +6,7 @@ draft: false
 description: Ran four times! Continued with Next and Pi.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week:

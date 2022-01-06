@@ -5,7 +5,7 @@ draft: false
 description: "I've been a keen user of google inbox for over a month and here are my initial thoughts."
 tags: ['technology']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 I've been a keen user of [google inbox](https://inbox.google.com) for over a month and here are my initial thoughts. I love it! Plus points:

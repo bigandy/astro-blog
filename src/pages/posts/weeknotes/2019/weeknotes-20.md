@@ -5,7 +5,7 @@ draft: false
 description: "Since last time I have: run a 24km trail race, been on holiday to Croatia, celebrated Emma's first birthday."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 Since last time I have:

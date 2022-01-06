@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Today is St Andrew's Day and as my name is Andrew I'm wishing all other Andrews a happy St Andrews!

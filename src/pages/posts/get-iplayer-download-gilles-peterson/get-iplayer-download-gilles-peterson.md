@@ -5,7 +5,7 @@ draft: false
 description:
 tags: ['how-to']
 author: 'andrew'
-layout: '../../../layouts/BlogPost.astro'
+layout: '../../../layouts/BlogPostLayout.astro'
 ---
 
 ## How to use get_iplayer

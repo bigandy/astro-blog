@@ -4,7 +4,7 @@ date: 2022-01-01
 draft: true
 description:
 tags: ['weeknotes']
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 # The Year that was 2021
 

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['holiday','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Tomorrow morning we'll catch the train to Gatwick Airport then fly to Marseille for a week in Provence. Really can't wait!

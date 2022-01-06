@@ -5,7 +5,7 @@ draft: false
 description: School and Work week number Two.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **This week was**: The second week of looking after Emma and Arthur. Much the same as last. The clocks went forward an hour and Emma has been sleeping a bit longer in the mornings. I received four editions of B Magazine an excellent Korean brand-focused magazine that focuses each edition on a particular brand. So for I have: Freitag, Mont Blanc, Helvetica and Lego (Arthur loves this one!). I ordered some Timtams from Amazon. Daily walk or PE session with Joe Wicks Youtube.

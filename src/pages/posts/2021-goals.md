@@ -5,7 +5,7 @@ draft: false
 description: Some things I'd like to achive in 2021
 tags: ['goals']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 # This Year

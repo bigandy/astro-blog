@@ -5,7 +5,7 @@ draft: false
 description: Our first holiday since last Christmas.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 ## Three and a half weeks in France

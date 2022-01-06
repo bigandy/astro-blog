@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['wordpress']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Trying to work on my plugin this evening has been frustrating because I keep on getting an error that says :

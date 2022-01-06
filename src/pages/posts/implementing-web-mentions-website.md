@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 After attending View Source Conference in London Yesterday I am now in the process of adding web mentions to my website. [Jeremy Keith's talk](https://viewsourceconf.org/london-2017/#building-blocks_summary).

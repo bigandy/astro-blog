@@ -5,6 +5,6 @@ draft: false
 description: ""
 tags: ['music','Audio']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 

@@ -5,7 +5,7 @@ draft: false
 description: "November Already! Serene launches! Cambridge visited!"
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 ## Serene is launched into the world!

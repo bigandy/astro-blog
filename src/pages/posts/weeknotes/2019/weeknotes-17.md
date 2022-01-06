@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This was the last week for me:

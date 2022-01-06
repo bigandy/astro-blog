@@ -5,5 +5,5 @@ draft: false
 description: ""
 tags: ['cartoons','Image']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---

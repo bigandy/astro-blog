@@ -5,7 +5,7 @@ draft: false
 description: "I've done a lot of learning this week and also I went for a big family walk last Sunday."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week has mostly been about:

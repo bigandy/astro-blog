@@ -5,7 +5,7 @@ draft: false
 description: Weekend at Parents, March already!
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **Running**: A long run on Sunday [Ridgeway then back via Little Stoke and River](https://www.strava.com/activities/3145680620) which was a new route in the sunshine but cold wind. [Cholsey in the Cold Rain](https://www.strava.com/activities/3138816538) on Friday, [Wet Feet River Run](https://www.strava.com/activities/3136598327) on Thursday, and [Knackered River Run](https://www.strava.com/activities/3131238220) on Tuesday. 21.9 miles in total.

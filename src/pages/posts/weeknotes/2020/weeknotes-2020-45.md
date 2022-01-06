@@ -6,7 +6,7 @@ draft: false
 description: Marion's birthday weekend without the kids.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week:

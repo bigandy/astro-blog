@@ -5,7 +5,7 @@ draft: false
 description: "Beautiful spring weather has finally arrived; Arthur mastered cycling; Emma is climbing the stairs and the cycling season has started."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 Beautiful spring weather has finally arrived, Arthur mastered cycling, Emma is climbing the stairs and the cycling season has started proper.

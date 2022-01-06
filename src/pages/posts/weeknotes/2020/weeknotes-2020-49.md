@@ -6,7 +6,7 @@ draft: false
 description: Advent here, Christmas Decorations up. LEDS on!
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week:

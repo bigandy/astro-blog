@@ -5,7 +5,7 @@ draft: false
 description: Raclette!
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **Running**: Wednesday I ran [Very wet and muddy River Cholsey](https://www.strava.com/activities/3153987082), then on Friday I ran [Off road in road shoes Shillingford Edition](https://www.strava.com/activities/3159529255) and on Sunday [Run towards South Stoke](https://www.strava.com/activities/3166169265). 20.1 miles in total.

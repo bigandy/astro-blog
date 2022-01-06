@@ -5,7 +5,7 @@ draft: true
 description: Post-holiday quarantine at the parents.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 ## Two weeks of Quarantine at my parents!

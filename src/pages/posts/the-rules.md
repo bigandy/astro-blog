@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['cycling','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 [The Rules of Road Cycling](http://www.velominati.com/blog/the-rules/ "The Rules!") (again cheers bro for the link!)

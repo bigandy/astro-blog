@@ -5,7 +5,7 @@ draft: false
 description: So much rain!
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - This (Saturday) morning we all took ourselves to the Ridgeway and walked along breathing the cold humid (but fresh!) air and getting some views of the distant lands.

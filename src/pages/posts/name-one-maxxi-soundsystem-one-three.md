@@ -5,7 +5,7 @@ draft: false
 description: "A lack of deep bass music these days (unless I've not found the good stuff) I found this on Veerle's Music."
 tags: ['music']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 https://www.youtube.com/watch?v=FurrtMv0kjU via [Veerle's Music](http://veerlepieters.tumblr.com/)

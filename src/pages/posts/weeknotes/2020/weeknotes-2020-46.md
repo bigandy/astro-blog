@@ -6,7 +6,7 @@ draft: false
 description: Took out the Raspberry Pi from the depths of the cupboard.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 This week:

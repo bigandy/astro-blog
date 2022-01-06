@@ -5,7 +5,7 @@ draft: false
 description: "Last week was holiday time with Marion, Emma and Arthur."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 *   Last week we were on holiday to Wiltshire and Centre Parcs.

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Emma was born in May and for the rest of the year our lives were turned upside down. One is fun but you forget about the early months and the lack of sleep but finally she's getting into more of a routine. We moved house in September.

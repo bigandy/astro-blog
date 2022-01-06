@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['cats','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 This afternoon Marion took the cats to the vet and what we thought once as two boy kittens are now "girls". So Inti and Punku are girls!

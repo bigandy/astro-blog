@@ -5,7 +5,7 @@ draft: false
 description: "I launched a PWA, Arthur turned three and we went to the farm."
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 Arthur turned three, has definitely hit the threenager step and had an awesome party with bouncy castle and face painting.

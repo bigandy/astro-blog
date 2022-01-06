@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['web-design']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 ### current

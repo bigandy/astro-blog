@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 *   Gym twice a week - Weds after work, Fri before work - at the moment I prefer to go before work but it does mean getting up earlier.

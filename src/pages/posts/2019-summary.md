@@ -5,7 +5,7 @@ draft: false
 description: 2019 in Review
 tags: ['review']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 ## What a year 2019 has been!

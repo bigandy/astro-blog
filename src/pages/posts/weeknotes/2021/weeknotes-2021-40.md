@@ -4,7 +4,7 @@ date: 2021-10-10
 draft: false
 description: TBD
 tags: ['weeknotes']
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 ---
 
 This week has been all about:

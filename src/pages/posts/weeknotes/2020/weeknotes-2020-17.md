@@ -5,7 +5,7 @@ draft: false
 description: Sunny sunshine Blue skies.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **Running**: Started running more often. Emma wakes up super early so I go at ~0615 on Mon, Wed and Fri. Fitness not really there but good to go out and have some _me_ time.

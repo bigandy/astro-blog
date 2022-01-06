@@ -5,7 +5,7 @@ draft: false
 description: The Situation is upon us.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **The Virus**: It was the final week of school and nursery for us as the Situation has taken hold of the UK. Marion and I both worked from home every day and it was strange when the Government warnings escalated as the week progressed. First the government told us to physically isolate ourselves, then the pubs and restaurants were closed, then schools and nurseries.

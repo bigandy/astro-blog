@@ -1,12 +1,12 @@
 ---
 title: Happy New Year!
 subTitle: 'Weeknotes 2022 #1'
-date: 2021-01-03
+date: 2022-01-06
 publishDate: 'January 6 2022'
 draft: false
 description:
 tags: ['weeknotes']
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 ---
 
 Over the Christmas and New Year break I:

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['wordpress']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 I have found out what I was doing wrong to cause my wordpress [plugin to throw up an error](http://blog.big-andy.co.uk/wordpress/plugin-error/ "Plugin Error") and it was this: On activation you put a piece of code that says

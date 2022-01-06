@@ -4,7 +4,7 @@ date: 2021-12-27
 draft: false
 description:
 tags: ['weeknotes']
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 ---
 
 

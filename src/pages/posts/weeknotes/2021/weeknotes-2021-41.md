@@ -4,7 +4,7 @@ date: 2021-10-14
 draft: true
 description:
 tags: ['weeknotes']
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 ---
 
 I feel that a more relaxed approach to these weeknotes is a good thing and removing the list style will help me write more as a stream of consciousness.

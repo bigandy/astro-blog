@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 what this blog is missing in my opinion is something creative that's not text-related. In other words it needs photos, graphics, design... and doodles!

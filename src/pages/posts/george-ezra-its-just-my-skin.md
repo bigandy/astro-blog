@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['audio','Audio']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 http://soundcloud.com/george-ezra/george-ezra-its-just-my-skin

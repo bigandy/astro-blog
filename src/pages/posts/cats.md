@@ -5,6 +5,6 @@ draft: false
 description: ""
 tags: ['cat photos','cats','cats','photo','Image']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 

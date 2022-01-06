@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Every time I open up the "New Post" section of my blog admin and wait for the words to come to my fingers. The space to write is so large (I have a 23" monitor and it spans the entire width of the page) that I am always put off. So I now will try other methods to put down my words.

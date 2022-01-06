@@ -240,24 +240,14 @@ body {
   line-height: 1.625;
 }
 
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 body {
   width: 100%;
-  --gutter: 0.5rem;
-  --doc-padding: 2rem;
-}
-
-.layout {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: minmax(var(--gutter), 1fr) minmax(0, var(--max-width)) minmax(
-      var(--gutter),
-      1fr
-    );
-  gap: 1em;
-}
-
-.layout > .layout-inner {
-  grid-column: 2;
+  padding-inline: 3rem;
 }
 
 nav ul {

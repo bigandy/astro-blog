@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Hello. been to Frankfurt for 3 days to visit my friend Christine and her fiancee Marcus. Had a great time there. Will write more soon!

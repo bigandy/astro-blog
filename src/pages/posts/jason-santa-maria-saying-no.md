@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['developing','Video']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 http://vimeo.com/53155584

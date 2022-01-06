@@ -5,7 +5,7 @@ publishDate: 'September 5 2021'
 draft: false
 description: This week in three themes - ill Emma, running, clumps
 tags: ['weeknotes']
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 ---
 
 This week has been all about:

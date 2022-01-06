@@ -5,7 +5,7 @@ draft: false
 description: We had our winter work retreat in Oxford, friends over and started sorting out our garage.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - From Monday until Thursday I was in Oxford with my Venture Harbour work colleagues for our Winter Retreat. As well as

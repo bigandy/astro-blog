@@ -5,7 +5,7 @@ draft: false
 description: Back in England, return to work. Weekend in London
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - Back at work on Monday and planning for the Winter Retreat at work.

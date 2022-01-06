@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['music','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 I've been a member of the Rough Trade Album Club for the last year and not really listened to all the CDs so this afternoon while trying out my new desk chair and tidying the office I'm listening to **all** of them!

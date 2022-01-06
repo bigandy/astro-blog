@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 [How to grow chili from seed](http://www.chilefarm.co.uk/growing.html). Yes we've got a small chili plant bought from a garden centre and it's growing quite slowly so this article could provide the solutions.

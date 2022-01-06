@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['benny','cats','cats','kittens','Gallery']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 \[gallery\]

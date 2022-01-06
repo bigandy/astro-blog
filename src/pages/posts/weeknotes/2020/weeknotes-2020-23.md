@@ -5,7 +5,7 @@ draft: false
 description: Back to School!
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 -   Arthur went to school for the first time in 10+ weeks. Just for 2 days on

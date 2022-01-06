@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['music','Audio']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 [Separator - Four Tet RMX](http://soundcloud.com/radiohead/03-separator-four-tet-rmx) by [Radiohead](http://soundcloud.com/radiohead) via [Fourtet.net](http://www.fourtet.net/)

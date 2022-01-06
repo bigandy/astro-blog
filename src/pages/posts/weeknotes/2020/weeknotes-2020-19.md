@@ -5,7 +5,7 @@ draft: false
 description: Lockdown continues.
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - **Running**: Three times last week.

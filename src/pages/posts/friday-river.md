@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['Running']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Ran tonight with Marion along the river. 4.0 miles in 37:32. Took my weekly total to 20.3 miles which I think must be a _lifetime record_ for me!

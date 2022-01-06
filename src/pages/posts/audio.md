@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['audio','dconstruct','html5','html5 audio','james burke','Audio']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
    Your Browser does not support the HTML5 Audio element.

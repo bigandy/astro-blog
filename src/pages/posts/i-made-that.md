@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['portfolio']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 I've been at Electric Studio for almost three months and in this time I've made a number of different sites, of which I am proud to share two (the ones that have gone live):

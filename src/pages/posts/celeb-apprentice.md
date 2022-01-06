@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 [who is in this year's celebrity apprentice](http://en.wikipedia.org/wiki/Celebrity_Apprentice)

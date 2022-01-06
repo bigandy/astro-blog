@@ -5,7 +5,7 @@ draft: false
 description: Christmas Party!
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 - Yesterday morning I ran a super muddy route to Cholsey and then back along the river Thames. After a quick shower and scraping off all the mud we went to Millets Farm where Marion and Arthur went ice-skating (Arthur's first time!) while I entertained Emma. In the afternoon friends came around for cake.

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 shite I am here inside and writing, whereas I should be outside - not writing - and enjoying the fine fine day. Adios Amigos. O.

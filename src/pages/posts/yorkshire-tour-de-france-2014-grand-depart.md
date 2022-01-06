@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['cycling','Aside']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 This is incredible news: Yorkshire has been [awarded the Grand Depart for the 2014 Tour de France](http://www.bbc.co.uk/sport/0/cycling/20724621). Two stages in Yorkshire and the third will potentially finish in London.

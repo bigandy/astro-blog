@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['cycling']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 Wow, if you've ever seen the incredible [Road Bike Party 2](http://youtu.be/HhabgvIIXik) then you'll love to see how they made it. http://youtu.be/xhI3CUDEWfU

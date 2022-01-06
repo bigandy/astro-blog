@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['life']
 author: 'Andrew'
-layout: '../../layouts/BlogPost.astro'
+layout: '../../layouts/BlogPostLayout.astro'
 ---
 
 This morning before work I went for my first run in 6 weeks. And I feel really great for having done it. Twenty minutes and the route was my normal "River Loop".

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ['weeknotes']
 author: 'andrew'
-layout: '../../../../layouts/BlogPost.astro'
+layout: '../../../../layouts/BlogPostLayout.astro'
 
 ---
 *   At work I am developing an Electron app. I get to use React for the front-end, socket.io for the connection between local server and Electron app. All very exciting!
