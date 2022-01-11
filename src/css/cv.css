@@ -1,5 +1,6 @@
 .cv {
-  --theme-accent: hotpink;
+  --theme-accent-rgb: 255, 105, 180;
+  --theme-accent: rgb(var(--theme-accent-rgb));
 }
 
 .cv h2 {
@@ -179,4 +180,9 @@ li {
 .entry__content li::before {
   content: "-";
   margin-inline-end: 0.25rem;
+}
+
+.cv-portfolio-list li::marker {
+  color: rgba(var(--theme-accent-rgb), 0.5);
+  font-size: 1.5rem;
 }
