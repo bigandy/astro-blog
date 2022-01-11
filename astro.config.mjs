@@ -7,6 +7,9 @@ export default {
     plugins: [],
   },
   devOptions: {
-    port: 8888
-  }
+    port: 8888,
+  },
+  buildOptions: {
+    site: "https://andrewhudson.dev",
+  },
 };
