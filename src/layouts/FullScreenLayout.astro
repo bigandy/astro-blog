@@ -5,9 +5,12 @@ import GlobalNav from '../components/GlobalNav.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 
+
 interface MarkdownFrontmatter {
   date: number;
 }
+
+
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -54,3 +57,9 @@ let permalink = 'https://andrewhudson.dev/';
     </section>
   </body>
 </html>
+
+<style>
+body {
+	--theme-accent: #52B788;
+}
+</style>

@@ -3,6 +3,12 @@
   --theme-accent: rgb(var(--theme-accent-rgb));
 }
 
+.content {
+  margin-top: 4rem;
+}
+
+
+
 .cv h2 {
   margin-top: 0.5em;
   border-bottom: 2px solid var(--theme-accent);
