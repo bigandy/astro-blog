@@ -1,7 +1,7 @@
 ---
 title: Ikea!
 subTitle: "Weeknotes 2022 #3"
-date: 2022-01-11
+date: 2022-01-17
 publishDate: "January 17 2022"
 draft: false
 description:
