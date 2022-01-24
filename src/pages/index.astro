@@ -1,16 +1,18 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro';
 import BlogPostList from '../components/BlogPostList.astro';
+import ForwardArrow from '../components/ForwardArrow.astro';
 
-let title = 'Welcome!';
 ---
-<DefaultLayout title={title}>
-  <p>Hello there👋  I am Andrew and I am a front-end software engineer who lives in the UK.</p>
+<DefaultLayout title="Welcome!">
+  <p>Hello there👋  I am Andrew and I am a senior front-end software engineer who lives in the UK.</p>
 
   <p>This is my site and I expect to work on it a lot to get it up to scratch. I've just switched over to using Astro (from 11ty) and so far the experience and end product is top notch.</p>
   <div class="blog-post-list">
   <h2>Latest Blog Posts</h2>
     <BlogPostList number={3} />
+
+    <ForwardArrow url="/blog/" title="See more posts"/>
   </div>
 </DefaultLayout>
 
