@@ -187,10 +187,23 @@ li {
 
   .entrylist {
     padding-left: 0;
+    margin-bottom: 0;
   }
 
   .entrylist::after,
   .entrylist > li::after {
     display: none;
+  }
+
+  .content {
+    margin-top: 1rem;
+  }
+
+  .cv article a {
+    text-decoration: none;
+  }
+
+  .cv h2 {
+    border-color: transparent;
   }
 }

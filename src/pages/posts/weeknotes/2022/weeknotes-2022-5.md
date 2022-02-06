@@ -9,8 +9,10 @@ tags: ["weeknotes"]
 layout: "../../../../layouts/BlogPostLayout.astro"
 ---
 
+It has been a busy couple of weeks so I am combining them both into one post.
 Over the last couple of weeks:
 
+- Wrote some Go at work as part of MergeCoin. Also wrote some MySQL as part of MergeCoin.
 - Our family car broke and had to be sold. We are now down to one small car and need to find another so we can go further afield (on holiday, motorway, anything faster than 50mph).
 - Test drove two cars. A Volvo (super luxury but out of our budget range it turned out) and a Skoda estate (still very good but cheaper)
 - Had a Covid scare with Marion testing +ve with a Lateral Flow but then negative with a PCR. The rest of us all tested -ve with Lat flows.
