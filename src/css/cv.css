@@ -7,8 +7,6 @@
   margin-top: 4rem;
 }
 
-
-
 .cv h2 {
   margin-top: 0.5em;
   border-bottom: 2px solid var(--theme-accent);
@@ -51,68 +49,6 @@ li {
 
 .cv article a {
   text-decoration: underline;
-}
-
-@media print {
-  .cv a {
-    color: black;
-  }
-
-  .cv ul.skills {
-    margin-bottom: 0.5rem;
-  }
-
-  .cv nav,
-  .cv header,
-  .cv footer {
-    display: none;
-  }
-
-  .cv h1 {
-    margin-bottom: 1rem;
-  }
-
-  .cv h2 {
-    font-size: 28px;
-  }
-
-  .cv h1::before {
-    content: "Andrew Hudson - ";
-  }
-
-  .cv .p-grid {
-    display: grid;
-    grid-template-columns: repeat(var(--grid-number, 1), 1fr);
-  }
-
-  .cv .p-grid--halfs {
-    --grid-number: 2;
-  }
-
-  .cv .p-grid--thirds {
-    --grid-number: 3;
-  }
-
-  .cv .p-grid li {
-    padding-right: 1.5rem;
-  }
-
-  .cv h2 {
-    border-bottom-color: inherit;
-    margin-top: 1rem;
-  }
-
-  .cv ul.skills {
-    margin-inline-start: 1rem;
-  }
-
-  .cv ul:last-child {
-    margin-bottom: 0;
-  }
-
-  .cv main {
-    padding-bottom: 0;
-  }
 }
 
 .entrylist {
@@ -179,16 +115,82 @@ li {
 }
 
 .entry__content ul {
-  padding-inline-start: 0.5rem;
-  list-style: none;
+  padding-inline-start: 1.2rem;
+  list-style: disc;
 }
 
-.entry__content li::before {
-  content: "-";
-  margin-inline-end: 0.25rem;
-}
-
-.cv-portfolio-list li::marker {
+.cv li::marker {
   color: rgba(var(--theme-accent-rgb), 0.5);
   font-size: 1.5rem;
+}
+
+@media print {
+  .cv a {
+    color: black;
+  }
+
+  .cv ul.skills {
+    margin-bottom: 0.5rem;
+  }
+
+  .cv nav,
+  .cv header,
+  .cv footer {
+    display: none;
+  }
+
+  .cv h1 {
+    margin-bottom: 1rem;
+  }
+
+  .cv h2 {
+    font-size: 28px;
+  }
+
+  .cv h1::before {
+    content: "Andrew Hudson - ";
+  }
+
+  .cv .p-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-number, 1), 1fr);
+  }
+
+  .cv .p-grid--halfs {
+    --grid-number: 2;
+  }
+
+  .cv .p-grid--thirds {
+    --grid-number: 3;
+  }
+
+  .cv .p-grid li {
+    padding-right: 1.5rem;
+  }
+
+  .cv h2 {
+    border-bottom-color: inherit;
+    margin-top: 1rem;
+  }
+
+  .cv ul:last-child {
+    margin-bottom: 0;
+  }
+
+  .cv main {
+    padding-bottom: 0;
+  }
+
+  .cv li::marker {
+    color: inherit;
+  }
+
+  .entrylist {
+    padding-left: 0;
+  }
+
+  .entrylist::after,
+  .entrylist > li::after {
+    display: none;
+  }
 }
