@@ -5,12 +5,11 @@ import GlobalNav from '../components/GlobalNav.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
 
+import 'src/css/global.css';
 
 interface MarkdownFrontmatter {
   date: number;
 }
-
-
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -25,12 +24,14 @@ let permalink = 'https://andrewhudson.dev/';
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 
+
+
 ---
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
 
-    <link rel="stylesheet" href="/src/css/global.css" />
+    <link rel="stylesheet" href="/css/global.css" />
 
     {head}
 

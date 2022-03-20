@@ -4,6 +4,9 @@ import BaseHead from '../components/BaseHead.astro';
 import GlobalNav from '../components/GlobalNav.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 
+import "src/css/global.css";
+import "src/css/cv.css";
+
 const {title, head} = Astro.props;
 
 const description = 'Senior Software Engineer looking for answers.';
@@ -13,8 +16,7 @@ const permalink = 'https://andrewhudson.dev/';
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
 
-    <link rel="stylesheet" href="/src/css/global.css" />
-    <link rel="stylesheet" href="/src/css/cv.css')} />
+    
 
     {head}
   </head>

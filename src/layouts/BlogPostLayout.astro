@@ -5,13 +5,14 @@ import BlogHeader from '../components/BlogHeader.astro';
 import GlobalNav from '../components/GlobalNav.astro';
 import BlogPost from '../components/BlogPost.astro';
 
+import 'src/css/global.css';
+
 const {content} = Astro.props;
 const {title, description, date, author, heroImage, permalink, alt} = content;
 ---
 <html lang={ content.lang || 'en' }>
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" href="/src/css/global.css" />
   </head>
 
   <body>
