@@ -9,42 +9,43 @@ const title = 'Continer Queries 1 - Intro';
 ---
 
 <FullScreenLayout title={title}>
-  <div class="container">
-	<main>
-		<aside>
-		<Block />
-		<Block />
-		<Block />
+	<div class="warning">
+		<p>Your browser doesn't currently support @container queries.</p>
+	</div>
 
-		</aside>
+	<div class="info">
+		<p>Browser support is incomplete.</p>
+		<p>In Chrome, Edge you can enable with the chrome://flags/#enable-container-queries flag</p>
+		<p>With Safari you can use `Safari Technical Preview 142+`</p>
+		<p><a href="https://caniuse.com/css-container-queries">Check for latest support on Caniuse.com</a></p>
+	</div>
 
+  	<div class="container">
+		<main>
 		<section>
+				<Block />
+				<Block />
+				<Block />
+			</section>
+			<aside>
+				<Block />
+				<Block />
+			</aside>
+
+			
+		</main>
+
+		<footer>
 			<Block />
-			<Block />
-
-
-		</section>
-
-
-
-	</main>
-
-	<footer>
-		<Block />
-	</footer>
-
-
-</div>
+		</footer>
+	</div>
 </FullScreenLayout>
 
 <style>
 main {
-	max-width: 1500px;
 	gap: 1em;
 	display: grid;
 	grid-template-columns: 3fr 1fr;
-
-
 }
 
 section, footer, aside {
@@ -52,9 +53,22 @@ section, footer, aside {
 	padding: 1em;
 }
 
+section {
+	display: grid;
+	grid-template-columns: 3fr 2fr 1fr;
+}
+
 footer {
 	margin-top: 1em;
 }
 
+@supports (container-type: inline-size) {
+	.warning {
+		display: none;
+	}
+}
 
+.info {
+	margin-bottom: 3em;
+}
 </style>

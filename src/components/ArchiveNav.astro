@@ -16,7 +16,7 @@ const {page} = Astro.props;
   </li>
 </ul>
 
-<style lang="scss">
+<style>
 ul {
   padding-left: 0;
   list-style: none;
@@ -26,10 +26,9 @@ ul {
 
 li {
   display: inline-block;
-
-  &:last-child {
+}
+li:last-child {
     justify-self: flex-end;
-  }
 }
 </style>
 
