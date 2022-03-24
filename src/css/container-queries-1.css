@@ -1,9 +1,10 @@
 .block-wrapper {
   container-type: inline-size;
   container-name: blockwrapper;
+  /* container: inline-size / blockwrapper; */
 }
 
-@container blockwrapper (max-width: 200px) {
+@container blockwrapper (inline-size <= 200px) {
   .block {
     padding: 0 1em;
   }
@@ -19,13 +20,16 @@
   }
 }
 
-@container blockwrapper (min-width: 480px) {
+@container blockwrapper (inline-size > 480px) {
   .block {
     padding: 2em;
     background: red;
   }
+}
 
-  .animalcard__description {
-    text-align: left;
+/* Doesn't work unless you use container-type: size on .block-wrapper */
+@container blockwrapper (block-size > 100px) {
+  .block {
+    color: orange;
   }
 }
