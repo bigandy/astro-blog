@@ -1,0 +1,22 @@
+.block-wrapper {
+	container-type: inline-size;
+	container-name: blockwrapper;
+}
+
+@container blockwrapper (min-width: 480px) {
+	.block {
+		padding: 2em;
+    	background: red;
+		margin-bottom: 1em;
+	}
+
+	.animalcard__description {
+		text-align: left;
+	}
+}
+
+/* @supports (container-type: inline-size) {
+	div {
+		border: 3px solid purple;
+	}
+} */
