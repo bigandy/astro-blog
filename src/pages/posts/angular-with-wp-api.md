@@ -18,7 +18,7 @@ html: Latest 10 Posts from big-andy.co.uk
 ```
 
 ```javascript
-js: var app = angular.module("app", []);
+var app = angular.module("app", []);
 
 // filter to convert html to trusted html.
 app.filter("to_trusted", [
@@ -50,8 +50,6 @@ app.controller("AppCtrl", [
 ]);
 ```
 
-[See Demo](http://bigandy.pw/angular/) or [See Codepen Demo](http://codepen.io/bigandy/pen/aOxPLM/) \[lazy\]
+[See Demo](http://bigandy.pw/angular/) or [See Codepen Demo](http://codepen.io/bigandy/pen/aOxPLM/)
 
 See the Pen [Angular WP API](http://codepen.io/bigandy/pen/aOxPLM/) by Andrew Hudson ([@bigandy](http://codepen.io/bigandy)) on [CodePen](http://codepen.io).
-
-\[/lazy\]
