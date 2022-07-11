@@ -4,37 +4,31 @@ import BlogPostPreview from './BlogPostPreview.astro';
 
 // Data Fetching: List all Markdown posts in the repo.
 let allPosts = [];
-try {
   const now = new Date();
   // Get all the posts from the posts directory
-  allPosts = Astro.fetchContent('../pages/posts/**/*.md');
+  allPosts = await Astro.glob('../pages/posts/**/*.md');
   allPosts = allPosts.filter((post) => {
+    // console.log({post: post.frontmatter})
+    // return post
     // Get rid of draft posts first
-    if (post.draft && post.draft === true) {
+    if (post.frontmatter.draft && post.frontmatter.draft === true) {
       return false;
     }
 
     // get rid of future posts
-    return new Date(post.date).getTime() <= now.getTime();
+    return new Date(post.frontmatter.date).getTime() <= now.getTime();
   })
-  allPosts = allPosts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+  allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
 
  // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
   allPosts = allPosts.slice(0, 9);
 
 
 
-} catch (error) {
-  console.error(error)
-}
 interface Props {
     number: number
 }
 const { number } = Astro.props
 ---
-
-
-
-
 
 {allPosts.slice(0, number).map(p => <BlogPostPreview post={p} />)}

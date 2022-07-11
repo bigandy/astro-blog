@@ -2,14 +2,11 @@
 
 /** @type {import('astro').AstroUserConfig} */
 export default {
-  renderers: [],
   vite: {
     plugins: [],
   },
-  devOptions: {
+  server: {
     port: 8888,
   },
-  buildOptions: {
-    site: "https://andrewhudson.dev",
-  },
+  site: "https://andrewhudson.dev",
 };

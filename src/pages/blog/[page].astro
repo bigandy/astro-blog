@@ -9,18 +9,18 @@ export async function getStaticPaths({ paginate }) {
   const getAllPoops = async () => {
     const now = new Date();
     // Get all the posts from the posts directory
-    let allPosts = Astro.fetchContent("../posts/**/*.md");
+    let allPosts = await Astro.glob("../posts/**/*.md");
     allPosts = allPosts.filter((post) => {
       // Get rid of draft posts first
-      if (post.draft && post.draft === true) {
+      if (post.frontmatter.draft && post.frontmatter.draft === true) {
         return false;
       }
 
       // get rid of future posts
-      return new Date(post.date).getTime() <= now.getTime();
+      return new Date(post.frontmatter.date).getTime() <= now.getTime();
     });
     allPosts = allPosts.sort(
-      (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+      (a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf()
     );
 
     return allPosts;
@@ -39,7 +39,7 @@ const { page } = Astro.props;
 
 ---
 
-<DefaultLayout title={`Blog Archive <span>Page ${page.currentPage}</span>`}>
+<DefaultLayout title={`Blog Archive Page ${page.currentPage}`}>
 
   <div class="top-nav">
     <ArchiveNav page={page} />
