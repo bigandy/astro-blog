@@ -3,7 +3,30 @@ const {reload, clear, width = 800, height = 500} = Astro.props;
 ---
 {reload && <button id="reload">Reload the canvas</button>}
 {clear && <button id="clear">Clear the canvas</button>}
-<canvas id="canvas" height={height} width={width}></canvas>
+<canvas id="canvas" height={height} width={width}>
+</canvas>
+{reload &&
+	<script is:inline>
+		const canvas = document.getElementById('canvas');
+		const {width, height} = canvas;
+		const ctx = canvas.getContext('2d');
+		const reloadButton = document.getElementById('reload');
+
+	reloadButton.addEventListener('click', () => {
+		ctx.clearRect(0,0, width, height);
+		Window.init;
+	});
+	</script>
+}
+{clear &&
+	<script  is:inline>
+	const clearButton = document.getElementById('clear');
+
+	clearButton.addEventListener('click', () => {
+		ctx.clearRect(0,0, width, height);
+	});
+	</script>
+}
 
 <style>
 button {

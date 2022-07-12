@@ -33,6 +33,8 @@ const init = () => {
     }
 };
 init();
+// @ts-ignore
+Window.init = init();
 
 function draw() {
     x = x <= width ? x + Math.cos(Math.random()) * (width / 10) : Math.random() * 100;
