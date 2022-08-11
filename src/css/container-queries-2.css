@@ -1,0 +1,36 @@
+.block-wrapper {
+  container-type: style;
+  container-name: blockwrapper;
+  display: grid;
+}
+
+@container blockwrapper (display: grid) {
+  .block {
+    background: red;
+    padding: 0 1em;
+  }
+
+  .block__title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .block__content {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+}
+
+@container blockwrapper (inline-size > 480px) {
+  .block {
+    padding: 2em;
+    background: red;
+  }
+}
+
+/* Doesn't work unless you use container-type: size on .block-wrapper */
+@container blockwrapper (block-size > 100px) {
+  .block {
+    color: orange;
+  }
+}
