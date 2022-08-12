@@ -26,7 +26,8 @@ const pages = {
 	}
 };
 
-const requestPathname = Astro.request.url.pathname;
+const requestPathname = Astro.url.pathname;
+
 
 ---
 <nav class="layout">
@@ -43,6 +44,8 @@ const requestPathname = Astro.request.url.pathname;
 </nav>
 
 <style lang="scss">
+
+
 li {
 	display: inline-grid;
 	margin-right: 1em;
@@ -50,10 +53,13 @@ li {
 
 a {
 	border-bottom: 2px solid transparent;
+}
 
-	&,
-	&:hover {
-		text-decoration: none;
+:global(.nav) {
+	a {
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
 
