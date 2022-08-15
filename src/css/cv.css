@@ -4,11 +4,10 @@
 }
 
 .content {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .cv h2 {
-  margin-top: 0.5em;
   border-bottom: 2px solid var(--theme-accent);
   display: inline-block;
 }
@@ -17,9 +16,9 @@
   margin-top: 0;
 }
 
-.cv h3 {
+/* .cv h3 {
   font-size: 24px;
-}
+} */
 
 .cv :is(h2 + h3) {
   margin-top: 0;

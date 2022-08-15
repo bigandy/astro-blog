@@ -73,7 +73,7 @@
 }
 
 body {
-	font-family: var(--font-family);
+	font-family: var(--font-fallback);
 }
 
 h1 {
@@ -114,6 +114,7 @@ small,
 
 :where(h1, h2, h3, h4, h5, h6) {
 	font-weight: var(--f-body-weight);
+  font-family: var(--font-family);
 }
 
 :root {
@@ -182,12 +183,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-size: 1rem;
-  font-size: clamp(
+  font-size: 18px;
+  /* font-size: clamp(
     1rem,
     0.4626rem + 1.0309vw + var(--user-font-scale),
-    1.125rem
-  );
+    1.25rem
+  ); */
   line-height: 1.625;
 }
 
