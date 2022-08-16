@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import GlobalNav from '../components/GlobalNav.astro';
 import BlogHeader from '../components/BlogHeader.astro';
+import FooterScripts from '../components/FooterScripts.astro';
 
 import "src/css/global.css";
 
@@ -24,7 +25,7 @@ let permalink = 'https://andrewhudson.dev/';
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
 
-    
+
 
     {head}
 
@@ -79,5 +80,6 @@ let permalink = 'https://andrewhudson.dev/';
         </section>
       </article>
     </div>
+    <FooterScripts />
   </body>
 </html>

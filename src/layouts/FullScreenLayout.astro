@@ -1,15 +1,10 @@
 ---
 // Component Imports
 import BaseHead from '../components/BaseHead.astro';
-import GlobalNav from '../components/GlobalNav.astro';
-import BlogHeader from '../components/BlogHeader.astro';
-import BlogPostPreview from '../components/BlogPostPreview.astro';
+
+import FooterScripts from '../components/FooterScripts.astro';
 
 import 'src/css/global.css';
-
-interface MarkdownFrontmatter {
-  date: number;
-}
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -55,6 +50,7 @@ let permalink = 'https://andrewhudson.dev/';
             <h1 class="title">{title}</h1>
         <slot />
     </section>
+    <FooterScripts />
   </body>
 </html>
 

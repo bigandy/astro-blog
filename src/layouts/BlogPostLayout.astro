@@ -1,9 +1,9 @@
 ---
-import { Markdown } from 'astro/components';
 import BaseHead from '../components/BaseHead.astro';
 import BlogHeader from '../components/BlogHeader.astro';
 import GlobalNav from '../components/GlobalNav.astro';
 import BlogPost from '../components/BlogPost.astro';
+import FooterScripts from '../components/FooterScripts.astro';
 
 import 'src/css/global.css';
 
@@ -23,6 +23,7 @@ const {title, description, date, author, heroImage, permalink, alt} = content;
         <slot />
       </BlogPost>
       </div>
+      <FooterScripts />
   </body>
 </html>
 
