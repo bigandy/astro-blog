@@ -1,79 +1,59 @@
 ---
 // Component Imports
-import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
-import Block from './Block.astro';
-import 'src/css/container-queries-1.css';
+import FullScreenLayout from "../../layouts/FullScreenLayout.astro";
+import Block from "./Block.astro";
+import ContainerQuerySupport from "./ContainerQuerySupport.astro";
+import "src/css/container-queries-1.css";
 
-const title = 'Continer Queries 1 - Intro';
-
+const title = "Continer Queries 1 - Intro";
 ---
 
 <FullScreenLayout title={title}>
-	<div class="warning">
-		<p>Your browser doesn't currently support @container queries.</p>
-	</div>
+  <ContainerQuerySupport />
+  <div class="container">
+    <main>
+      <section>
+        <Block />
+        <Block />
+        <Block />
+      </section>
+      <aside>
+        <Block />
+        <Block />
+      </aside>
+    </main>
 
-	<div class="info">
-		<p>Browser support is incomplete.</p>
-		<p>In Chrome, Edge you can enable with the chrome://flags/#enable-container-queries flag</p>
-		<p>With Safari you can use `Safari Technical Preview 142+`</p>
-		<p><a href="https://caniuse.com/css-container-queries">Check for latest support on Caniuse.com</a></p>
-	</div>
-
-  	<div class="container">
-		<main>
-		<section>
-				<Block />
-				<Block />
-				<Block />
-			</section>
-			<aside>
-				<Block />
-				<Block />
-			</aside>
-
-			
-		</main>
-
-		<footer>
-			<Block />
-		</footer>
-	</div>
+    <footer>
+      <Block />
+    </footer>
+  </div>
 </FullScreenLayout>
 
 <style>
-main {
-	gap: 1em;
-	display: grid;
-	grid-template-columns: 3fr 1fr;
-}
+  main {
+    gap: 1em;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
 
-section, footer, aside {
-	border: 1px solid black;
-	padding: 1em;
-}
+  section,
+  footer,
+  aside {
+    border: 1px solid black;
+    padding: 1em;
+  }
 
-aside {
-	display: grid;
-	grid-template-rows: 3fr 1fr;
-}
+  aside {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+  }
 
-section {
-	display: grid;
-	grid-template-columns: 3fr 2fr 1fr;
-}
+  section {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+  }
 
-footer {
-	margin-top: 1em;
-}
-
-@supports (container-type: inline-size) {
-	.warning {
-		display: none;
-	}
-}
-
-.info {
-	margin-bottom: 3em;
-}
+  footer {
+    margin-top: 1em;
+  }
 </style>

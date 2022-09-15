@@ -1,0 +1,38 @@
+---
+// Component Imports
+---
+
+<div class="warning">
+  <p>
+    Your browser doesn't currently support @container
+    queries.
+  </p>
+</div>
+
+<div class="info">
+  <p>Browser support is incomplete.</p>
+  <p>Now in latest versions of Chrome, Safari and Edge</p>
+  <p>
+    <a href="https://caniuse.com/css-container-queries"
+      >Check for latest support on Caniuse.com</a
+    >
+  </p>
+</div>
+
+<style>
+  @supports (container-type: inline-size) {
+    .warning {
+      display: none;
+    }
+  }
+
+  .info {
+    margin-bottom: 3em;
+  }
+
+  .warning {
+    border: 10px double red;
+    padding: 1rem;
+    margin-block-end: 1rem;
+  }
+</style>
