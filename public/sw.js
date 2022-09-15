@@ -1,4 +1,4 @@
-var cacheName = "bigandy:0002";
+var cacheName = "bigandy:0003";
 var cacheFiles = [
   "/",
   "/about/",
@@ -29,7 +29,7 @@ self.addEventListener("fetch", function (event) {
   );
 });
 self.addEventListener("activate", function (event) {
-  var cacheWhitelist = ["bigandy:0002"];
+  var cacheWhitelist = ["bigandy:0003"];
   event.waitUntil(
     caches.keys().then(function (cacheNames) {
       return Promise.all(
