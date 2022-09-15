@@ -1,73 +1,75 @@
 ---
 const pages = {
-	home: {
-		url: '/',
-		title: 'Home'
-	},
-	blog: {
-		url: '/blog',
-		title: 'Blog'
-	},
-	cv: {
-		url: '/cv',
-		title: 'CV'
-	},
-	about: {
-		url: '/about',
-		title: 'About'
-	},
-	now: {
-		url: '/now',
-		title: 'Now'
-	},
-	demos: {
-		url: '/demos',
-		title: 'Demos'
-	}
+  home: {
+    url: "/",
+    title: "Home",
+  },
+  blog: {
+    url: "/blog",
+    title: "Blog",
+  },
+  cv: {
+    url: "/cv",
+    title: "CV",
+  },
+  about: {
+    url: "/about",
+    title: "About",
+  },
+  now: {
+    url: "/now",
+    title: "Now",
+  },
+  demos: {
+    url: "/demos",
+    title: "Demos",
+  },
 };
 
 const requestPathname = Astro.url.pathname;
-
-
 ---
+
 <nav class="layout">
-	<ul class="layout-inner nav">
-		{Object.values(pages).map(entry => {
-			const className = requestPathname === entry.url && 'active';
-			return (
-				<li>
-					<a class={className} href={entry.url}>{entry.title}</a>
-				</li>
-			)
-		})}
-	</ul>
+  <ul class="layout-inner nav">
+    {
+      Object.values(pages).map((entry) => {
+        const className =
+          requestPathname === entry.url && "active";
+        return (
+          <li>
+            <a class={className} href={entry.url}>
+              {entry.title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
 </nav>
 
 <style lang="scss">
+  li {
+    display: inline-grid;
+    margin-right: 1em;
+  }
 
+  a {
+    border-bottom: 2px solid transparent;
+  }
 
-li {
-	display: inline-grid;
-	margin-right: 1em;
-}
+  :global(.nav) {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 
-a {
-	border-bottom: 2px solid transparent;
-}
-
-:global(.nav) {
-	a {
-		&:hover {
-			text-decoration: none;
-		}
-	}
-}
-
-a:hover,
-.active {
-	border-bottom-color: var(--theme-accent);
-}
-ul {
-	padding-inline-start: 0;
-}
+  a:hover,
+  .active {
+    border-bottom-color: var(--theme-accent);
+  }
+  ul {
+    padding-inline-start: 0;
+  }
 </style>

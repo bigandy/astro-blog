@@ -8,6 +8,11 @@ import FooterScripts from '../components/FooterScripts.astro';
 import "src/css/global.css";
 import "src/css/cv.css";
 
+interface Props {
+  title: string;
+  head: any;
+}
+
 const {title, head} = Astro.props;
 
 const description = 'Senior Software Engineer looking for answers.';
