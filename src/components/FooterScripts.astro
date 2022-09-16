@@ -1,14 +1,20 @@
-<script>
-	if ('serviceWorker' in navigator) {
-	  window.addEventListener('load', function() {
-		navigator.serviceWorker.register('/sw.js').then(function(registration) {
-		  // Successfully registered the Service Worker
-		  //console.log('Service Worker registration successful with scope: ', registration.scope);
-		}).catch(function(err) {
-		  // Failed to register the Service Worker
-		  //console.log('Service Worker registration failed: ', err);
+---
+const overrideServiceWorker = false;
+const showServiceWorker = import.meta.env.MODE === 'production' ||overrideServiceWorker;
+---
+{showServiceWorker &&
+	<script>
+		if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('/sw.js').then(function(registration) {
+			// Successfully registered the Service Worker
+			console.log('Service Worker registration successful with scope: ', registration.scope);
+			}).catch(function() {
+			// Failed to register the Service Worker
+			//console.log('Service Worker registration failed: ', err);
+			});
 		});
-	  });
-	}
-  </script>
-<script src="/js/instant.page.js" defer></script>
+		}
+	</script>
+	<script src="/js/instant.page.js" defer></script>
+}
