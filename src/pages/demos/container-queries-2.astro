@@ -1,8 +1,8 @@
 ---
 // Component Imports
 import FullScreenLayout from "../../layouts/FullScreenLayout.astro";
-import CalendarBlock from "./CalendarBlock.astro";
-import ContainerQuerySupport from "./ContainerQuerySupport.astro";
+import CalendarBlock from "./components/CalendarBlock.astro";
+import ContainerQuerySupport from "./components/ContainerQuerySupport.astro";
 import "src/css/container-queries-2.css";
 
 const title =
@@ -56,13 +56,5 @@ const title =
     margin-top: 1em;
   }
 
-  @supports (container-type: inline-size) {
-    .warning {
-      display: none;
-    }
-  }
-
-  .info {
-    margin-bottom: 3em;
-  }
+  
 </style>
