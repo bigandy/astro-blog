@@ -1,43 +1,51 @@
 ---
 // Component Imports
-import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
-import Canvas from '../../components/Canvas.astro';
+import FullScreenLayout from "../../layouts/FullScreenLayout.astro";
+import Canvas from "../../components/Canvas.astro";
 
-const title = 'Canvas 6 - click on canvas';
+const title = "Canvas 6 - click on canvas";
 ---
 
 <FullScreenLayout title={title}>
-	<div class="container">
-		<Canvas clear />
-	</div>
+  <div class="container">
+    <Canvas clear />
+  </div>
 </FullScreenLayout>
 
 <script>
-const canvas = document.getElementById('canvas');
-const {width, height} = canvas;
-const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById("canvas");
+  const { width, height } = canvas.getBoundingClientRect();
+  // @ts-ignore
+  const ctx = canvas.getContext("2d");
 
+  const drawCircle = (x, y, size, color = "red") => {
+    ctx.beginPath();
+    ctx.arc(x, y, size, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.closePath();
+  };
 
-const drawCircle = (x, y, size, color = 'red') => {
-	ctx.beginPath();
-	ctx.arc(x, y, size, 0, 2 * Math.PI);
-	ctx.fillStyle = color;
-	ctx.fill();
-	ctx.closePath();
-};
+  const handleClick = (e) => {
+    const { offsetLeft, offsetTop } = canvas;
+    const { clientX, clientY } = e;
 
+    const x = clientX - offsetLeft;
+    const y = clientY - offsetTop;
 
-const handleClick = (e) => {
-	const {offsetLeft, offsetTop} = canvas;
-	const {clientX, clientY} = e;
+    drawCircle(
+      x,
+      y,
+      Math.random() * 100,
+      "rgb(255 0 0 / 0.5)"
+    );
+  };
 
-	const x = clientX - offsetLeft;
-	const y = clientY - offsetTop;
+  canvas.addEventListener("click", handleClick, false);
 
-	drawCircle(x, y, Math.random() * 100, 'rgb(255 0 0 / 0.5)')
-};
+  const clearButton = document.getElementById("clear");
 
-
-canvas.addEventListener('click', handleClick, false);
+  clearButton.addEventListener("click", () => {
+    ctx.clearRect(0, 0, width, height);
+  });
 </script>
-

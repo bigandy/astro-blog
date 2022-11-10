@@ -1,17 +1,18 @@
 ---
 interface Props {
-    url: string;
-    title: string;
+  url: string;
+  title: string;
 }
 
-const { url, title } = Astro.props
+const { url, title } = Astro.props;
 ---
+
 <a href={url}>
-    {title} &rarr;
+  {title} &rarr;
 </a>
 <style>
-a {
+  a {
     display: block;
     margin-top: 2rem;
-}
+  }
 </style>

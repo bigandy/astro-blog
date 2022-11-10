@@ -1,45 +1,60 @@
 ---
 // Component Imports
-import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
-import Canvas from '../../components/Canvas.astro';
+import FullScreenLayout from "../../layouts/FullScreenLayout.astro";
+import Canvas from "../../components/Canvas.astro";
 
-const title = 'Canvas 4 - some random squares';
+const title = "Canvas 4 - some random squares";
 ---
 
-<FullScreenLayout title={title}>
-	<div class="container">
-        <Canvas reload />
-	</div>
-</FullScreenLayout>
-
 <script>
-const canvas = document.getElementById('canvas');
-const {width, height} = canvas;
-const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById("canvas");
+  const { width, height } = canvas.getBoundingClientRect();
+  const ctx = canvas.getContext("2d");
 
-const drawSquare = (x, y, size, color = 'red') => {
-    const opacity = Date.now() % 3 === 0 ? '0.75' : '0.24';
+  const drawSquare = (x, y, size, color = "red") => {
+    const opacity = Date.now() % 3 === 0 ? "0.75" : "0.24";
 
-	ctx.fillStyle = `hsl(${Math.floor(x)}, 100%, 50%, ${opacity})`;
-	ctx.fillRect(x, y, size * 3, size / 2);
-};
+    ctx.fillStyle = `hsl(${Math.floor(
+      x
+    )}, 100%, 50%, ${opacity})`;
+    ctx.fillRect(x, y, size * 3, size / 2);
+  };
 
-let x = Math.random() * Math.cos(Date.now());
-let y = Math.random() * Math.tan(Date.now());
+  let x = Math.random() * Math.cos(Date.now());
+  let y = Math.random() * Math.tan(Date.now());
 
-const init = () => {
-	for (let j = 0; j <= 10000; j++) {
-        draw();
+  const init = () => {
+    console.log("run init please");
+    for (let j = 0; j <= 10000; j++) {
+      draw();
     }
-};
-init();
-// @ts-ignore
-Window.init = init();
+  };
+  // @ts-ignore
 
-function draw() {
-    x = x <= width ? x + Math.cos(Math.random()) * (width / 10) : Math.random() * 100;
-    y = y <= height ? y + Math.tan(Math.random()) * (width / 10) : Math.random() * 100;
+  function draw() {
+    console.log("drawing");
+    x =
+      x <= width
+        ? x + Math.cos(Math.random()) * (width / 10)
+        : Math.random() * 100;
+    y =
+      y <= height
+        ? y + Math.tan(Math.random()) * (width / 10)
+        : Math.random() * 100;
 
     drawSquare(x, y, 10);
-}
+  }
+
+  const reloadButton = document.getElementById("reload");
+
+  reloadButton.addEventListener("click", function () {
+    ctx.clearRect(0, 0, width, height);
+    init();
+  });
 </script>
+
+<FullScreenLayout title={title}>
+  <div class="container">
+    <Canvas reload />
+  </div>
+</FullScreenLayout>

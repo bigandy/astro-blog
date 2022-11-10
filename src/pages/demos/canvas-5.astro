@@ -1,52 +1,67 @@
 ---
 // Component Imports
-import FullScreenLayout from '../../layouts/FullScreenLayout.astro';
-import Canvas from '../../components/Canvas.astro';
+import FullScreenLayout from "../../layouts/FullScreenLayout.astro";
+import Canvas from "../../components/Canvas.astro";
 
-const title = 'Canvas 5 - some random circles';
+const title = "Canvas 5 - some random circles";
 ---
 
 <FullScreenLayout title={title}>
-	<div class="container">
-		<Canvas reload />
-	</div>
+  <div class="container">
+    <Canvas reload />
+  </div>
 </FullScreenLayout>
 
 <script>
-const canvas = document.getElementById('canvas');
-const {width, height} = canvas;
-const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById("canvas");
+  const { width, height } = canvas.getBoundingClientRect();
+  // @ts-ignore
+  const ctx = canvas.getContext("2d");
 
+  let x = 0;
+  let y = 0;
 
-let x = 0;
-let y = 0;
+  const drawCircle = (x, y, size, color = "red") => {
+    ctx.beginPath();
+    ctx.arc(x, y, size, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.closePath();
+  };
 
+  const init = () => {
+    for (let j = 0; j <= 100; j++) {
+      draw();
+    }
+  };
 
+  function draw() {
+    x =
+      x <= width
+        ? x + Math.cos(Math.random()) * (width / 10)
+        : Math.random() * 100;
+    y =
+      y <= height
+        ? y + Math.tan(Math.random()) * (width / 10)
+        : Math.random() * 100;
 
+    const color = `hsl(${Math.floor(x)}, 100%, 50%, ${
+      Math.random() * 1
+    })`;
+    drawCircle(
+      x,
+      y,
+      Math.random() * (Math.random() * 100),
+      color
+    );
+  }
 
-const drawCircle = (x, y, size, color = 'red') => {
-	ctx.beginPath();
-	ctx.arc(x, y, size, 0, 2 * Math.PI);
-	ctx.fillStyle = color;
-	ctx.fill();
-	ctx.closePath();
-};
+  init();
 
-const init = () => {
-	for (let j = 0; j <= 100; j++) {
-		draw();
-	}
-};
+  const reloadButton = document.getElementById("reload");
 
-
-function draw() {
-    x = x <= width ? x + Math.cos(Math.random()) * (width / 10) : Math.random() * 100;
-    y = y <= height ? y + Math.tan(Math.random()) * (width / 10) : Math.random() * 100;
-
-	const color = `hsl(${Math.floor(x)}, 100%, 50%, ${Math.random() * 1})`;
-    drawCircle(x, y, Math.random() * (Math.random() * 100), color);
-}
-
-init();
+  reloadButton.addEventListener("click", function () {
+    ctx.clearRect(0, 0, width, height);
+    init();
+  });
 </script>
-
