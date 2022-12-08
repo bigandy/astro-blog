@@ -5,20 +5,38 @@ interface Props {
   permalink: string;
 }
 const { title, description, permalink } = Astro.props;
+
+const showCSP = import.meta.env.MODE === "production";
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
+{
+  showCSP && (
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'none'"
+    />
+  )
+}
 
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&display=swap" rel="stylesheet">
-
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+/>
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
 
 <!-- Primary Meta Tags -->
 <title>Andrew Hudson - {title}</title>
@@ -33,13 +51,23 @@ const { title, description, permalink } = Astro.props;
 <meta property="og:url" content={permalink} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content="https://astro.build/social.jpg?v=1" />
+<meta
+  property="og:image"
+  content="https://astro.build/social.jpg?v=1"
+/>
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
+<meta
+  property="twitter:card"
+  content="summary_large_image"
+/>
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content="https://astro.build/social.jpg?v=1" />
-
-
+<meta
+  property="twitter:description"
+  content={description}
+/>
+<meta
+  property="twitter:image"
+  content="https://astro.build/social.jpg?v=1"
+/>
