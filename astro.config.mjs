@@ -1,7 +1,9 @@
 // @ts-check
+import lit from "@astrojs/lit";
 
 /** @type {import('astro').AstroUserConfig} */
 export default {
+  integrations: [lit()],
   vite: {
     plugins: [],
   },
