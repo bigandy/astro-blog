@@ -1,0 +1,100 @@
+---
+// Component Imports
+import FullScreenLayout from "../../../layouts/FullScreenLayout.astro";
+import Canvas from "../../../components/Canvas.astro";
+
+const title = "Canvas 10 - Radar";
+---
+
+<FullScreenLayout title={title}>
+  <div class="container">
+    <h3>CSS ONLY</h3>
+    <div class="radar">
+      <div class="layer">
+        <div class="layer">
+          <div class="layer">
+            <div class="layer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Canvas width={800} height={800} />
+  </div>
+</FullScreenLayout>
+
+<style>
+  .radar {
+    width: 800px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+
+  .layer {
+    --reduction: 5em;
+
+    height: calc(100% - var(--reduction));
+    aspect-ratio: 1;
+    position: relative;
+    top: calc(var(--reduction) / 2);
+    left: calc(var(--reduction) / 2);
+    border: 1px solid black;
+    border-radius: inherit;
+  }
+</style>
+
+<script>
+  // const canvas = document.getElementById('canvas');
+  // const {width, height} = canvas;
+  // const ctx = canvas.getContext('2d');
+
+  //         // Draw Spirograph
+  //         function drawRadar() {
+
+  //             var offset = -Math.PI / 2;
+
+  //             // Calculate center point and radius
+  //             var cx = canvas.width / 2;
+  //             var cy = canvas.height / 2;
+  //             var radius1 = canvas.width * 0.15;
+  //             var radius2 = canvas.width * 0.15;
+  //             var ratio = 5000;
+
+  //             // Calculate x, y
+  //             var x = cx + radius1 * Math.cos(theta - offset);
+  //             var y = cy + radius1 * Math.sin(theta - offset);
+
+  //             // Clear canvas
+  //             ctx.fillStyle = 'rgba(255,0,0,0.5)';
+  //             ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  //             // Draw spirograph
+  //             ctx.beginPath();
+  //             ctx.moveTo(
+  //                 cx + radius1 * Math.cos(-offset) + radius2 * Math.cos(-offset * ratio),
+  //                 cy + radius1 * Math.sin(-offset) + radius2 * Math.sin(-offset * ratio)
+  //             );
+  //             for (var i = -offset; i <= Math.min(theta - offset, Math.PI * 2 - offset); i += 0.005) {
+  //                 x = cx + radius1 * Math.cos(i)  + radius2 * Math.cos(i * ratio);
+  //                 y = cy + radius1 * Math.sin(i)  + radius2 * Math.sin(i * ratio);
+  //                 ctx.lineTo(x, y);
+  //             }
+  //             // ctx.lineCap = 'round';
+  //             ctx.lineWidth = canvas.height * 0.0021;
+  //             ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+  //             ctx.stroke();
+  //             ctx.beginPath();
+  //         }
+
+  //         // Draw frame
+  //         var theta = 0;
+  //         function tick() {
+  //             drawRadar(theta);
+  //             theta = theta + 0.01;
+  //             requestAnimationFrame(tick);
+  //         }
+  //         tick();
+
+  //
+</script>

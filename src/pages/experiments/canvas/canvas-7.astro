@@ -1,9 +1,9 @@
 ---
 // Component Imports
-import FullScreenLayout from "../../layouts/FullScreenLayout.astro";
-import Canvas from "../../components/Canvas.astro";
+import FullScreenLayout from "../../../layouts/FullScreenLayout.astro";
+import Canvas from "../../../components/Canvas.astro";
 
-const title = "Canvas 8 - spirograph gone crazy";
+const title = "Canvas 7 - spirograph pt.1";
 ---
 
 <FullScreenLayout title={title}>
@@ -19,7 +19,7 @@ const title = "Canvas 8 - spirograph gone crazy";
   const ctx = canvas.getContext("2d");
 
   // Resize canvas
-  // width = window.innerWidth;
+  // canvas.width = window.innerWidth;
   // height = window.innerHeight;
 
   // Draw Spirograph
@@ -30,8 +30,8 @@ const title = "Canvas 8 - spirograph gone crazy";
     var cx = width / 2;
     var cy = height / 2;
     var radius1 = width * 0.15;
-    var radius2 = width * 0.2;
-    var ratio = 50;
+    var radius2 = width * 0.15;
+    var ratio = 5000;
 
     // Calculate x, y
     var x = cx + radius1 * Math.cos(theta - offset);
@@ -59,15 +59,15 @@ const title = "Canvas 8 - spirograph gone crazy";
       x =
         cx +
         radius1 * Math.cos(i) +
-        radius2 * Math.cos(i * ratio) * Math.random() * 1;
+        radius2 * Math.cos(i * ratio);
       y =
         cy +
         radius1 * Math.sin(i) +
-        radius2 * Math.sin(i * ratio) * Math.random() * 1;
+        radius2 * Math.sin(i * ratio);
       ctx.lineTo(x, y);
     }
     // ctx.lineCap = 'round';
-    ctx.lineWidth = height * 0.01;
+    ctx.lineWidth = height * 0.0021;
     ctx.strokeStyle = "rgba(255,255,255,0.9)";
     ctx.stroke();
     ctx.beginPath();
@@ -77,7 +77,7 @@ const title = "Canvas 8 - spirograph gone crazy";
   var theta = 0;
   function tick() {
     drawSpirograph();
-    theta = theta + 1;
+    theta = theta + 0.01;
     requestAnimationFrame(tick);
   }
   tick();

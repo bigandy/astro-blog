@@ -1,0 +1,108 @@
+---
+// Component Imports
+import FullScreenLayout from "../../../layouts/FullScreenLayout.astro";
+
+const title = "Talk to Window Parent";
+---
+
+<FullScreenLayout title={title}>
+  <p>
+    Communicate from the popup back to the parent window.
+    Click on the button to open the popup window, then in
+    the popup submit the form. This should trigger a
+    postMessage back to this (parent) window to close the
+    popup window. If there is a breakage in connection
+    between the parent and child the parent will still show
+    a message to manually close the popup window.
+  </p>
+
+  <button id="open">Open Window</button>
+
+  <div id="output"></div>
+</FullScreenLayout>
+
+<style>
+  p {
+    max-width: 600px;
+    margin-block-end: 3rem;
+  }
+</style>
+
+<script>
+  const timeout = 1000;
+  const { host, protocol } = window.location;
+  const domain = protocol + "//" + host;
+  const openButton = document.getElementById("open");
+  const output = document.getElementById("output");
+  let windowObjectReference = null;
+
+  openButton.addEventListener(
+    "click",
+    function () {
+      showWindow();
+    },
+    false
+  );
+
+  const showWindow = () => {
+    output.innerHTML = ""; // clear the output
+    if (windowObjectReference) {
+      windowObjectReference.focus();
+      return;
+    } else {
+      windowObjectReference = window.open(
+        domain +
+          "/experiments/talk-to-window/talk-to-window-child",
+        "myNewWindow",
+        "width=400,height=400,top=0, left=800"
+      );
+    }
+  };
+
+  window.addEventListener(
+    "message",
+    function (event) {
+      if (
+        event.origin !== domain ||
+        typeof event.data.message === "string"
+      ) {
+        return;
+      }
+      output.innerHTML = `<strong>Message from the popup window</strong>:<br /> ${event.data.name}`;
+
+      if (event.data.type === "authenticated") {
+        output.innerHTML = `<strong>Message from the popup window</strong>:<br /> Name: ${event.data.name}<br />`;
+        if (windowObjectReference) {
+          console.log("i want to send this message", {
+            coolstuff: true,
+            type: "close",
+          });
+          windowObjectReference.postMessage(
+            { coolstuff: true, type: "close" },
+            domain
+          );
+          windowObjectReference = null;
+
+          output.innerHTML = `<strong>Message from the popup window</strong>:<br /> Name: ${event.data.name}<br />`;
+
+          setTimeout(() => {
+            output.innerHTML = "form successfully closed";
+          }, timeout);
+
+          // output.innerHTML = 'form successfully closed';
+          // windowObjectReference.close(); // can also use this to close the window if needed.
+        } else {
+          console.error(
+            "cannot close popup, please manually close window"
+          );
+
+          setTimeout(() => {
+            output.innerHTML =
+              "You will need to manually close the form";
+          }, timeout);
+        }
+      }
+    },
+    false
+  );
+</script>

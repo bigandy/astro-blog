@@ -1,10 +1,25 @@
-var cacheName = "bigandy:0003";
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+const pagesCacheName = "pages";
+const maxPages = 50; // Maximum number of pages to cache
+
+// This arrangement can be altered based on how we want the date's format to appear.
+let currentDate = `${day}-${month}-${year}`;
+console.log(currentDate); // "17-6-2022"
+
+var cacheName = `bigandy:${currentDate}`;
 var cacheFiles = [
   "/",
   "/about/",
   "/now/",
   "/blog/",
+  "/experiments/",
   "/offline/",
+  "/js/instant.page.js",
 ];
 self.addEventListener("install", function (event) {
   event.waitUntil(
@@ -29,7 +44,7 @@ self.addEventListener("fetch", function (event) {
   );
 });
 self.addEventListener("activate", function (event) {
-  var cacheWhitelist = ["bigandy:0003"];
+  var cacheWhitelist = [cacheName];
   event.waitUntil(
     caches.keys().then(function (cacheNames) {
       return Promise.all(

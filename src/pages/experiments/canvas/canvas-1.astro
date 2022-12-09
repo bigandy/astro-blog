@@ -1,0 +1,31 @@
+---
+// Component Imports
+import FullScreenLayout from "../../../layouts/FullScreenLayout.astro";
+import Canvas from "../../../components/Canvas.astro";
+
+const title = "Canvas 1 - Drawing Rectangles";
+---
+
+<FullScreenLayout title={title}>
+  <div class="container">
+    <Canvas />
+  </div>
+</FullScreenLayout>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const { width, height } = canvas;
+  const ctx = canvas.getContext("2d");
+
+  ctx.fillStyle = "red";
+  ctx.fillRect(0, 0, width, height / 2);
+  ctx.fillStyle = "green";
+  ctx.fillRect(0, height / 2, width / 2, height / 2);
+  ctx.fillStyle = "orange";
+  ctx.fillRect(
+    width / 2,
+    height / 2,
+    width / 2,
+    height / 2
+  );
+</script>
