@@ -1,6 +1,6 @@
 {
   "name": "andrewhudson-dev-astro",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -8,14 +8,13 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "1.6.14"
+    "astro": "2.0.1"
   },
   "dependencies": {
-    "@astrojs/lit": "1.0.1",
+    "@astrojs/lit": "1.1.0",
     "@webcomponents/template-shadowroot": "0.1.0",
-    "dayjs": "1.11.3",
-    "gray-matter": "4.0.3",
-    "lit": "2.4.1",
-    "sass": "1.56.1"
+    "dayjs": "1.11.7",
+    "lit": "2.6.1",
+    "sass": "1.57.1"
   }
 }
