@@ -1,34 +1,43 @@
 ---
+import { getCollection } from "astro:content";
 // Component Imports
-import BlogPostPreview from './BlogPostPreview.astro';
+import BlogPostPreview from "./BlogPostPreview.astro";
 
 // Data Fetching: List all Markdown posts in the repo.
 let allPosts = [];
-  const now = new Date();
-  // Get all the posts from the posts directory
-  allPosts = await Astro.glob('../pages/posts/**/*.md');
-  allPosts = allPosts.filter((post) => {
-    // console.log({post: post.frontmatter})
-    // return post
-    // Get rid of draft posts first
-    if (post.frontmatter.draft && post.frontmatter.draft === true) {
-      return false;
-    }
+const now = new Date();
+// Get all the posts from the posts directory
+allPosts = await getCollection("blog");
+allPosts = allPosts.filter((post) => {
+  console.log({ post: post.data });
+  // return post
+  // Get rid of draft posts first
+  if (post.data.draft && post.data.draft === true) {
+    return false;
+  }
 
-    // get rid of future posts
-    return new Date(post.frontmatter.date).getTime() <= now.getTime();
-  })
-  allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+  // get rid of future posts
+  return (
+    new Date(post.data.date).getTime() <= now.getTime()
+  );
+});
+allPosts = allPosts.sort(
+  (a, b) =>
+    new Date(b.data.date).valueOf() -
+    new Date(a.data.date).valueOf()
+);
 
- // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
-  allPosts = allPosts.slice(0, 9);
-
-
+// Take 10 latest posts for the moment until I learn how to do pagination with Astro!
+allPosts = allPosts.slice(0, 9);
 
 interface Props {
-    number: number;
+  number: number;
 }
-const { number } = Astro.props
+const { number } = Astro.props;
 ---
 
-{allPosts.slice(0, number).map(p => <BlogPostPreview post={p} />)}
+{
+  allPosts
+    .slice(0, number)
+    .map((p) => <BlogPostPreview post={p} />)
+}

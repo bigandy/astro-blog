@@ -3,48 +3,28 @@ import dayjs from "dayjs";
 import Author from "./Author.astro";
 import BackArrow from "./BackArrow.astro";
 
-interface Props {
-  title: string;
-  date: string;
-  heroImage: string;
-  alt: string;
-}
-
-const { title, date, heroImage, alt } = Astro.props;
+const { post } = Astro.props;
+const { Content } = await post.render();
 ---
 
 <div class="layout">
   <article class="content layout-inner">
     <div>
       <header>
-        {
-          heroImage && (
-            <img
-              width="720"
-              height="420"
-              class="hero-image"
-              loading="lazy"
-              src={heroImage}
-              alt={alt}
-            />
-          )
-        }
         <p class="publish-date">
           {dayjs(date).format("dddd, DD MMMM YYYY")}
         </p>
-        <h1 class="title">{title}</h1>
-        <Author
-          name="@bigandy"
-          href="https://twitter.com/bigandy"
-        />
+        <h1 class="title">{post.data.title}</h1>
       </header>
-      <main>
-        <slot />
-        <BackArrow
-          url={"/blog/"}
-          title={"Back to all blog posts"}
-        />
-      </main>
+      <Content />
+      <Author
+        name="@bigandy"
+        href="https://twitter.com/bigandy"
+      />
+      <BackArrow
+        url={"/blog/"}
+        title={"Back to all blog posts"}
+      />
     </div>
   </article>
 </div>

@@ -1,0 +1,46 @@
+---
+import {
+  getCollection,
+  CollectionEntry,
+} from "astro:content";
+
+// Component Imports
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import BlogPost from "../../components/BlogPost.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        post,
+      },
+    };
+  });
+}
+
+// If set up correctly, The page prop now has everything that
+// you need to render a single page (see next section).
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post, page } = Astro.props;
+const { Content } = await post.render();
+---
+
+<DefaultLayout title={post.data.title}>
+  <BlogPost post={post} />
+</DefaultLayout>
+<style>
+  .top-nav {
+    margin-bottom: 2em;
+  }
+  body {
+    --theme-accent: #3454d1;
+  }
+</style>

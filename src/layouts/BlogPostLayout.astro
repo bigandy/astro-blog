@@ -1,37 +1,44 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import BlogHeader from '../components/BlogHeader.astro';
-import GlobalNav from '../components/GlobalNav.astro';
-import BlogPost from '../components/BlogPost.astro';
-import FooterScripts from '../components/FooterScripts.astro';
+import BaseHead from "../components/BaseHead.astro";
+import BlogHeader from "../components/BlogHeader.astro";
+import GlobalNav from "../components/GlobalNav.astro";
+import BlogPost from "../components/BlogPost.astro";
+import FooterScripts from "../components/FooterScripts.astro";
 
-import 'src/css/global.css';
+import "src/css/global.css";
 
 interface Props {
   content: any;
 }
 
-const {content} = Astro.props;
-const {title, description, date, author, heroImage, permalink, alt} = content;
+const { content } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  author,
+  heroImage,
+  permalink,
+  alt,
+} = content;
 ---
-<html lang={ content.lang || 'en' }>
+
+<html lang={content.lang || "en"}>
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
+    <BaseHead
+      title={title}
+      description={description}
+      permalink={permalink}
+    />
   </head>
 
   <body>
     <div class="container">
       <BlogHeader />
       <GlobalNav />
-      <BlogPost title={title} author={author} heroImage={heroImage} date={date} alt={alt}>
-        <slot />
-      </BlogPost>
-      </div>
-      <FooterScripts />
+      <slot />
+    </div>
+    <FooterScripts />
+    <style></style>
   </body>
 </html>
-
-<style>
-
-</style>
-

@@ -1,19 +1,20 @@
 ---
 // Component Imports
-import DefaultLayout from '../../layouts/DefaultLayout.astro';
-import ForwardArrow from '../../components/ForwardArrow.astro';
-import BlogPostList from '../../components/BlogPostList.astro';
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import ForwardArrow from "../../components/ForwardArrow.astro";
+import BlogPostList from "../../components/BlogPostList.astro";
 
-let title = 'Blog';
+let title = "Blog";
 ---
+
 <DefaultLayout title={title}>
   <BlogPostList number={9} />
 
-  <ForwardArrow url="/blog/2" title="See more posts"/>
+  <ForwardArrow url="/blog/2" title="See more posts" />
 </DefaultLayout>
 
 <style>
-body {
-  --theme-accent: #3454D1;
-}
+  body {
+    --theme-accent: #3454d1;
+  }
 </style>
