@@ -29,8 +29,7 @@ interface Props {
   post: CollectionEntry<"blog">;
 }
 
-const { post, page } = Astro.props;
-const { Content } = await post.render();
+const { post } = Astro.props;
 ---
 
 <DefaultLayout title={post.data.title}>

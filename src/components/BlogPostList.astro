@@ -9,8 +9,6 @@ const now = new Date();
 // Get all the posts from the posts directory
 allPosts = await getCollection("blog");
 allPosts = allPosts.filter((post) => {
-  console.log({ post: post.data });
-  // return post
   // Get rid of draft posts first
   if (post.data.draft && post.data.draft === true) {
     return false;
