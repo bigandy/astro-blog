@@ -19,12 +19,13 @@ const { Content } = await post.render();
           }
         </p>
         <h1 class="title">{post.data.title}</h1>
+        <Author
+          name="@bigandy"
+          href="https://twitter.com/bigandy"
+        />
       </header>
       <Content />
-      <Author
-        name="@bigandy"
-        href="https://twitter.com/bigandy"
-      />
+
       <BackArrow
         url={"/blog/"}
         title={"Back to all blog posts"}

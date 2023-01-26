@@ -5,7 +5,7 @@ import {
 } from "astro:content";
 
 // Component Imports
-import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 
 export async function getStaticPaths() {
@@ -32,9 +32,9 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<DefaultLayout title={post.data.title}>
+<BlogLayout title={post.data.title}>
   <BlogPost post={post} />
-</DefaultLayout>
+</BlogLayout>
 <style>
   .top-nav {
     margin-bottom: 2em;
