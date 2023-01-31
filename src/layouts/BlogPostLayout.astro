@@ -2,7 +2,6 @@
 import BaseHead from "../components/BaseHead.astro";
 import BlogHeader from "../components/BlogHeader.astro";
 import GlobalNav from "../components/GlobalNav.astro";
-import BlogPost from "../components/BlogPost.astro";
 import FooterScripts from "../components/FooterScripts.astro";
 
 import "src/css/global.css";
@@ -15,11 +14,7 @@ const { content } = Astro.props;
 const {
   title,
   description,
-  date,
-  author,
-  heroImage,
   permalink,
-  alt,
 } = content;
 ---
 
@@ -39,6 +34,5 @@ const {
       <slot />
     </div>
     <FooterScripts />
-    <style></style>
   </body>
 </html>

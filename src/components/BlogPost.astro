@@ -2,37 +2,36 @@
 import dayjs from "dayjs";
 import Author from "./Author.astro";
 import BackArrow from "./BackArrow.astro";
+import BlogContent from "./BlogContent.astro"; 
 
 const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<div class="layout">
-  <article class="content layout-inner">
-    <div>
-      <header>
-        <p class="publish-date">
-          {
-            dayjs(post.data.date).format(
-              "dddd, DD MMMM YYYY"
-            )
-          }
-        </p>
-        <h1 class="title">{post.data.title}</h1>
-        <Author
-          name="@bigandy"
-          href="https://twitter.com/bigandy"
-        />
-      </header>
-      <Content />
+<article class="content post layout-inner">
+  <header>
+    <p class="publish-date">
+      {
+        dayjs(post.data.date).format(
+          "dddd, DD MMMM YYYY"
+        )
+      }
+    </p>
+    <h1 class="title">{post.data.title}</h1>
+    <Author
+      name="@bigandy"
+      href="https://twitter.com/bigandy"
+    />
+  </header>
+  <BlogContent>
+    <Content />
+  </BlogContent>
 
-      <BackArrow
-        url={"/blog/"}
-        title={"Back to all blog posts"}
-      />
-    </div>
-  </article>
-</div>
+  <BackArrow
+    url={"/blog/"}
+    title={"Back to all blog posts"}
+  />
+</article>
 
 <style>
   .content {
@@ -54,6 +53,10 @@ const { Content } = await post.render();
     border-bottom: 4px solid var(--theme-divider);
   }
 
+  p, li {
+    margin-block-end: 1rem;
+  }
+
   .author,
   .publish-date {
     margin: 0;
@@ -67,5 +70,5 @@ const { Content } = await post.render();
   .title {
     font-size: 2.25rem;
     margin-block: 1rem;
-  }
+  } 
 </style>

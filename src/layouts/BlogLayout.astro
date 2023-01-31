@@ -66,11 +66,9 @@ let permalink = "https://andrewhudson.dev/";
   <body>
     <BlogHeader />
     <GlobalNav />
-    <div class="layout">
-      <article class="content layout-inner">
-        <slot />
-      </article>
-    </div>
+
+    <slot />
+
     <FooterScripts />
   </body>
 </html>
