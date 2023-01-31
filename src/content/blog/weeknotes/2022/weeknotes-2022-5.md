@@ -4,8 +4,7 @@ subTitle: "Weeknotes 2022 #5 and #6"
 date: 2022-02-06
 publishDate: "February 06 2022"
 draft: false
-description: ""
-tags: ["weeknotes"]
+description: ""tags: ["weeknotes"]
 ---
 
 It has been a busy couple of weeks so I am combining them both into one post.

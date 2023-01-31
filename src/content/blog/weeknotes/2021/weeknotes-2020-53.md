@@ -1,12 +1,10 @@
 ---
 title: Happy New Year!
-subTitle: 'Weeknotes 2020 #53'
+subTitle: "Weeknotes 2020 #53"
 date: 2021-01-03
-publishDate: 'January 3 2021'
+publishDate: "January 3 2021"
 draft: false
-description: ""
-tags: ['weeknotes']
-
+description: ""tags: ["weeknotes"]
 ---
 
 Over the Christmas and New Year break I:

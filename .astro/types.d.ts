@@ -203,6 +203,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"_dummy-content.md": {
+  id: "_dummy-content.md",
+  slug: "_dummy-content",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "a-break.md": {
   id: "a-break.md",
   slug: "a-break",
@@ -556,6 +563,13 @@ declare module 'astro:content' {
 "cold-running.md": {
   id: "cold-running.md",
   slug: "cold-running",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"container-queries/index.md": {
+  id: "container-queries/index.md",
+  slug: "container-queries",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
@@ -2950,6 +2964,55 @@ declare module 'astro:content' {
 "weeknotes/2022/weeknotes-2022-7.md": {
   id: "weeknotes/2022/weeknotes-2022-7.md",
   slug: "weeknotes/2022/weeknotes-2022-7",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"weeknotes/2022/weeknotes-2022-8.md": {
+  id: "weeknotes/2022/weeknotes-2022-8.md",
+  slug: "weeknotes/2022/weeknotes-2022-8",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"weeknotes/2022/weeknotes-2022-9.md": {
+  id: "weeknotes/2022/weeknotes-2022-9.md",
+  slug: "weeknotes/2022/weeknotes-2022-9",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"weeknotes/2023/weeknotes-2023-1.md": {
+  id: "weeknotes/2023/weeknotes-2023-1.md",
+  slug: "weeknotes/2023/weeknotes-2023-1",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"weeknotes/2023/weeknotes-2023-2.md": {
+  id: "weeknotes/2023/weeknotes-2023-2.md",
+  slug: "weeknotes/2023/weeknotes-2023-2",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"weeknotes/2023/weeknotes-2023-3.md": {
+  id: "weeknotes/2023/weeknotes-2023-3.md",
+  slug: "weeknotes/2023/weeknotes-2023-3",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"weeknotes/2023/weeknotes-2023-4.md": {
+  id: "weeknotes/2023/weeknotes-2023-4.md",
+  slug: "weeknotes/2023/weeknotes-2023-4",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"weeknotes/2023/weeknotes-2023-5.md": {
+  id: "weeknotes/2023/weeknotes-2023-5.md",
+  slug: "weeknotes/2023/weeknotes-2023-5",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">

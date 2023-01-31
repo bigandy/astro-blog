@@ -4,8 +4,7 @@ subTitle: "Weeknotes 2022 #4"
 date: 2022-01-24
 publishDate: "January 24 2022"
 draft: false
-description: ""
-tags: ["weeknotes"]
+description: ""tags: ["weeknotes"]
 ---
 
 Over the last week I:

@@ -5,9 +5,8 @@ draft: false
 description: We met my parents! Emma (re-)started nursery!
 tags: ['weeknotes']
 author: 'andrew'
-
-
 ---
+
 -   Saturday we met up with my parents for a walk and then went back to their garden and had a delicious picnic outside with cheeses and charcuterie and
 
 -   Emma has a place in a different nursery that has opened near my place of work (as her current normal nursery is still shut) which means that we finally have a few days a week where both kids are being looked after so we can get a breather and the kids can have some fun with their friends.

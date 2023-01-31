@@ -5,9 +5,8 @@ draft: false
 description: Met the parents!
 tags: ['weeknotes']
 author: 'andrew'
-
-
 ---
+
 -   On Sunday we met my parents at Beale Park and enjoyed our first trip there since last year. The animals were great and the kids had great time. The weather was sunny and we had a picnic on the grass and then an ice-cream later. Perfect!
 
 -   I ran four times this week which took me over 20 miles for the first time since March.

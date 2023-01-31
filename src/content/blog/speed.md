@@ -1,11 +1,10 @@
 ---
-title: 'Speed!!!'
+title: "Speed!!!"
 date: 2011-05-26 21:04:11
 draft: false
 description: ""
-tags: ['life']
-author: 'Andrew'
-
+tags: ["life"]
+author: "Andrew"
 ---
 
 Lately I seem to be totally obsessed with speed and tonight I have made two fantastic advances in my quest for online speed:

@@ -1,13 +1,12 @@
 ---
-title: 'Automation (my) Solution'
+title: "Automation (my) Solution"
 date: 2013-12-04 15:33:46
 draft: false
 description: ""
-tags: ['developing','hide']
-author: 'Andrew'
-
-
+tags: ["developing", "hide"]
+author: "Andrew"
 ---
+
 ```
 #!/bin/bash
 

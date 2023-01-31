@@ -1,12 +1,10 @@
 ---
 title: Happy New Year!
-subTitle: 'Weeknotes 2022 #1'
+subTitle: "Weeknotes 2022 #1"
 date: 2022-01-06
-publishDate: 'January 6 2022'
+publishDate: "January 6 2022"
 draft: false
-description: ""
-tags: ['weeknotes']
-
+description: ""tags: ["weeknotes"]
 ---
 
 Over the Christmas and New Year break I:

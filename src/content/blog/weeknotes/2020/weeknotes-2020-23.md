@@ -5,9 +5,8 @@ draft: false
 description: Back to School!
 tags: ['weeknotes']
 author: 'andrew'
-
-
 ---
+
 -   Arthur went to school for the first time in 10+ weeks. Just for 2 days on
     Monday and Tuesday but it was great for him (and us) for him to get some
     proper schooling and see his friends again.

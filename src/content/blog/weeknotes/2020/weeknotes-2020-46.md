@@ -6,9 +6,8 @@ draft: false
 description: Took out the Raspberry Pi from the depths of the cupboard.
 tags: ['weeknotes']
 author: 'andrew'
-
-
 ---
+
 This week:
 
 -   It rained heavily all of Saturday and I made good use of the time to set up my raspberry pi again. It seems as though I set it up each time I get it out so I am writing notes for myself so there's a place I can look back on to remind myself how to do things.

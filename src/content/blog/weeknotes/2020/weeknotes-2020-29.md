@@ -5,9 +5,8 @@ draft: false
 description: Family Picnic!
 tags: ['weeknotes']
 author: 'andrew'
-
-
 ---
+
 -   On Saturday we met up with my parents, brother and his partner in a park in Richmond and had a great afternoon playing games, eating delicious food and even an ice cream!
 
 *   I ran four times this week:
