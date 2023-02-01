@@ -1,0 +1,43 @@
+---
+// Component Imports
+import FullScreenLayout from "../../../layouts/FullScreenLayout.astro";
+import Block from "../components/Block.astro";
+import ContainerStyleQuerySupport from "../components/ContainerStyleQuerySupport.astro";
+import "src/css/container-queries-2.css";
+
+const title =
+  "Style Container Queries";
+---
+
+<FullScreenLayout title={title}>
+  <ContainerStyleQuerySupport />
+
+  <div class="container">
+    <label for="checkbox">Use Debugging?</label>
+    <input type="checkbox" id="checkbox"/>
+    
+    <div>
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+    </div>
+
+  </div>
+</FullScreenLayout>
+
+<style>
+  .container {
+    --debug: false;
+  }
+
+  .container:has(#checkbox:checked) {
+    --debug: true;
+  }
+  
+  @container style(--debug: true) {
+    .container :global(*) {
+      outline: 1px dashed red;
+    }
+  }
+</style>

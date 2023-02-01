@@ -1,0 +1,39 @@
+---
+// Component Imports
+---
+
+<div class="warning">
+  <p>
+    Your browser doesn't currently support @container style
+    queries. 
+  </p>
+  <p>Not yet figured out how to test for support for this so if you are on Chrome Canary then I am sorry you're getting this message!</p>
+</div>
+
+<div class="info">
+  <p>Browser support is incomplete.</p>
+  <p>Now in latest versions of Chrome Canary</p>
+  <p>
+    <a href="https://caniuse.com/css-container-queries"
+      >Check for latest support on Caniuse.com</a
+    >
+  </p>
+</div>
+
+<style>
+  @supports @container {
+    .warning {
+      display: none;
+    }
+  }
+
+  .info {
+    margin-bottom: 3em;
+  }
+
+  .warning {
+    border: 10px double red;
+    padding: 1rem;
+    margin-block-end: 1rem;
+  }
+</style>
