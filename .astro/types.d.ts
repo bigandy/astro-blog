@@ -3017,6 +3017,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"weeknotes/2023/weeknotes-2023-6.md": {
+  id: "weeknotes/2023/weeknotes-2023-6.md",
+  slug: "weeknotes/2023/weeknotes-2023-6",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "welcome-back-wc.md": {
   id: "welcome-back-wc.md",
   slug: "welcome-back-wc",
