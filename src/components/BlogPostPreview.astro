@@ -1,5 +1,6 @@
 ---
 import { CollectionEntry } from "astro:content";
+import ForwardArrow from "../components/ForwardArrow.astro";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -20,9 +21,8 @@ const { post } = Astro.props;
   </header>
   <main>
     <p>{post.data.description}</p>
-    <a href={`/blog/${post.slug}`}
-      >Read more about {post.data.title}</a
-    >
+    
+    <ForwardArrow url={`/blog/${post.slug}`} title={post.data.title} isBlog />
   </main>
 </article>
 

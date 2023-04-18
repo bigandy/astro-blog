@@ -1,17 +1,17 @@
 ---
-title: "Goals for 2014"
+title: 'Goals for 2014'
 date: 2014-01-14 20:57:20
 draft: false
-description: ""
-tags: ["life"]
-author: "Andrew"
+description: ''
+tags: ['life']
+author: 'Andrew'
 ---
 
 My key goals for the current year are:
 
-- Improve my JavaScript,
-- Solve my Rubick's Cube,
-- Do more exercise
+-   Improve my JavaScript,
+-   Solve my Rubick's Cube,
+-   Do more exercise
 
 ## Improve my JavaScript
 

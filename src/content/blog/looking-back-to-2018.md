@@ -1,10 +1,10 @@
 ---
-title: "Looking back to 2018"
+title: 'Looking back to 2018'
 date: 2019-01-01 17:23:08
 draft: false
-description: ""
-tags: ["life"]
-author: "Andrew"
+description: ''
+tags: ['life']
+author: 'Andrew'
 ---
 
 Emma was born in May and for the rest of the year our lives were turned upside down. One is fun but you forget about the early months and the lack of sleep but finally she's getting into more of a routine. We moved house in September.

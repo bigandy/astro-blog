@@ -7,14 +7,12 @@
     "build": "astro build",
     "preview": "astro preview"
   },
-  "devDependencies": {
-    "astro": "2.0.1"
-  },
   "dependencies": {
-    "@astrojs/lit": "1.1.0",
-    "@webcomponents/template-shadowroot": "0.1.0",
+    "astro": "2.3.0",
+    "@astrojs/lit": "2.0.1",
+    "@webcomponents/template-shadowroot": "0.2.1",
     "dayjs": "1.11.7",
-    "lit": "2.6.1",
-    "sass": "1.57.1"
+    "lit": "2.7.2",
+    "sass": "1.62.0"
   }
 }

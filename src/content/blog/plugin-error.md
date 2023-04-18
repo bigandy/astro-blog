@@ -1,10 +1,10 @@
 ---
-title: "Plugin Error"
+title: 'Plugin Error'
 date: 2011-03-31 21:44:15
 draft: false
-description: ""
-tags: ["wordpress"]
-author: "Andrew"
+description: ''
+tags: ['wordpress']
+author: 'Andrew'
 ---
 
 Trying to work on my plugin this evening has been frustrating because I keep on getting an error that says :

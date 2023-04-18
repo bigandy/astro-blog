@@ -1,17 +1,17 @@
 ---
-title: "Weeknotes #13"
+title: 'Weeknotes #13'
 date: 2019-01-16 10:51:15
 draft: false
-description: ""
-tags: ["weeknotes"]
-author: "andrew"
+description: ''
+tags: ['weeknotes']
+author: 'andrew'
 ---
 
 ## Exercise
 
-- Have started using the rowing machine at the gym, and also doing some lat pulldowns.
-- Keeping at 3x a week always consisting of run/cycle/elliptical.
-- Running on the weekend usually Sunday.
+-   Have started using the rowing machine at the gym, and also doing some lat pulldowns.
+-   Keeping at 3x a week always consisting of run/cycle/elliptical.
+-   Running on the weekend usually Sunday.
 
 ## Bread making course
 

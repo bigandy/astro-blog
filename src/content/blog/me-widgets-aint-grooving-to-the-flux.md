@@ -2,9 +2,9 @@
 title: "me widgets ain't grooving to the Flux"
 date: 2007-02-11 08:00:30
 draft: false
-description: ""
-tags: ["life"]
-author: "Andrew"
+description: ''
+tags: ['life']
+author: 'Andrew'
 ---
 
 Here is a quote:

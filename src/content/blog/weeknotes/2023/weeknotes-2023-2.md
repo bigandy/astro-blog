@@ -1,16 +1,16 @@
 ---
 title: First proper one of 2023!
-subTitle: "Weeknotes 2023 #2"
+subTitle: 'Weeknotes 2023 #2'
 date: 2023-01-09
-publishDate: "January 9 2023"
+publishDate: 'January 9 2023'
 draft: false
-description: ""tags: ["weeknotes"]
+description: ""
+tags: ['weeknotes']
 ---
 
 First proper one of the new year. Getting back into the swing of work and school so we are.
 
 Here's what I got up to over the last week:
-
 - had Galette de Roi over at new friends home to celebrate the arrival of the king
 - took down the Christmas decorations
 - taught Arthur more coding with the BBC Micro:Bit (he's loving it, me too)

@@ -2,9 +2,9 @@
 title: Dummy HTML
 date: 2021-01-01
 draft: true
-description: ""
-tags: ["post"]
-author: "Andrew"
+description: ''
+tags: ['post']
+author: 'Andrew'
 ---
 
 <h1>Didn't melt fairer keepsakes since Fellowship elsewhere.</h1>

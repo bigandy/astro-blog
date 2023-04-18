@@ -1,10 +1,10 @@
 ---
-title: "How to trigger a webhook with WordPress"
+title: 'How to trigger a webhook with WordPress'
 date: 2018-10-12 12:38:35
 draft: false
-description: ""
-tags: ["life"]
-author: "Andrew"
+description: ''
+tags: ['life']
+author: 'Andrew'
 ---
 
 I have a Gatsby site [andrewhudson.me](http://andrewhudson.me) which is a static Server Side Rendered (SSR) site built using React and hosted on Netlify. I wanted to trigger a build when I published a new post (or updated an existing one) in WordPress and here's how I did it.

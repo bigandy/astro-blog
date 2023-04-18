@@ -1,16 +1,16 @@
 ---
 title: "Monster Road Ride / First Pottery Class / Win for United"
-subTitle: "Weeknotes 2023 #3"
+subTitle: 'Weeknotes 2023 #3'
 date: 2023-01-16
-publishDate: "January 16 2023"
+publishDate: 'January 16 2023'
 draft: false
-description: ""tags: ["weeknotes"]
+description: ""
+tags: ['weeknotes']
 ---
 
 Settling into the routine of the new year but there were a couple of stings throughout the week.
 
 Here's what I got up to over the last week:
-
 - Zwift Hub ordered, received and set up
 - Had my first pottery class on Monday
 - Did a monster road bike ride to [Oxford with George](https://www.strava.com/activities/8371904430) on Tuesday and discovered two new pub
