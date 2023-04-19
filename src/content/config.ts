@@ -4,7 +4,6 @@ export const collections = {
   blog: defineCollection({
     schema: z.object({
       title: z.string(),
-      description: z.string().optional(),
       author: z.string().optional(),
       date: z.date().transform((str) => new Date(str)),
       draft: z.boolean().default(false),

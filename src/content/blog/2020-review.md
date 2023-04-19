@@ -1,11 +1,10 @@
 ---
 title: 2020 in Review
-subTitle: 'What happened in 2020'
 date: 2020-12-31
 draft: false
 description: Some highlights of 2020
-tags: ['review']
-author: 'Andrew'
+tags: ["review"]
+author: "Andrew"
 ---
 
 # This Year

@@ -1,8 +1,6 @@
 ---
 title: "Arthur's Birthday"
-subTitle: 'Weeknotes 2023 #9'
 date: 2023-02-27
-publishDate: 'February 27 2023'
 draft: false
 description: ""
 tags:
