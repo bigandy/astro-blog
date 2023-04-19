@@ -7,22 +7,21 @@ interface Props {
 }
 import dayjs from "dayjs";
 
-const { post } = Astro.props;
+const { post: { slug, data } } = Astro.props;
+const { draft, title, date } = data;
 ---
 
-<article class="post-preview layout-inner">
+<article class={`post-preview layout-inner ${draft && "draft"}`}>
   <header>
     <h3 class="publish-date">
-      {dayjs(post.data.date).format("dddd, DD MMMM YYYY")}
+      {dayjs(date).format("dddd, DD MMMM YYYY")}
     </h3>
-    <a href={`/blog/${post.slug}`}>
-      <h1 class="title">{post?.data?.title}</h1>
+    <a href={`/blog/${slug}`}>
+      <h1 class="title">{title}</h1>
     </a>
   </header>
   <main>
-    <p>{post.data.description}</p>
-    
-    <ForwardArrow url={`/blog/${post.slug}`} title={post.data.title} isBlog />
+    <ForwardArrow url={`/blog/${slug}`} title={title} isBlog />
   </main>
 </article>
 
@@ -32,13 +31,40 @@ const { post } = Astro.props;
   }
 
   .post-preview {
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 4px solid var(--theme-divider);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 4px double var(--theme-divider);
+    max-width: max-content;
+   
+    &:hover {
+      max-width: 100%;
+    }
+  }
 
-    &:first-of-type {
-      border-top: 4px solid var(--theme-divider);
-      padding-block-start: 2rem;
+  .draft {
+    border-left: 2px solid var(--theme-accent);
+    padding-left: 2rem;
+    position: relative;
+    transition: all 0.3s;
+
+    &::before {
+      transition: all 0.3s;
+      text-transform: uppercase;
+      position: absolute;
+      font-size: 10px;
+      left: -0.5rem;
+      top: calc(50% - 1em);
+      content: "draft"; rotate: -90deg; display: inline-block; 
+    }
+
+    &:hover {
+      padding-left: 0;
+      border-left: 0;
+      max-width: 100%;
+
+      &::before {
+        opacity: 0;
+      }
     }
   }
 
@@ -48,17 +74,15 @@ const { post } = Astro.props;
     text-align: left;
     align-items: flex-start;
     justify-content: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 
   .title,
-  .author,
   .publish-date {
     margin: 0;
   }
 
-  .publish-date,
-  .author {
+  .publish-date {
     font-size: 1.25rem;
     color: var(--theme-text-lighter);
   }

@@ -3021,6 +3021,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] },
+"weeknotes/2023/Untitled-1.md": {
+  id: "weeknotes/2023/Untitled-1.md",
+  slug: "weeknotes/2023/untitled-1",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] },
 "weeknotes/2023/code-test-post.md": {
   id: "weeknotes/2023/code-test-post.md",
   slug: "weeknotes/2023/code-test-post",
@@ -3038,6 +3045,13 @@ declare module 'astro:content' {
 "weeknotes/2023/weeknotes-2023-10.md": {
   id: "weeknotes/2023/weeknotes-2023-10.md",
   slug: "weeknotes/2023/weeknotes-2023-10",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] },
+"weeknotes/2023/weeknotes-2023-16.md": {
+  id: "weeknotes/2023/weeknotes-2023-16.md",
+  slug: "weeknotes/2023/weeknotes-2023-16",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">

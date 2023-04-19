@@ -6,11 +6,4 @@ interface Props {
 
 const { name, href } = Astro.props;
 ---
-<style>
-  .author {
-    margin-bottom: 0.75rem;
-  }
-</style>
-<div class="author">
-  <p>Written by <a href={href}>{name}</a></p>
-</div>
+<p>Written by <a href={href}>{name}</a></p>

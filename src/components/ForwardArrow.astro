@@ -2,7 +2,7 @@
 interface Props {
   url: string;
   title: string;
-  isBlog?: string;
+  isBlog?: boolean;
 }
 
 const { url, title, isBlog = false } = Astro.props;
@@ -14,6 +14,5 @@ const { url, title, isBlog = false } = Astro.props;
 <style>
   a {
     display: block;
-    margin-top: 2rem;
   }
 </style>

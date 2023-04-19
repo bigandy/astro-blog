@@ -10,18 +10,14 @@ const { Content } = await post.render();
 
 <article class="content post layout-inner">
   <header>
-    <p class="publish-date">
+    <h3 class="publish-date">
       {
         dayjs(post.data.date).format(
           "dddd, DD MMMM YYYY"
         )
       }
-    </p>
+    </h3>
     <h1 class="title">{post.data.title}</h1>
-    <Author
-      name="Andrew Hudson"
-      href="https://andrewhudson.dev/about"
-    />
   </header>
   <BlogContent>
     <Content />
@@ -42,33 +38,22 @@ const { Content } = await post.render();
     margin-top: 1rem;
   }
 
-  .content :global(h2) {
-    margin-top: 4rem;
-  }
 
   header {
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 4px solid var(--theme-divider);
+    padding-block: 2rem;
   }
 
   p, li {
     margin-block-end: 1rem;
   }
 
-  .author,
   .publish-date {
+    font-size: 1.25rem;
     margin: 0;
-  }
-
-  .publish-date,
-  .author {
     color: var(--theme-text-lighter);
   }
 
   .title {
-    font-size: 2.25rem;
-    margin-block: 1rem;
+    margin: 0;
   } 
 </style>
