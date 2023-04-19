@@ -1,6 +1,6 @@
 ---
 const overrideServiceWorker = false;
-const showServiceWorker = import.meta.env.MODE === 'production' ||overrideServiceWorker;
+const showServiceWorker = import.meta.env.MODE === 'production' || overrideServiceWorker;
 ---
 {showServiceWorker &&
 	<script>

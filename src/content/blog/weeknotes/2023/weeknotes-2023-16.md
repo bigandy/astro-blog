@@ -1,7 +1,7 @@
 ---
 title: "Biking in the Brecon Beacons"
 date: 2023-04-18
-draft: false
+draft: true
 tags:
 	- 'weeknotes'
 ---

@@ -1,41 +1,16 @@
 ---
-import {
-  getCollection,
-} from "astro:content";
 // Component Imports
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import BlogPostPreview from "../../components/BlogPostPreview.astro";
 import ArchiveNav from "../../components/ArchiveNav.astro";
 
+import { getAllPosts } from "../../components/BlogPostList.astro";
+
 export async function getStaticPaths({ paginate }) {
-  const getAllPoops = async () => {
-    const now = new Date();
-    // Get all the posts from the posts directory
-    let allPosts = await getCollection("blog");
-
-    allPosts = allPosts.filter((post) => {
-      // Get rid of draft posts first
-      if (post.data.draft && post.data.draft === true) {
-        return false;
-      }
-
-      // get rid of future posts
-      return (
-        new Date(post.data.date).getTime() <= now.getTime()
-      );
-    });  
-    
-    allPosts = allPosts.sort(
-      (a, b) =>
-        new Date(b.data.date).valueOf() -
-        new Date(a.data.date).valueOf()
-    );
-
-    return allPosts;
-  };
+  
   // Load your data with fetch(), Astro.fetchContent(), etc.
 
-  const allPosts = await getAllPoops();
+  const allPosts = await getAllPosts();
 
   // Return a paginated collection of paths for all posts
   return paginate(allPosts, { pageSize: 10 });
