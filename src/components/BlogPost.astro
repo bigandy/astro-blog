@@ -1,8 +1,8 @@
 ---
 import dayjs from "dayjs";
-import Author from "./Author.astro";
 import BackArrow from "./BackArrow.astro";
 import BlogContent from "./BlogContent.astro"; 
+import { blogHomeUrl } from "./GlobalNav.astro";
 
 const { post } = Astro.props;
 const { Content } = await post.render();
@@ -24,7 +24,7 @@ const { Content } = await post.render();
   </BlogContent>
 
   <BackArrow
-    url={"/blog/"}
+    url={blogHomeUrl}
     title={"Back to all blog posts"}
   />
 </article>

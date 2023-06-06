@@ -1,0 +1,112 @@
+---
+import dayjs from "dayjs";
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(customParseFormat)
+// Component Imports
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import { Client } from '@notionhq/client';
+
+import groupBy from "lodash.groupby";  
+
+const notion = new Client({
+	auth: import.meta.env.NOTION_KEY,
+});
+const NOTION_DB_ID = import.meta.env.NOTION_DB;
+
+const googleBookSearch = async (title, author) => {
+	try {
+		const results = await fetch(
+			`https://www.googleapis.com/books/v1/volumes?q=${encodeURI(
+				title + author
+			)}`
+		);
+		const json = await results.json();
+
+		// take the first, assume that it is the correct one.
+		const thumbnail =
+			json?.items[0].volumeInfo?.imageLinks?.thumbnail ?? null;
+		return thumbnail;
+	} catch (error) {
+		console.error(error);
+		return '';
+	}
+};
+
+    const query = await notion.databases.query({
+        database_id: NOTION_DB_ID,
+    });
+
+    const queryResults = query?.results || null;
+
+    // Go through the list and get the thumbnail for each image;
+    const list = queryResults.map(async (book: any) => {
+        const bookTitle =
+            book.properties.Name.title[0]?.plain_text ?? 'unknown title';
+        const bookAuthor =
+            book.properties?.Author.rich_text[0]?.plain_text ??
+            'unknown author';
+
+        const createdDate = book.created_time;
+        const finishedDate =
+            book.properties['Date Finished']?.date?.start || '';
+        let thumbnail = book.properties?.Image?.url ?? null;
+
+        // if we don't have the thumbnail, call googleBookSearch to get from API
+        if (!thumbnail) {
+        	thumbnail = await googleBookSearch(bookTitle, bookAuthor);
+        }
+
+        return {
+            bookTitle,
+            bookAuthor,
+            createdDate,
+            finishedDate,
+            thumbnail: thumbnail?.replaceAll('http:', 'https:'),
+        };
+    });
+
+    const books = await Promise.all([...list]);
+
+const groupedBooks: Record<string, {
+    bookTitle: any;
+    bookAuthor: any;
+    createdDate: any;
+    finishedDate: any;
+    thumbnail: any;
+}[]> = groupBy(books, (book) => {
+  const finishedDate = dayjs(book.finishedDate);
+  return finishedDate.isValid() ? finishedDate.format("MM-YYYY") : "unfinished";
+});
+
+const { unfinished, ...months } = groupedBooks;
+
+const title="bookshelf";
+
+
+---
+
+<DefaultLayout title={title}>
+<div>
+    {
+        Object.entries(months).map(([month, books]) => {
+            console.log(month, dayjs(month).format("MM-YYYY"));
+            const monthFomatted = dayjs(month, 'MM-YYYY').format('MMMM YYYY');
+            return (
+                <div>
+                    <h2>{monthFomatted}</h2>   
+                    <ol>
+                        {books.map(book => {
+                            return (
+                                <li>
+                                    <h3>{book.bookTitle}</h3>
+                                </li>
+                            );
+                        })}
+                    </ol> 
+                </div>
+            )
+        })
+    }
+</div>
+
+</DefaultLayout>

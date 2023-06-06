@@ -8,11 +8,17 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "2.3.0",
-    "@astrojs/lit": "2.0.1",
+    "@astrojs/lit": "2.0.2",
+    "@notionhq/client": "2.2.5",
+    "@types/lodash.groupby": "4.6.7",
     "@webcomponents/template-shadowroot": "0.2.1",
-    "dayjs": "1.11.7",
-    "lit": "2.7.2",
-    "sass": "1.62.0"
+    "astro": "2.5.7",
+    "dayjs": "1.11.8",
+    "lit": "2.7.5",
+    "lodash.groupby": "4.6.0",
+    "sass": "1.62.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "4.14.195"
   }
 }

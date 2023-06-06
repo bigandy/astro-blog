@@ -4,6 +4,7 @@ import lit from "@astrojs/lit";
 /** @type {import('astro').AstroUserConfig} */
 export default {
   integrations: [lit()],
+  scopedStyleStrategy: "class",
   vite: {
     plugins: [],
   },

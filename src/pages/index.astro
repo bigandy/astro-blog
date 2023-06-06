@@ -2,6 +2,7 @@
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import BlogPostList from "../components/BlogPostList.astro";
 import ForwardArrow from "../components/ForwardArrow.astro";
+import {blogHomeUrl} from '../components/GlobalNav.astro'
 ---
 
 <DefaultLayout title="Welcome!">
@@ -20,7 +21,7 @@ import ForwardArrow from "../components/ForwardArrow.astro";
     <h2>Latest Blog Posts</h2>
     <BlogPostList number={3} />
 
-    <ForwardArrow url="/blog/" title="See more posts" />
+    <ForwardArrow url={blogHomeUrl} title="See more posts" />
   </div>
 </DefaultLayout>
 
