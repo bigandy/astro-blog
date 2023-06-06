@@ -1,26 +1,4 @@
 ---
-const overrideServiceWorker = false;
-const showServiceWorker = import.meta.env.MODE === 'production' || overrideServiceWorker;
 ---
-{showServiceWorker &&
-	<script>
-		if ('serviceWorker' in navigator) {
-			window.addEventListener('load', function() {
-				navigator.serviceWorker.register('/sw.js', {
-					scope: '/'
-				}).then(function(registration) {
-					// Successfully registered the Service Worker
-					console.log('Service Worker registration successful with scope: ', registration.scope);
-				}).catch(function() {
-					// Failed to register the Service Worker
-					//console.log('Service Worker registration failed: ', err);
-				});
 
-				if (navigator.serviceWorker.controller) {
-					navigator.serviceWorker.controller.postMessage({'command': 'trimCaches'});
-				}
-			});
-		}
-	</script>
-	<script src="/js/instant.page.js" defer></script>
-}
+<script src="/js/instant.page.js" defer></script>

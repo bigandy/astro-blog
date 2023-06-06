@@ -56,6 +56,7 @@ const googleBookSearch = async (title, author) => {
         	thumbnail = await googleBookSearch(bookTitle, bookAuthor);
         }
 
+
         return {
             bookTitle,
             bookAuthor,
@@ -89,7 +90,6 @@ const title="bookshelf";
 <div>
     {
         Object.entries(months).map(([month, books]) => {
-            console.log(month, dayjs(month).format("MM-YYYY"));
             const monthFomatted = dayjs(month, 'MM-YYYY').format('MMMM YYYY');
             return (
                 <div>

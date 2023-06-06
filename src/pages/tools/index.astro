@@ -1,0 +1,52 @@
+---
+// Component Imports
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+
+
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+const title = 'Tools I use';
+---
+
+<DefaultLayout title={title}>
+	<div class="container">
+        <h3>Social Media</h3>
+		<ul>
+			<li>
+				<p>For excellent code screenshots for sharing on social media I use <a href="https://app.codeimage.dev/">codeimage</a></p>
+				<figure>
+					<img src="/images/code-image.png" alt="Screenshot of Code image homepage" width="600"/>
+				</figure>
+			</li>
+		</ul>
+		
+	</div>
+</DefaultLayout>
+
+<style lang="scss">
+body {
+	--theme-accent: oklch(0.59 0.31 309.65);
+}
+
+.container {
+	:global(.intro) {
+		& + h2 {
+			margin-top: 2rem;
+		}
+	}
+
+	figure {
+		box-shadow: 1px 1px 5px var(--theme-accent);
+		padding: 1rem;
+		border-radius: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	img {
+		// border-radius: 0.5rem;
+		max-width: 100%;
+	}
+}
+</style>
