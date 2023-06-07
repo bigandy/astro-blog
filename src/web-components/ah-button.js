@@ -1,6 +1,6 @@
 import { LitElement, css, html } from "lit";
 import { classMap } from "lit/directives/class-map.js";
-import "lit/experimental-hydrate-support.js";
+import "@lit-labs/ssr-client/lit-element-hydrate-support.js";
 
 /**
  * An ah-button element. A simple button that has a toggleable active state that changes when you click the button.
@@ -13,6 +13,7 @@ export class AHButton extends LitElement {
   static properties = {
     outlined: false,
     fullwidth: false,
+    grow: false,
     _active: { state: true },
   };
 
@@ -23,7 +24,6 @@ export class AHButton extends LitElement {
   }
 
   toggleActive() {
-    console.log("clicking works");
     this._active = !this._active;
   }
 
@@ -34,20 +34,13 @@ export class AHButton extends LitElement {
           outlined: this.outlined,
           fullwidth: this.fullwidth,
           active: this._active,
+          grow: this.grow,
         })}
         @click=${this.toggleActive}
       >
-        <slot
-          part="before"
-          class="before"
-          name="before"
-        ></slot>
+        <slot part="before" class="before" name="before"></slot>
         <slot></slot>
-        <slot
-          part="after"
-          class="after"
-          name="after"
-        ></slot>
+        <slot part="after" class="after" name="after"></slot>
       </button>
     `;
   }
@@ -59,27 +52,19 @@ export class AHButton extends LitElement {
     }
 
     button {
-      border-radius: calc(
-        var(--ah-button-border-radius, 20) * 1px
-      );
+      border-radius: calc(var(--ah-button-border-radius, 20) * 1px);
       border: none;
-      padding-inline: var(
-        --ah-button-padding-inline,
-        1.2em
-      );
+      padding-inline: var(--ah-button-padding-inline, 1.2em);
       padding-block: var(--ah-button-padding-block, 0.6em);
       font-size: 1em;
-      background: var(
-        --ah-button-background,
-        var(--brand, black)
-      );
+      background: var(--ah-button-background, var(--brand, black));
       color: var(--ah-button-color, white);
       cursor: pointer;
       transition: background-color 0.25s;
       border: 1px solid transparent;
     }
 
-    .active {
+    .grow.active {
       font-size: 200%;
     }
 
@@ -88,10 +73,7 @@ export class AHButton extends LitElement {
     }
 
     .outlined {
-      border-color: var(
-        --ah-button-background,
-        var(--brand)
-      );
+      border-color: var(--ah-button-background, var(--brand));
       color: var(--ah-button-outlined-color, black);
     }
 
@@ -101,10 +83,7 @@ export class AHButton extends LitElement {
     }
 
     .outlined:hover {
-      border-color: var(
-        --ah-button-background-hover,
-        var(--brand-hover)
-      );
+      border-color: var(--ah-button-background-hover, var(--brand-hover));
       background-color: lightgray;
     }
 

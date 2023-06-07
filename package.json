@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@astrojs/lit": "2.0.2",
+    "@lit-labs/ssr-client": "1.1.2",
     "@notionhq/client": "2.2.5",
     "@types/lodash.groupby": "4.6.7",
     "@webcomponents/template-shadowroot": "0.2.1",
@@ -19,6 +20,7 @@
     "sass": "1.62.1"
   },
   "devDependencies": {
+    "@lit-labs/ssr-dom-shim": "1.1.1",
     "@types/lodash": "4.14.195"
   }
 }
