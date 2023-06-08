@@ -5,5 +5,8 @@
       "@/components/*": ["components/*"]
     },
     "allowSyntheticDefaultImports": true,
+    "module": "es2022",
+    "target": "es2017",
+    "moduleResolution":"node",
   }
 }

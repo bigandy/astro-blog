@@ -41,12 +41,13 @@ export class AHBookCase extends LitElement {
 
         ${groups.map(([group, books]) => {
           const titleFormatted = dayjs(group, filterStart).format(filterEnd);
+          const booksLength = books.length;
           return html`<div>
             <h2>${titleFormatted}</h2>
             <ol reversed>
-              ${books.map((book) => {
+              ${books.map((book, index) => {
                 return html`<li>
-                  <span>${book.bookTitle}</span> by
+                  ${booksLength - index}. <span>${book.bookTitle}</span> by
                   <span>${book.bookAuthor}</span>
                 </li>`;
               })}
@@ -57,7 +58,12 @@ export class AHBookCase extends LitElement {
     `;
   }
 
-  static styles = css``;
+  static styles = css`
+    ol {
+      list-style: none;
+      padding-left: 1rem;
+    }
+  `;
 }
 
 customElements.define("ah-bookcase", AHBookCase);
