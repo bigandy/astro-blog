@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
 import { Client } from "@notionhq/client";
-import groupBy from "lodash.groupby";
 
 const notion = new Client({
   auth: import.meta.env.NOTION_KEY,
@@ -20,7 +19,45 @@ type Book = {
 
 type Grouping = Record<string, Book[]>;
 
-type GroupedBooks = Grouping[];
+export type GroupedBooks = Grouping[];
+
+export const getBooks = async () => {
+  const query = await notion.databases.query({
+    database_id: NOTION_DB_ID,
+  });
+
+  const queryResults = query?.results || null;
+
+  // Go through the list and get the thumbnail for each image;
+  const list = queryResults.map(async (book: any) => {
+    const bookTitle =
+      book.properties.Name.title[0]?.plain_text ?? "unknown title";
+    const bookAuthor =
+      book.properties?.Author.rich_text[0]?.plain_text ?? "unknown author";
+
+    const createdDate = book.created_time;
+    const finishedDate = book.properties["Date Finished"]?.date?.start || "";
+    const rating = book.properties["Rating (out of 10)"]?.select?.name;
+    let thumbnail = book.properties?.Image?.url ?? null;
+
+    // if we don't have the thumbnail, call googleBookSearch to get from API
+    if (!thumbnail) {
+      thumbnail = await googleBookSearch(bookTitle, bookAuthor);
+    }
+
+    return {
+      bookTitle,
+      bookAuthor,
+      createdDate,
+      finishedDate,
+      thumbnail: thumbnail?.replaceAll("http:", "https:"),
+      rating,
+    };
+  });
+
+  const books = await Promise.all([...list]);
+  return books;
+};
 
 const googleBookSearch = async (title, author) => {
   try {
@@ -38,69 +75,4 @@ const googleBookSearch = async (title, author) => {
     console.error(error);
     return "";
   }
-};
-
-const query = await notion.databases.query({
-  database_id: NOTION_DB_ID,
-});
-
-const queryResults = query?.results || null;
-
-// Go through the list and get the thumbnail for each image;
-const list = queryResults.map(async (book: any) => {
-  const bookTitle =
-    book.properties.Name.title[0]?.plain_text ?? "unknown title";
-  const bookAuthor =
-    book.properties?.Author.rich_text[0]?.plain_text ?? "unknown author";
-
-  console.log();
-
-  const createdDate = book.created_time;
-  const finishedDate = book.properties["Date Finished"]?.date?.start || "";
-  const rating = book.properties["Rating (out of 10)"]?.select?.name;
-  let thumbnail = book.properties?.Image?.url ?? null;
-
-  // if we don't have the thumbnail, call googleBookSearch to get from API
-  if (!thumbnail) {
-    thumbnail = await googleBookSearch(bookTitle, bookAuthor);
-  }
-
-  return {
-    bookTitle,
-    bookAuthor,
-    createdDate,
-    finishedDate,
-    thumbnail: thumbnail?.replaceAll("http:", "https:"),
-    rating,
-  };
-});
-
-const books = await Promise.all([...list]);
-
-export const groupedBooks = (format: "month" | "year"): GroupedBooks => {
-  let formatString = "";
-
-  switch (format) {
-    case "month":
-      formatString = "MM-YYYY";
-      break;
-    case "year":
-      formatString = "YYYY";
-      break;
-    default:
-      formatString = "MM-YYYY";
-      break;
-  }
-  const { unfinished, ...group } = groupBy(books, (book) => {
-    const finishedDate = dayjs(book.finishedDate);
-    return finishedDate.isValid()
-      ? finishedDate.format(formatString)
-      : "unfinished";
-  });
-
-  const groups = Object.entries(group);
-
-  return groups.sort((a, b) => {
-    return Number(b[0]) - Number(a[0]);
-  });
 };

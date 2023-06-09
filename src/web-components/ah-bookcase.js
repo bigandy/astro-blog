@@ -1,5 +1,5 @@
 import { LitElement, css, html } from "lit";
-import "@lit-labs/ssr-client/lit-element-hydrate-support.js";
+// import "@lit-labs/ssr-client/lit-element-hydrate-support.js";
 
 import "./ah-button.js";
 
@@ -7,14 +7,17 @@ import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
 
+import groupBy from "lodash.groupby";
+
 /**
  * An ah-bookcase element. A simple button that has a toggleable active state that changes when you click the button.
  */
 
 export class AHBookCase extends LitElement {
   static properties = {
-    months: { type: Array },
-    years: { type: Array },
+    books: { type: Array },
+    months: { state: true },
+    years: { state: true },
     _monthsActive: { state: true },
   };
 
@@ -24,14 +27,50 @@ export class AHBookCase extends LitElement {
     this._monthsActive = false;
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
+  groupedBooks(books, format) {
+    let formatString = "";
+
+    switch (format) {
+      case "month":
+        formatString = "MM-YYYY";
+        break;
+      case "year":
+        formatString = "YYYY";
+        break;
+      default:
+        formatString = "MM-YYYY";
+        break;
+    }
+    const { unfinished, ...group } = groupBy(books, (book) => {
+      const finishedDate = dayjs(book.finishedDate);
+      return finishedDate.isValid()
+        ? finishedDate.format(formatString)
+        : "unfinished";
+    });
+
+    const groups = Object.entries(group);
+
+    return groups.sort((a, b) => {
+      return Number(b[0]) - Number(a[0]);
+    });
+  }
+
   toggleActive() {
     this._monthsActive = !this._monthsActive;
   }
 
   render() {
+    // TODO: is it better to do this in the render function or in the constructor?
+    const months = this.groupedBooks(this.books, "month");
+    const years = this.groupedBooks(this.books, "year");
+
     const filterStart = this._monthsActive ? "MM-YYYY" : "YYYY";
     const filterEnd = this._monthsActive ? "MMMM YYYY" : "YYYY";
-    const groups = this._monthsActive ? this.months : this.years;
+    const groups = this._monthsActive ? months : years;
 
     return html`
       <div class="bookcase">
@@ -39,7 +78,8 @@ export class AHBookCase extends LitElement {
           ${this._monthsActive ? "Months" : "Years"}
         </ah-button>
 
-        ${groups.map(([group, books]) => {
+        ${Boolean(groups?.length > 0) &&
+        groups.map(([group, books]) => {
           const titleFormatted = dayjs(group, filterStart).format(filterEnd);
           const booksLength = books.length;
           return html`<div>

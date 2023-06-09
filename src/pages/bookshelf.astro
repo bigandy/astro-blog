@@ -4,14 +4,13 @@
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import { AHBookCase } from "../web-components/ah-bookcase.js";
 
-import { groupedBooks } from "src/utils/getBooksFromNotion";
-
-const months = groupedBooks("month");
-const years = groupedBooks("year");
+import { getBooks } from "src/utils/getBooksFromNotion";
 
 const title = "bookshelf";
+
+const books = await getBooks();
 ---
 
 <DefaultLayout title={title}>
-  <AHBookCase client:visible months={months} years={years}>DERP</AHBookCase>
+  <AHBookCase client:visible books={books}></AHBookCase>
 </DefaultLayout>

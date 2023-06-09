@@ -21,7 +21,6 @@
     "sass": "1.62.1"
   },
   "devDependencies": {
-    "@lit-labs/ssr-dom-shim": "1.1.1",
     "@types/lodash": "4.14.195"
   }
 }

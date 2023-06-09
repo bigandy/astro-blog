@@ -1,6 +1,5 @@
 import { LitElement, css, html } from "lit";
 import { classMap } from "lit/directives/class-map.js";
-import "@lit-labs/ssr-client/lit-element-hydrate-support.js";
 
 /**
  * An ah-button element. A simple button that has a toggleable active state that changes when you click the button.
