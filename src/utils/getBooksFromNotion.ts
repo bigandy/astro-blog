@@ -3,6 +3,8 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
 import { Client } from "@notionhq/client";
 
+import { AssetCache } from "@11ty/eleventy-fetch";
+
 const notion = new Client({
   auth: import.meta.env.NOTION_KEY,
 });
@@ -22,6 +24,16 @@ type Grouping = Record<string, Book[]>;
 export type GroupedBooks = Grouping[];
 
 export const getBooks = async () => {
+  // check if in cache here.
+  // Pass in your unique custom cache key
+  const asset = new AssetCache("notion_book_list");
+
+  // check if the cache is fresh within the last day
+  if (asset.isCacheValid("1d")) {
+    // if so, return the cached value
+    return asset.getCachedValue();
+  }
+
   const query = await notion.databases.query({
     database_id: NOTION_DB_ID,
   });
@@ -56,6 +68,9 @@ export const getBooks = async () => {
   });
 
   const books = await Promise.all([...list]);
+
+  await asset.save(books, "json");
+
   return books;
 };
 
