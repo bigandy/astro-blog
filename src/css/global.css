@@ -2,8 +2,7 @@
   font-family: "Anybody";
   font-style: normal;
   font-weight: 900;
-  src: local(""),
-    url("/fonts/anybody/anybody-v4-latin-900.woff2") format("woff2");
+  src: url("/fonts/anybody/anybody-v4-latin-900.woff2") format("woff2");
 }
 
 :root {
@@ -28,35 +27,14 @@
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
 
-  --color-blue: #3894ff;
-  --color-blue-rgb: 56, 148, 255;
-  --color-green: #17c083;
-  --color-green-rgb: 23, 192, 131;
-  --color-orange: #ff5d01;
-  --color-orange-rgb: 255, 93, 1;
   --color-purple: #882de7;
   --color-purple-rgb: 136, 45, 231;
-  --color-red: #ff1639;
-  --color-red-rgb: 255, 22, 57;
-  --color-yellow: #ffbe2d;
-  --color-yellow-rgb: 255, 190, 45;
-
-  --heading-font-weight: 999;
-}
-
-@property --f-body-weight {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 900;
 }
 
 :root {
-  --anybody-variable: "Anybody", cursive;
-  --font-family: var(--anybody-variable);
+  --header-font-family: "Anybody", cursive;
 
   --f-body-weight: 900;
-  --f-body-width: 150;
-  --f-body-slant: -10;
 
   --f-h1-size: 61;
   --f-h1-lh: 74;
@@ -72,17 +50,32 @@
   --f-h6-size: 20;
   --f-h6-lh: 24;
 
-  --f-body-size: 16;
-
   --f-small-size: 12.8;
   --f-small-lh: 12.8;
+}
 
-  --row-size: 8;
+html {
+  background: var(--theme-bg);
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  /* adding this here so we can use @container queries with the name of 'root' or 'layout' and it applies here.  */
+  container: root layout / inline-size;
+  min-height: 100%;
 }
 
 body {
   font-family: var(--font-fallback);
   accent-color: var(--theme-accent);
+
+  color: var(--theme-text);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 18px;
+  line-height: 1.625;
+  padding-inline: 1rem;
 }
 
 input,
@@ -128,11 +121,12 @@ small,
 
 :where(h1, h2, h3, h4, h5, h6) {
   font-weight: var(--f-body-weight);
-  font-family: var(--font-family);
+  font-family: var(--header-font-family);
 }
 
 :root {
   color-scheme: light;
+  --theme-accent-blue: #3454d1;
   --theme-accent: var(--color-purple);
   --theme-accent-rgb: var(--color-purple-rgb);
   --theme-accent-opacity: 0.1;
@@ -141,30 +135,25 @@ small,
   --theme-text-light: var(--color-gray-600);
   --theme-text-lighter: var(--color-gray-500);
   --theme-bg: var(--color-white);
-  --theme-bg-offset: var(--color-gray-100);
-  --theme-bg-accent: rgba(var(--theme-accent-rgb), var(--theme-accent-opacity));
   --theme-code-inline-bg: var(--color-gray-100);
   --theme-code-text: var(--color-gray-100);
   --theme-code-bg: var(--color-gray-700);
 }
 
-body {
-  background: var(--theme-bg);
-  color: var(--theme-text);
-}
-
-:root.theme-dark {
-  color-scheme: dark;
-  --theme-accent-opacity: 0.3;
-  --theme-divider: var(--color-gray-900);
-  --theme-text: var(--color-gray-200);
-  --theme-text-light: var(--color-gray-400);
-  --theme-text-lighter: var(--color-gray-600);
-  --theme-bg: var(--color-black);
-  --theme-bg-offset: var(--color-gray-900);
-  --theme-code-inline-bg: var(--color-gray-800);
-  --theme-code-text: var(--color-gray-200);
-  --theme-code-bg: var(--color-gray-900);
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --theme-accent-blue: #90a6ff;
+    --theme-accent-opacity: 0.3;
+    --theme-divider: var(--color-gray-200);
+    --theme-text: var(--color-gray-200);
+    --theme-text-light: var(--color-gray-300);
+    --theme-text-lighter: var(--color-gray-300);
+    --theme-bg: var(--color-black);
+    --theme-code-inline-bg: var(--color-gray-800);
+    --theme-code-text: var(--color-gray-200);
+    --theme-code-bg: var(--color-gray-900);
+  }
 }
 
 ::selection {
@@ -179,43 +168,9 @@ body {
   margin: 0;
 }
 
-:root {
-  --user-font-scale: 1rem - 16px;
-  --max-width: calc(100% - 2rem);
-}
-
-@media (min-width: 50em) {
-  :root {
-    --max-width: 40em;
-  }
-}
-
 p,
 li {
   max-width: 600px;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-size: 18px;
-  /* font-size: clamp(
-    1rem,
-    0.4626rem + 1.0309vw + var(--user-font-scale),
-    1.25rem
-  ); */
-  line-height: 1.625;
-}
-
-html {
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-body {
-  width: 100%;
-  padding-inline: 1rem;
 }
 
 nav ul {
@@ -322,18 +277,14 @@ pre {
   --padding-inline: 2rem;
   padding: var(--padding-block) var(--padding-inline);
   padding-right: calc(var(--padding-inline) * 2);
-  /* margin-left: calc(50vw - var(--padding-inline));
-  transform: translateX(-50vw); */
-
   line-height: 1.414;
-  /* width: calc(100vw + (var(--padding-inline) * 2)); */
   max-width: calc(100% + (var(--padding-inline) * 2));
   overflow-y: hidden;
   overflow-x: auto;
   margin-block-start: 1rem;
 }
 
-@media (min-width: 37.75em) {
+@container root (min-width: 37.75em) {
   pre {
     --padding-inline: 1.25rem;
     border-radius: 8px;

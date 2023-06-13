@@ -38,7 +38,9 @@ allPosts = allPosts.slice(0, 9);
 interface Props {
   number: number;
 }
-const { number } = Astro.props;
+const { number = 9 } = Astro.props;
+
+allPosts = allPosts.slice(0, number);
 ---
 
-{allPosts.slice(0, number).map((p) => <BlogPostPreview post={p} />)}
+{allPosts.map((p) => <BlogPostPreview post={p} />)}
