@@ -82,6 +82,12 @@
 
 body {
   font-family: var(--font-fallback);
+  accent-color: var(--theme-accent);
+}
+
+input,
+label {
+  cursor: pointer;
 }
 
 h1 {
@@ -133,7 +139,7 @@ small,
   --theme-divider: var(--color-gray-100);
   --theme-text: var(--color-gray-800);
   --theme-text-light: var(--color-gray-600);
-  --theme-text-lighter: var(--color-gray-400);
+  --theme-text-lighter: var(--color-gray-500);
   --theme-bg: var(--color-white);
   --theme-bg-offset: var(--color-gray-100);
   --theme-bg-accent: rgba(var(--theme-accent-rgb), var(--theme-accent-opacity));

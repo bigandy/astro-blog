@@ -10,7 +10,7 @@ const notion = new Client({
 });
 const NOTION_DB_ID = import.meta.env.NOTION_DB;
 
-type Book = {
+export type Book = {
   bookTitle: string;
   bookAuthor: string;
   createdDate: string;

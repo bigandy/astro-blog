@@ -1,6 +1,4 @@
 import { LitElement, css, html } from "lit";
-// import "@lit-labs/ssr-client/lit-element-hydrate-support.js";
-
 import "./ah-button.js";
 
 import dayjs from "dayjs";

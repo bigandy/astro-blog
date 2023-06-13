@@ -2,15 +2,30 @@
 
 // Component Imports
 import DefaultLayout from "../layouts/DefaultLayout.astro";
-import { AHBookCase } from "../web-components/ah-bookcase.js";
+import Bookcase from "src/components/Svelte/Bookcase.svelte";
 
 import { getBooks } from "src/utils/getBooksFromNotion";
 
-const title = "bookshelf";
+const title = "Bookshelf";
 
 const books = await getBooks();
 ---
 
 <DefaultLayout title={title}>
-  <AHBookCase client:visible books={books}></AHBookCase>
+  <details>
+    <summary>introduction</summary>
+    <p>I store the books that I am reading and have read in Notion. I am using this page to display the books that I have read and the month that I finished reading them.</p>
+  </details>
+  
+  <Bookcase client:visible books={books} />
 </DefaultLayout>
+
+<style>
+ :root {
+  --theme-accent: oklch(0.52 0.12 189.58);
+ }
+
+ p {
+  margin-bottom: 3rem;
+ }
+</style>
