@@ -56,12 +56,10 @@
 
 html {
   background: var(--theme-bg);
-  overflow-x: hidden;
-  overflow-y: scroll;
-
   /* adding this here so we can use @container queries with the name of 'root' or 'layout' and it applies here.  */
   container: root layout / inline-size;
   min-height: 100%;
+  scrollbar-gutter: stable;
 }
 
 body {
