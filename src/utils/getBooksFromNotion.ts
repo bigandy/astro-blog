@@ -24,54 +24,60 @@ type Grouping = Record<string, Book[]>;
 export type GroupedBooks = Grouping[];
 
 export const getBooks = async () => {
-  // check if in cache here.
-  // Pass in your unique custom cache key
-  const asset = new AssetCache("notion_book_list");
+  try {
+    // check if in cache here.
+    // Pass in your unique custom cache key
+    const asset = new AssetCache("notion_book_list");
 
-  // check if the cache is fresh within the last day
-  if (asset.isCacheValid("1d")) {
-    // if so, return the cached value
-    return asset.getCachedValue();
-  }
-
-  const query = await notion.databases.query({
-    database_id: NOTION_DB_ID,
-  });
-
-  const queryResults = query?.results || null;
-
-  // Go through the list and get the thumbnail for each image;
-  const list = queryResults.map(async (book: any) => {
-    const bookTitle =
-      book.properties.Name.title[0]?.plain_text ?? "unknown title";
-    const bookAuthor =
-      book.properties?.Author.rich_text[0]?.plain_text ?? "unknown author";
-
-    const createdDate = book.created_time;
-    const finishedDate = book.properties["Date Finished"]?.date?.start || "";
-    const rating = book.properties["Rating (out of 10)"]?.select?.name;
-    let thumbnail = book.properties?.Image?.url ?? null;
-
-    // if we don't have the thumbnail, call googleBookSearch to get from API
-    if (!thumbnail) {
-      thumbnail = await googleBookSearch(bookTitle, bookAuthor);
+    // check if the cache is fresh within the last day
+    if (asset.isCacheValid("1d")) {
+      // if so, return the cached value
+      return asset.getCachedValue();
     }
 
-    return {
-      bookTitle,
-      bookAuthor,
-      createdDate,
-      finishedDate,
-      thumbnail: thumbnail?.replaceAll("http:", "https:"),
-      rating,
-    };
-  });
+    const query = await notion.databases.query({
+      database_id: NOTION_DB_ID,
+    });
 
-  const books = await Promise.all([...list]);
+    const queryResults = query?.results || null;
 
-  await asset.save(books, "json");
+    // Go through the list and get the thumbnail for each image;
+    const list = queryResults.map(async (book: any) => {
+      const bookTitle =
+        book.properties.Name.title[0]?.plain_text ?? "unknown title";
+      const bookAuthor =
+        book.properties?.Author.rich_text[0]?.plain_text ?? "unknown author";
 
-  return books;
+      const createdDate = book.created_time;
+      const finishedDate = book.properties["Date Finished"]?.date?.start || "";
+      const rating = book.properties["Rating (out of 10)"]?.select?.name;
+      let thumbnail = book.properties?.Image?.url ?? null;
+
+      // if we don't have the thumbnail, call googleBookSearch to get from API
+      if (!thumbnail) {
+        thumbnail = await googleBookSearch(bookTitle, bookAuthor);
+      }
+
+      return {
+        bookTitle,
+        bookAuthor,
+        createdDate,
+        finishedDate,
+        thumbnail: thumbnail?.replaceAll("http:", "https:"),
+        rating,
+      };
+    });
+
+    const books = await Promise.all([...list]);
+
+    await asset.save(books, "json");
+
+    return books;
+  } catch (error) {
+    console.error("error in getting books", error);
+
+    return [];
+  }
 };
 
 const googleBookSearch = async (title, author) => {

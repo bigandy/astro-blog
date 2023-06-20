@@ -10,6 +10,7 @@
 
   import groupBy from "lodash.groupby";
   import Toggle from "./Toggle.svelte";
+  import Warning from "./Warning.svelte";
 
   export let books: Book[] = [];
 
@@ -60,13 +61,12 @@
 </script>
 
 <div class="bookcase">
-  <Toggle
-    handleClick={toggle}
-    options={["month", "year"]}
-    active={monthsActive ? "month" : "year"}
-  />
-
   {#if Boolean(groups?.length > 0)}
+    <Toggle
+      handleClick={toggle}
+      options={["month", "year"]}
+      active={monthsActive ? "month" : "year"}
+    />
     {#each groups as [group, books]}
       {@const title = dayjs(group, filterStart).format(filterEnd)}
       <h2>{title}</h2>
@@ -76,5 +76,13 @@
         {/each}
       </ol>
     {/each}
+  {:else}
+    <Warning class="warning">No books returned from the API.</Warning>
   {/if}
 </div>
+
+<style>
+  .bookcase :global(.warning) {
+    margin-block: 1rem;
+  }
+</style>
