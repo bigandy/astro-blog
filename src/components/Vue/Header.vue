@@ -27,4 +27,10 @@ main {
   padding: 0.5rem;
   margin-block: 1rem;
 }
+
+@supports not (margin-trim: block-end) {
+  main {
+    margin-block-end: 0; /* margin-trim not supported unless in Safari. Removing here */
+  }
+}
 </style>

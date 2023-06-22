@@ -9,6 +9,12 @@ import FullScreenLayout from "../../../layouts/FullScreenLayout.astro";
 const title = "Vue - Introduction";
 ---
 
+<style>
+  .header {
+    margin-block-start: 2rem;
+  }
+</style>
+
 <FullScreenLayout title={title}>
   <div class="container">
     <p>My first Vue experience. Below I am using a <em>Header</em> component and a <em>Button</em> component.</p>
@@ -17,7 +23,7 @@ const title = "Vue - Introduction";
     
     <p>The Header is just a presentational component and with Astro I can make this static by not setting any <em>client:</em> param on it. This component has a couple of slots, the first being a named "header" slot and the other being the normal slot.</p>
 
-    <Header>
+    <Header class="header">
         <div slot="header">
             I am in the Header slot
         </div>
