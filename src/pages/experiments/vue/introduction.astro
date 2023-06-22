@@ -1,0 +1,33 @@
+---
+// Vue component imports
+import Button from "src/components/Vue/Button.vue";
+import Header from "src/components/vue/Header.vue";
+
+// Component Imports
+import FullScreenLayout from "../../../layouts/FullScreenLayout.astro";
+
+const title = "Vue - Introduction";
+---
+
+<FullScreenLayout title={title}>
+  <div class="container">
+    <p>My first Vue experience. Below I am using a <em>Header</em> component and a <em>Button</em> component.</p>
+
+    <h2>Header Component</h2>
+    
+    <p>The Header is just a presentational component and with Astro I can make this static by not setting any <em>client:</em> param on it. This component has a couple of slots, the first being a named "header" slot and the other being the normal slot.</p>
+
+    <Header>
+        <div slot="header">
+            I am in the Header slot
+        </div>
+        I am just flowing in the default slot
+    </Header>
+
+    <h2>Button component</h2>
+
+    <p>The Button component is a bit more interesting. It has a <em>client:load</em> param which means that it will be rendered on the client side. This component also has a slot, but this time it is a named slot called "pre".</p>
+
+    <Button client:load><span slot="pre">Button count is: </span></Button>
+  </div>
+</FullScreenLayout>

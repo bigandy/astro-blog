@@ -2,11 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"]
+      "@/components/*": [
+        "components/*"
+      ]
     },
     "allowSyntheticDefaultImports": true,
     "module": "es2022",
     "target": "es2017",
-    "moduleResolution":"node",
+    "moduleResolution": "node",
+    "jsx": "preserve"
   }
 }

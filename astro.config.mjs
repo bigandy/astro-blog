@@ -5,15 +5,17 @@ import lit from "@astrojs/lit";
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
 
+import vue from "@astrojs/vue";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [lit(), svelte()],
+  integrations: [lit(), svelte(), vue({ jsx: true })],
   scopedStyleStrategy: "class",
   vite: {
-    plugins: []
+    plugins: [],
   },
   server: {
-    port: 8888
+    port: 8888,
   },
-  site: "https://andrewhudson.dev"
+  site: "https://andrewhudson.dev",
 });
