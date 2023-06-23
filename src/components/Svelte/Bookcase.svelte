@@ -69,7 +69,10 @@
     />
     {#each groups as [group, books]}
       {@const title = dayjs(group, filterStart).format(filterEnd)}
-      <h2>{title}</h2>
+      <h2>
+        {title}
+        <span>{books.length} book{books.length > 1 ? "s" : ""} completed</span>
+      </h2>
       <ol reversed>
         {#each books as { bookTitle, bookAuthor }}
           <li>&ldquo;{bookTitle}&rdquo; by {bookAuthor}</li>
@@ -84,5 +87,11 @@
 <style>
   .bookcase :global(.warning) {
     margin-block: 1rem;
+  }
+
+  h2 span {
+    vertical-align: middle;
+    font-size: 1rem;
+    color: var(--color-gray-500);
   }
 </style>
