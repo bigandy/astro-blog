@@ -136,6 +136,7 @@ small,
   --theme-code-inline-bg: var(--color-gray-100);
   --theme-code-text: var(--color-gray-100);
   --theme-code-bg: var(--color-gray-700);
+  --border-radius-medium: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -244,7 +245,6 @@ strong {
 }
 
 /* Supporting Content */
-
 code:not([class*="language"]) {
   --border-radius: 3px;
   --padding-block: 0.2rem;
@@ -285,7 +285,7 @@ pre {
 @container root (min-width: 37.75em) {
   pre {
     --padding-inline: 1.25rem;
-    border-radius: 8px;
+    border-radius: var(--border-radius-medium);
   }
 }
 
