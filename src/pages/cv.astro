@@ -1,14 +1,11 @@
 ---
 import CVLayout from '../layouts/CVLayout.astro';
-import BlogPostPreview from '../components/BlogPostPreview.astro';
-
-
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
 
-<CVLayout title="CV" className="cv">
+<CVLayout title="CV">
 	<div class="contact"><a href="mailto:ahudson@gmail.com">ahudson@gmail.com</a><a href="tel:+447736063671" class="tel">+44 77 36063 671</a><a href="https://andrewhudson.dev">andrewhudson.dev</a></div>
 
 	<h2 id="personal-statement">Personal Statement</h2>
@@ -33,10 +30,38 @@ import BlogPostPreview from '../components/BlogPostPreview.astro';
 		<li class="entrylist__item h-event p-experience">
 			<article class="entry">
 				<div class="entry__header">
+					<h3 class="entry__title p-name">Senior Front-end Engineer</h3>
+					<p class="entry__time">
+					<time class="dt-start" datetime="2023-07">July 2023</time
+					><span>–</span>  <span>Present</span>
+					</p>
+					<p class="entry__organization p-org h-card">
+					<a
+						href="https://www.scalable.com"
+						class="p-name u-url"
+						target="_blank"
+						rel="noopener noreferrer"
+						>Scalable Software</a>
+					<span aria-hidden="true">·</span>
+					<span class="p-location">Remote, UK</span>
+					</p>
+				</div>
+			<div class="entry__content p-summary">
+				<ul>
+					<li>Web app development with React.js, Typescript, and D3</li>
+					<li>Web app development with React.js, Typescript, and D3</li>
+				</ul>
+			</div>
+			</article>
+		</li>
+		<li class="entrylist__item h-event p-experience">
+			<article class="entry">
+				<div class="entry__header">
 					<h3 class="entry__title p-name">Senior Software Engineer</h3>
 					<p class="entry__time">
 					<time class="dt-start" datetime="2017-10">October 2017</time
-					><span>–</span> <span>Present</span>
+					><span>–</span> <time class="dt-end" datetime="2023-02">February 2023</time
+						>
 					</p>
 					<p class="entry__organization p-org h-card">
 					<a
@@ -228,23 +253,18 @@ import BlogPostPreview from '../components/BlogPostPreview.astro';
 
 
 
-<h2 id="education">Education</h2>
+		<h2 id="education">Education</h2>
 		<ul class="p-grid p-grid--halfs">
 			<li>MChem (hons) Chemistry – University of Manchester</li>
 		</ul>
-<h2 id="interests">Interests</h2>
+		
+		<h2 id="interests">Interests</h2>
 
 		<ul class="p-grid p-grid--halfs">
 			<li>Mountain Biking</li>
-			<!-- <li>Swimming</li> -->
 			<li>Internet of Things</li>
-			<!-- <li>Coffee</li> -->
+			<li>Coffee</li>
 		</ul>
-
-
-	
-
-	
 </CVLayout>
 
 
