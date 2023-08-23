@@ -16,17 +16,9 @@
   margin-top: 0;
 }
 
-/* .cv h3 {
-  font-size: 24px;
-} */
-
 .cv :is(h2 + h3) {
   margin-top: 0;
 }
-
-/* .cv :is(h3) {
-  margin-block: 0;
-} */
 
 ol,
 ul {

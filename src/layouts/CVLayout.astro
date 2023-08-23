@@ -10,10 +10,9 @@ import "src/css/cv.css";
 
 interface Props {
   title: string;
-  head: any;
 }
 
-const {title, head} = Astro.props;
+const {title} = Astro.props;
 
 const description = 'Senior Software Engineer looking for answers.';
 const permalink = 'https://andrewhudson.dev/';
@@ -21,10 +20,6 @@ const permalink = 'https://andrewhudson.dev/';
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
-
-
-
-    {head}
   </head>
 
   <body class="cv">
