@@ -57,7 +57,7 @@ const requestPathname = Astro.url.pathname;
   </ul>
 </nav>
 
-<style lang="scss">
+<style>
   li {
     display: inline-grid;
     margin-right: 1em;
@@ -68,7 +68,7 @@ const requestPathname = Astro.url.pathname;
   }
 
   :global(.nav) {
-    a {
+    & a {
       &:hover {
         text-decoration: none;
       }
@@ -79,6 +79,7 @@ const requestPathname = Astro.url.pathname;
   .active {
     border-bottom-color: var(--theme-accent);
   }
+  
   ul {
     padding-inline-start: 0;
   }

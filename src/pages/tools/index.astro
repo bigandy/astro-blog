@@ -25,7 +25,7 @@ const title = 'Tools I use';
 	</div>
 </DefaultLayout>
 
-<style lang="scss">
+<style>
 body {
 	--theme-accent: oklch(0.59 0.31 309.65);
 }
@@ -37,15 +37,14 @@ body {
 		}
 	}
 
-	figure {
+	& figure {
 		box-shadow: 1px 1px 5px var(--theme-accent);
 		padding: 1rem;
 		border-radius: 0.5rem;
 		margin-top: 1rem;
 	}
 
-	img {
-		// border-radius: 0.5rem;
+	& img {
 		max-width: 100%;
 	}
 }
