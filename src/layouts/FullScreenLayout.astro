@@ -17,6 +17,8 @@ const {
   backLink = "/experiments",
 } = Astro.props;
 
+import { ViewTransitions } from 'astro:transitions';
+
 let description =
   "Senior Software Engineer looking for answers.";
 let permalink = "https://andrewhudson.dev/";
@@ -41,6 +43,7 @@ let permalink = "https://andrewhudson.dev/";
         padding-inline: 1em;
       }
     </style>
+    <ViewTransitions />
   </head>
 
   <body>
