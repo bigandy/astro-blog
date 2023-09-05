@@ -12,42 +12,38 @@ const title = 'Now';
 
 <DefaultLayout title={title}>
 	<div class="container">
-		<p class="intro">Last updated: 03 February 2022.</p>
+		<p class="now-intro">Last updated: 25 August 2023.</p>
 
 		<h2>Life</h2>
-		<p>Covid continues. Went to France to see Marion's family for Christmas. Aside from all of the covid-19 testing it was great to get away and to see family. Much food was eaten and rest was had.</p>
+		<p>Earlier in the summer we holidayed in the French Alps, which was super amazing and we did a lot of hiking and enjoyed being in the mountains, spending a week in Chamonix and two weeks in Les Gets.</p>
 
-		<p>For New Year we rented a holiday cottage in West Wittering with my side of the family. Much food was eaten and rest was had. On New Years Day we had a swim in the sea.</p>
+		<p>Now the summer is almost over, Bunk Fest has come and gone and gone and currently a end of summer heatwave is currently here.</p>
 
 		<h2>Learning</h2>
-		<p>Over the Christmas break I managed to do a lot of reading ("The Manager's Path" and started "Staff Engineer"), plus some coding. I am interested lately in learning about React Native so I am working my way through a course on Frontend Masters. On the CSS front I am fascinated by all of the new CSS features that are coming especially container queries.</p>
+		<p>All about the new CSS features that are coming or have arrived in Browsers. Also learning more and more about Jest and testing and as I have recently started a new job about the codebase there.</p>
 
 		<h2>Fitness</h2>
-		<p>Mostly mountain biking and walking at the moment. Once the Covid situation is a bit better I will go to the gym again.</p>
+		<p>Walking and Mountain Biking. Had a hietus away from Zwift but now that September is here I have started doing that again. Trying to get out walking during the day, a few times to break up the day and to get some fresh air and let the mind wander away from the keyboard</p>
 
 		<h2>Family</h2>
-		<p>It was great to spend lots of time with the family over Christmas. Arthur continues to love Lego, solving puzzles and is very creative. Emma is developing rapidly and has a very strong (stubborn) personality, and Emma loves unicorns, princesses and making house, and drawing. Both Arthur and Emma love playing together which is great too. Marion has been super busy with her job and does a fair bit of running.</p>
+		<p>Emma and Arthur have today just gone back to School and have moved up a year. Emma is fascinated with Art and creating things, Arthur is into sport of all kinds and also practicing solving the Rubik's Cube after learning together how to solve it with me.</p>
 
 
 		<p>Credit for now page: first seen on <a href="https://sivers.org/now">Derek Sivers now page</a></p>
 	</div>
 </DefaultLayout>
 
-<style lang="scss">
+<style>
 body {
 	--theme-accent: #FA7E61;
 }
 
-.container {
-	:global(.intro) {
-		& + h2 {
-			margin-top: 2rem;
-		}
-	}
-}
-
-.intro {
+.now-intro {
 	font-size: 95%;
+
+	& + h2 {
+		margin-top: 2rem;
+	}
 }
 
 </style>
