@@ -6,7 +6,6 @@ const {
     title,
     isPreview = false,
     slug,
-    id
 } = Astro.props
 
 interface Props {
@@ -14,13 +13,13 @@ interface Props {
   title: string;
   isPreview?: boolean;
   slug?: string;
-  id?: string;
 }
+
 ---
 
 <header class={`${isPreview ? 'preview' : 'post'}`} 
 
-transition:name={`blog-header-${id}`}>
+transition:name={`blog-header-${slug}`}>
     <h3 class="publish-date">
       {
         dayjs(date).format(
