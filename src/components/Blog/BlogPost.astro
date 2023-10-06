@@ -11,7 +11,7 @@ const { Content } = await post.render();
 ---
 
 <article class="content post layout-inner">
-  <BlogPostHeader date={post.data.date} title={post.data.title} isPreview={false} />
+  <BlogPostHeader date={post.data.date} title={post.data.title} isPreview={false} id={`blog-header-${post.id}`} />
 
   <BlogContent>
     <Content />
@@ -31,7 +31,5 @@ const { Content } = await post.render();
   .content :global(main > * + *) {
     margin-top: 1rem;
   }
-
-
   
 </style>

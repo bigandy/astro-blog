@@ -7,12 +7,12 @@ interface Props {
   post: CollectionEntry<"blog">;
 }
 
-const { post: { slug, data } } = Astro.props;
+const { post: { slug, data, id } } = Astro.props;
 const { draft, title, date } = data;
 ---
 
 <article class={`post-preview layout-inner ${draft && "draft"}`}>
-  <BlogPostHeader date={date} title={title} slug={slug} isPreview />
+  <BlogPostHeader date={date} title={title} slug={slug} isPreview id={id} />
   <main>
     <ForwardArrow url={`/blog/${slug}`} title={title} isBlog />
   </main>
@@ -60,6 +60,4 @@ const { draft, title, date } = data;
       }
     }
   }
-
-  
 </style>
