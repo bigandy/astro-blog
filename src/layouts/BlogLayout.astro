@@ -1,10 +1,11 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import GlobalNav from "../components/GlobalNav.astro";
-import BlogHeader from "../components/BlogHeader.astro";
-import FooterScripts from "../components/FooterScripts.astro";
+import BaseHead from "@components/BaseHead.astro";
+import HeaderNav from "@components/Nav/HeaderNav.astro";
+import BlogHeader from "@components/Blog/BlogHeader.astro";
+import FooterScripts from "@components/FooterScripts.astro";
 
 import "src/css/global.css";
+import { ViewTransitions } from "astro:transitions";
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -48,11 +49,13 @@ let permalink = "https://andrewhudson.dev/";
         margin: 0;
       }
     </style>
+
+    <ViewTransitions />
   </head>
 
   <body>
     <BlogHeader />
-    <GlobalNav />
+    <HeaderNav />
 
     <slot />
 

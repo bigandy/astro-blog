@@ -1,8 +1,9 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import GlobalNav from "../components/GlobalNav.astro";
-import BlogHeader from "../components/BlogHeader.astro";
-import FooterScripts from "../components/FooterScripts.astro";
+import BaseHead from "@components/BaseHead.astro";
+import HeaderNav from "@components/Nav/HeaderNav.astro";
+import FooterNav from "@components/Nav/FooterNav.astro";
+import BlogHeader from "@components/Blog/BlogHeader.astro";
+import FooterScripts from "@components/FooterScripts.astro";
 
 import "src/css/global.css";
 
@@ -57,7 +58,8 @@ import { ViewTransitions } from "astro:transitions";
 
   <body>
     <BlogHeader />
-    <GlobalNav />
+    <HeaderNav />
+
     <div class="layout">
       <article class="content layout-inner">
         <section class="intro">
@@ -68,6 +70,7 @@ import { ViewTransitions } from "astro:transitions";
         </section>
       </article>
     </div>
+    <FooterNav />
     <FooterScripts />
   </body>
 </html>

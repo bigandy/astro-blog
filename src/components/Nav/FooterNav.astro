@@ -1,48 +1,17 @@
 ---
-export const blogHomeUrl = '/blog';
+import { pages } from './pages'
 
-const pages = {
-  home: {
-    url: "/",
-    title: "Home",
-  },
-  blog: {
-    url: blogHomeUrl,
-    title: "Blog",
-  },
-  cv: {
-    url: "/cv",
-    title: "CV",
-  },
-  about: {
-    url: "/about",
-    title: "About",
-  },
-  now: {
-    url: "/now",
-    title: "Now",
-  },
-  tools: {
-    url: "/tools",
-    title: "Tools",
-  },
-  demos: {
-    url: "/experiments",
-    title: "Experiments",
-  },
-  bookshelf: {
-    url: "/bookshelf",
-    title: "Bookshelf",
-  },
-};
+
 
 const requestPathname = Astro.url.pathname;
+
+const footerPages = Object.values(pages).filter(page => !Boolean(page.header))
 ---
 
 <nav class="layout">
   <ul class="layout-inner nav">
     {
-      Object.values(pages).map((entry) => {
+      footerPages.map((entry) => {
         const className =
           requestPathname === entry.url && "active";
         return (
@@ -82,5 +51,6 @@ const requestPathname = Astro.url.pathname;
   
   ul {
     padding-inline-start: 0;
+    margin-block-end: 1rem;
   }
 </style>

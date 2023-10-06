@@ -1,6 +1,6 @@
 ---
 // Component Imports
-import FullScreenLayout from "../../../layouts/FullScreenLayout.astro";
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
 
 const title = "Talk to Window Parent";
 ---
@@ -73,7 +73,7 @@ const title = "Talk to Window Parent";
       if (event.data.type === "authenticated") {
         output.innerHTML = `<strong>Message from the popup window</strong>:<br /> Name: ${event.data.name}<br />`;
         if (windowObjectReference) {
-          console.log("i want to send this message", {
+          console.info("i want to send this message", {
             coolstuff: true,
             type: "close",
           });

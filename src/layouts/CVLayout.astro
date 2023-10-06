@@ -1,12 +1,13 @@
 ---
 // Component Imports
 import BaseHead from '../components/BaseHead.astro';
-import GlobalNav from '../components/GlobalNav.astro';
-import BlogHeader from '../components/BlogHeader.astro';
+import HeaderNav from '../components/Nav/HeaderNav.astro';
+import BlogHeader from '../components/Blog/BlogHeader.astro';
 import FooterScripts from '../components/FooterScripts.astro';
 
 import "src/css/global.css";
 import "src/css/cv.css";
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -20,11 +21,13 @@ const permalink = 'https://andrewhudson.dev/';
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
+
+    <ViewTransitions />
   </head>
 
   <body class="cv">
     <BlogHeader />
-    <GlobalNav />
+    <HeaderNav />
     <div class="layout">
       <article class="content layout-inner">
         <section class="intro">

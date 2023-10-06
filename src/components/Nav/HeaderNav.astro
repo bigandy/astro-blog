@@ -1,0 +1,53 @@
+---
+import {pages} from './pages'
+
+const requestPathname = Astro.url.pathname;
+
+const headerPages = Object.values(pages).filter(page => Boolean(page.header))
+---
+
+<nav class="layout">
+  <ul class="layout-inner nav">
+    {
+      headerPages.map((entry) => {
+        const className =
+          requestPathname === entry.url && "active";
+        return (
+          <li>
+            <a class={className} href={entry.url}>
+              {entry.title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<style>
+  li {
+    display: inline-grid;
+    margin-right: 1em;
+  }
+
+  a {
+    border-bottom: 2px solid transparent;
+  }
+
+  :global(.nav) {
+    & a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  a:hover,
+  .active {
+    border-bottom-color: var(--theme-accent);
+  }
+  
+  ul {
+    padding-inline-start: 0;
+  }
+</style>
