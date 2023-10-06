@@ -1,58 +1,19 @@
 ---
 export const blogHomeUrl = '/blog';
 
-export const pages = {
-  home: {
-    url: "/",
-    title: "Home",
-    header: true
-  },
-  blog: {
-    url: blogHomeUrl,
-    title: "Blog",
-    header: true
-  },
-  cv: {
-    url: "/cv",
-    title: "CV",
-    header: true
-  },
-  demos: {
-    url: "/experiments",
-    title: "Experiments",
-    header: true
-  },
-  about: {
-    url: "/about",
-    title: "About",
-    header: false
-  },
-  now: {
-    url: "/now",
-    title: "Now",
-    header: false
-  },
-  tools: {
-    url: "/tools",
-    title: "Tools",
-    header: false
-  },
-  bookshelf: {
-    url: "/bookshelf",
-    title: "Bookshelf",
-    header: false
-  },
-};
+import { pages } from './GlobalNav.astro'
+
+
 
 const requestPathname = Astro.url.pathname;
 
-const headerPages = Object.values(pages).filter(page => Boolean(page.header))
+const footerPages = Object.values(pages).filter(page => !Boolean(page.header))
 ---
 
 <nav class="layout">
   <ul class="layout-inner nav">
     {
-      headerPages.map((entry) => {
+      footerPages.map((entry) => {
         const className =
           requestPathname === entry.url && "active";
         return (
@@ -92,5 +53,6 @@ const headerPages = Object.values(pages).filter(page => Boolean(page.header))
   
   ul {
     padding-inline-start: 0;
+    margin-block-end: 1rem;
   }
 </style>
