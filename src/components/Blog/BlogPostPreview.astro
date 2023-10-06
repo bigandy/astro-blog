@@ -1,25 +1,18 @@
 ---
 import { CollectionEntry } from "astro:content";
-import ForwardArrow from "../ForwardArrow.astro";
+import ForwardArrow from "@components/ForwardArrow.astro";
 
+import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 interface Props {
   post: CollectionEntry<"blog">;
 }
-import dayjs from "dayjs";
 
 const { post: { slug, data } } = Astro.props;
 const { draft, title, date } = data;
 ---
 
 <article class={`post-preview layout-inner ${draft && "draft"}`}>
-  <header>
-    <span class="publish-date">
-      {dayjs(date).format("dddd, DD MMMM YYYY")}
-    </span>
-    <a href={`/blog/${slug}`}>
-      <h2 class="title">{title}</h2>
-    </a>
-  </header>
+  <BlogPostHeader date={date} title={title} slug={slug} isPreview />
   <main>
     <ForwardArrow url={`/blog/${slug}`} title={title} isBlog />
   </main>
@@ -68,30 +61,5 @@ const { draft, title, date } = data;
     }
   }
 
-  header {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    align-items: flex-start;
-    justify-content: center;
-    padding-bottom: 1rem;
-  }
-
-  .title,
-  .publish-date {
-    margin: 0;
-  }
-
-  .publish-date {
-    font-size: 1.25rem;
-    color: var(--theme-text-lighter);
-    font-weight: var(--f-body-weight);
-    font-family: var(--header-font-family);
-    line-height: 1.3;
-  }
-
-  .title {
-    font-size: 2.25rem;
-    color: var(--theme-text);
-  }
+  
 </style>

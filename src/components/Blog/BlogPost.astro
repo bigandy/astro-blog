@@ -1,24 +1,18 @@
 ---
-import dayjs from "dayjs";
-import BackArrow from "../BackArrow.astro";
-import BlogContent from "./BlogContent.astro"; 
-import { blogHomeUrl } from "../Nav/HeaderNav.astro";
+
+import BackArrow from "@components/BackArrow.astro";
+import BlogContent from "@components/Blog/BlogContent.astro"; 
+import BlogPostHeader from "@components/Blog/BlogPostHeader.astro"
+import { blogHomeUrl } from "@components/Nav/pages";
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
 ---
 
 <article class="content post layout-inner">
-  <header>
-    <h3 class="publish-date">
-      {
-        dayjs(post.data.date).format(
-          "dddd, DD MMMM YYYY"
-        )
-      }
-    </h3>
-    <h1 class="title">{post.data.title}</h1>
-  </header>
+  <BlogPostHeader date={post.data.date} title={post.data.title} isPreview={false} />
+
   <BlogContent>
     <Content />
   </BlogContent>
@@ -39,21 +33,5 @@ const { Content } = await post.render();
   }
 
 
-  header {
-    padding-block: 2rem;
-  }
-
-  p, li {
-    margin-block-end: 1rem;
-  }
-
-  .publish-date {
-    font-size: 1.25rem;
-    margin: 0;
-    color: var(--theme-text-lighter);
-  }
-
-  .title {
-    margin: 0;
-  } 
+  
 </style>

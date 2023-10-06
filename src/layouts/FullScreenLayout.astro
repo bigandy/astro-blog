@@ -1,8 +1,8 @@
 ---
 // Component Imports
-import BaseHead from "../components/BaseHead.astro";
+import BaseHead from "@components/BaseHead.astro";
 
-import FooterScripts from "../components/FooterScripts.astro";
+import FooterScripts from "@components/FooterScripts.astro";
 
 import "src/css/global.css";
 
@@ -12,7 +12,7 @@ import "src/css/global.css";
 // All variables are available to use in the HTML template below.
 
 const {
-  title,
+  title = '',
   head,
   backLink = "/experiments",
 } = Astro.props;
@@ -23,8 +23,8 @@ let description =
   "Senior Software Engineer looking for answers.";
 let permalink = "https://andrewhudson.dev/";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+
+console.log({title})
 ---
 
 <html lang="en">
@@ -49,7 +49,7 @@ let permalink = "https://andrewhudson.dev/";
   <body>
     <section class="slot">
       {backLink && <a href={backLink}>&larr; Back</a>}
-      <h1 class="title">{title}</h1>
+      {title !== '' && <h1 class="title">{title}</h1>}
       <slot />
     </section>
     <FooterScripts />
