@@ -6,7 +6,7 @@ import {
 
 // Component Imports
 import BlogLayout from "../../layouts/BlogLayout.astro";
-import BlogPost from "../../components/BlogPost.astro";
+import BlogPost from "../../components/Blog/BlogPost.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");

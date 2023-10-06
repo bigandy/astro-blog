@@ -1,7 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import BlogHeader from "../components/BlogHeader.astro";
-import GlobalNav from "../components/GlobalNav.astro";
+import BlogHeader from "../components/Blog/BlogHeader.astro";
+import HeaderNav from "../components/Nav/HeaderNav.astro";
 import FooterScripts from "../components/FooterScripts.astro";
 
 import "src/css/global.css";
@@ -30,7 +30,7 @@ const {
   <body>
     <div class="container">
       <BlogHeader />
-      <GlobalNav />
+      <HeaderNav />
       <slot />
     </div>
     <FooterScripts />

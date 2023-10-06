@@ -1,8 +1,8 @@
 ---
 import dayjs from "dayjs";
-import BackArrow from "./BackArrow.astro";
+import BackArrow from "../BackArrow.astro";
 import BlogContent from "./BlogContent.astro"; 
-import { blogHomeUrl } from "./GlobalNav.astro";
+import { blogHomeUrl } from "../Nav/HeaderNav.astro";
 
 const { post } = Astro.props;
 const { Content } = await post.render();
