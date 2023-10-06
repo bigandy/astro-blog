@@ -126,10 +126,10 @@ let color2 = "#FF69B4"; // hotpink
 
 <script>
   if ("paintWorklet" in CSS) {
-    console.log("supports paintWorklet");
+    console.info("supports paintWorklet");
     CSS.paintWorklet.addModule("/js/houdini-paint-2.js");
   } else {
-    console.log("doesn't support paintWorklet");
+    console.info("doesn't support paintWorklet");
   }
 
   (function () {

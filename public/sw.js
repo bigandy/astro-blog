@@ -9,7 +9,6 @@ const maxPages = 50; // Maximum number of pages to cache
 
 // This arrangement can be altered based on how we want the date's format to appear.
 let currentDate = `${day}-${month}-${year}`;
-// console.log(currentDate); // "17-6-2022"
 
 var cacheName = `bigandy:${currentDate}`;
 var cacheFiles = [

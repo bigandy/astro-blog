@@ -24,7 +24,7 @@ const title = "Canvas 4 - some random squares";
   let y = Math.random() * Math.tan(Date.now());
 
   const init = () => {
-    console.log("run init please");
+    console.info("run init please");
     for (let j = 0; j <= 10000; j++) {
       draw();
     }
@@ -32,7 +32,7 @@ const title = "Canvas 4 - some random squares";
   // @ts-ignore
 
   function draw() {
-    console.log("drawing");
+    console.info("drawing");
     x =
       x <= width
         ? x + Math.cos(Math.random()) * (width / 10)
