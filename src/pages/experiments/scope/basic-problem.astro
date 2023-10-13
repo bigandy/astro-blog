@@ -1,0 +1,57 @@
+---
+// Component Imports
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+
+const title = "@scope - Problem";
+---
+
+<FullScreenLayout title={title}>
+  <h2>Problem</h2>
+  <div class="container dark-theme">
+    <h2>Dark-theme section</h2>
+    <p>This is within the dark-theme parent</p>
+
+    <div class="light-theme">
+      <h2>Light-theme section within a dark-theme section</h2>
+      <p>This is within the dark-theme parent</p>
+
+      <div class="dark-theme">
+        <h2>Dark-theme section within a light-theme section</h2>
+        <p>This is within the light-theme parent</p>
+      </div>
+    </div>
+  </div>
+  <h2>Problem</h2>
+  <p>
+    Because the css for .light-theme comes last any nested dark-theme will be
+    overruled by the light-theme style.
+  </p>
+</FullScreenLayout>
+
+<style>
+  [class*="-theme"] {
+    border: 5px solid pink;
+    padding: 1em;
+  }
+
+  .container p {
+    color: inherit;
+    margin-bottom: 1em;
+  }
+
+  .dark-theme {
+    & h2,
+    & p {
+      color: white;
+      background: black;
+    }
+  }
+
+  .light-theme {
+    & h2,
+    & p {
+      color: black;
+      background: white;
+    }
+  }
+</style>

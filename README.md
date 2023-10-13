@@ -12,6 +12,11 @@ All commands are run from the root of the project, from a terminal:
 | `npm run dev`   | Starts local dev server at `localhost:3000` |
 | `npm run build` | Build your production site to `./dist/`     |
 
+## Run with Bun
+
+1. install bun : curl -fsSL https://bun.sh/install | bash
+2. start local dev : bunx --bun astro dev
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://github.com/snowpackjs/astro) or jump into our [Discord server](https://astro.build/chat).

@@ -1,151 +1,155 @@
 ---
 // Component Imports
 import DefaultLayout from "@layouts/DefaultLayout.astro";
-const title = "Experiments";
+
+interface Pages {
+  [key: string]: {
+    parent: string;
+    children: {
+      title: string;
+      url: string;
+      active?: boolean;
+    }[];
+  };
+}
+
+const pages: Pages = {
+  canvas: {
+    parent: "Canvas Experiments",
+    children: [
+      { title: "Canvas 1 - Drawing Rectangles", url: "canvas-1" },
+      { title: "Canvas 2 - drawing circles", url: "canvas-2" },
+      {
+        title: "Canvas 3 - animating circle around other circle",
+        url: "canvas-3",
+      },
+      { title: "Canvas 4 - some random squares", url: "canvas-4" },
+      { title: "Canvas 5 - some random circles", url: "canvas-5" },
+      { title: "Canvas 6 - click on canvas", url: "canvas-6" },
+      { title: "Canvas 7 - Spirograph pt.1", url: "canvas-7" },
+      { title: "Canvas 8 - Spirograph pt.2", url: "canvas-8" },
+      { title: "Canvas 9 - Zigzag", url: "canvas-9" },
+      { title: "Canvas 10 - Radar", url: "canvas-10", active: false },
+    ],
+  },
+  houdini: {
+    parent: "Houdini Paint experiments",
+    children: [
+      {
+        title: "Houdini 1 - Checkerboard",
+        url: "houdini-paint-1",
+      },
+      {
+        title: "Houdini 2 - Zigzag",
+        url: "houdini-paint-2",
+      },
+    ],
+  },
+  "talk-to-window": {
+    parent: "Window Postmessaging",
+    children: [{ title: "Talk to Window", url: "talk-to-window-parent" }],
+  },
+  "css-has": {
+    parent: ":has() (Chrome / Safari / Edge support)",
+    children: [
+      {
+        title: ":has() css demo",
+        url: "css-has-1",
+      },
+    ],
+  },
+  "container-queries": {
+    parent: "Container Queries",
+    children: [
+      {
+        title: "Container Queries 1",
+        url: "container-queries-1",
+      },
+      {
+        title: "Container Style Queries",
+        url: "style-query",
+      },
+    ],
+  },
+  "web-components": {
+    parent: "Web Components with Lit",
+    children: [
+      {
+        title: "Web Components 1",
+        url: "web-components-1",
+      },
+    ],
+  },
+  vue: {
+    parent: "Vue",
+    children: [
+      {
+        title: "Introduction",
+        url: "introduction",
+      },
+    ],
+  },
+  "view-transitions": {
+    parent: "View Transitions - Chromium Browsers only",
+    children: [
+      {
+        title: "view transitions 1",
+        url: "1",
+      },
+      {
+        title: "view transitions 2",
+        url: "2",
+      },
+    ],
+  },
+  scope: {
+    parent: "CSS @scope - Chrome 118+ only so far",
+    children: [
+      {
+        title: "Basic Problem",
+        url: "basic-problem",
+      },
+      {
+        title: "Basic Solution",
+        url: "basic-solution",
+      },
+    ],
+  },
+};
 ---
 
 <style>
   body {
     --theme-accent: #52b788;
   }
+
+  h3 {
+    margin-top: 3rem;
+  }
 </style>
 
-<DefaultLayout title={title}>
+<DefaultLayout title="Experiments">
   <div class="container">
-          <h2>Canvas experiments</h2>
-    <ol>
-      <li>
-        <a href="/experiments/canvas/canvas-1"
-          >Canvas 1 - Drawing Rectangles</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/canvas/canvas-2"
-          >Canvas 2 - drawing circles</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/canvas/canvas-3"
-          >Canvas 3 - animating circle around other circle</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/canvas/canvas-4"
-          >Canvas 4 - some random squares</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/canvas/canvas-5"
-          >Canvas 5 - some random circles</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/canvas/canvas-6"
-          >Canvas 6 - click on canvas</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/canvas/canvas-7"
-          >Canvas 7 - Spirograph pt.1</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/canvas/canvas-8"
-          >Canvas 8 - Spirograph pt.2</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/canvas/canvas-9"
-          >Canvas 9 - Zigzag</a
-        >
-      </li>
-      <!-- <li><a href="/experiments/canvas/canvas-10">Canvas 10 - Radar</a></li> -->
-    </ol>
+    {
+      Object.keys(pages).map((group) => {
+        return (
+          <section>
+            <h3>{pages[group].parent}</h3>
 
-    <h2>Houdini Paint experiments</h2>
-    <ol>
-      <li>
-        <a href="/experiments/houdini/houdini-paint-1"
-          >Houdini 1 - Checkerboard</a
-        >
-      </li>
-      <li>
-        <a href="/experiments/houdini/houdini-paint-2"
-          >Houdini 2 - Zigzag</a
-        >
-      </li>
-    </ol>
-
-    <h2>Window Postmessaging</h2>
-    <ol>
-      <li>
-        <a
-          href="/experiments/talk-to-window/talk-to-window-parent"
-          >Talk to Window</a
-        >
-      </li>
-    </ol>
-
-    <h2>:has() (Chrome / Safari / Edge support)</h2>
-
-    <ol>
-      <li>
-        <a href="/experiments/css-has/css-has-1"
-          >:has() css demo</a
-        >
-      </li>
-    </ol>
-
-    <h2>
-      Container Queries (Chrome / Safari / Edge support)
-    </h2>
-
-    <ol>
-      <li>
-        <a
-          href="/experiments/container-queries/container-queries-1"
-          >Container Queries 1</a
-        >
-      </li>
-      <li>
-        <a
-          href="/experiments/container-queries/style-query"
-          >Container Style Queries</a
-        >
-      </li>
-    </ol>
-
-    <h2>Web Components with Lit</h2>
-
-    <ol>
-      <li>
-        <a
-          href="/experiments/web-components/web-components-1"
-          >Web Components 1</a
-        >
-      </li>
-    </ol>
-
-    <h2>Vue</h2>
-
-    <ol>
-      <li>
-        <a
-          href="/experiments/vue/introduction"
-          >Introduction</a
-        >
-      </li>
-    </ol>
-
-    <h2>View Transitions</h2>
-
-    <ol>
-      <li>
-        <a
-          href="/experiments/view-transitions/1"
-          >1</a
-        >
-      </li>
-    </ol>
+            <ol>
+              {pages[group].children
+                .filter(({ active }) => active !== false)
+                .map(({ title, url }) => {
+                  return (
+                    <li>
+                      <a href={`/experiments/${group}/${url}`}>{title}</a>
+                    </li>
+                  );
+                })}
+            </ol>
+          </section>
+        );
+      })
+    }
   </div>
 </DefaultLayout>

@@ -1,0 +1,56 @@
+---
+// Component Imports
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+
+const title = "@scope - Solution";
+---
+
+<FullScreenLayout title={title}>
+  <h2>Solution</h2>
+  <div class="container dark-theme">
+    <h2>Dark-theme section</h2>
+    <p>This is within the dark-theme parent</p>
+
+    <div class="light-theme">
+      <h2>Light-theme section within a dark-theme section</h2>
+      <p>This is within the dark-theme parent</p>
+
+      <div class="dark-theme">
+        <h2>Dark-theme section within a light-theme section</h2>
+        <p>This is within the light-theme parent</p>
+      </div>
+    </div>
+  </div>
+  <h2>Solution</h2>
+  <p>
+    With @scope we are being strict that the styles within the @scope selection
+    only apply to that scope not other scopes.
+  </p>
+</FullScreenLayout>
+
+<style>
+  [class*="-theme"] {
+    border: 5px solid pink;
+    padding: 1em;
+  }
+
+  div > div {
+    margin-top: 1em;
+  }
+
+  @scope (.dark-theme) {
+    h2,
+    p {
+      color: white;
+      background: black;
+    }
+  }
+
+  @scope (.light-theme) {
+    h2,
+    p {
+      color: black;
+      background: lightgray;
+    }
+  }
+</style>
