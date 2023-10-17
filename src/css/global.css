@@ -327,3 +327,7 @@ blockquote .source {
 li ul li {
   list-style-type: disc;
 }
+
+[data-theme="orange/black"] {
+  --theme-text-light: orange;
+}

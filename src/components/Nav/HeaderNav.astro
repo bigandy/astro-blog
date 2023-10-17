@@ -1,17 +1,18 @@
 ---
-import {pages} from './pages'
+import { pages } from "./pages";
+
+import ThemeSelector from "@components/Svelte/theme-selector/index.svelte";
 
 const requestPathname = Astro.url.pathname;
 
-const headerPages = Object.values(pages).filter(page => Boolean(page.header))
+const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
 ---
 
 <nav class="layout">
   <ul class="layout-inner nav">
     {
       headerPages.map((entry) => {
-        const className =
-          requestPathname === entry.url && "active";
+        const className = requestPathname === entry.url && "active";
         return (
           <li>
             <a class={className} href={entry.url}>
@@ -22,6 +23,7 @@ const headerPages = Object.values(pages).filter(page => Boolean(page.header))
       })
     }
   </ul>
+  <ThemeSelector client:visible />
 </nav>
 
 <style>
@@ -46,7 +48,7 @@ const headerPages = Object.values(pages).filter(page => Boolean(page.header))
   .active {
     border-bottom-color: var(--theme-accent);
   }
-  
+
   ul {
     padding-inline-start: 0;
   }
