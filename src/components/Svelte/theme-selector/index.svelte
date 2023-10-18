@@ -1,6 +1,6 @@
 <script>
   import { clickOutside } from "../utils/click-outside.js";
-  import { getSetTheme } from "../utils/get-set-theme.js";
+  import { getTheme } from "../utils/get-theme.js";
   import { onMount } from "svelte";
 
   let show = false;
@@ -11,6 +11,7 @@
   // loop it - ✅
   // set to localStorage ✅
   // get from localStorage ✅
+  // do the styling
 
   function showThemeSelector() {
     show = !show;
@@ -54,7 +55,7 @@
   }
 
   onMount(async () => {
-    const theme = getSetTheme();
+    const theme = getTheme();
     selected = theme;
   });
 </script>

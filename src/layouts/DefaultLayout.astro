@@ -16,11 +16,6 @@ const { title, head } = Astro.props;
 
 let description = "Senior Software Engineer looking for answers.";
 let permalink = "https://andrewhudson.dev/";
-
-import { ViewTransitions } from "astro:transitions";
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
 
 <html lang="en">
@@ -47,13 +42,6 @@ import { ViewTransitions } from "astro:transitions";
         margin: 0;
       }
     </style>
-
-    <ViewTransitions />
-    <script>
-      const theme = localStorage.getItem("theme");
-
-      document.body.setAttribute("data-theme", theme);
-    </script>
   </head>
 
   <body>
