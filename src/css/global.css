@@ -9,7 +9,6 @@
   }
 
   html {
-    
     /* adding this here so we can use @container queries with the name of 'root' or 'layout' and it applies here.  */
     container: root layout / inline-size;
     min-height: 100%;
@@ -359,7 +358,7 @@
 
   [data-theme="orange/black"] {
     --theme-text: orange;
-    --theme-background: white;
+    --theme-background: black;
   }
 
   [data-theme="red/black"] {
@@ -371,5 +370,12 @@
     --theme-text: white;
     --theme-background: black;
   }
+}
 
+body[data-theme] {
+  --theme-accent: var(--theme-text);
+
+  @supports (background-color: oklch(from red l c h)) {
+    --theme-accent: oklch(from var(--theme-text) l 0.26 calc(h + 20));
+  }
 }

@@ -3,7 +3,7 @@
   import { getTheme } from "../utils/get-theme.js";
   import { onMount } from "svelte";
 
-  let show = false;
+  let show = true;
   let selected = "";
 
   // TODO:
@@ -39,10 +39,6 @@
       id: "red/black",
     },
     {
-      label: "Rainbow",
-      id: "rainbow",
-    },
-    {
       label: "Orange / Black",
       id: "orange/black",
     },
@@ -69,9 +65,7 @@
   on:click_outside={handleClickOutside}
   class={`theme-selector ${show ? "show" : ""}`}
 >
-  <h2>Theme Selector</h2>
-
-  {selected}
+  <h5>Theme</h5>
 
   <ul>
     {#each themeOptions as { id, label }}
@@ -99,13 +93,14 @@
   }
 
   .theme-selector {
+    min-width: 300px;
     position: absolute;
     top: 0;
     right: 0;
     border: 1px solid;
     border-top: none;
     border-right: none;
-    background: white;
+    background: var(--theme-background);
     padding: 1em;
     translate: 0 calc(-100% - 1px);
     transition: translate 200ms ease-in-out;
@@ -114,5 +109,16 @@
   .show {
     translate: 0 0;
     transition-duration: 300ms;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+  }
+
+  input {
+    order: -1;
   }
 </style>
