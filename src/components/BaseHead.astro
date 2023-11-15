@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 interface Props {
   title: string;
   description: string;
@@ -43,16 +42,3 @@ const { title, description, permalink } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content="https://astro.build/social.jpg?v=1" />
-
-<ViewTransitions />
-
-<script>
-  const setTheme = () => {
-    const theme = localStorage.getItem("theme");
-
-    document.body.setAttribute("data-theme", theme);
-  };
-  setTheme();
-
-  document.addEventListener("astro:after-swap", setTheme);
-</script>

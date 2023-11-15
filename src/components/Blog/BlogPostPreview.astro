@@ -7,12 +7,14 @@ interface Props {
   post: CollectionEntry<"blog">;
 }
 
-const { post: { slug, data, id } } = Astro.props;
+const {
+  post: { slug, data },
+} = Astro.props;
 const { draft, title, date } = data;
 ---
 
 <article class={`post-preview layout-inner ${draft && "draft"}`}>
-  <BlogPostHeader date={date} title={title} slug={slug} isPreview id={id} />
+  <BlogPostHeader date={date} title={title} slug={slug} isPreview />
   <main>
     <ForwardArrow url={`/blog/${slug}`} title={title} isBlog />
   </main>
@@ -28,7 +30,7 @@ const { draft, title, date } = data;
     padding-bottom: 1rem;
     border-bottom: 4px double var(--theme-divider);
     max-width: max-content;
-   
+
     &:hover {
       max-width: 100%;
     }
@@ -47,7 +49,9 @@ const { draft, title, date } = data;
       font-size: 10px;
       left: -0.5rem;
       top: calc(50% - 1em);
-      content: "draft"; rotate: -90deg; display: inline-block; 
+      content: "draft";
+      rotate: -90deg;
+      display: inline-block;
     }
 
     &:hover {
