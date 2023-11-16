@@ -3,7 +3,7 @@
   import { getTheme } from "../utils/get-theme.js";
   import { onMount } from "svelte";
 
-  let show = true;
+  let show = false;
   let selected = "";
 
   // TODO:
@@ -11,7 +11,7 @@
   // loop it - ✅
   // set to localStorage ✅
   // get from localStorage ✅
-  // do the styling
+  // do the styling ✅
 
   function showThemeSelector() {
     show = !show;
@@ -104,11 +104,13 @@
     padding: 1em;
     translate: 0 calc(-100% - 1px);
     transition: translate 200ms ease-in-out;
+    z-index: 1;
   }
 
   .show {
     translate: 0 0;
     transition-duration: 300ms;
+    box-shadow: -9px 14px 20px 0px var(--theme-accent);
   }
 
   li {
