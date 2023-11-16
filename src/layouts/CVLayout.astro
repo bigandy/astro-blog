@@ -1,28 +1,28 @@
 ---
 // Component Imports
-import BaseHead from '../components/BaseHead.astro';
-import HeaderNav from '../components/Nav/HeaderNav.astro';
-import BlogHeader from '../components/Blog/BlogHeader.astro';
-import FooterScripts from '../components/FooterScripts.astro';
+import BaseHead from "../components/BaseHead.astro";
+import HeaderNav from "../components/Nav/HeaderNav.astro";
+import BlogHeader from "../components/Blog/BlogHeader.astro";
+import FooterScripts from "../components/FooterScripts.astro";
+import BottomOfHead from "@components/BottomOfHead.astro";
 
 import "src/css/global.css";
 import "src/css/cv.css";
-import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
 }
 
-const {title} = Astro.props;
+const { title } = Astro.props;
 
-const description = 'Senior Software Engineer looking for answers.';
-const permalink = 'https://andrewhudson.dev/';
+const description = "Senior Software Engineer looking for answers.";
+const permalink = "https://andrewhudson.dev/";
 ---
+
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
-
-    <ViewTransitions />
+    <BottomOfHead />
   </head>
 
   <body class="cv">

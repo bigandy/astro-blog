@@ -1,6 +1,7 @@
 ---
 // Component Imports
 import BaseHead from "@components/BaseHead.astro";
+import BottomOfHead from "@components/BottomOfHead.astro";
 
 import FooterScripts from "@components/FooterScripts.astro";
 
@@ -11,27 +12,15 @@ import "src/css/global.css";
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 
-const {
-  title = '',
-  head,
-  backLink = "/experiments",
-} = Astro.props;
+const { title = "", head, backLink = "/experiments" } = Astro.props;
 
-import { ViewTransitions } from 'astro:transitions';
-
-let description =
-  "Senior Software Engineer looking for answers.";
+let description = "Senior Software Engineer looking for answers.";
 let permalink = "https://andrewhudson.dev/";
-
 ---
 
 <html lang="en">
   <head>
-    <BaseHead
-      title={title}
-      description={description}
-      permalink={permalink}
-    />
+    <BaseHead title={title} description={description} permalink={permalink} />
 
     {head}
 
@@ -41,19 +30,20 @@ let permalink = "https://andrewhudson.dev/";
         padding-inline: 1em;
       }
     </style>
-    <ViewTransitions />
+    <BottomOfHead />
   </head>
 
   <body>
     <section class="slot">
       {backLink && <a href={backLink}>&larr; Back</a>}
-      {title !== '' && <h1 class="title">{title}</h1>}
+      {title !== "" && <h1 class="title">{title}</h1>}
       <slot />
     </section>
     <FooterScripts />
-  </body><style>
-    body {
-      --theme-accent: #52b788;
-    }
-  </style>
+    <style>
+      body {
+        --theme-accent: #52b788;
+      }
+    </style>
+  </body>
 </html>

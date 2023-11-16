@@ -9,23 +9,23 @@
   },
   "dependencies": {
     "@11ty/eleventy-fetch": "4.0.0",
-    "@astrojs/lit": "3.0.1",
+    "@astrojs/lit": "3.0.3",
     "@astrojs/svelte": "4.0.3",
-    "@astrojs/vue": "3.0.1",
-    "@lit-labs/ssr-client": "1.1.4",
+    "@astrojs/vue": "3.0.4",
+    "@lit-labs/ssr-client": "1.1.5",
     "@notionhq/client": "2.2.13",
-    "@types/lodash.groupby": "4.6.7",
+    "@types/lodash.groupby": "4.6.9",
     "@webcomponents/template-shadowroot": "0.2.1",
     "astro-robots-txt": "1.0.0",
     "dayjs": "1.11.10",
     "lit": "2.8.0",
     "lodash.groupby": "4.6.0",
-    "svelte": "4.2.1",
-    "vue": "3.3.4"
+    "svelte": "4.2.3",
+    "vue": "3.3.8"
   },
   "devDependencies": {
-    "@types/lodash": "4.14.197",
-    "astro": "3.4.4",
-    "bun-types": "1.0.6"
+    "@types/lodash": "4.14.201",
+    "astro": "3.5.4",
+    "bun-types": "1.0.11"
   }
 }

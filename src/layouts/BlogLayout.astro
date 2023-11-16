@@ -5,7 +5,7 @@ import BlogHeader from "@components/Blog/BlogHeader.astro";
 import FooterScripts from "@components/FooterScripts.astro";
 
 import "src/css/global.css";
-import { ViewTransitions } from "astro:transitions";
+import BottomOfHead from "@components/BottomOfHead.astro";
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -14,8 +14,7 @@ import { ViewTransitions } from "astro:transitions";
 
 const { title, head } = Astro.props;
 
-let description =
-  "Senior Software Engineer looking for answers.";
+let description = "Senior Software Engineer looking for answers.";
 let permalink = "https://andrewhudson.dev/";
 
 // Full Astro Component Syntax:
@@ -24,11 +23,7 @@ let permalink = "https://andrewhudson.dev/";
 
 <html lang="en">
   <head>
-    <BaseHead
-      title={title}
-      description={description}
-      permalink={permalink}
-    />
+    <BaseHead title={title} description={description} permalink={permalink} />
 
     {head}
 
@@ -49,8 +44,7 @@ let permalink = "https://andrewhudson.dev/";
         margin: 0;
       }
     </style>
-
-    <ViewTransitions />
+    <BottomOfHead />
   </head>
 
   <body>

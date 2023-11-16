@@ -749,6 +749,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"dummy-content.md": {
+	id: "dummy-content.md";
+  slug: "dummy-content";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "electric-studio-first-month.md": {
 	id: "electric-studio-first-month.md";
   slug: "electric-studio-first-month";

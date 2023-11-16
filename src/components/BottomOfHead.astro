@@ -1,0 +1,16 @@
+---
+import { ViewTransitions } from "astro:transitions";
+---
+
+<ViewTransitions />
+
+<script>
+  const setTheme = () => {
+    const theme = localStorage.getItem("theme");
+
+    document.body.setAttribute("data-theme", theme);
+  };
+  setTheme();
+
+  document.addEventListener("astro:after-swap", setTheme);
+</script>
