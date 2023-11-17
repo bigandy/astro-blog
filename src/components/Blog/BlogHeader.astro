@@ -6,8 +6,10 @@ import Logo from "@components/Logo.astro";
   <div class="layout-inner">
     <h1>
       <a href="/">
+        <span>
         <Logo />
-        <span>Andrew Hudson</span>
+      </span>
+        Andrew Hudson
       </a>
     </h1>
   </div>
@@ -18,20 +20,25 @@ import Logo from "@components/Logo.astro";
     padding-top: 1rem; 
     padding-bottom: 0.5rem;
   }
-  header h1 {
+  h1 {
     margin-block-end: 0;
-    font-size: 1.5rem;
+    font-size: var(--step-3);
+    line-height: 1;
+    
   }
+
+  @container (max-width: 500px) {
+    h1 {
+      /* font-size: 1.25rem; */
+    }
+  }
+
   .logo {
     transform: translateY(0.25rem);
   }
 
-  svg {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  h1 a {
+  a {
     display: inline-flex;
   }
+  
 </style>

@@ -91,7 +91,7 @@
 
   h2 span {
     vertical-align: middle;
-    font-size: 1rem;
+    /* font-size: 1rem; */
     color: var(--color-gray-500);
   }
 </style>
