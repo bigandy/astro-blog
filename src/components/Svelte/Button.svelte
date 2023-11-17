@@ -1,8 +1,11 @@
 <script lang="ts">
+  let className;
   export let outlined = false;
   export let fullwidth = false;
   export let grow = false;
   export let active = false;
+
+  export { className as class };
 
   export let handleClick = () => {};
 </script>
@@ -13,6 +16,7 @@
   class:grow
   class:active
   on:click={handleClick}
+  class={className}
 >
   <slot class="before" name="before" />
   <slot />
@@ -28,8 +32,14 @@
   button {
     border-radius: calc(var(--ah-button-border-radius, 20) * 1px);
     border: none;
-    padding-inline: var(--ah-button-padding-inline, 1.2em);
-    padding-block: var(--ah-button-padding-block, 0.6em);
+    padding-inline: var(
+      --ah-button-padding,
+      var(--ah-button-padding-inline, 1.2em)
+    );
+    padding-block: var(
+      --ah-button-padding,
+      var(--ah-button-padding-block, 0.6em)
+    );
     font-size: 1em;
     background: var(--ah-button-background, var(--brand, black));
     color: var(--ah-button-color, white);

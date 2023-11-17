@@ -65,7 +65,11 @@
     min-height: 100vh;
     font-size: 18px;
     line-height: 1.625;
-    padding-inline: 3rem;
+    padding: var(--padding, 1rem);
+
+    @container (min-width: 37.75em) {
+      --padding: 3rem;
+    }
   }
 
   input,
