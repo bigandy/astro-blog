@@ -1,0 +1,42 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import KitchenSink from "@components/KitchenSink.astro";
+---
+
+<DefaultLayout title="Style Guide!">
+
+    <h2>Themes</h2>
+
+    <div class="themes">
+        <div class="theme">
+            <h3>Light</h3>
+
+            <KitchenSink />
+        </div>
+
+        <div class="theme theme--dark">
+            <h3>Dark</h3>
+
+            <KitchenSink />
+        </div>
+
+        <div class="theme theme--red-black">
+            <h3>Red / Black</h3>
+
+            <KitchenSink />
+        </div>
+
+        <div class="theme theme--orange-black">
+            <h3>Orange / Black</h3>
+
+            <KitchenSink />
+        </div>
+    </div>
+</DefaultLayout>
+
+<style>
+.themes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}  
+</style>

@@ -5,9 +5,8 @@ import lit from "@astrojs/lit";
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
 import vue from "@astrojs/vue";
-
 import robotsTxt from "astro-robots-txt";
-
+import mdx from "@astrojs/mdx";
 const robotsTxtConfig = {
   policy: [
     // Ignore GPTBot
@@ -29,6 +28,7 @@ export default defineConfig({
       jsx: true,
     }),
     robotsTxt(robotsTxtConfig),
+    mdx(),
   ],
   scopedStyleStrategy: "class",
   vite: {
@@ -38,4 +38,7 @@ export default defineConfig({
     port: 8888,
   },
   site: "https://andrewhudson.dev",
+  experimental: {
+    contentCollectionCache: true,
+  },
 });
