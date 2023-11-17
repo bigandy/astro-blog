@@ -89,8 +89,8 @@
 <style>
   :global(.toggle) {
     position: absolute;
-    top: 1em;
-    right: 1em;
+    top: var(--body-padding);
+    right: var(--body-padding);
 
     --ah-button-padding-inline: 1.5rem;
   }
