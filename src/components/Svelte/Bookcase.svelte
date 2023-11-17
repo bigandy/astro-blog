@@ -89,9 +89,13 @@
     margin-block: 1rem;
   }
 
+  h2 {
+    line-height: 1;
+  }
+
   h2 span {
     vertical-align: middle;
-    /* font-size: 1rem; */
+    font-size: var(--step-0);
     color: var(--color-gray-500);
   }
 </style>

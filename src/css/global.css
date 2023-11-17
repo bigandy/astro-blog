@@ -85,10 +85,8 @@
   }
 
   ::selection {
-    color: var(--theme-accent, black);
-    background-color: rgb(
-      var(--theme-accent-rgb, 211 211 211) / var(--theme-accent-opacity, 1)
-    );
+    color: var(--theme-background);
+    background-color: var(--theme-accent);
   }
 
   * {

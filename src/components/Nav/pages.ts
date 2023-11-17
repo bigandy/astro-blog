@@ -1,5 +1,16 @@
+const isDev = import.meta.env.MODE !== "production";
 export const blogHomeUrl = "/blog";
-export const pages = {
+export type Page = {
+  url: string;
+  title: string;
+  header: boolean;
+  hide?: boolean;
+};
+
+interface Pages {
+  [key: string]: Page;
+}
+export const pages: Pages = {
   home: {
     url: "/",
     title: "Home",
@@ -39,5 +50,11 @@ export const pages = {
     url: "/bookshelf",
     title: "Bookshelf",
     header: false,
+  },
+  "style-guide": {
+    url: "/style-guide",
+    title: "Style Guide",
+    header: true,
+    hide: !isDev,
   },
 };

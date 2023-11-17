@@ -5,7 +5,9 @@ import ThemeSelector from "@components/Svelte/theme-selector/index.svelte";
 
 const requestPathname = Astro.url.pathname;
 
-const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
+const headerPages = Object.values(pages)
+  .filter((page) => Boolean(page.header))
+  .filter((page) => !Boolean(page.hide));
 ---
 
 <nav class="layout">
