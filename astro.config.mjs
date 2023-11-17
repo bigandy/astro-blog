@@ -21,6 +21,7 @@ const robotsTxtConfig = {
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: true,
   integrations: [
     lit(),
     svelte(),

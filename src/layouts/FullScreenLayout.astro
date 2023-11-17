@@ -3,8 +3,6 @@
 import BaseHead from "@components/BaseHead.astro";
 import BottomOfHead from "@components/BottomOfHead.astro";
 
-import FooterScripts from "@components/FooterScripts.astro";
-
 import "src/css/global.css";
 
 // Component Script:
@@ -39,7 +37,6 @@ let permalink = "https://andrewhudson.dev/";
       {title !== "" && <h1 class="title">{title}</h1>}
       <slot />
     </section>
-    <FooterScripts />
     <style>
       body {
         --theme-accent: #52b788;
