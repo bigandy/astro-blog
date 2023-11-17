@@ -1,4 +1,5 @@
 <script>
+  import Button from "../Button.svelte";
   import { clickOutside } from "../utils/click-outside.js";
   import { getTheme } from "../utils/get-theme.js";
   import { onMount } from "svelte";
@@ -56,9 +57,9 @@
   });
 </script>
 
-<button on:click={showThemeSelector} class="toggle">
-  Show Theme Selector
-</button>
+<Button handleClick={showThemeSelector} class="toggle"
+  >Show Theme Selector</Button
+>
 
 <div
   use:clickOutside
@@ -82,14 +83,16 @@
     {/each}
   </ul>
 
-  <button on:click={handleClose}>Close the modal</button>
+  <Button handleClick={handleClose}>Close the modal</Button>
 </div>
 
 <style>
-  .toggle {
+  :global(.toggle) {
     position: absolute;
-    top: 1em;
-    right: 1em;
+    top: var(--body-padding);
+    right: var(--body-padding);
+
+    --ah-button-padding-inline: 1.5rem;
   }
 
   .theme-selector {

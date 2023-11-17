@@ -1,5 +1,15 @@
 declare module 'astro:content' {
 	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -749,13 +759,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"dummy-content.md": {
-	id: "dummy-content.md";
+"dummy-content.mdx": {
+	id: "dummy-content.mdx";
   slug: "dummy-content";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdx"] };
 "electric-studio-first-month.md": {
 	id: "electric-studio-first-month.md";
   slug: "electric-studio-first-month";
@@ -3160,6 +3170,13 @@ declare module 'astro:content' {
 "weeknotes/2023/weeknotes-2023-40.md": {
 	id: "weeknotes/2023/weeknotes-2023-40.md";
   slug: "weeknotes/2023/weeknotes-2023-40";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"weeknotes/2023/weeknotes-2023-45.md": {
+	id: "weeknotes/2023/weeknotes-2023-45.md";
+  slug: "weeknotes/2023/weeknotes-2023-45";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

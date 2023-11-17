@@ -2,7 +2,6 @@
 import BaseHead from "@components/BaseHead.astro";
 import BlogHeader from "@components/Blog/BlogHeader.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
-import FooterScripts from "@components/FooterScripts.astro";
 import BottomOfHead from "@components/BottomOfHead.astro";
 
 import "src/css/global.css";
@@ -33,6 +32,5 @@ const { title, description, permalink, lang = "en" } = content;
       <HeaderNav />
       <slot />
     </div>
-    <FooterScripts />
   </body>
 </html>

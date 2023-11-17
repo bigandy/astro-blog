@@ -64,7 +64,7 @@ li {
 
 .entry__organization,
 .entry__time {
-  font-size: 0.9rem;
+  /* font-size: 0.9rem; */
 }
 
 .entry__title {
@@ -112,7 +112,7 @@ li {
 
 .cv li::marker {
   color: rgba(var(--theme-accent-rgb), 0.5);
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
 }
 
 @media print {
@@ -135,7 +135,7 @@ li {
   }
 
   .cv h2 {
-    font-size: 28px;
+    /* font-size: 28px; */
   }
 
   .cv h1::before {
