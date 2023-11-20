@@ -5,36 +5,32 @@ import lit from "@astrojs/lit";
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
 import vue from "@astrojs/vue";
-
 import robotsTxt from "astro-robots-txt";
-
+import netlify from "@astrojs/netlify/functions";
 const robotsTxtConfig = {
   policy: [
-    // Ignore GPTBot
-    {
-      userAgent: "GPTBot",
-      disallow: "/",
-    },
-  ],
-  sitemap: false,
+  // Ignore GPTBot
+  {
+    userAgent: "GPTBot",
+    disallow: "/"
+  }],
+  sitemap: false
 };
+
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    lit(),
-    svelte(),
-    vue({
-      jsx: true,
-    }),
-    robotsTxt(robotsTxtConfig),
-  ],
+  integrations: [lit(), svelte(), vue({
+    jsx: true
+  }), robotsTxt(robotsTxtConfig)],
   scopedStyleStrategy: "class",
   vite: {
-    plugins: [],
+    plugins: []
   },
   server: {
-    port: 8888,
+    port: 8888
   },
   site: "https://andrewhudson.dev",
+  output: "server",
+  adapter: netlify()
 });

@@ -1,12 +1,11 @@
 ---
-import {
-  getCollection,
-  CollectionEntry,
-} from "astro:content";
+import { getCollection, CollectionEntry } from "astro:content";
 
 // Component Imports
 import BlogLayout from "@layouts/BlogLayout.astro";
 import BlogPost from "@components/Blog/BlogPost.astro";
+
+export const prerender = true;
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
