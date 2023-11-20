@@ -1,6 +1,4 @@
-import type { APIRoute } from "astro";
-
-export const GET: APIRoute = () => {
+const getWeekNumber = () => {
   const currentDate = new Date();
   const startDate = new Date(currentDate.getFullYear(), 0, 1);
   const dateDifference: number =
@@ -8,14 +6,10 @@ export const GET: APIRoute = () => {
   const days = Math.floor(dateDifference / (24 * 60 * 60 * 1000));
 
   const weekNumber = Math.ceil(days / 7);
-  return new Response(
-    JSON.stringify({
-      weekNumber,
-    }),
-    {
-      headers: {
-        "content-type": "application/json",
-      },
-    }
-  );
+  return weekNumber;
+};
+
+export default async () => {
+  const weekNumber = getWeekNumber();
+  return Response.json({ weekNumber });
 };
