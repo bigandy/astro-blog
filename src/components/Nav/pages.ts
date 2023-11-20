@@ -1,15 +1,17 @@
 const isDev = import.meta.env.MODE !== "production";
 export const blogHomeUrl = "/blog";
-export type Page = {
+
+type Page = {
   url: string;
   title: string;
   header: boolean;
   hide?: boolean;
 };
 
-interface Pages {
+type Pages = {
   [key: string]: Page;
-}
+};
+
 export const pages: Pages = {
   home: {
     url: "/",
