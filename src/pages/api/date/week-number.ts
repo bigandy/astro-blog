@@ -13,7 +13,6 @@ export const GET: APIRoute = () => {
       weekNumber,
     }),
     {
-      status: 200,
       headers: {
         "content-type": "application/json",
       },
