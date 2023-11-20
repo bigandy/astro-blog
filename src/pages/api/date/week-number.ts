@@ -15,7 +15,7 @@ export const GET: APIRoute = () => {
     {
       status: 200,
       headers: {
-        "content-type": "application/json; charset=UTF-8",
+        "content-type": "application/json",
       },
     }
   );
