@@ -25,3 +25,5 @@ Here's what I got up to last week:
 - Watched [The Fabelmans](https://www.imdb.com/title/tt14208870/)
 
 - Interviewed two candidates at work. So stressful and exhausting for the interviewer! We made offer(s) and will find out soon if/when they start. Exciting.
+
+- Have been reading "Homesick: Why I Live in a Shed" by Catrina Davies. Enjoying it.
