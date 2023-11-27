@@ -1,6 +1,6 @@
 ---
 title: "Assemble Ikea"
-date: 2023-11-27
+date: 2023-11-26
 draft: false 
 tags:
 	- 'weeknotes'
