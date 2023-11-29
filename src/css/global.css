@@ -52,6 +52,7 @@
     font-size: calc(var(--f-h4-size) * 1px);
     line-height: calc(var(--f-h4-lh) * 1px);
   }
+  .h5,
   h5 {
     font-size: calc(var(--f-h5-size) * 1px);
     line-height: calc(var(--f-h5-lh) * 1px);
@@ -71,7 +72,7 @@
     line-height: 24px;
   }
 
-  :where(h1, h2, h3, h4, h5, h6) {
+  :where(h1, h2, h3, h4, .h5, h6) {
     font-weight: var(--f-body-weight);
     font-family: var(--header-font-family);
   }
@@ -99,7 +100,7 @@
   }
 
   /* Typography */
-  :is(h1, h2, h3, h4, h5, h6) {
+  :is(h1, h2, h3, h4, .h5, h6) {
     margin-bottom: 1.38rem;
     line-height: 1.3;
   }

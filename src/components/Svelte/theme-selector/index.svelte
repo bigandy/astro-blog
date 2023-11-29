@@ -6,13 +6,6 @@
   let show = false;
   let selected = "";
 
-  // TODO:
-  // set state - ✅
-  // loop it - ✅
-  // set to localStorage ✅
-  // get from localStorage ✅
-  // do the styling ✅
-
   function showThemeSelector() {
     show = !show;
   }
@@ -65,7 +58,7 @@
   on:click_outside={handleClickOutside}
   class={`theme-selector ${show ? "show" : ""}`}
 >
-  <h5>Theme</h5>
+  <p class="h5">Theme</p>
 
   <ul>
     {#each themeOptions as { id, label }}
