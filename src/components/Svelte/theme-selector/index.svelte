@@ -93,7 +93,7 @@
     border: 1px solid;
     border-top: none;
     border-right: none;
-    background: var(--theme-background);
+    background: var(--theme-background, white);
     padding: 1em;
     translate: 0 calc(-100% - 1px);
     transition: translate 200ms ease-in-out;
