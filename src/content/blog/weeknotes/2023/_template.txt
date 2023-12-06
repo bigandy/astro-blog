@@ -1,0 +1,11 @@
+---
+title: "<title>"
+date: <year>-<month>-<day>
+draft: false 
+tags:
+	- 'weeknotes'
+---
+
+Here's what I got up to last week:
+
+- 
