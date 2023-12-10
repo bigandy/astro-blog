@@ -504,6 +504,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"big-three-cx-2023-24/index.md": {
+	id: "big-three-cx-2023-24/index.md";
+  slug: "big-three-cx-2023-24";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "birthday-32.md": {
 	id: "birthday-32.md";
   slug: "birthday-32";
@@ -3181,6 +3188,13 @@ declare module 'astro:content' {
 "weeknotes/2023/weeknotes-2023-48.md": {
 	id: "weeknotes/2023/weeknotes-2023-48.md";
   slug: "weeknotes/2023/weeknotes-2023-48";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"weeknotes/2023/weeknotes-2023-49.md": {
+	id: "weeknotes/2023/weeknotes-2023-49.md";
+  slug: "weeknotes/2023/weeknotes-2023-49";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
