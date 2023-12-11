@@ -9,8 +9,10 @@
     "update": "npx npm-check-updates -x lit"
   },
   "dependencies": {
+    "astro": "4.0.4",
     "@11ty/eleventy-fetch": "4.0.0",
     "@astrojs/lit": "3.0.3",
+    "@astrojs/mdx": "2.0.1",
     "@astrojs/svelte": "5.0.0",
     "@astrojs/vue": "4.0.2",
     "@lit-labs/ssr-client": "1.1.5",
@@ -26,7 +28,6 @@
   },
   "devDependencies": {
     "@types/lodash": "4.14.202",
-    "astro": "4.0.2",
     "bun-types": "1.0.15"
   }
 }
