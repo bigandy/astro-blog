@@ -59,7 +59,7 @@ export class AHButton extends LitElement {
       background: var(--ah-button-background, var(--brand, black));
       color: var(--ah-button-color, white);
       cursor: pointer;
-      transition: background-color 0.25s;
+      transition: all 0.25s;
       border: 1px solid transparent;
     }
 
@@ -91,6 +91,11 @@ export class AHButton extends LitElement {
         --ah-button-background-hover,
         var(--brand-hover, grey)
       );
+    }
+
+    .active {
+      scale: 2;
+      translate: 50% 50%;
     }
   `;
 }
