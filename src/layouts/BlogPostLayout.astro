@@ -1,9 +1,8 @@
 ---
-import BaseHead from "@components/BaseHead.astro";
-import BlogHeader from "@components/Blog/BlogHeader.astro";
-import HeaderNav from "@components/Nav/HeaderNav.astro";
-import FooterScripts from "@components/FooterScripts.astro";
-import BottomOfHead from "@components/BottomOfHead.astro";
+import BaseHead from "@components/Global/BaseHead.astro";
+import BlogHeader from "@components/Global/SiteHeader.astro";
+import FooterScripts from "@components/Global/FooterScripts.astro";
+import BottomOfHead from "@components/Global/BottomOfHead.astro";
 
 import "src/css/global.css";
 
@@ -30,7 +29,6 @@ const { title, description, permalink, lang = "en" } = content;
   <body>
     <div class="container">
       <BlogHeader />
-      <HeaderNav />
       <slot />
     </div>
     <FooterScripts />

@@ -1,10 +1,9 @@
 ---
 // Component Imports
-import BaseHead from "../components/BaseHead.astro";
-import HeaderNav from "../components/Nav/HeaderNav.astro";
-import BlogHeader from "../components/Blog/BlogHeader.astro";
-import FooterScripts from "../components/FooterScripts.astro";
-import BottomOfHead from "@components/BottomOfHead.astro";
+import BaseHead from "../components/Global/BaseHead.astro";
+import BlogHeader from "../components/Global/SiteHeader.astro";
+import FooterScripts from "../components/Global/FooterScripts.astro";
+import BottomOfHead from "@components/Global/BottomOfHead.astro";
 
 import "src/css/global.css";
 import "src/css/cv.css";
@@ -27,17 +26,12 @@ const permalink = "https://andrewhudson.dev/";
 
   <body class="cv">
     <BlogHeader />
-    <HeaderNav />
-    <div class="layout">
-      <article class="content layout-inner">
-        <section class="intro">
-          <h1 class="title">{title}</h1>
-        </section>
-        <section>
-          <slot />
-        </section>
-      </article>
-    </div>
+    <main class="layout">
+      <div class="content layout-inner">
+        <h1 class="title">{title}</h1>
+        <slot />
+      </div>
+    </main>
     <FooterScripts />
   </body>
 </html>
