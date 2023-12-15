@@ -1,8 +1,6 @@
 ---
 import { pages } from "./pages";
 
-import ThemeSelector from "@components/Svelte/theme-selector/index.svelte";
-
 const requestPathname = Astro.url.pathname;
 
 const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
@@ -23,7 +21,6 @@ const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
       })
     }
   </ul>
-  <ThemeSelector client:visible />
 </nav>
 
 <style>

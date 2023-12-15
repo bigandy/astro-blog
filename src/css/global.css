@@ -333,52 +333,6 @@
       --theme-code-bg: var(--color-gray-900);
     }
   }
-
-  /* Is there a way of reducing this duplication? */
-  [data-theme="dark"] {
-    color-scheme: dark;
-    background: black;
-    --theme-accent-blue: #90a6ff;
-    --theme-accent-opacity: 0.3;
-    --theme-divider: var(--color-gray-200);
-    --theme-text: var(--color-gray-200);
-    --theme-text-light: var(--color-gray-300);
-    --theme-text-lighter: var(--color-gray-300);
-    --theme-bg: var(--color-black);
-    --theme-code-inline-bg: var(--color-gray-800);
-    --theme-code-text: var(--color-gray-200);
-    --theme-code-bg: var(--color-gray-900);
-  }
-
-  [data-theme="light"] {
-    color-scheme: light;
-    background: white;
-    --theme-text: black;
-    --theme-background: white;
-  }
-
-  [data-theme="orange/black"] {
-    --theme-text: orange;
-    --theme-background: black;
-  }
-
-  [data-theme="red/black"] {
-    --theme-text: red;
-    --theme-background: black;
-  }
-
-  [data-theme="dark"] {
-    --theme-text: white;
-    --theme-background: black;
-  }
-}
-
-body[data-theme] {
-  --theme-accent: var(--theme-text);
-
-  @supports (background-color: oklch(from red l c h)) {
-    --theme-accent: oklch(from var(--theme-text) l 0.26 calc(h + 20));
-  }
 }
 
 /* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */

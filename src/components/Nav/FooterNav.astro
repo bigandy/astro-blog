@@ -1,8 +1,6 @@
 ---
 import { pages } from './pages'
 
-
-
 const requestPathname = Astro.url.pathname;
 
 const footerPages = Object.values(pages).filter(page => !Boolean(page.header))
