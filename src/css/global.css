@@ -333,15 +333,21 @@
       --theme-code-bg: var(--color-gray-900);
     }
   }
-}
 
-/* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
-.post img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-  font-style: italic;
-  background-repeat: no-repeat;
-  background-size: cover;
-  shape-margin: 0.75rem;
+  body > .layout {
+    max-width: 900px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  /* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
+  .post img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 0.75rem;
+  }
 }

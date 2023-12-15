@@ -1,10 +1,10 @@
 export const blogHomeUrl = "/blog";
 export const pages = {
-  home: {
-    url: "/",
-    title: "Home",
-    header: true,
-  },
+  // home: {
+  //   url: "/",
+  //   title: "Home",
+  //   header: true,
+  // },
   blog: {
     url: blogHomeUrl,
     title: "Blog",
