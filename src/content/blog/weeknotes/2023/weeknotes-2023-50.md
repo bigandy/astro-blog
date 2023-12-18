@@ -1,5 +1,5 @@
 ---
-title: "Too Much Partying"
+title: "Pre-Christmas Partying"
 date: 2023-12-17
 draft: false
 tags:
