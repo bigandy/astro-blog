@@ -9,7 +9,7 @@
     "update": "npx npm-check-updates -x lit"
   },
   "dependencies": {
-    "astro": "4.0.5",
+    "astro": "4.0.7",
     "@11ty/eleventy-fetch": "4.0.0",
     "@astrojs/lit": "4.0.0",
     "@astrojs/mdx": "2.0.1",
