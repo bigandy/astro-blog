@@ -165,11 +165,11 @@ declare module 'astro:content' {
 			? {
 					collection: C;
 					slug: ValidContentEntrySlug<C>;
-			  }
+				}
 			: {
 					collection: C;
 					id: keyof DataEntryMap[C];
-			  }
+				}
 	>;
 	// Allow generic `string` to avoid excessive type errors in the config
 	// if `dev` is not running to update as you edit.
@@ -3216,6 +3216,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"weeknotes/2023/weeknotes-2023-50.md": {
+	id: "weeknotes/2023/weeknotes-2023-50.md";
+  slug: "weeknotes/2023/weeknotes-2023-50";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"weeknotes/2023/weeknotes-2023-51.md": {
+	id: "weeknotes/2023/weeknotes-2023-51.md";
+  slug: "weeknotes/2023/weeknotes-2023-51";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "weeknotes/2023/weeknotes-2023-6.md": {
 	id: "weeknotes/2023/weeknotes-2023-6.md";
   slug: "weeknotes/2023/weeknotes-2023-6";
@@ -3338,5 +3352,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	export type ContentConfig = typeof import("../src/content/config.js");
 }

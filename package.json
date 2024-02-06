@@ -9,12 +9,12 @@
     "update": "npx npm-check-updates -x lit"
   },
   "dependencies": {
-    "astro": "4.0.7",
+    "astro": "4.3.2",
     "@11ty/eleventy-fetch": "4.0.0",
-    "@astrojs/lit": "4.0.0",
-    "@astrojs/mdx": "2.0.1",
-    "@astrojs/svelte": "5.0.1",
-    "@astrojs/vue": "4.0.3",
+    "@astrojs/lit": "4.0.1",
+    "@astrojs/mdx": "2.1.1",
+    "@astrojs/svelte": "5.0.3",
+    "@astrojs/vue": "4.0.8",
     "@lit-labs/ssr-client": "1.1.5",
     "@notionhq/client": "2.2.14",
     "@types/lodash.groupby": "4.6.9",
