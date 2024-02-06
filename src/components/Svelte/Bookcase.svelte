@@ -37,9 +37,11 @@
 
     const groups = Object.entries(group);
 
-    return groups.sort(([a], [b]) =>
-      dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"))
-    );
+    return groups.sort(([a], [b]) => {
+      return format === "month"
+        ? dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"))
+        : Number(b) - Number(a);
+    });
   };
 
   const months = groupedBooks(books, "month");
