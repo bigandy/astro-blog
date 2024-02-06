@@ -28,37 +28,39 @@
         formatString = "MM-YYYY";
         break;
     }
-    const { unfinished, ...group } = groupBy(books, (book) => {
-      const finishedDate = dayjs(book.finishedDate);
-      return finishedDate.isValid()
-        ? finishedDate.format(formatString)
-        : "unfinished";
+    const group = groupBy(books, (book) => {
+      return dayjs(book.finishedDate).format(formatString);
     });
 
     const groups = Object.entries(group);
 
-    return groups.sort(([a], [b]) => {
-      return format === "month"
-        ? dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"))
-        : Number(b) - Number(a);
-    });
+    const sortedGroups = groups
+      .sort(([a], [b]) => {
+        return format === "month"
+          ? dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"))
+          : Number(b) - Number(a);
+      })
+      .map(([key, value]) => {
+        return [
+          key,
+          value.sort((a, b) => dayjs(b.finishedDate).diff(a.finishedDate)),
+        ] as [string, Book[]];
+      });
+
+    return sortedGroups;
   };
 
-  const months = groupedBooks(books, "month");
-  const years = groupedBooks(books, "year");
   $: monthsActive = true;
 
   $: filterStart = monthsActive ? "MM-YYYY" : "YYYY";
   $: filterEnd = monthsActive ? "MMMM YYYY" : "YYYY";
 
-  $: groups = monthsActive ? months : years;
+  $: groups = monthsActive
+    ? groupedBooks(books, "month")
+    : groupedBooks(books, "year");
 
   function toggle(option: Option) {
-    if (option === "month") {
-      monthsActive = true;
-    } else {
-      monthsActive = false;
-    }
+    monthsActive = option === "month";
   }
 </script>
 
@@ -76,8 +78,11 @@
         <span>{books.length} book{books.length > 1 ? "s" : ""} completed</span>
       </h2>
       <ol reversed>
-        {#each books as { bookTitle, bookAuthor }}
-          <li>&ldquo;{bookTitle}&rdquo; by {bookAuthor}</li>
+        {#each books as { bookTitle, bookAuthor, rating }}
+          <li>
+            &ldquo;{bookTitle}&rdquo; by {bookAuthor}
+            {rating !== undefined ? `- ${rating}/10` : ""}
+          </li>
         {/each}
       </ol>
     {/each}
