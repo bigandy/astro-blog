@@ -78,10 +78,9 @@
         <span>{books.length} book{books.length > 1 ? "s" : ""} completed</span>
       </h2>
       <ol reversed>
-        {#each books as { bookTitle, bookAuthor, rating }}
+        {#each books as { bookTitle, bookAuthor }}
           <li>
             &ldquo;{bookTitle}&rdquo; by {bookAuthor}
-            {rating !== undefined ? `- ${rating}/10` : ""}
           </li>
         {/each}
       </ol>
