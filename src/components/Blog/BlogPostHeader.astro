@@ -17,9 +17,7 @@ interface Props {
 
 ---
 
-<header class={`${isPreview ? 'preview' : 'post'}`} 
-
-transition:name={`blog-header-${slug}`}>
+<header class={`${isPreview ? 'preview' : 'post'}`} transition:name={`blog-header-${slug.replaceAll('/', '')}`}>
     <h3 class="publish-date">
       {
         dayjs(date).format(
