@@ -11,7 +11,7 @@
 
   .block__title {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin-block-end: 0.5rem;
   }
 
   .block__content {

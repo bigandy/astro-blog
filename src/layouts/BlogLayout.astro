@@ -16,8 +16,7 @@ const { title, head } = Astro.props;
 let description = "Senior Software Engineer looking for answers.";
 let permalink = "https://andrewhudson.dev/";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+
 ---
 
 <html lang="en">
@@ -28,15 +27,15 @@ let permalink = "https://andrewhudson.dev/";
 
     <style>
       .content {
-        margin-bottom: 8rem;
+        margin-block-end: 8rem;
       }
 
       .content :global(main > * + *) {
-        margin-top: 1rem;
+        margin-block-start: 1rem;
       }
 
       .intro {
-        margin-bottom: 2rem;
+        margin-block-end: 2rem;
       }
 
       .intro > * {

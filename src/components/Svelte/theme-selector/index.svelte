@@ -91,8 +91,8 @@
     top: 0;
     right: 0;
     border: 1px solid;
-    border-top: none;
-    border-right: none;
+    border-block-start: none;
+    border-inline-end: none;
     background: var(--theme-background, white);
     padding: 1em;
     translate: 0 calc(-100% - 1px);
@@ -107,7 +107,7 @@
   }
 
   li {
-    margin-bottom: 0.5rem;
+    margin-block-end: 0.5rem;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1rem;

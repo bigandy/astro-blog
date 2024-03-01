@@ -22,13 +22,13 @@ const { draft, title, date } = data;
 
 <style>
   .content :global(main > * + *) {
-    margin-top: 1rem;
+    margin-block-start: 1rem;
   }
 
   .post-preview {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 4px double var(--theme-divider);
+    margin-block-end: 1rem;
+    padding-block-end: 1rem;
+    border-block-end: 4px double var(--theme-divider);
     max-width: max-content;
 
     &:hover {
@@ -37,8 +37,8 @@ const { draft, title, date } = data;
   }
 
   .draft {
-    border-left: 2px solid var(--theme-accent);
-    padding-left: 2rem;
+    border-inline-start: 2px solid var(--theme-accent);
+    padding-inline-start: 2rem;
     position: relative;
     transition: all 0.3s;
 
@@ -55,8 +55,8 @@ const { draft, title, date } = data;
     }
 
     &:hover {
-      padding-left: 0;
-      border-left: 0;
+      padding-inline-start: 0;
+      border-inline-start: 0;
       max-width: 100%;
 
       &::before {

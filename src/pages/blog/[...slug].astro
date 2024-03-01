@@ -1,7 +1,6 @@
 ---
 import { getCollection, CollectionEntry } from "astro:content";
 
-// Component Imports
 import BlogLayout from "@layouts/BlogLayout.astro";
 import BlogPost from "@components/Blog/BlogPost.astro";
 
@@ -36,7 +35,7 @@ const { post } = Astro.props;
 </BlogLayout>
 <style>
   .top-nav {
-    margin-bottom: 2em;
+    margin-block-end: 2em;
   }
   body {
     --theme-accent: var(--theme-accent-blue);

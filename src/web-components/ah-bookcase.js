@@ -99,7 +99,7 @@ export class AHBookCase extends LitElement {
   static styles = css`
     ol {
       list-style: none;
-      padding-left: 1rem;
+      padding-inline-start: 1rem;
     }
   `;
 }
