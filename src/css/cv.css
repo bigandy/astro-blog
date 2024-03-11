@@ -1,23 +1,31 @@
 .cv {
   --theme-accent-rgb: 255, 105, 180;
   --theme-accent: rgb(var(--theme-accent-rgb));
+
+  .footer-nav {
+    margin-block-start: 3rem;
+  }
+
+  h2 {
+    border-block-end: 2px solid var(--theme-accent);
+    display: inline-block;
+  }
+
+  h1 + h2 {
+    margin-block-start: 0;
+  }
+
+  :is(h2 + h3) {
+    margin-block-start: 0;
+  }
+
+  article a {
+    text-decoration: underline;
+  }
 }
 
 .content {
   margin-block-start: 2rem;
-}
-
-.cv h2 {
-  border-block-end: 2px solid var(--theme-accent);
-  display: inline-block;
-}
-
-.cv h1 + h2 {
-  margin-block-start: 0;
-}
-
-.cv :is(h2 + h3) {
-  margin-block-start: 0;
 }
 
 ol,
@@ -31,15 +39,11 @@ li {
 
 .contact {
   margin-block-end: 1rem;
-}
 
-.contact a {
-  display: inline-block;
-  margin-right: 1em;
-}
-
-.cv article a {
-  text-decoration: underline;
+  a {
+    display: inline-block;
+    margin-right: 1em;
+  }
 }
 
 .entrylist {
@@ -55,11 +59,11 @@ li {
 
 .entry__time {
   order: -1;
-}
 
-.entry__time span {
-  display: inline-block;
-  margin-inline-start: 0.25rem;
+  span {
+    display: inline-block;
+    margin-inline-start: 0.25rem;
+  }
 }
 
 .entry__organization,

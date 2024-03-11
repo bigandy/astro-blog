@@ -1,6 +1,8 @@
 ---
 import BaseHead from "@components/Global/BaseHead.astro";
 import BlogHeader from "@components/Global/SiteHeader.astro";
+
+import FooterNav from "@components/Nav/FooterNav.astro";
 import FooterScripts from "@components/Global/FooterScripts.astro";
 
 import "src/css/global.css";
@@ -15,8 +17,6 @@ const { title, head } = Astro.props;
 
 let description = "Senior Software Engineer looking for answers.";
 let permalink = "https://andrewhudson.dev/";
-
-
 ---
 
 <html lang="en">
@@ -47,11 +47,12 @@ let permalink = "https://andrewhudson.dev/";
 
   <body>
     <BlogHeader />
-    
+
     <main class="layout">
       <slot />
     </main>
 
+    <FooterNav />
     <FooterScripts />
   </body>
 </html>

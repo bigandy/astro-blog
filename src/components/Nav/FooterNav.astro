@@ -1,17 +1,18 @@
 ---
-import { pages } from './pages'
+import { pages } from "./pages";
 
 const requestPathname = Astro.url.pathname;
 
-const footerPages = Object.values(pages).filter(page => !Boolean(page.header))
+const footerPages = Object.values(pages).filter(
+  (page) => !Boolean(page.header)
+);
 ---
 
-<nav class="layout">
+<nav class="layout footer-nav">
   <ul class="layout-inner nav">
     {
       footerPages.map((entry) => {
-        const className =
-          requestPathname === entry.url && "active";
+        const className = requestPathname === entry.url && "active";
         return (
           <li>
             <a class={className} href={entry.url}>
@@ -46,7 +47,7 @@ const footerPages = Object.values(pages).filter(page => !Boolean(page.header))
   .active {
     border-bottom-color: var(--theme-accent);
   }
-  
+
   ul {
     padding-inline-start: 0;
     margin-block-end: 1rem;

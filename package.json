@@ -9,7 +9,7 @@
     "update": "npx npm-check-updates -x lit"
   },
   "dependencies": {
-    "astro": "4.4.6",
+    "astro": "4.5.0",
     "@astrojs/lit": "4.0.1",
     "@astrojs/mdx": "2.1.1",
     "@astrojs/svelte": "5.2.0",

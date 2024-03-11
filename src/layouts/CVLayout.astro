@@ -1,7 +1,9 @@
 ---
-import BaseHead from "../components/Global/BaseHead.astro";
-import BlogHeader from "../components/Global/SiteHeader.astro";
-import FooterScripts from "../components/Global/FooterScripts.astro";
+import BaseHead from "@components/Global/BaseHead.astro";
+import BlogHeader from "@components/Global/SiteHeader.astro";
+import FooterScripts from "@components/Global/FooterScripts.astro";
+
+import FooterNav from "@components/Nav/FooterNav.astro";
 import BottomOfHead from "@components/Global/BottomOfHead.astro";
 
 import "src/css/global.css";
@@ -31,6 +33,7 @@ const permalink = "https://andrewhudson.dev/";
         <slot />
       </div>
     </main>
+    <FooterNav />
     <FooterScripts />
   </body>
 </html>
