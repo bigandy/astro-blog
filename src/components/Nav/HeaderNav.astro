@@ -1,5 +1,6 @@
 ---
 import { pages } from "./pages";
+import { getNavClassName } from "./utils";
 
 const requestPathname = Astro.url.pathname;
 
@@ -10,13 +11,7 @@ const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
   <ul class="layout-inner nav">
     {
       headerPages.map((entry) => {
-        const requestPathnameWithNoSlashes = requestPathname.replaceAll(
-          "/",
-          ""
-        );
-        const urlWithNoSlashes = entry.url.replaceAll("/", "");
-        const className =
-          requestPathnameWithNoSlashes.includes(urlWithNoSlashes) && "active";
+        const className = getNavClassName(entry.url, requestPathname);
 
         return (
           <li>

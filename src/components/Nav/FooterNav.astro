@@ -1,5 +1,6 @@
 ---
 import { pages } from "./pages";
+import { getNavClassName } from "./utils";
 
 const requestPathname = Astro.url.pathname;
 
@@ -12,7 +13,8 @@ const footerPages = Object.values(pages).filter(
   <ul class="layout-inner nav">
     {
       footerPages.map((entry) => {
-        const className = requestPathname === entry.url && "active";
+        const className = getNavClassName(entry.url, requestPathname);
+
         return (
           <li>
             <a class={className} href={entry.url}>
