@@ -9,12 +9,12 @@
     "update": "npx npm-check-updates -x lit"
   },
   "dependencies": {
-    "astro": "4.5.0",
     "@astrojs/lit": "4.0.1",
-    "@astrojs/mdx": "2.1.1",
+    "@astrojs/mdx": "2.2.0",
     "@astrojs/svelte": "5.2.0",
     "@astrojs/vue": "4.0.8",
     "@webcomponents/template-shadowroot": "0.2.1",
+    "astro": "4.5.2",
     "astro-robots-txt": "1.0.0",
     "dayjs": "1.11.10",
     "lit": "3.1.0",
@@ -23,10 +23,10 @@
     "vue": "3.3.10"
   },
   "devDependencies": {
-    "@notionhq/client": "2.2.14",
-    "@lit-labs/ssr-client": "1.1.7",
     "@11ty/eleventy-fetch": "4.0.0",
-    "@types/lodash.groupby": "4.6.9",
-    "@types/lodash": "4.14.202"
+    "@lit-labs/ssr-client": "1.1.7",
+    "@notionhq/client": "2.2.14",
+    "@types/lodash": "4.14.202",
+    "@types/lodash.groupby": "4.6.9"
   }
 }
