@@ -1,0 +1,94 @@
+---
+import BaseHead from "@components/Global/BaseHead.astro";
+
+import FooterScripts from "@components/Global/FooterScripts.astro";
+
+const { title, head } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} />
+
+    {head}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "PT Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+
+        --header-font-family: "Libre Baskerville", serif;
+      }
+
+      :global(*) {
+        max-width: unset;
+      }
+
+      :global(li, p) {
+        max-width: 60ch;
+      }
+
+      :global(a) {
+        text-decoration-thickness: 2px;
+        text-decoration-color: cadetblue;
+        text-decoration-line: underline;
+        text-underline-offset: 0.25em;
+
+        &:active,
+        &:focus {
+          text-decoration: unset;
+        }
+
+        &:hover {
+          text-decoration-thickness: 1px;
+        }
+      }
+
+      :global(ul, ol) {
+        margin-block: 1.5rem;
+
+        ::marker {
+          color: orangered;
+        }
+      }
+
+      :global(ol) {
+        li:nth-child(odd) {
+          &::marker {
+            color: magenta;
+          }
+        }
+      }
+
+      :global(h1) {
+        font-size: calc(var(--f-h4-size) * 1px);
+      }
+
+      :global(h2) {
+        font-size: calc(var(--f-h5-size) * 1px);
+      }
+
+      :global(li) {
+        &:has(input:checked) {
+          text-decoration: line-through;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="layout">
+      <slot />
+    </main>
+
+    <FooterScripts />
+  </body>
+</html>

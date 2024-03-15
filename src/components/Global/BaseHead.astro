@@ -1,10 +1,19 @@
 ---
 interface Props {
   title: string;
-  description: string;
-  permalink: string;
+  description?: string;
+  permalink?: string;
 }
-const { title, description, permalink } = Astro.props;
+
+const descriptionFallback = "Senior Software Engineer looking for answers.";
+
+const permalinkFallback = "https://andrewhudson.dev/";
+
+const {
+  title,
+  description = descriptionFallback,
+  permalink = permalinkFallback,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->

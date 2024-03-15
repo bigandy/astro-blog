@@ -1,0 +1,45 @@
+---
+const { columns } = Astro.props;
+---
+
+<style>
+  div :global(p) {
+    margin: 0;
+    /* max-width: unset; */
+  }
+
+  .inner {
+    gap: 1rem;
+  }
+
+  .wrapper {
+    container: inline-size;
+
+    @container (501px > inline-size) {
+      .inner {
+        > :nth-child(2) {
+          margin-block: 2rem;
+          padding-block: 2rem;
+          border-block: 20px solid;
+        }
+      }
+    }
+
+    @container (inline-size > 501px) {
+      .inner {
+        display: grid;
+      }
+    }
+  }
+</style>
+
+<div class="wrapper">
+  <div
+    class="inner"
+    style={{
+      gridTemplateColumns: `repeat(${columns}, 1fr)`,
+    }}
+  >
+    <slot />
+  </div>
+</div>

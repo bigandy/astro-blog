@@ -1,0 +1,18 @@
+---
+const { height, background, spacing } = Astro.props;
+---
+
+<style>
+  div {
+    margin-block-end: 0.5rem;
+  }
+</style>
+
+<div
+  style={{
+    height: height ? `${height}` : "0",
+    background: background ? background : "transparent",
+    marginBlock: spacing ? spacing : 0,
+  }}
+>
+</div>

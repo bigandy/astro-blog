@@ -14,14 +14,11 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
-const description = "Senior Software Engineer looking for answers.";
-const permalink = "https://andrewhudson.dev/";
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
+    <BaseHead title={title} />
     <BottomOfHead />
   </head>
 

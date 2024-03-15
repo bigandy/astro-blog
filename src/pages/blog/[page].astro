@@ -6,7 +6,6 @@ import ArchiveNav from "@components/Global/ArchiveNav.astro";
 import { getAllPosts } from "@components/Blog/utils/blogPostList.astro";
 
 export async function getStaticPaths({ paginate }) {
-  
   // Load your data with fetch(), Astro.fetchContent(), etc.
 
   const allPosts = await getAllPosts();
@@ -19,9 +18,7 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 ---
 
-<DefaultLayout
-  title={`Blog Archive Page ${page.currentPage}`}
->
+<DefaultLayout title={`Blog Archive Page ${page.currentPage}`}>
   <div class="top-nav">
     <ArchiveNav page={page} />
   </div>

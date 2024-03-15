@@ -2,6 +2,7 @@
 import { getCollection, CollectionEntry } from "astro:content";
 
 import BlogLayout from "@layouts/BlogLayout.astro";
+import FullPageLayout from "@layouts/FullPageLayout.astro";
 import BlogPost from "@components/Blog/BlogPost.astro";
 
 export const prerender = true;
@@ -28,11 +29,20 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const { template, title } = post.data;
 ---
 
-<BlogLayout title={post.data.title}>
-  <BlogPost post={post} />
-</BlogLayout>
+{
+  template === "full-page" ? (
+    <FullPageLayout title={title}>
+      <BlogPost post={post} showBackLink={false} showDate={false} />
+    </FullPageLayout>
+  ) : (
+    <BlogLayout title={title}>
+      <BlogPost post={post} />
+    </BlogLayout>
+  )
+}
 <style>
   .top-nav {
     margin-block-end: 2em;

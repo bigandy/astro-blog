@@ -12,14 +12,11 @@ import "src/css/global.css";
 // All variables are available to use in the HTML template below.
 
 const { title = "", head, backLink = "/experiments" } = Astro.props;
-
-let description = "Senior Software Engineer looking for answers.";
-let permalink = "https://andrewhudson.dev/";
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
+    <BaseHead title={title} />
 
     {head}
 
