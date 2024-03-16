@@ -20,7 +20,7 @@ const { title, head } = Astro.props;
     />
 
     <style>
-      body {
+      .full-page-layout {
         font-family: "PT Mono", monospace;
         font-weight: 400;
         font-style: normal;
@@ -28,15 +28,15 @@ const { title, head } = Astro.props;
         --header-font-family: "Libre Baskerville", serif;
       }
 
-      :global(*) {
+      .full-page-layout :global(*) {
         max-width: unset;
       }
 
-      :global(li, p) {
+      .full-page-layout :global(li, p) {
         max-width: 60ch;
       }
 
-      :global(a) {
+      .full-page-layout :global(a) {
         text-decoration-thickness: 2px;
         text-decoration-color: cadetblue;
         text-decoration-line: underline;
@@ -52,7 +52,7 @@ const { title, head } = Astro.props;
         }
       }
 
-      :global(ul, ol) {
+      .full-page-layout :global(ul, ol) {
         margin-block: 1.5rem;
 
         ::marker {
@@ -60,7 +60,7 @@ const { title, head } = Astro.props;
         }
       }
 
-      :global(ol) {
+      .full-page-layout :global(ol) {
         li:nth-child(odd) {
           &::marker {
             color: magenta;
@@ -68,15 +68,15 @@ const { title, head } = Astro.props;
         }
       }
 
-      :global(h1) {
+      .full-page-layout :global(h1) {
         font-size: calc(var(--f-h4-size) * 1px);
       }
 
-      :global(h2) {
+      .full-page-layout :global(h2) {
         font-size: calc(var(--f-h5-size) * 1px);
       }
 
-      :global(li) {
+      .full-page-layout :global(li) {
         &:has(input:checked) {
           text-decoration: line-through;
         }
@@ -84,7 +84,7 @@ const { title, head } = Astro.props;
     </style>
   </head>
 
-  <body>
+  <body class="full-page-layout">
     <main class="layout">
       <slot />
     </main>
