@@ -11,9 +11,10 @@ const {
   post: { slug, data },
 } = Astro.props;
 const { draft, title, date } = data;
+const future = new Date(date) > new Date();
 ---
 
-<article class={`post-preview layout-inner ${draft && "draft"}`}>
+<article class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}>
   <BlogPostHeader date={date} title={title} slug={slug} isPreview />
   <main>
     <ForwardArrow url={`/blog/${slug}`} title={title} isBlog />
@@ -36,8 +37,9 @@ const { draft, title, date } = data;
     }
   }
 
+  .future,
   .draft {
-    border-inline-start: 2px solid var(--theme-accent);
+    border-inline-start: 2px solid var(--border-color);
     padding-inline-start: 2rem;
     position: relative;
     transition: all 0.3s;
@@ -47,11 +49,12 @@ const { draft, title, date } = data;
       text-transform: uppercase;
       position: absolute;
       font-size: 10px;
-      left: -0.5rem;
-      top: calc(50% - 1em);
-      content: "draft";
-      rotate: -90deg;
-      display: inline-block;
+      left: 5px;
+      top: 50%;
+      content: var(--content);
+      display: block;
+      transform: translate(-50%, 0%) rotate(-90deg) ;
+      transform-origin: center top;
     }
 
     &:hover {
@@ -63,5 +66,15 @@ const { draft, title, date } = data;
         opacity: 0;
       }
     }
+  }
+
+  .draft {
+    --border-color: color-mix(in lch, var(--theme-accent), var(--theme-divider) 50%);
+    --content: "draft";
+  }
+
+  .future {
+    --border-color: color-mix(in lch, var(--theme-accent), red);
+    --content: "future";
   }
 </style>
