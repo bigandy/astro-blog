@@ -1,43 +1,42 @@
 export const blogHomeUrl = "/blog";
 export const pages = {
-  // home: {
-  //   url: "/",
-  //   title: "Home",
-  //   header: true,
-  // },
+  about: {
+    url: "/about",
+    title: "About",
+    header: false,
+  },
+  demos: {
+    url: "/experiments",
+    title: "Experiments",
+    header: false,
+  },
+
+  tools: {
+    url: "/tools",
+    title: "Tools",
+    header: false,
+  },
+
+  now: {
+    url: "/now",
+    title: "Now",
+    header: false,
+  },
+
+  bookshelf: {
+    url: "/bookshelf",
+    title: "Bookshelf",
+    header: true,
+  },
+
   blog: {
     url: blogHomeUrl,
-    title: "Blog",
+    title: "Archive",
     header: true,
   },
   cv: {
     url: "/cv",
     title: "CV",
     header: true,
-  },
-  demos: {
-    url: "/experiments",
-    title: "Experiments",
-    header: true,
-  },
-  about: {
-    url: "/about",
-    title: "About",
-    header: false,
-  },
-  now: {
-    url: "/now",
-    title: "Now",
-    header: false,
-  },
-  tools: {
-    url: "/tools",
-    title: "Tools",
-    header: false,
-  },
-  bookshelf: {
-    url: "/bookshelf",
-    title: "Bookshelf",
-    header: false,
   },
 };
