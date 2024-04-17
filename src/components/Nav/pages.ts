@@ -23,17 +23,18 @@ export const pages = {
     header: false,
   },
 
+  blog: {
+    url: blogHomeUrl,
+    title: "Archive",
+    header: true,
+  },
+
   bookshelf: {
     url: "/bookshelf",
     title: "Bookshelf",
     header: true,
   },
 
-  blog: {
-    url: blogHomeUrl,
-    title: "Archive",
-    header: true,
-  },
   cv: {
     url: "/cv",
     title: "CV",
