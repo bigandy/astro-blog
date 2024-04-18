@@ -6,6 +6,7 @@
   import type { Book } from "src/utils/getBooksFromNotion";
   import dayjs from "dayjs";
   import customParseFormat from "dayjs/plugin/customParseFormat";
+  import "dayjs/locale/fr";
   dayjs.extend(customParseFormat);
 
   import groupBy from "lodash.groupby";
@@ -17,11 +18,12 @@
     fallback: "No books to display",
     completed: "completed",
     book: "book",
+    year: "year",
+    month: "month",
+    by: "by",
   };
-  // export let text = {
-  //   fallback: "No books to display",
-  // export let completed = "completed";
-  // export let book = "book";
+
+  export let locale = "en";
 
   const groupedBooks = (books: Book[], format: Option) => {
     let formatString = "";
@@ -69,7 +71,7 @@
     : groupedBooks(books, "year");
 
   function toggle(option: Option) {
-    monthsActive = option === "month";
+    monthsActive = option === text.month;
   }
 </script>
 
@@ -77,11 +79,13 @@
   {#if Boolean(groups?.length > 0)}
     <Toggle
       handleClick={toggle}
-      options={["month", "year"]}
-      active={monthsActive ? "month" : "year"}
+      options={[text.month, text.year]}
+      active={monthsActive ? text.month : text.year}
     />
     {#each groups as [group, books]}
-      {@const title = dayjs(group, filterStart).format(filterEnd)}
+      {@const title = dayjs(group, filterStart)
+        .locale(locale)
+        .format(filterEnd)}
       <h2>
         {title}
         <span
@@ -93,7 +97,8 @@
       <ol reversed>
         {#each books as { bookTitle, bookAuthor }}
           <li>
-            &ldquo;{bookTitle}&rdquo; by {bookAuthor}
+            &ldquo;{bookTitle}&rdquo; {text.by}
+            {bookAuthor}
           </li>
         {/each}
       </ol>

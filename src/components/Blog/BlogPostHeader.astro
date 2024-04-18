@@ -1,13 +1,14 @@
 ---
 import dayjs from "dayjs";
 
-const { date, title, isPreview = false, slug } = Astro.props;
+const { date, title, isPreview = false, slug, link } = Astro.props;
 
 interface Props {
   date?: Date;
   title: string;
   isPreview?: boolean;
   slug: string;
+  link: string;
 }
 ---
 
@@ -22,7 +23,7 @@ interface Props {
   }
   {
     isPreview ? (
-      <a href={`/blog/${slug}`}>
+      <a href={link}>
         <h2 class="title">{title}</h2>
       </a>
     ) : (
