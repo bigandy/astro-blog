@@ -2,42 +2,61 @@ export const blogHomeUrl = "/blog";
 export const pages = {
   about: {
     url: "/about",
-    title: "About",
+    title: {
+      default: "About",
+      fr: "À propos",
+    },
     header: false,
   },
   demos: {
     url: "/experiments",
-    title: "Experiments",
+    title: {
+      default: "Experiments",
+      fr: "Expériences",
+    },
     header: false,
   },
 
   tools: {
     url: "/tools",
-    title: "Tools",
+    title: {
+      default: "Tools",
+    },
     header: false,
   },
 
   now: {
     url: "/now",
-    title: "Now",
+    title: {
+      default: "Now",
+    },
     header: false,
   },
 
   blog: {
     url: blogHomeUrl,
-    title: "Archive",
+    title: {
+      default: "Archive",
+      fr: "Archive",
+    },
     header: true,
   },
 
   bookshelf: {
     url: "/bookshelf",
-    title: "Bookshelf",
+    title: {
+      default: "Bookshelf",
+      fr: "Bibliothèque",
+    },
     header: true,
   },
 
   cv: {
     url: "/cv",
-    title: "CV",
+    title: {
+      default: "CV",
+      fr: "CV",
+    },
     header: true,
   },
 };

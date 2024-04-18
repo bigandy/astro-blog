@@ -4,6 +4,8 @@ import { getNavClassName } from "./utils";
 
 const requestPathname = Astro.url.pathname;
 
+const locale = Astro.currentLocale ?? 'en'; 
+
 const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
 ---
 
@@ -16,7 +18,7 @@ const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
         return (
           <li>
             <a class={className} href={entry.url}>
-              {entry.title}
+              {entry.title?.[locale] ?? entry.title.default}
             </a>
           </li>
         );
