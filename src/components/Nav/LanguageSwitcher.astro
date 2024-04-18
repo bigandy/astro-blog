@@ -1,21 +1,19 @@
 ---
-const locale = Astro.currentLocale
+const locale = Astro.currentLocale;
 const requestPathname = Astro.url.pathname;
 
-
-let newUrl = '/fr' + requestPathname;
+let newUrl = "/fr" + requestPathname;
 if (locale) {
   // remove the locale from the url
-  newUrl = requestPathname.replace(`/${locale}`, '');
-  if (newUrl === '') {
-    newUrl = '/';
+  newUrl = requestPathname.replace(`/${locale}`, "");
+  if (newUrl === "") {
+    newUrl = "/";
   }
 }
-
 ---
-<box>
-<a href={newUrl}>{locale ? 'Anglaise 🏴󠁧󠁢󠁥󠁮󠁧󠁿' : 'French 🇫🇷'}</a>
 
+<box>
+  <a href={newUrl}>{locale ? "English 🏴󠁧󠁢󠁥󠁮󠁧󠁿" : "Français 🇫🇷"}</a>
 </box>
 
 <style>

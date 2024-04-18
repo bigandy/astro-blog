@@ -1,5 +1,4 @@
 ---
-
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import Bookcase from "src/components/Svelte/Bookcase.svelte";
 
@@ -12,30 +11,35 @@ dayjs.extend(customParseFormat);
 const title = "Bookshelf";
 
 const allBooks = await getBooks();
-const books = allBooks.filter(book => {
-  const finishedDate = dayjs(book.finishedDate);
-  return finishedDate.isValid()
-}).sort((a, b) => {
-    return dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"))
-})
-
+const books = allBooks
+  .filter((book) => {
+    const finishedDate = dayjs(book.finishedDate);
+    return finishedDate.isValid();
+  })
+  .sort((a, b) => {
+    return dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"));
+  });
 ---
 
 <DefaultLayout title={title}>
   <details>
     <summary>introduction</summary>
-    <p>I store the books that I am reading and have read in Notion. I am using this page to display the books that I have read and the month that I finished reading them.</p>
+    <p>
+      I store the books that I am reading and have read in Notion. I am using
+      this page to display the books that I have read and the month that I
+      finished reading them.
+    </p>
   </details>
-  
+
   <Bookcase client:visible books={books} />
 </DefaultLayout>
 
 <style>
- :root {
-  --theme-accent: oklch(0.52 0.12 189.58);
- }
+  :root {
+    --theme-accent: oklch(0.52 0.12 189.58);
+  }
 
- p {
-  margin-block-end: 3rem;
- }
+  p {
+    margin-block-end: 3rem;
+  }
 </style>

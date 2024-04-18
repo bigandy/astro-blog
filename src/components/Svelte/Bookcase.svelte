@@ -13,7 +13,15 @@
   import Warning from "./Warning.svelte";
 
   export let books: Book[] = [];
-  export let fallback = "No books to display";
+  export let text = {
+    fallback: "No books to display",
+    completed: "completed",
+    book: "book",
+  };
+  // export let text = {
+  //   fallback: "No books to display",
+  // export let completed = "completed";
+  // export let book = "book";
 
   const groupedBooks = (books: Book[], format: Option) => {
     let formatString = "";
@@ -76,7 +84,11 @@
       {@const title = dayjs(group, filterStart).format(filterEnd)}
       <h2>
         {title}
-        <span>{books.length} book{books.length > 1 ? "s" : ""} completed</span>
+        <span
+          >{books.length}
+          {text.book}{books.length > 1 ? "s" : ""}
+          {text.completed}</span
+        >
       </h2>
       <ol reversed>
         {#each books as { bookTitle, bookAuthor }}
@@ -87,7 +99,7 @@
       </ol>
     {/each}
   {:else}
-    <Warning class="warning">{fallback}</Warning>
+    <Warning class="warning">{text.fallback}</Warning>
   {/if}
 </div>
 

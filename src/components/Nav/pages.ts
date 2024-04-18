@@ -37,7 +37,7 @@ export const pages = {
     url: blogHomeUrl,
     title: {
       default: "Archive",
-      fr: "Archive",
+      fr: "Les Archives",
     },
     header: true,
   },
