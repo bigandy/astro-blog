@@ -6,6 +6,8 @@ const requestPathname = Astro.url.pathname;
 
 const locale = Astro.currentLocale ?? 'en'; 
 
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : ""; 
+
 const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
 ---
 
@@ -17,7 +19,7 @@ const headerPages = Object.values(pages).filter((page) => Boolean(page.header));
 
         return (
           <li>
-            <a class={className} href={entry.url}>
+            <a class={className} href={prefix + entry.url}>
               {entry.title?.[locale] ?? entry.title.default}
             </a>
           </li>

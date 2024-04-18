@@ -12,12 +12,16 @@ const {
 } = Astro.props;
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
+
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : ""; 
+
+const link =  `${prefix}/blog/${slug}`;
 ---
 
 <article class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}>
   <BlogPostHeader date={date} title={title} slug={slug} isPreview />
   <main>
-    <ForwardArrow url={`/blog/${slug}`} title={title} isBlog />
+    <ForwardArrow url={link} title={title} isBlog />
   </main>
 </article>
 

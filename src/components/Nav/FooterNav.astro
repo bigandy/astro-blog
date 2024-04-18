@@ -9,6 +9,8 @@ const footerPages = Object.values(pages).filter(
 );
 
 
+
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : ""; 
 const locale = Astro.currentLocale ?? 'en'; 
 ---
 
@@ -20,7 +22,7 @@ const locale = Astro.currentLocale ?? 'en';
 
         return (
           <li>
-            <a class={className} href={entry.url}>
+            <a class={className} href={prefix + entry.url}>
               {entry.title?.[locale] ?? entry.title.default}
             </a>
           </li>

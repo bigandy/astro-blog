@@ -4,12 +4,15 @@ import Logo from "@components/Global/Logo.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
 import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
 
+
+const homeUrl = Astro.currentLocale ? `/${Astro.currentLocale}` : "/"; 
+
 ---
 
 <header class="layout">
   <div class="layout-inner">
     <h1>
-      <a href="/">
+      <a href={homeUrl}>
         <Logo />
         <span>Andrew Hudson</span>
       </a>

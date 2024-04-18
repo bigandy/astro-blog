@@ -13,6 +13,7 @@
   import Warning from "./Warning.svelte";
 
   export let books: Book[] = [];
+  export let fallback = "No books to display";
 
   const groupedBooks = (books: Book[], format: Option) => {
     let formatString = "";
@@ -86,7 +87,7 @@
       </ol>
     {/each}
   {:else}
-    <Warning class="warning">No books returned from the API.</Warning>
+    <Warning class="warning">{fallback}</Warning>
   {/if}
 </div>
 

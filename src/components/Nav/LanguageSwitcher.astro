@@ -1,13 +1,11 @@
 ---
 const locale = Astro.currentLocale ?? 'en'; 
-
-
 const requestPathname = Astro.url.pathname;
 
 const redirectUrl = requestPathname.startsWith(`/${locale}`) ? requestPathname.replace(`/${locale}`, '') : `/fr${requestPathname}`;
 ---
 <box>
-<a href={redirectUrl}>{locale === 'fr' ? 'Anglaise' : 'French'}</a>
+<a href={redirectUrl}>{locale === 'fr' ? 'Anglaise 🏴󠁧󠁢󠁥󠁮󠁧󠁿' : 'French 🇫🇷'}</a>
 
 </box>
 
@@ -24,5 +22,6 @@ const redirectUrl = requestPathname.startsWith(`/${locale}`) ? requestPathname.r
     padding: 0.5rem 1rem;
     text-decoration: none;
     outline-offset: 0.1rem;
+    outline: unset;
   }
 </style>
