@@ -2,7 +2,9 @@
 import { getCollection } from "astro:content";
 import BlogPostPreview from "../BlogPostPreview.astro";
 
-export const getAllPosts = async () => {
+const locale = Astro.currentLocale;
+
+export const getAllPosts = async (locale) => {
   // Data Fetching: List all Markdown posts in the repo.
   let allPosts = [];
   const now = new Date();
@@ -18,6 +20,19 @@ export const getAllPosts = async () => {
     });
   }
 
+  allPosts = allPosts.filter((post) => {
+      // get rid of future posts
+    if (locale) {
+      return post.data.language === locale
+    }
+      if (typeof post.data.language === 'undefined') {
+        return true
+      }
+
+      // post.data.language && console.log(post.data.language)
+      // return typeof post.data.language === 'undefined' && post.data.language === (Astro.currentLocale || 'en')
+    });
+
   if (import.meta.env.MODE === "production") {
     allPosts = allPosts.filter((post) => {
       // get rid of future posts
@@ -32,7 +47,7 @@ export const getAllPosts = async () => {
   return allPosts;
 };
 
-let allPosts = await getAllPosts();
+let allPosts = await getAllPosts(locale);
 // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
 allPosts = allPosts.slice(0, 9);
 

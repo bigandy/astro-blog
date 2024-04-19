@@ -9,10 +9,13 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
-  return posts.map((post) => {
+
+  return posts
+  .filter((post) => post.data.language !== 'fr')
+  .map((post) => {
     return {
       params: {
-        slug: post.slug,
+        slug: post.slug, 
       },
       props: {
         post,
@@ -43,6 +46,7 @@ const { template, title } = post.data;
     </BlogLayout>
   )
 }
+
 <style>
   .top-nav {
     margin-block-end: 2em;

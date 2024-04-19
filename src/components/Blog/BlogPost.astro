@@ -6,6 +6,8 @@ import { blogHomeUrl } from "@components/Nav/pages";
 
 const { post, showBackLink = true, showDate = true } = Astro.props;
 const { Content } = await post.render();
+
+const backTitle = Astro.currentLocale ? 'Retour au blog' : "Back to blog";
 ---
 
 <article class="content post layout-inner">
@@ -22,7 +24,7 @@ const { Content } = await post.render();
 
   {
     showBackLink && (
-      <BackArrow url={blogHomeUrl} title={"Back to all blog posts"} />
+      <BackArrow url={blogHomeUrl} title={backTitle} />
     )
   }
 </article>

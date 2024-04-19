@@ -10,6 +10,12 @@ const Template = {
 } as const;
 type Template = (typeof Template)[keyof typeof Template];
 
+const Language = {
+  english: "en",
+  french: "fr",
+} as const;
+type Language = (typeof Language)[keyof typeof Language];
+
 export const collections = {
   blog: defineCollection({
     schema: z.object({
@@ -19,6 +25,7 @@ export const collections = {
       draft: z.boolean().default(false),
       tags: z.array(z.string().optional()).optional(),
       template: z.enum(getValues(Template)).optional(),
+      language: z.enum(getValues(Language)).optional(),
     }),
   }),
 };

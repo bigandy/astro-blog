@@ -8,8 +8,8 @@ interface Props {
   title: string;
   isPreview?: boolean;
   slug: string;
-  link: string;
-}
+  link?: string;
+} 
 ---
 
 <header
@@ -22,7 +22,7 @@ interface Props {
     )
   }
   {
-    isPreview ? (
+    isPreview && link ? (
       <a href={link}>
         <h2 class="title">{title}</h2>
       </a>

@@ -7,9 +7,15 @@ import BlogPost from "@components/Blog/BlogPost.astro";
 
 export const prerender = true;
 
-export async function getStaticPaths() {
+
+export async function getStaticPaths(...props) {
   const posts = await getCollection("blog");
-  return posts.map((post) => {
+  
+  console.log({props})
+
+
+  return posts
+    .map((post) => {
     return {
       params: {
         slug: post.slug,
