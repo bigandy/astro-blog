@@ -1,28 +1,12 @@
 ---
-import DefaultLayout from "@layouts/DefaultLayout.astro";
-import Bookcase from "src/components/Svelte/Bookcase.svelte";
+import BookshelfLayout from "@layouts/BookshelfLayout.astro";
 
-import { getBooks } from "src/utils/getBooksFromNotion";
+const title = "Bibliothèque";
 
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-dayjs.extend(customParseFormat);
-
-const title = "Bookshelf";
-
-const allBooks = await getBooks();
-const books = allBooks
-  .filter((book) => {
-    const finishedDate = dayjs(book.finishedDate);
-    return finishedDate.isValid();
-  })
-  .sort((a, b) => {
-    return dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"));
-  });
 ---
 
-<DefaultLayout title={title}>
-  <details>
+<BookshelfLayout title={title}>
+  <details open>
     <summary>introduction</summary>
     <p>
       Je stocke les livres que je lis et que j'ai lus dans Notion. J'utilise
@@ -30,28 +14,6 @@ const books = allBooks
       de les lire.
     </p>
   </details>
+</BookshelfLayout>
 
-  <Bookcase
-    client:visible
-    books={books}
-    text={{
-      fallback: "aucun livre renvoyé par l'API.",
-      completed: "terminés",
-      book: "livre",
-      month: "mois",
-      year: "année",
-      by: "de",
-    }}
-    locale="fr"
-  />
-</DefaultLayout>
 
-<style>
-  :root {
-    --theme-accent: oklch(0.52 0.12 189.58);
-  }
-
-  p {
-    margin-block-end: 3rem;
-  }
-</style>
