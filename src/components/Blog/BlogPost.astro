@@ -14,6 +14,7 @@ const {
 const { Content } = await post.render();
 
 const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
 ---
 
 <article class="content post layout-inner">
@@ -29,7 +30,7 @@ const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
     <Content />
   </BlogContent>
 
-  {showBackLink && <BackArrow url={blogHomeUrl} title={backTitle} />}
+  {showBackLink && <BackArrow url={prefix + blogHomeUrl} title={backTitle} />}
 </article>
 
 <style>
