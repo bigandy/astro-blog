@@ -7,24 +7,29 @@ import BlogPost from "@components/Blog/BlogPost.astro";
 
 export const prerender = true;
 
-export async function getStaticPaths() {
+export const mungePosts = async (locale) => {
   const collectionFrench = await getCollection("blog-fr");
   const collectionEnglish = await getCollection("blog");
 
-  const postsFrench = collectionEnglish.map((englishPost) => {
-    let post = englishPost;
-    let hasTranslation = false;
-    if (
-      collectionFrench.find(
-        ({ slug: frenchPostSlug }) => frenchPostSlug === post.slug
-      )
-    ) {
-      console.log("HAS TRANSLATION!", post);
-      hasTranslation = true;
-      post = collectionFrench.find(
-        ({ slug: frenchPostSlug }) => frenchPostSlug === post.slug
-      );
-    }
+  // Loop through the English posts (I currently will always start with the English version, so it will be there)
+  // If there is a french post with the same slug, replace the english with the French
+  // if not then set has
+  const posts = collectionEnglish.map((englishPost) => {
+    const frenchPost = collectionFrench.find(
+      ({ slug: frenchPostSlug }) => frenchPostSlug === englishPost.slug
+    );
+
+    const post = locale && frenchPost ? frenchPost : englishPost;
+
+    return { post, hasTranslation: locale && frenchPost };
+  });
+  return posts;
+};
+
+export async function getStaticPaths() {
+  const posts = await mungePosts("fr");
+
+  return posts.map(({ post, hasTranslation }) => {
     return {
       params: {
         slug: post.slug,
@@ -35,8 +40,6 @@ export async function getStaticPaths() {
       },
     };
   });
-
-  return postsFrench;
 }
 
 // If set up correctly, The page prop now has everything that
