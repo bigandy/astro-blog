@@ -20,7 +20,7 @@ const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
   </p>
   <div class="blog-post-list">
     <h2>Derniers articles du blog</h2>
-    <BlogPostList number={3} />
+    <BlogPostList number={3} isFrench />
 
     <ForwardArrow url={prefix + blogHomeUrl} title="Voir plus de messages" />
   </div>

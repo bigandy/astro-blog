@@ -1,15 +1,16 @@
 ---
 import dayjs from "dayjs";
+import "dayjs/locale/fr";
 
 const { date, title, isPreview = false, slug, link } = Astro.props;
-
+const locale = Astro.currentLocale ?? "en";
 interface Props {
   date?: Date;
   title: string;
   isPreview?: boolean;
   slug: string;
   link?: string;
-} 
+}
 ---
 
 <header
@@ -18,7 +19,9 @@ interface Props {
 >
   {
     date && (
-      <h3 class="publish-date">{dayjs(date).format("dddd, DD MMMM YYYY")}</h3>
+      <h3 class="publish-date">
+        {dayjs(date).locale(locale).format("dddd, DD MMMM YYYY")}
+      </h3>
     )
   }
   {

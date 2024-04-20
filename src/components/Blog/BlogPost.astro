@@ -4,10 +4,16 @@ import BlogContent from "@components/Blog/BlogContent.astro";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import { blogHomeUrl } from "@components/Nav/pages";
 
-const { post, showBackLink = true, showDate = true } = Astro.props;
+const {
+  post,
+  showBackLink = true,
+  showDate = true,
+  hasTranslation,
+} = Astro.props;
+
 const { Content } = await post.render();
 
-const backTitle = Astro.currentLocale ? 'Retour au blog' : "Back to blog";
+const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
 ---
 
 <article class="content post layout-inner">
@@ -19,14 +25,11 @@ const backTitle = Astro.currentLocale ? 'Retour au blog' : "Back to blog";
   />
 
   <BlogContent>
+    {!hasTranslation && Astro.currentLocale && <p>No Translation Available.</p>}
     <Content />
   </BlogContent>
 
-  {
-    showBackLink && (
-      <BackArrow url={blogHomeUrl} title={backTitle} />
-    )
-  }
+  {showBackLink && <BackArrow url={blogHomeUrl} title={backTitle} />}
 </article>
 
 <style>

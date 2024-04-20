@@ -7,24 +7,36 @@ import BlogPost from "@components/Blog/BlogPost.astro";
 
 export const prerender = true;
 
+export async function getStaticPaths() {
+  const collectionFrench = await getCollection("blog-fr");
+  const collectionEnglish = await getCollection("blog");
 
-export async function getStaticPaths(...props) {
-  const posts = await getCollection("blog");
-  
-  console.log({props})
-
-
-  return posts
-    .map((post) => {
+  const postsFrench = collectionEnglish.map((englishPost) => {
+    let post = englishPost;
+    let hasTranslation = false;
+    if (
+      collectionFrench.find(
+        ({ slug: frenchPostSlug }) => frenchPostSlug === post.slug
+      )
+    ) {
+      console.log("HAS TRANSLATION!", post);
+      hasTranslation = true;
+      post = collectionFrench.find(
+        ({ slug: frenchPostSlug }) => frenchPostSlug === post.slug
+      );
+    }
     return {
       params: {
         slug: post.slug,
       },
       props: {
         post,
+        hasTranslation,
       },
     };
   });
+
+  return postsFrench;
 }
 
 // If set up correctly, The page prop now has everything that
@@ -32,9 +44,10 @@ export async function getStaticPaths(...props) {
 
 interface Props {
   post: CollectionEntry<"blog">;
+  hasTranslation: boolean;
 }
 
-const { post } = Astro.props;
+const { post, hasTranslation } = Astro.props;
 const { template, title } = post.data;
 ---
 
@@ -45,7 +58,7 @@ const { template, title } = post.data;
     </FullPageLayout>
   ) : (
     <BlogLayout title={title}>
-      <BlogPost post={post} />
+      <BlogPost post={post} hasTranslation={hasTranslation} />
     </BlogLayout>
   )
 }

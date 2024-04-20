@@ -10,12 +10,10 @@ export const prerender = true;
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
 
-  return posts
-  .filter((post) => post.data.language !== 'fr')
-  .map((post) => {
+  return posts.map((post) => {
     return {
       params: {
-        slug: post.slug, 
+        slug: post.slug,
       },
       props: {
         post,

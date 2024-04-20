@@ -10,12 +10,6 @@ const Template = {
 } as const;
 type Template = (typeof Template)[keyof typeof Template];
 
-const Language = {
-  english: "en",
-  french: "fr",
-} as const;
-type Language = (typeof Language)[keyof typeof Language];
-
 export const collections = {
   blog: defineCollection({
     schema: z.object({
@@ -25,7 +19,19 @@ export const collections = {
       draft: z.boolean().default(false),
       tags: z.array(z.string().optional()).optional(),
       template: z.enum(getValues(Template)).optional(),
-      language: z.enum(getValues(Language)).optional(),
+      hasTranslation: z.boolean().default(false),
+    }),
+  }),
+
+  blogFr: defineCollection({
+    schema: z.object({
+      title: z.string(),
+      author: z.string().optional(),
+      date: z.date().transform((str) => new Date(str)),
+      draft: z.boolean().default(false),
+      tags: z.array(z.string().optional()).optional(),
+      template: z.enum(getValues(Template)).optional(),
+      hasTranslation: z.boolean().default(false),
     }),
   }),
 };

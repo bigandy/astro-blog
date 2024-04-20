@@ -2,14 +2,18 @@
 import { getCollection } from "astro:content";
 import BlogPostPreview from "../BlogPostPreview.astro";
 
-const locale = Astro.currentLocale;
+interface Props {
+  number: number;
+  isFrench?: boolean;
+}
+const { number = 9, isFrench = false } = Astro.props;
 
-export const getAllPosts = async (locale) => {
+export const getAllPosts = async (isFrench) => {
   // Data Fetching: List all Markdown posts in the repo.
   let allPosts = [];
   const now = new Date();
   // Get all the posts from the posts directory
-  allPosts = await getCollection("blog");
+  allPosts = await getCollection(isFrench ? "blog-fr" : "blog");
   if (import.meta.env.MODE === "production") {
     allPosts = allPosts.filter((post) => {
       // Get rid of draft posts first
@@ -19,19 +23,6 @@ export const getAllPosts = async (locale) => {
       return post;
     });
   }
-
-  allPosts = allPosts.filter((post) => {
-      // get rid of future posts
-    if (locale) {
-      return post.data.language === locale
-    }
-      if (typeof post.data.language === 'undefined') {
-        return true
-      }
-
-      // post.data.language && console.log(post.data.language)
-      // return typeof post.data.language === 'undefined' && post.data.language === (Astro.currentLocale || 'en')
-    });
 
   if (import.meta.env.MODE === "production") {
     allPosts = allPosts.filter((post) => {
@@ -47,14 +38,9 @@ export const getAllPosts = async (locale) => {
   return allPosts;
 };
 
-let allPosts = await getAllPosts(locale);
+let allPosts = await getAllPosts(isFrench);
 // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
 allPosts = allPosts.slice(0, 9);
-
-interface Props {
-  number: number;
-}
-const { number = 9 } = Astro.props;
 
 allPosts = allPosts.slice(0, number);
 ---

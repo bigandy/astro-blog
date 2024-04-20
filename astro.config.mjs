@@ -7,7 +7,7 @@ import svelte from "@astrojs/svelte";
 import vue from "@astrojs/vue";
 import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
-import { robotsTxtConfig } from "./src/config";
+import { robotsTxtConfig } from "./src/robots-config";
 
 // https://astro.build/config
 export default defineConfig({
