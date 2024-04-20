@@ -7,6 +7,11 @@ const requestPathname = Astro.url.pathname;
 const footerPages = Object.values(pages).filter(
   (page) => !Boolean(page.header)
 );
+
+
+
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : ""; 
+const locale = Astro.currentLocale ?? 'en'; 
 ---
 
 <nav class="layout footer-nav">
@@ -17,8 +22,8 @@ const footerPages = Object.values(pages).filter(
 
         return (
           <li>
-            <a class={className} href={entry.url}>
-              {entry.title}
+            <a class={className} href={prefix + entry.url}>
+              {entry.title?.[locale] ?? entry.title.default}
             </a>
           </li>
         );

@@ -1,13 +1,15 @@
 ---
 import dayjs from "dayjs";
+import "dayjs/locale/fr";
 
-const { date, title, isPreview = false, slug } = Astro.props;
-
+const { date, title, isPreview = false, slug, link } = Astro.props;
+const locale = Astro.currentLocale ?? "en";
 interface Props {
   date?: Date;
   title: string;
   isPreview?: boolean;
   slug: string;
+  link?: string;
 }
 ---
 
@@ -17,12 +19,14 @@ interface Props {
 >
   {
     date && (
-      <h3 class="publish-date">{dayjs(date).format("dddd, DD MMMM YYYY")}</h3>
+      <h3 class="publish-date">
+        {dayjs(date).locale(locale).format("dddd, DD MMMM YYYY")}
+      </h3>
     )
   }
   {
-    isPreview ? (
-      <a href={`/blog/${slug}`}>
+    isPreview && link ? (
+      <a href={link}>
         <h2 class="title">{title}</h2>
       </a>
     ) : (

@@ -2327,6 +2327,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"translation-test/translation-test.md": {
+	id: "translation-test/translation-test.md";
+  slug: "translation-test/translation-test";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "trialling-eleventy.md": {
 	id: "trialling-eleventy.md";
   slug: "trialling-eleventy";
@@ -3321,6 +3328,17 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+};
+"blog-fr": {
+"translation-test/translation-test.md": {
+	id: "translation-test/translation-test.md";
+  slug: "translation-test/translation-test";
+  body: string;
+  collection: "blog-fr";
+  data: any
+} & { render(): Render[".md"] };
+};
+"blogFr": {
 };
 
 	};

@@ -7,16 +7,36 @@ import BlogPost from "@components/Blog/BlogPost.astro";
 
 export const prerender = true;
 
-export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+export const mungePosts = async (locale) => {
+  const collectionFrench = await getCollection("blog-fr");
+  const collectionEnglish = await getCollection("blog");
 
-  return posts.map((post) => {
+  // Loop through the English posts (I currently will always start with the English version, so it will be there)
+  // If there is a french post with the same slug, replace the english with the French
+  // if not then set has
+  const posts = collectionEnglish.map((englishPost) => {
+    const frenchPost = collectionFrench.find(
+      ({ slug: frenchPostSlug }) => frenchPostSlug === englishPost.slug
+    );
+
+    const post = locale && frenchPost ? frenchPost : englishPost;
+
+    return { post, hasTranslation: locale && frenchPost };
+  });
+  return posts;
+};
+
+export async function getStaticPaths() {
+  const posts = await mungePosts("fr");
+
+  return posts.map(({ post, hasTranslation }) => {
     return {
       params: {
         slug: post.slug,
       },
       props: {
         post,
+        hasTranslation,
       },
     };
   });
@@ -27,9 +47,10 @@ export async function getStaticPaths() {
 
 interface Props {
   post: CollectionEntry<"blog">;
+  hasTranslation: boolean;
 }
 
-const { post } = Astro.props;
+const { post, hasTranslation } = Astro.props;
 const { template, title } = post.data;
 ---
 
@@ -40,11 +61,10 @@ const { template, title } = post.data;
     </FullPageLayout>
   ) : (
     <BlogLayout title={title}>
-      <BlogPost post={post} />
+      <BlogPost post={post} hasTranslation={hasTranslation} />
     </BlogLayout>
   )
 }
-
 <style>
   .top-nav {
     margin-block-end: 2em;

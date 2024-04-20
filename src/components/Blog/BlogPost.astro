@@ -4,11 +4,22 @@ import BlogContent from "@components/Blog/BlogContent.astro";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import { blogHomeUrl } from "@components/Nav/pages";
 
-const { post, showBackLink = true, showDate = true } = Astro.props;
+const {
+  post,
+  showBackLink = true,
+  showDate = true,
+  hasTranslation,
+} = Astro.props;
+
 const { Content } = await post.render();
+
+const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
+const noTranslation = !hasTranslation && Astro.currentLocale;
 ---
 
-<article class="content post layout-inner">
+<article class={`content post layout-inner`}>
+  {noTranslation && <p class="no-translation">Pas de traduction disponible.</p>}
   <BlogPostHeader
     date={showDate && post.data.date}
     title={post.data.title}
@@ -20,11 +31,7 @@ const { Content } = await post.render();
     <Content />
   </BlogContent>
 
-  {
-    showBackLink && (
-      <BackArrow url={blogHomeUrl} title={"Back to all blog posts"} />
-    )
-  }
+  {showBackLink && <BackArrow url={prefix + blogHomeUrl} title={backTitle} />}
 </article>
 
 <style>
@@ -34,5 +41,17 @@ const { Content } = await post.render();
 
   .content :global(main > * + *) {
     margin-block-start: 1rem;
+  }
+
+  .post {
+    padding: 1rem;
+  }
+
+  .no-translation {
+    width: 100%;
+    padding: 1rem;
+    border: 0.25rem dotted red;
+    max-width: unset;
+    text-align: center;
   }
 </style>

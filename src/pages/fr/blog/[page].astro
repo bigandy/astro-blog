@@ -7,8 +7,8 @@ import { getAllPosts } from "@components/Blog/utils/blogPostList.astro";
 
 export async function getStaticPaths({ paginate }) {
   // Load your data with fetch(), Astro.fetchContent(), etc.
-  const locale = Astro.currentLocale;
-  const allPosts = await getAllPosts(locale);
+
+  const allPosts = await getAllPosts(Astro.currentLocale);
 
   // Return a paginated collection of paths for all posts
   return paginate(allPosts, { pageSize: 10 });

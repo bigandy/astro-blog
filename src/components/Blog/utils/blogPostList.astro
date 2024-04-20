@@ -1,13 +1,23 @@
 ---
-import { getCollection } from "astro:content";
 import BlogPostPreview from "../BlogPostPreview.astro";
 
-export const getAllPosts = async () => {
+interface Props {
+  number: number;
+  isFrench?: boolean;
+}
+const { number = 9 } = Astro.props;
+
+import { mungePosts } from "src/pages/fr/blog/[...slug].astro";
+
+export const getAllPosts = async (locale) => {
+  const posts = await mungePosts(locale);
+
+  let allPosts = posts.map(({ post }) => post);
+
   // Data Fetching: List all Markdown posts in the repo.
-  let allPosts = [];
   const now = new Date();
   // Get all the posts from the posts directory
-  allPosts = await getCollection("blog");
+
   if (import.meta.env.MODE === "production") {
     allPosts = allPosts.filter((post) => {
       // Get rid of draft posts first
@@ -32,14 +42,9 @@ export const getAllPosts = async () => {
   return allPosts;
 };
 
-let allPosts = await getAllPosts();
+let allPosts = await getAllPosts(Astro.currentLocale);
 // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
 allPosts = allPosts.slice(0, 9);
-
-interface Props {
-  number: number;
-}
-const { number = 9 } = Astro.props;
 
 allPosts = allPosts.slice(0, number);
 ---
