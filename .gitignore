@@ -22,3 +22,6 @@ yarn-error.log*
 
 # Build
 .netlify
+
+# Astro
+.astro
