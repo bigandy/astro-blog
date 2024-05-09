@@ -6,7 +6,7 @@ tags:
   - "weeknotes"
 ---
 
-Last week was currently about:
+Last week was all about:
 
 ### French Learning
 

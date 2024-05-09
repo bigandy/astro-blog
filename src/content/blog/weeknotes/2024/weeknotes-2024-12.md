@@ -6,7 +6,7 @@ tags:
   - "weeknotes"
 ---
 
-Last week was currently about:
+Last week was all about:
 
 - Finally getting over Flu. Still coughing a load and a lot less energy than usual.
 
