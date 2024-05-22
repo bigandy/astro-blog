@@ -7,10 +7,6 @@
 </div>
 
 <style>
-  ul {
-    padding-inline-start: 0;
-  }
-
   div :global(ul) {
     padding-inline-start: 1rem;
   }
@@ -19,4 +15,23 @@
   div :global(p) {
     margin-block-end: 0.5rem;
   }
+
+  div :global(table) {
+    width: 100%;
+    max-width: 600px;
+    margin-block: 2rem;
+
+
+    table-layout: fixed;
+    border-collapse: collapse;
+    
+
+    td, 
+    th {
+      border: 1px solid var(--theme-accent);
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+
 </style>
