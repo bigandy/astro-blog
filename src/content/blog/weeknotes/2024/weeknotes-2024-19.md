@@ -12,11 +12,11 @@ Last week was all about:
 
 - Continued learning with Duolingo.
 
-- Bought a copy of Velo magazine which is in French, reading some of daughters book
+- Bought a copy of Velo magazine which is in French, reading some of my daughters French book
 
 - Had my try-out first lesson. I can understand a lot, but speaking I find really difficult, confidence and vocabulary being the causes.
 
-- Spent a long weekend in Grenoble with the kids. A beautiful part of the world surrounded by magestic French Alps.
+- Spent a long weekend in Grenoble with the kids. A beautiful part of the world surrounded by magestic French Alps. One day we'd love to move to France and if there were a place that I'd like to live in France it'd be in the Alps.
 
 ### Exercise
 
