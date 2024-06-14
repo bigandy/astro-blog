@@ -38,11 +38,15 @@ li {
 }
 
 .contact {
-  margin-block-end: 1rem;
+  margin-block-end: 2rem;
 
   a {
     display: inline-block;
     margin-right: 1em;
+  }
+
+  + h2 {
+    margin-block-start: 0;
   }
 }
 
@@ -178,14 +182,6 @@ li {
       display: grid;
       grid-template-columns: repeat(var(--grid-number, 1), 1fr);
     }
-
-    /* .p-grid--halfs {
-      --grid-number: 2;
-    }
-
-    .p-grid--thirds {
-      --grid-number: 3;
-    } */
 
     .p-grid li {
       padding-inline-end: 1.5rem;
