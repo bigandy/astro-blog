@@ -13,7 +13,7 @@ interface Props {
 
 <header
   class={`${isPreview ? "preview" : "post"}`}
-  transition:name={`blog-header-${slug.replaceAll("/", "")}`}
+  style={`view-transition-name: ${slug.replaceAll("/", "")}`}
 >
   {
     date && (
