@@ -18,7 +18,6 @@ var cacheFiles = [
   "/blog/",
   "/experiments/",
   "/offline/",
-  "/js/instant.page.js",
 ];
 self.addEventListener("install", function (event) {
   event.waitUntil(
