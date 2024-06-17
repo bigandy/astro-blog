@@ -51,3 +51,18 @@ const {
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content="https://astro.build/social.jpg?v=1" />
+
+<script type="speculationrules">
+  {
+    "prerender": [{
+      "source": "document",
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+        ]
+      },
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
+  
