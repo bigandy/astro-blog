@@ -55,13 +55,10 @@ const {
 <script type="speculationrules">
   {
     "prerender": [{
-      "source": "document",
-      "where": {
-        "and": [
-          { "href_matches": "/*" },
-        ]
-      },
-      "eagerness": "moderate"
+        "where": {
+          "href_matches": "/*"
+        },
+        "eagerness": "moderate"
     }]
   }
   </script>
