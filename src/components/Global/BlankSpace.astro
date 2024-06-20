@@ -1,18 +1,18 @@
 ---
-const { height, background, spacing } = Astro.props;
+const { height, background, spacing, width, float, style } = Astro.props;
 ---
 
-<style>
-  div {
-    margin-block-end: 0.5rem;
-  }
-</style>
+
 
 <div
   style={{
     height: height ? `${height}` : "0",
+    width: width ? `${width}` : 'auto',
     background: background ? background : "transparent",
-    marginBlock: spacing ? spacing : 0,
+    marginBlock: spacing ? spacing : '0 0.5rem',
+    float: float ? float : '',
+    ...style
   }}
 >
 </div>
+
