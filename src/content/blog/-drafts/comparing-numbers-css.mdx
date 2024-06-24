@@ -11,6 +11,7 @@ template: "full-page"
 import { Code } from "astro:components";
 
 import BlankSpace from "@components/Global/BlankSpace.astro";
+import IdeasList from "@components/Global/IdeasList.astro";
 import Columns from "@components/Global/Columns.astro";
 
 import { radioactiveOrange } from "@utils/colours";
@@ -18,3 +19,9 @@ import { radioactiveOrange } from "@utils/colours";
 Over the last couple of weeks I have become commited to creating some really cool demos in Codepen with CSS. 
 
 I went to CSS Day in Amsterdam at the start of the month and was blown away by the...
+
+<IdeasList />
+
+<BlankSpace height="2em" background={"red"} />
+
+<IdeasList ideas={['round()', "mod()", "clamp()", "max()", "min()"]} />

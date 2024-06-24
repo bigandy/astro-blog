@@ -6,6 +6,7 @@ import { blogHomeUrl } from "@components/Nav/pages";
 
 const { post, showBackLink = true, showDate = true } = Astro.props;
 const { Content } = await post.render();
+export const addsToHead = true;
 ---
 
 <article class="content post layout-inner">

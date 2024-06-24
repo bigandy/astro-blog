@@ -1,0 +1,15 @@
+---
+const { ideas } = Astro.props;
+---
+
+<ul>
+  {
+    ideas?.length > 0 ? (
+      ideas?.map((idea) => {
+        return <li>{idea}</li>;
+      })
+    ) : (
+      <li>No ideas</li>
+    )
+  }
+</ul>

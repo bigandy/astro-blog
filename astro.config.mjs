@@ -7,6 +7,8 @@ import svelte from "@astrojs/svelte";
 import vue from "@astrojs/vue";
 import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
+import addsToHead from "astro-adds-to-head";
+
 const robotsTxtConfig = {
   policy: [
     // Ignore GPTBot
@@ -28,6 +30,7 @@ export default defineConfig({
     }),
     robotsTxt(robotsTxtConfig),
     mdx(),
+    addsToHead(), // This is to allow component css in .astro components imported into in .mdx files
   ],
   scopedStyleStrategy: "class",
   vite: {
