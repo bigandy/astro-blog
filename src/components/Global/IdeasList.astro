@@ -1,5 +1,15 @@
 ---
 const { ideas } = Astro.props;
+
+interface Idea {
+  title: string;
+  text?: string;
+  completed?: boolean;
+}
+
+interface Props {
+  ideas: Idea[];
+}
 ---
 
 <ul>
