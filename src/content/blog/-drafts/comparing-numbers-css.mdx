@@ -20,8 +20,31 @@ Over the last couple of weeks I have become commited to creating some really coo
 
 I went to CSS Day in Amsterdam at the start of the month and was blown away by the...
 
-<IdeasList />
-
-<BlankSpace height="2em" background={"red"} />
-
-<IdeasList ideas={['round()', "mod()", "clamp()", "max()", "min()"]} />
+<IdeasList ideas={[
+    {
+        title: "round()",
+        completed: false,
+        text: `
+        If you want to add some margin after every fourth item with CSS, how would you do that?
+        Not possible unless you have some control on the markup, or use nth-child(). But what if you want to do it 
+        dynamically? e.g. on...
+        
+        `
+    },
+    {
+        title: "mod()",
+        completed: false
+    },
+    {
+        title: "min()",
+        completed: false
+    },
+    {
+        title: "max()",
+        completed: false
+    },
+    {
+        title: "clamp()",
+        completed: false
+    },
+    ]} />

@@ -6,10 +6,41 @@ const { ideas } = Astro.props;
   {
     ideas?.length > 0 ? (
       ideas?.map((idea) => {
-        return <li>{idea}</li>;
+
+        if (idea.text) {
+          return (
+            <li>
+              <details>
+                <summary>{idea?.title}</summary>
+                <p>{idea?.text}</p>
+              </details>
+            </li>
+          )
+        } else {
+          return (
+            <li>
+                {idea?.title}
+            </li>
+          )
+        }
       })
     ) : (
       <li>No ideas</li>
     )
   }
 </ul>
+
+<style>
+  summary {
+    cursor: pointer;
+  }
+  ul {
+    border: 2px dashed;
+    padding-block: 1rem 0.5rem;
+  }
+
+  /* For Specificity */
+  ul:is(ul) {
+    padding-inline-start: 2rem;
+  }
+</style>
