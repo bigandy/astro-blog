@@ -52,3 +52,29 @@ I went to CSS Day in Amsterdam at the start of the month and was blown away by t
         completed: false
     },
     ]} />
+
+## rem()
+
+this is called the remainder function and it takes two values 
+rem(dividend, divisor). The returned value is the divident divided by the divisor.
+The returned value always takes the sign (+ve or -ve) of the dividend.
+
+### Examples
+- rem(27,7) = 6
+  27 / 7 is 3.8 which is rounded down to 3. 
+  Multiplying 3 x 7 gives 21. 
+  27 - 21 = 6
+  To get the answer we subtract this value
+  from the dividend and get 6.
+
+- rem(211, 13) = 4
+  211 / 13 = 16.2307692308. 
+  16 * 13 = 208
+  211 - 208 = 4
+
+- rem(140deg, -90deg) = 50deg
+  140 / 90 = 1.5555555556
+  1 * 90 = 90
+  140 - 90 = 50
+
+### Where you would use this
