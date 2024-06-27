@@ -77,4 +77,40 @@ The returned value always takes the sign (+ve or -ve) of the dividend.
   1 * 90 = 90
   140 - 90 = 50
 
+### Return Value 
+- If divisor is 0, the result is NaN.
+- If dividend is infinite, the result is NaN.
+- If dividend is positive the result is positive (0⁺), and if dividend is negative the result is negative (0⁻).
+
 ### Where you would use this
+
+### Differences with mod()
+
+
+## mod()
+this is the modulus function and takes two parameters and returns the 
+value of the first parameter divided by the second parameter and the modulus
+is the value that is left. The first param is the `dividend` and the second param
+is called the `divisor`. The sign of the returned value is always the same as the `divisor`
+
+
+
+### Examples
+- mod(27, 7) =
+27 / 7 = 3.8 which the whole number is then 3
+3 * 7 = 21 
+27 - 21 = 6
+
+- mod(140deg, -90deg) = -50deg
+140 / 90 = -1.5555555556
+1 * 90 = 90
+140 - 90 = 50
+
+### Return Value
+- If divisor is 0, the result is NaN.
+- If dividend is infinite, the result is NaN.
+- If divisor is positive the result is positive (0⁺), and if divisor is negative the result is negative (0⁻).
+
+### Differences with mod()
+mod(dividend, divisor) value always takes the sign of the `divisor`
+rem(dividend, divisor) value always takes the sign of the `dividend`
