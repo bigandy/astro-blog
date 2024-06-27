@@ -19,66 +19,71 @@ const { title, head } = Astro.props;
       rel="stylesheet"
     />
 
-    <style>
+    <style is:global>
       .full-page-layout {
         font-family: "PT Mono", monospace;
         font-weight: 400;
         font-style: normal;
 
         --header-font-family: "Libre Baskerville", serif;
-      }
 
-      .full-page-layout :global(*) {
-        max-width: unset;
-      }
-
-      .full-page-layout :global(li, p) {
-        max-width: 60ch;
-      }
-
-      .full-page-layout :global(a) {
-        text-decoration-thickness: 2px;
-        text-decoration-color: cadetblue;
-        text-decoration-line: underline;
-        text-underline-offset: 0.25em;
-
-        &:active,
-        &:focus {
-          text-decoration: unset;
+        header {
+          width: fit-content;
         }
 
-        &:hover {
-          text-decoration-thickness: 1px;
+        .layout {
+          max-width: unset;
         }
-      }
 
-      .full-page-layout :global(ul, ol) {
-        margin-block: 1.5rem;
-
-        ::marker {
-          color: orangered;
+        li,
+        p {
+          max-width: 60ch;
         }
-      }
+        a {
+          text-decoration-thickness: 2px;
+          text-decoration-color: cadetblue;
+          text-decoration-line: underline;
+          text-underline-offset: 0.25em;
 
-      .full-page-layout :global(ol) {
-        li:nth-child(odd) {
-          &::marker {
-            color: magenta;
+          &:active,
+          &:focus {
+            text-decoration: unset;
+          }
+
+          &:hover {
+            text-decoration-thickness: 1px;
           }
         }
-      }
 
-      .full-page-layout :global(h1) {
-        font-size: calc(var(--f-h4-size) * 1px);
-      }
+        ul,
+        ol {
+          margin-block: 1.5rem;
 
-      .full-page-layout :global(h2) {
-        font-size: calc(var(--f-h5-size) * 1px);
-      }
+          ::marker {
+            color: orangered;
+          }
+        }
 
-      .full-page-layout :global(li) {
-        &:has(input:checked) {
-          text-decoration: line-through;
+        ol {
+          li:nth-child(odd) {
+            &::marker {
+              color: magenta;
+            }
+          }
+        }
+
+        h1 {
+          font-size: calc(var(--f-h4-size) * 1px);
+        }
+
+        h2 {
+          font-size: calc(var(--f-h5-size) * 1px);
+        }
+
+        li {
+          &:has(input:checked) {
+            text-decoration: line-through;
+          }
         }
       }
     </style>
