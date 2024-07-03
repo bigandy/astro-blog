@@ -6,7 +6,6 @@ interface Props {
 }
 
 const descriptionFallback = "Senior Software Engineer looking for answers.";
-
 const permalinkFallback = "https://andrewhudson.dev/";
 
 const {
@@ -45,12 +44,16 @@ const {
 <meta property="og:description" content={description} />
 <meta property="og:image" content="https://astro.build/social.jpg?v=1" />
 
+<!-- Mastodon -->
+<meta property="fediverse:creator" content="@bigandy@indieweb.social" />
+
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content="https://astro.build/social.jpg?v=1" />
+
 
 
   
