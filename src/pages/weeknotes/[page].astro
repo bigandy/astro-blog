@@ -9,7 +9,7 @@ import { getAllPosts } from '@components/Blog/utils/getAllPosts';
 
 
 export async function getStaticPaths({ paginate }) {
-  const allPosts = await getAllPosts();
+  const allPosts = await getAllPosts('weeknotes');
 
   // Return a paginated collection of paths for all posts
   return paginate(allPosts, { pageSize: 10 });
@@ -27,7 +27,7 @@ interface Props {
 const { page } = Astro.props;
 ---
 
-<DefaultLayout title={`Blog Archive Page ${page.currentPage}`}>
+<DefaultLayout title={`Weeknote Archive Page ${page.currentPage}`}>
   <div class="top-nav">
     <ArchiveNav page={page} />
   </div>

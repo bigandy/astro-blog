@@ -3,13 +3,13 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 import ForwardArrow from "@components/Global/ForwardArrow.astro";
 import BlogPostList from "@components/Blog/utils/blogPostList.astro";
 
-let title = "Blog";
+let title = "Weeknotes";
 ---
 
 <DefaultLayout title={title}>
-  <BlogPostList number={9}  ignoreWeeknotes />
+  <BlogPostList number={9} collection="weeknotes" />
 
-  <ForwardArrow url="/blog/2" title="See more posts" />
+  <ForwardArrow url="/weeknotes/2" title="See more posts" />
 </DefaultLayout>
 
 <style>

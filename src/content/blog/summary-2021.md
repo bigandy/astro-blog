@@ -3,10 +3,8 @@ title: The Year that was 2021
 date: 2022-01-01
 draft: true
 description: ""
-tags: ['weeknotes']
+tags: ["weeknotes"]
 ---
-
-# The Year that was 2021
 
 I have seen a number of people's end of year reports and I thought that it would be good for me to start 2022 by writing one for myself.
 

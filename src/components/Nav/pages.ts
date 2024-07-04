@@ -1,4 +1,3 @@
-export const blogHomeUrl = "/blog";
 export const pages = {
   about: {
     url: "/about",
@@ -24,8 +23,14 @@ export const pages = {
   },
 
   blog: {
-    url: blogHomeUrl,
+    url: "/blog",
     title: "Archive",
+    header: true,
+  },
+
+  weeknotes: {
+    url: "/weeknotes",
+    title: "Weeknotes",
     header: true,
   },
 

@@ -1,23 +1,26 @@
 ---
 import { CollectionEntry } from "astro:content";
 import ForwardArrow from "@components/Global/ForwardArrow.astro";
-
+import type { Collection } from '@components/Blog/utils/getAllPosts';
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
+
 interface Props {
   post: CollectionEntry<"blog">;
+  collection?: Collection
 }
 
 const {
   post: { slug, data },
+  collection = 'blog'
 } = Astro.props;
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
 ---
 
 <article class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}>
-  <BlogPostHeader date={date} title={title} slug={slug} isPreview />
+  <BlogPostHeader date={date} title={title} slug={`${collection}/${slug}`} isPreview />
   <main>
-    <ForwardArrow url={`/blog/${slug}`} title={title} isBlog />
+    <ForwardArrow url={`/${collection}/${slug}`} title={title} isBlog />
   </main>
 </article>
 

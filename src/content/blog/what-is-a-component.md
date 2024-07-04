@@ -7,8 +7,6 @@ author: "Andrew"
 draft: true
 ---
 
-# What is a component?
-
 I would define a component in its simplest words as a part of an application that can be re-used with different props apply different variations.
 
 ```javascript

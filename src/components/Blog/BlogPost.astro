@@ -2,9 +2,8 @@
 import BackArrow from "@components/Global/BackArrow.astro";
 import BlogContent from "@components/Blog/BlogContent.astro";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
-import { blogHomeUrl } from "@components/Nav/pages";
 
-const { post, showBackLink = true, showDate = true } = Astro.props;
+const { post, showBackLink = true, showDate = true, collection = 'blog' } = Astro.props;
 const { Content } = await post.render();
 ---
 
@@ -22,7 +21,7 @@ const { Content } = await post.render();
 
   {
     showBackLink && (
-      <BackArrow url={blogHomeUrl} title={"Back to all blog posts"} />
+      <BackArrow url={`/${collection}`} title={`Back to all ${collection} posts`} />
     )
   }
 </article>
