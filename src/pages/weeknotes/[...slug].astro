@@ -10,17 +10,19 @@ export const prerender = true;
 const collection = "weeknotes"
 
 export async function getStaticPaths() {
-  const posts = await getCollection(collection);
-  return posts.map((post) => {
-    return {
-      params: {
-        slug: post.slug,
-      },
-      props: {
-        post,
-      },
-    };
-  });
+	const collection = "weeknotes"
+	const posts = await getCollection(collection);
+  
+	return posts.map((post) => {
+		return {
+		params: {
+			slug: post.slug,
+		},
+		props: {
+			post,
+		},
+		};
+	});
 }
 
 interface Props {
@@ -32,21 +34,21 @@ const { template, title } = post.data;
 ---
 
 {
-  template === "full-page" ? (
-    <FullPageLayout title={title}>
-      <BlogPost post={post} showBackLink={false} showDate={false} collection={collection} />
-    </FullPageLayout>
-  ) : (
-    <BlogLayout title={title}>
-      <BlogPost post={post} collection={collection} />
-    </BlogLayout>
-  )
+	template === "full-page" ? (
+		<FullPageLayout title={title}>
+			<BlogPost post={post} showBackLink={false} showDate={false} collection=	{collection} />
+		</FullPageLayout>
+	) : (
+		<BlogLayout title={title}>
+			<BlogPost post={post} collection={collection} />
+		</BlogLayout>
+	)
 }
 <style>
   .top-nav {
-    margin-block-end: 2em;
+	margin-block-end: 2em;
   }
   body {
-    --theme-accent: var(--theme-accent-blue);
+	--theme-accent: var(--theme-accent-blue);
   }
 </style>
