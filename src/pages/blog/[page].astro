@@ -1,4 +1,6 @@
 ---
+import { CollectionEntry } from "astro:content";
+
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import BlogPostPreview from "@components/Blog/BlogPostPreview.astro";
 import ArchiveNav from "@components/Global/ArchiveNav.astro";
@@ -6,15 +8,21 @@ import ArchiveNav from "@components/Global/ArchiveNav.astro";
 import { getAllPosts } from "@components/Blog/utils/blogPostList.astro";
 
 export async function getStaticPaths({ paginate }) {
-  // Load your data with fetch(), Astro.fetchContent(), etc.
-
   const allPosts = await getAllPosts();
 
   // Return a paginated collection of paths for all posts
   return paginate(allPosts, { pageSize: 10 });
 }
-// If set up correctly, The page prop now has everything that
-// you need to render a single page (see next section).
+
+
+
+interface Props {
+  page: {
+    currentPage: number
+    data: CollectionEntry<"blog">;
+  }
+}
+
 const { page } = Astro.props;
 ---
 
