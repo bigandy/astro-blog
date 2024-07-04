@@ -1,6 +1,3 @@
-// @ts-check
-import lit from "@astrojs/lit";
-
 /** @type {import('astro').AstroUserConfig} */
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
@@ -21,7 +18,6 @@ const robotsTxtConfig = {
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    lit(),
     svelte(),
     vue({
       jsx: true,
