@@ -34,6 +34,11 @@ const { Content } = await post.render();
   }
 </article>
 
+<a
+  href={`https://github.com/bigandy/astro-blog/tree/main/src/content/${collection}/${post.slug}.md`}
+  target="_blank">Edit this post on Github</a
+>
+
 <style>
   .content {
     margin-block-end: 8rem;
@@ -41,5 +46,10 @@ const { Content } = await post.render();
 
   .content :global(main > * + *) {
     margin-block-start: 1rem;
+  }
+
+  a {
+    margin-bottom: 2rem;
+    display: inline-block;
   }
 </style>

@@ -352,6 +352,8 @@
   }
 }
 
+/* Hiding this for now because the style is not right.
+
 a:not([href^="/"]):not([href^="mailto"]):not([href^="tel"]) {
   &::after {
     padding-inline: 0.5rem;
@@ -359,4 +361,4 @@ a:not([href^="/"]):not([href^="mailto"]):not([href^="tel"]) {
     color: red;
     font-size: 10px;
   }
-}
+} */
