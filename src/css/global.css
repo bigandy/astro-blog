@@ -351,3 +351,12 @@
     shape-margin: 0.75rem;
   }
 }
+
+a:not([href^="/"]):not([href^="mailto"]):not([href^="tel"]) {
+  &::after {
+    padding-inline: 0.5rem;
+    content: "external link";
+    color: red;
+    font-size: 10px;
+  }
+}

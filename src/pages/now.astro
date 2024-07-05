@@ -1,58 +1,95 @@
 ---
-import DefaultLayout from '../layouts/DefaultLayout.astro';
+import DefaultLayout from "../layouts/DefaultLayout.astro";
 
-const title = 'Now';
+const title = "Now";
 ---
 
 <DefaultLayout title={title}>
-	<div class="container">
-		<p class="now-intro">Last updated: 26 April 2024.</p>
+  <div class="container">
+    <p class="now-intro">Last updated: 26 April 2024.</p>
 
-		<!-- <h2>Life</h2> -->
+    <!-- <h2>Life</h2> -->
 
-		<h2>Learning</h2>
+    <h2>Learning</h2>
 
-		<p>I have just started learning French again. Using DuoLingo (just subscribed to the paid version Super Duo Lingo)</p>
+    <p>
+      I have just started learning French again. Using DuoLingo (just subscribed
+      to the paid version Super Duo Lingo)
+    </p>
 
-		<p>Currently in the process of converting this site into a dual-lingual site now that Astro supports i18n (localisation) better.</p>
-		
-		<h3>Reading</h3>
+    <p>
+      Currently in the process of converting this site into a dual-lingual site
+      now that Astro supports i18n (localisation) better.
+    </p>
 
-		<p>I am still reading a lot. I set myself the target of reading 40 books this year and so far I am at 19 after almost 4 months.</p>
+    <h3>Reading</h3>
 
-		<p>Here are the books I have read so far:</p>
+    <p>
+      I am still reading a lot. I set myself the target of reading 40 books this
+      year and so far I am at 19 after almost 4 months.
+    </p>
 
-		<ol reversed=""><li>“The Consultant” by Im Seong-sun</li><li>“Stay True” by Hua Hsu</li><li>“Abroad in Japan” by Chris Broad</li><li>“Harry Potter and the Chamber of Secrets” by J K Rowling</li><li>“The Clinic” by Cate Quinn</li><li>“Big Swiss” by Jen Beagin</li><li>“Slow Productivity” by Cal Newport</li><li>“In Ascension ” by Martin Macinnes</li><li>“Early Riser” by Jasper Fforde</li><li>“Snow Country” by Sebastian Faulks</li><li>“The Freedom Artist” by Ben Okri</li><li>“A Line in the World: A Year on the North Sea Coast” by Dorthe Nors</li><li>“Utopia Avenue” by David Mitchell</li><li>“438 Days” by Jonathan Franklin</li><li>“The Man Who Saw Everything” by Deborah Levy</li><li>“Lessons” by Ian McEwan</li><li>“The Premonition” by Banana Yoshimoto</li><li>“Greek Lessons” by Han Kang</li><li>“Harry Potter and the Philosopher's Stone” by J K Rowling</li> </ol>
-		
+    <p>Here are the books I have read so far:</p>
 
-		<h2>Fitness</h2>
-		
-		<p>Have started running again. Started using the standing desk again and have bought a standing mat to make standing up for periods of time more comfortable. Strengthening the calf muscles. Going for more walks in the morning or at lunch time. Now that the days are longer and slightly warmer this is more achieveable. Trying to do Zwift once a week. </p>
+    <ol reversed="">
+      <li>“The Consultant” by Im Seong-sun</li><li>
+        “Stay True” by Hua Hsu
+      </li><li>“Abroad in Japan” by Chris Broad</li><li>
+        “Harry Potter and the Chamber of Secrets” by J K Rowling
+      </li><li>“The Clinic” by Cate Quinn</li><li>
+        “Big Swiss” by Jen Beagin
+      </li><li>“Slow Productivity” by Cal Newport</li><li>
+        “In Ascension ” by Martin Macinnes
+      </li><li>“Early Riser” by Jasper Fforde</li><li>
+        “Snow Country” by Sebastian Faulks
+      </li><li>“The Freedom Artist” by Ben Okri</li><li>
+        “A Line in the World: A Year on the North Sea Coast” by Dorthe Nors
+      </li><li>“Utopia Avenue” by David Mitchell</li><li>
+        “438 Days” by Jonathan Franklin
+      </li><li>“The Man Who Saw Everything” by Deborah Levy</li><li>
+        “Lessons” by Ian McEwan
+      </li><li>“The Premonition” by Banana Yoshimoto</li><li>
+        “Greek Lessons” by Han Kang
+      </li><li>“Harry Potter and the Philosopher's Stone” by J K Rowling</li>
+    </ol>
 
-		<h2>Family</h2>
-		<p>Emma is almost 6 and Arthur is 9. Both busy with school and out of school.</p>
+    <h2>Fitness</h2>
 
+    <p>
+      Have started running again. Started using the standing desk again and have
+      bought a standing mat to make standing up for periods of time more
+      comfortable. Strengthening the calf muscles. Going for more walks in the
+      morning or at lunch time. Now that the days are longer and slightly warmer
+      this is more achieveable. Trying to do Zwift once a week.
+    </p>
 
-		<p>Credit for now page: first seen on <a href="https://sivers.org/now">Derek Sivers now page</a></p>
-	</div>
+    <h2>Family</h2>
+    <p>
+      Emma is almost 6 and Arthur is 9. Both busy with school and out of school.
+    </p>
+
+    <p>
+      Credit for now page: first seen on <a href="https://sivers.org/now"
+        >Derek Sivers now page</a>
+    </p>
+  </div>
 </DefaultLayout>
 
 <style>
-body {
-	--theme-accent: #FA7E61;
-}
+  body {
+    --theme-accent: #fa7e61;
+  }
 
-.now-intro {
-	font-size: 95%;
+  .now-intro {
+    font-size: 95%;
 
-	& + h2 {
-		margin-block-start: 2rem;
-	}
-}
+    & + h2 {
+      margin-block-start: 2rem;
+    }
+  }
 
-ul {
-	margin-block: 1rem;
-	padding-inline-start: 1.5rem;
-}
-
+  ul {
+    margin-block: 1rem;
+    padding-inline-start: 1.5rem;
+  }
 </style>

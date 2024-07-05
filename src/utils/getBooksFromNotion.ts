@@ -84,8 +84,8 @@ const googleBookSearch = async (title, author) => {
   try {
     const results = await fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${encodeURI(
-        title + author
-      )}`
+        title + author,
+      )}`,
     );
     const json = await results.json();
 

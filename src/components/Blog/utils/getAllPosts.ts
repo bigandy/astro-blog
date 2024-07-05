@@ -27,7 +27,7 @@ export const getAllPosts = async (collection: Collection = "blog") => {
   }
 
   allPosts = allPosts.sort(
-    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
+    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
   );
 
   return allPosts;

@@ -5,7 +5,7 @@ import { getNavClassName } from "./utils";
 const requestPathname = Astro.url.pathname;
 
 const footerPages = Object.values(pages).filter(
-  (page) => !Boolean(page.header)
+  (page) => !Boolean(page.header),
 );
 ---
 

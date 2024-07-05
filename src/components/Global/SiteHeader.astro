@@ -14,18 +14,17 @@ import HeaderNav from "@components/Nav/HeaderNav.astro";
     </h1>
     <HeaderNav />
   </div>
-
 </header>
 
 <style>
   header {
-    padding-block-start: 1rem; 
+    padding-block-start: 1rem;
     padding-block-end: 0.5rem;
     container-type: inline-size;
   }
 
   h1:has(a:hover) :global(.logo #flame) {
-      display: block;
+    display: block;
   }
 
   @container (min-width: 600px) {
@@ -35,11 +34,11 @@ import HeaderNav from "@components/Nav/HeaderNav.astro";
       gap: 1rem;
     }
   }
-  
+
   header h1 {
     margin-block-end: 0;
     font-size: 1.5rem;
-    
+
     a {
       vertical-align: -10px;
     }
@@ -56,7 +55,6 @@ import HeaderNav from "@components/Nav/HeaderNav.astro";
 
   h1 a {
     display: inline-flex;
-    
 
     &:hover {
       text-decoration: none;

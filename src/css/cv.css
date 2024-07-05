@@ -144,6 +144,11 @@ li {
   }
 
   .cv {
+    /* Hide the external link markers */
+    a::after {
+      display: none;
+    }
+
     :not(.contact) > a[href]::after {
       content: " (" attr(href) ")";
       word-wrap: break-word;

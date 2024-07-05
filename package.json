@@ -24,6 +24,8 @@
     "@11ty/eleventy-fetch": "4.0.1",
     "@notionhq/client": "2.2.15",
     "@types/lodash": "4.17.5",
-    "@types/lodash.groupby": "4.6.9"
+    "@types/lodash.groupby": "4.6.9",
+    "prettier": "3.3.2",
+    "prettier-plugin-astro": "0.14.0"
   }
 }

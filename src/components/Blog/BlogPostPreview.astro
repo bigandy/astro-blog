@@ -1,24 +1,31 @@
 ---
 import { CollectionEntry } from "astro:content";
 import ForwardArrow from "@components/Global/ForwardArrow.astro";
-import type { Collection } from '@components/Blog/utils/getAllPosts';
+import type { Collection } from "@components/Blog/utils/getAllPosts";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 
 interface Props {
   post: CollectionEntry<"blog">;
-  collection?: Collection
+  collection?: Collection;
 }
 
 const {
   post: { slug, data },
-  collection = 'blog'
+  collection = "blog",
 } = Astro.props;
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
 ---
 
-<article class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}>
-  <BlogPostHeader date={date} title={title} slug={`${collection}/${slug}`} isPreview />
+<article
+  class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}
+>
+  <BlogPostHeader
+    date={date}
+    title={title}
+    slug={`${collection}/${slug}`}
+    isPreview
+  />
   <main>
     <ForwardArrow url={`/${collection}/${slug}`} title={title} isBlog />
   </main>
@@ -56,7 +63,7 @@ const future = new Date(date) > new Date();
       top: 50%;
       content: var(--content);
       display: block;
-      transform: translate(-50%, 0%) rotate(-90deg) ;
+      transform: translate(-50%, 0%) rotate(-90deg);
       transform-origin: center top;
     }
 
@@ -72,7 +79,11 @@ const future = new Date(date) > new Date();
   }
 
   .draft {
-    --border-color: color-mix(in lch, var(--theme-accent), var(--theme-divider) 50%);
+    --border-color: color-mix(
+      in lch,
+      var(--theme-accent),
+      var(--theme-divider) 50%
+    );
     --content: "draft";
   }
 
