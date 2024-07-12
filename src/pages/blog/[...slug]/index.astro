@@ -28,15 +28,21 @@ interface Props {
 const { post } = Astro.props;
 const { template, title } = post.data;
 const ogImage = `blog/${post.slug}.png`;
+const slug = `blog/${post.slug}`;
 ---
 
 {
   template === "full-page" ? (
-    <FullPageLayout title={title} ogImage={ogImage}>
-      <BlogPost post={post} showBackLink={false} showDate={false} />
+    <FullPageLayout title={title} ogImage={ogImage} permalink={slug}>
+      <BlogPost
+        post={post}
+        showBackLink={false}
+        showDate={false}
+        permalink={post.slug}
+      />
     </FullPageLayout>
   ) : (
-    <BlogLayout title={title} ogImage={ogImage}>
+    <BlogLayout title={title} ogImage={ogImage} permalink={slug}>
       <BlogPost post={post} />
     </BlogLayout>
   )

@@ -7,22 +7,22 @@ import BlogPost from "@components/Blog/BlogPost.astro";
 
 export const prerender = true;
 
-const collection = "weeknotes"
+const collection = "weeknotes";
 
 export async function getStaticPaths() {
-	const collection = "weeknotes"
-	const posts = await getCollection(collection);
-  
-	return posts.map((post) => {
-		return {
-		params: {
-			slug: post.slug,
-		},
-		props: {
-			post,
-		},
-		};
-	});
+  const collection = "weeknotes";
+  const posts = await getCollection(collection);
+
+  return posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        post,
+      },
+    };
+  });
 }
 
 interface Props {
@@ -33,24 +33,30 @@ const { post } = Astro.props;
 const { template, title } = post.data;
 
 const ogImage = `weeknotes/${post.slug}.png`;
+const slug = `weeknotes/${post.slug}`;
 ---
 
 {
-	template === "full-page" ? (
-		<FullPageLayout title={title} ogImage={ogImage}>
-			<BlogPost post={post} showBackLink={false} showDate={false} collection=	{collection} />
-		</FullPageLayout>
-	) : (
-		<BlogLayout title={title}  ogImage={ogImage}>
-			<BlogPost post={post} collection={collection} />
-		</BlogLayout>
-	)
+  template === "full-page" ? (
+    <FullPageLayout title={title} ogImage={ogImage} permalink={slug}>
+      <BlogPost
+        post={post}
+        showBackLink={false}
+        showDate={false}
+        collection={collection}
+      />
+    </FullPageLayout>
+  ) : (
+    <BlogLayout title={title} ogImage={ogImage} permalink={slug}>
+      <BlogPost post={post} collection={collection} />
+    </BlogLayout>
+  )
 }
 <style>
   .top-nav {
-	margin-block-end: 2em;
+    margin-block-end: 2em;
   }
   body {
-	--theme-accent: var(--theme-accent-blue);
+    --theme-accent: var(--theme-accent-blue);
   }
 </style>
