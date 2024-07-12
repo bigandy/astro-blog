@@ -1,7 +1,7 @@
 /** @type {import('astro').AstroUserConfig} */
 import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
-import vue from "@astrojs/vue";
 import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
 const robotsTxtConfig = {
@@ -17,17 +17,13 @@ const robotsTxtConfig = {
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    svelte(),
-    vue({
-      jsx: true,
-    }),
-    robotsTxt(robotsTxtConfig),
-    mdx(),
-  ],
+  integrations: [svelte(), robotsTxt(robotsTxtConfig), mdx(), react()],
   scopedStyleStrategy: "class",
   vite: {
     plugins: [],
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"],
+    },
   },
   server: {
     port: 8888,
