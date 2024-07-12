@@ -61,8 +61,8 @@ export default () => {
               textAlign: "center",
             }}
           >
-            <p style={{ fontSize: 72, fontWeight: "bold" }}>Derp Site</p>
-            <p style={{ fontSize: 28 }}>Derp Description</p>
+            <p style={{ fontSize: 72, fontWeight: "bold" }}>Andrewhudson.dev</p>
+            <p style={{ fontSize: 28 }}>Senior Software Engineer</p>
           </div>
 
           <div
