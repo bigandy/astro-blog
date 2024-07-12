@@ -1,5 +1,5 @@
 ---
-import { getCollection, CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 import BlogLayout from "@layouts/BlogLayout.astro";
 import FullPageLayout from "@layouts/FullPageLayout.astro";
@@ -27,15 +27,16 @@ interface Props {
 
 const { post } = Astro.props;
 const { template, title } = post.data;
+const ogImage = `blog/${post.slug}.png`;
 ---
 
 {
   template === "full-page" ? (
-    <FullPageLayout title={title}>
+    <FullPageLayout title={title} ogImage={ogImage}>
       <BlogPost post={post} showBackLink={false} showDate={false} />
     </FullPageLayout>
   ) : (
-    <BlogLayout title={title}>
+    <BlogLayout title={title} ogImage={ogImage}>
       <BlogPost post={post} />
     </BlogLayout>
   )

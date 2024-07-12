@@ -3,12 +3,12 @@ import BaseHead from "@components/Global/BaseHead.astro";
 
 import FooterScripts from "@components/Global/FooterScripts.astro";
 
-const { title, head } = Astro.props;
+const { title, head, ogImage } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} />
+    <BaseHead title={title} ogImage={ogImage} />
 
     {head}
 

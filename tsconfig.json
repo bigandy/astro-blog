@@ -1,15 +1,16 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "module": "ESNext",
     "target": "ES2022",
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@utils/*": ["src/utils/*"],
-    },
+      "@utils/*": ["src/utils/*"]
+    }
   }
 }
