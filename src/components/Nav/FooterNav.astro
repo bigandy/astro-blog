@@ -1,12 +1,8 @@
 ---
-import { pages } from "./pages";
+import { footerPages } from "./pages";
 import { getNavClassName } from "./utils";
 
 const requestPathname = Astro.url.pathname;
-
-const footerPages = Object.values(pages).filter(
-  (page) => !Boolean(page.header),
-);
 ---
 
 <nav class="layout footer-nav">

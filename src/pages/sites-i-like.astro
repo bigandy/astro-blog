@@ -1,0 +1,43 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+const title = "Sites I like";
+
+interface Entry {
+  url: string;
+  title: string;
+}
+
+const sites: Array<Entry> = [
+  {
+    url: "https://ryantrimble.com/",
+    title: "Ryan Trimble",
+  },
+];
+---
+
+<DefaultLayout title={title}>
+  <ul>
+    {
+      sites.map(({ url, title }) => {
+        return (
+          <li>
+            <a href={url} target="_blank">
+              {title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</DefaultLayout>
+
+<style>
+  :root {
+    --theme-accent: oklch(0.52 0.12 200.58);
+  }
+
+  p {
+    margin-block-end: 3rem;
+  }
+</style>

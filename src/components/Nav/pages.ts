@@ -1,9 +1,16 @@
-export const pages = {
+const pages = {
+  "sites-i-like": {
+    url: "/sites-i-like",
+    title: "Sites I like",
+    header: false,
+  },
+
   about: {
     url: "/about",
     title: "About",
     header: false,
   },
+
   demos: {
     url: "/experiments",
     title: "Experiments",
@@ -46,3 +53,11 @@ export const pages = {
     header: true,
   },
 };
+
+export const headerPages = Object.values(pages).filter((page) =>
+  Boolean(page.header),
+);
+
+export const footerPages = Object.values(pages).filter(
+  (page) => !Boolean(page.header),
+);
