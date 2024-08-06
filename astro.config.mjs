@@ -4,16 +4,9 @@ import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
 import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
-const robotsTxtConfig = {
-  policy: [
-    // Ignore GPTBot
-    {
-      userAgent: "GPTBot",
-      disallow: "/",
-    },
-  ],
-  sitemap: false,
-};
+import rehypeExternalLinks from "rehype-external-links";
+
+import { robotsTxtConfig } from "./robots";
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,4 +22,17 @@ export default defineConfig({
     port: 8888,
   },
   site: "https://andrewhudson.dev",
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          properties: {
+            className: ["external"],
+          },
+          rel: [],
+        },
+      ],
+    ],
+  },
 });

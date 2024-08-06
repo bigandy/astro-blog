@@ -7,7 +7,7 @@ tags: ["css", "demo"]
 author: "Andrew"
 ---
 
-Following on from last year's <a href="/blog/cool-demos-june-2023">cool demos june 2023</a> I want to showcase some of the cool demos I created in the month of June 2024. I really got in the groove and created a new demo every day for two weeks, each building on the previous.
+Following on from last year's [cool demos june 2023](/blog/cool-demos-june-2023) I want to showcase some of the cool demos I created in the month of June 2024. I really got in the groove and created a new demo every day for two weeks, each building on the previous.
 
 Having attended CSS Day in Amsterdam I was hungry to apply some of the new skills that had been showcased during the excellent conference.
 
@@ -19,6 +19,7 @@ A word of warning: All of these demos work currently in Chromium-based browsers.
   <span>See the Pen <a href="https://codepen.io/bigandy/pen/eYaGOXO">
   Linking two points with a box. Using Kizu's code from https://kizu.dev/anchor-positioning-experiments/</a> by Andrew Hudson (<a href="https://codepen.io/bigandy">@bigandy</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
+
 </p>
     </li>
 <li>Connecting two points with Mouse clicks. Click on the demo!
