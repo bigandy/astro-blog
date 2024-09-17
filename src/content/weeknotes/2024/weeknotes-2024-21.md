@@ -22,7 +22,7 @@ Last week was all about:
 
 | Description     | Letter        | Keboard Shortcut                      |
 | :-------------- | :------------ | :------------------------------------ |
-| Accute          | é, á, ó, ú, í | é option + e , then the letter        |
+| Accute          | é, á, ó, ú, í | option + e , then the letter          |
 | Grave Accent    | à, è, ù       | option + `, then the letter           |
 | Cédille         | ç             | option + c                            |
 | Circumflex      | â, ê, î, ô, û | option + i, then the letter           |
