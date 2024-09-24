@@ -9,11 +9,11 @@
     "update": "npx npm-check-updates"
   },
   "dependencies": {
-    "@astrojs/mdx": "3.1.6",
+    "@astrojs/mdx": "4.0.0-beta.1",
     "@astrojs/react": "3.6.2",
-    "@astrojs/svelte": "5.7.0",
+    "@astrojs/svelte": "6.0.0-beta.0",
     "@resvg/resvg-js": "2.6.2",
-    "astro": "4.15.6",
+    "astro": "5.0.0-beta.2",
     "astro-robots-txt": "1.0.0",
     "dayjs": "1.11.11",
     "github-slugger": "2.0.0",
