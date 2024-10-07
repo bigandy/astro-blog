@@ -13,7 +13,7 @@
     "@astrojs/react": "3.6.2",
     "@astrojs/svelte": "6.0.0-beta.0",
     "@resvg/resvg-js": "2.6.2",
-    "astro": "5.0.0-beta.2",
+    "astro": "5.0.0-beta.3",
     "astro-robots-txt": "1.0.0",
     "dayjs": "1.11.11",
     "github-slugger": "2.0.0",
@@ -22,7 +22,7 @@
     "react-dom": "18.3.1",
     "rehype-external-links": "3.0.0",
     "satori": "0.10.14",
-    "svelte": "4.2.18"
+    "svelte": "4.2.19"
   },
   "devDependencies": {
     "@11ty/eleventy-fetch": "4.0.1",
