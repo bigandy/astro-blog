@@ -6,6 +6,12 @@
     margin-block-start: 3rem;
   }
 
+  .contact-name {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+  }
+
   h2 {
     border-block-end: 2px solid var(--theme-accent);
     display: inline-block;
@@ -40,7 +46,8 @@ li {
 .contact {
   margin-block-end: 2rem;
 
-  a {
+  * {
+    font-size: 1rem;
     display: inline-block;
     margin-right: 1em;
   }
@@ -57,8 +64,8 @@ li {
 }
 
 .entry__header {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .entry__time {
@@ -77,6 +84,12 @@ li {
 
 .entry__title {
   margin-block: 0.5rem;
+  display: inline-block;
+}
+
+.entry__time,
+.entry__title {
+  display: inline-block;
 }
 
 .entry__organization {
@@ -132,6 +145,10 @@ li {
     margin-block-end: 0.5rem;
   }
 
+  .cv .contact {
+    margin-block-end: 0;
+  }
+
   astro-dev-toolbar,
   .cv nav,
   .cv header,
@@ -166,10 +183,11 @@ li {
     h1 {
       margin-block-end: 1rem;
       font-size: 30px;
+      display: none;
 
-      &::before {
+      /* &::before {
         content: "Andrew Hudson - ";
-      }
+      } */
     }
 
     h2 {
