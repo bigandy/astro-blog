@@ -3,7 +3,7 @@ title: "<title>"
 date: <year>-<month>-<day>
 draft: false 
 tags:
-	- 'weeknotes'
+  - 'weeknotes'
 ---
 
 Here's what I got up to last week:

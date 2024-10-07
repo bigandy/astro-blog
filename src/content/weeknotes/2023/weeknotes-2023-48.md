@@ -1,9 +1,9 @@
 ---
 title: "Advent LEDs"
 date: 2023-12-03
-draft: false 
+draft: false
 tags:
-	- 'weeknotes'
+  - "weeknotes"
 ---
 
 Here's what I got up to last week:

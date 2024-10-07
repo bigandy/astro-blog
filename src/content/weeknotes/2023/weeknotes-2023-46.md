@@ -1,9 +1,9 @@
 ---
 title: "Goodbye GCN+"
 date: 2023-11-19
-draft: false 
+draft: false
 tags:
-	- 'weeknotes'
+  - "weeknotes"
 ---
 
 Here's what I got up to last week:

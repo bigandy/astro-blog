@@ -4,7 +4,7 @@ date: 2023-01-30
 draft: false
 description: ""
 tags:
-	- 'weeknotes'
+  - "weeknotes"
 ---
 
 Here's what I got up to over the last week:

@@ -1,19 +1,19 @@
 ---
-title: 'Changing Web Hosts'
+title: "Changing Web Hosts"
 date: 2012-10-31 16:22:58
 draft: false
-description: ''
+description: ""
 tags:
-    [
-        'aws',
-        'developing',
-        'dream host',
-        'ec2',
-        'media temple',
-        'rack space',
-        'Web host',
-    ]
-author: 'Andrew'
+  [
+    "aws",
+    "developing",
+    "dream host",
+    "ec2",
+    "media temple",
+    "rack space",
+    "Web host",
+  ]
+author: "Andrew"
 ---
 
 For the last six years my sites have been hosted by Dreamhost and for the vast majority of that time I have been a happy customer. Unlimited email addresses, sites, sub-domains, and databases. Easy to use web interface, and excellent customer support. So why am I looking to move away?
