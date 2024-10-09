@@ -1,8 +1,10 @@
 <script lang="ts">
-export const options: string[] = []
-export const active = ''
-
-export const handleClick = undefined
+// biome-ignore lint/style/useConst: svelte
+export let options: string[] = []
+// biome-ignore lint/style/useConst: svelte
+export let active = ''
+// biome-ignore lint/style/useConst: svelte
+export let handleClick = (option: any) => {}
 </script>
 
 {#each options as option}
@@ -12,7 +14,7 @@ export const handleClick = undefined
     bind:group={active}
     value={option}
     id={option}
-    on:input={() => handleClick(option)}
+    on:input={() => handleClick && handleClick(option)}
   />
   <label for={option}>{option}</label>
 {/each}
