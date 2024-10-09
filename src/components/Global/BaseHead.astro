@@ -1,23 +1,23 @@
 ---
 interface Props {
-  title: string;
-  description?: string;
-  permalink?: string;
-  ogImage?: string;
+	title: string
+	description?: string
+	permalink?: string
+	ogImage?: string
 }
 
-const descriptionFallback = "Senior Software Engineer looking for answers.";
-const permalinkFallback = "https://andrewhudson.dev/";
+const descriptionFallback = 'Senior Software Engineer looking for answers.'
+const permalinkFallback = 'https://andrewhudson.dev/'
 
 const {
-  title,
-  description = descriptionFallback,
-  permalink = permalinkFallback,
-  ogImage,
-} = Astro.props;
+	title,
+	description = descriptionFallback,
+	permalink = permalinkFallback,
+	ogImage,
+} = Astro.props
 
-const socialImageURL = new URL(ogImage ?? "og.png", Astro.url.origin).href;
-const permalinkUrl = new URL(permalink ?? "", Astro.url.origin).href;
+const socialImageURL = new URL(ogImage ?? 'og.png', Astro.url.origin).href
+const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
 ---
 
 <!-- Global Metadata -->

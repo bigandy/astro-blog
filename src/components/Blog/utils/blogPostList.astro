@@ -1,22 +1,22 @@
 ---
-import BlogPostPreview from "../BlogPostPreview.astro";
 import {
-  getAllPosts,
-  type Collection,
-} from "@components/Blog/utils/getAllPosts";
+	type Collection,
+	getAllPosts,
+} from '@components/Blog/utils/getAllPosts'
+import BlogPostPreview from '../BlogPostPreview.astro'
 
 // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
 
 interface Props {
-  number: number;
-  collection?: Collection;
+	number: number
+	collection?: Collection
 }
 
-const { number = 9, collection = "blog" } = Astro.props;
+const { number = 9, collection = 'blog' } = Astro.props
 
-let allPosts = await getAllPosts(collection);
+let allPosts = await getAllPosts(collection)
 
-allPosts = allPosts.slice(0, number);
+allPosts = allPosts.slice(0, number)
 ---
 
 {allPosts.map((p) => <BlogPostPreview post={p} collection={collection} />)}

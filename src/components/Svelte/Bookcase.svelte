@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  export type Option = "month" | "year";
+export type Option = 'month' | 'year'
 </script>
 
 <script lang="ts">

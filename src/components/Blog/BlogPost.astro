@@ -1,15 +1,15 @@
 ---
-import BackArrow from "@components/Global/BackArrow.astro";
-import BlogContent from "@components/Blog/BlogContent.astro";
-import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
+import BlogContent from '@components/Blog/BlogContent.astro'
+import BlogPostHeader from '@components/Blog/BlogPostHeader.astro'
+import BackArrow from '@components/Global/BackArrow.astro'
 
 const {
-  post,
-  showBackLink = true,
-  showDate = true,
-  collection = "blog",
-} = Astro.props;
-const { Content } = await post.render();
+	post,
+	showBackLink = true,
+	showDate = true,
+	collection = 'blog',
+} = Astro.props
+const { Content } = await post.render()
 ---
 
 <article class="content post layout-inner">

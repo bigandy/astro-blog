@@ -1,8 +1,8 @@
 <script lang="ts">
-  export let options: string[] = [];
-  export let active: string = "";
+export const options: string[] = []
+export const active = ''
 
-  export let handleClick = undefined;
+export const handleClick = undefined
 </script>
 
 {#each options as option}

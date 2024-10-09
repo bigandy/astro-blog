@@ -1,52 +1,52 @@
 <script>
-  import { clickOutside } from "../utils/click-outside.js";
-  import { getTheme } from "../utils/get-theme.js";
-  import { onMount } from "svelte";
+import { onMount } from 'svelte'
+import { clickOutside } from '../utils/click-outside.js'
+import { getTheme } from '../utils/get-theme.js'
 
-  let show = false;
-  let selected = "";
+let show = false
+let selected = ''
 
-  function showThemeSelector() {
-    show = !show;
-  }
+function showThemeSelector() {
+	show = !show
+}
 
-  function handleClose() {
-    show = false;
-  }
+function handleClose() {
+	show = false
+}
 
-  function handleClickOutside() {
-    show = false;
-  }
+function handleClickOutside() {
+	show = false
+}
 
-  const themeOptions = [
-    {
-      label: "Light",
-      id: "light",
-    },
-    {
-      label: "Dark",
-      id: "dark",
-    },
-    {
-      label: "Red / Black",
-      id: "red/black",
-    },
-    {
-      label: "Orange / Black",
-      id: "orange/black",
-    },
-  ];
+const themeOptions = [
+	{
+		label: 'Light',
+		id: 'light',
+	},
+	{
+		label: 'Dark',
+		id: 'dark',
+	},
+	{
+		label: 'Red / Black',
+		id: 'red/black',
+	},
+	{
+		label: 'Orange / Black',
+		id: 'orange/black',
+	},
+]
 
-  function handleInputChange(e) {
-    const newTheme = e.target.value;
-    localStorage.setItem("theme", newTheme);
-    document.body.setAttribute("data-theme", newTheme);
-  }
+function handleInputChange(e) {
+	const newTheme = e.target.value
+	localStorage.setItem('theme', newTheme)
+	document.body.setAttribute('data-theme', newTheme)
+}
 
-  onMount(async () => {
-    const theme = getTheme();
-    selected = theme;
-  });
+onMount(async () => {
+	const theme = getTheme()
+	selected = theme
+})
 </script>
 
 <button on:click={showThemeSelector} class="toggle">

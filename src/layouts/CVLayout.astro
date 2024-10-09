@@ -1,19 +1,19 @@
 ---
-import BaseHead from "@components/Global/BaseHead.astro";
-import BlogHeader from "@components/Global/SiteHeader.astro";
-import FooterScripts from "@components/Global/FooterScripts.astro";
+import BaseHead from '@components/Global/BaseHead.astro'
+import FooterScripts from '@components/Global/FooterScripts.astro'
+import BlogHeader from '@components/Global/SiteHeader.astro'
 
-import FooterNav from "@components/Nav/FooterNav.astro";
-import BottomOfHead from "@components/Global/BottomOfHead.astro";
+import BottomOfHead from '@components/Global/BottomOfHead.astro'
+import FooterNav from '@components/Nav/FooterNav.astro'
 
-import "src/css/global.css";
-import "src/css/cv.css";
+import 'src/css/global.css'
+import 'src/css/cv.css'
 
 interface Props {
-  title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <html lang="en">

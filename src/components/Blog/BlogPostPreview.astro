@@ -1,20 +1,20 @@
 ---
-import { CollectionEntry } from "astro:content";
-import ForwardArrow from "@components/Global/ForwardArrow.astro";
-import type { Collection } from "@components/Blog/utils/getAllPosts";
-import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
+import type { CollectionEntry } from 'astro:content'
+import BlogPostHeader from '@components/Blog/BlogPostHeader.astro'
+import type { Collection } from '@components/Blog/utils/getAllPosts'
+import ForwardArrow from '@components/Global/ForwardArrow.astro'
 
 interface Props {
-  post: CollectionEntry<"blog">;
-  collection?: Collection;
+	post: CollectionEntry<'blog'>
+	collection?: Collection
 }
 
 const {
-  post: { slug, data },
-  collection = "blog",
-} = Astro.props;
-const { draft, title, date } = data;
-const future = new Date(date) > new Date();
+	post: { slug, data },
+	collection = 'blog',
+} = Astro.props
+const { draft, title, date } = data
+const future = new Date(date) > new Date()
 ---
 
 <article

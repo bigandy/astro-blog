@@ -1,9 +1,9 @@
 p:first-of-type::first-letter {
-  color: red;
-  font-size: 3rem;
-  font-weight: bold;
-  padding: 1.5rem 1rem;
-  border: 1px solid;
-  float: left;
-  margin-inline-end: 1rem;
+	color: red;
+	font-size: 3rem;
+	font-weight: bold;
+	padding: 1.5rem 1rem;
+	border: 1px solid;
+	float: left;
+	margin-inline-end: 1rem;
 }

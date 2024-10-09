@@ -1,39 +1,39 @@
 ---
-import { getCollection, CollectionEntry } from "astro:content";
+import { type CollectionEntry, getCollection } from 'astro:content'
 
-import BlogLayout from "@layouts/BlogLayout.astro";
-import FullPageLayout from "@layouts/FullPageLayout.astro";
-import BlogPost from "@components/Blog/BlogPost.astro";
+import BlogPost from '@components/Blog/BlogPost.astro'
+import BlogLayout from '@layouts/BlogLayout.astro'
+import FullPageLayout from '@layouts/FullPageLayout.astro'
 
-export const prerender = true;
+export const prerender = true
 
-const collection = "weeknotes";
+const collection = 'weeknotes'
 
 export async function getStaticPaths() {
-  const collection = "weeknotes";
-  const posts = await getCollection(collection);
+	const collection = 'weeknotes'
+	const posts = await getCollection(collection)
 
-  return posts.map((post) => {
-    return {
-      params: {
-        slug: post.slug,
-      },
-      props: {
-        post,
-      },
-    };
-  });
+	return posts.map((post) => {
+		return {
+			params: {
+				slug: post.slug,
+			},
+			props: {
+				post,
+			},
+		}
+	})
 }
 
 interface Props {
-  post: CollectionEntry<"weeknotes">;
+	post: CollectionEntry<'weeknotes'>
 }
 
-const { post } = Astro.props;
-const { template, title } = post.data;
+const { post } = Astro.props
+const { template, title } = post.data
 
-const ogImage = `weeknotes/${post.slug}.png`;
-const slug = `weeknotes/${post.slug}`;
+const ogImage = `weeknotes/${post.slug}.png`
+const slug = `weeknotes/${post.slug}`
 ---
 
 {

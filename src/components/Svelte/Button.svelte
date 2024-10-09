@@ -1,10 +1,10 @@
 <script lang="ts">
-  export let outlined = false;
-  export let fullwidth = false;
-  export let grow = false;
-  export let active = false;
+export const outlined = false
+export const fullwidth = false
+export const grow = false
+export const active = false
 
-  export let handleClick = () => {};
+export const handleClick = () => {}
 </script>
 
 <button

@@ -1,6 +1,6 @@
 <script>
-  let classname = "";
-  export { classname as class };
+const classname = ''
+export { classname as class }
 </script>
 
 <div class={`warning ${classname}`}>
