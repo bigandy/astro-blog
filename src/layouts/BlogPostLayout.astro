@@ -1,7 +1,6 @@
 ---
 import BaseHead from '@components/Global/BaseHead.astro'
 import BottomOfHead from '@components/Global/BottomOfHead.astro'
-import FooterScripts from '@components/Global/FooterScripts.astro'
 import BlogHeader from '@components/Global/SiteHeader.astro'
 
 import 'src/css/global.css'
@@ -31,6 +30,5 @@ const { title, description, permalink, lang = 'en' } = content
       <BlogHeader />
       <slot />
     </div>
-    <FooterScripts />
   </body>
 </html>

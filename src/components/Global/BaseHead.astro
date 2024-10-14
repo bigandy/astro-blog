@@ -1,4 +1,6 @@
 ---
+import SpeculationRules from './SpeculationRules.astro'
+
 interface Props {
 	title: string
 	description?: string
@@ -19,6 +21,8 @@ const {
 const socialImageURL = new URL(ogImage ?? 'og.png', Astro.url.origin).href
 const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
 ---
+
+<SpeculationRules />
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />

@@ -2,8 +2,6 @@
 import BaseHead from '@components/Global/BaseHead.astro'
 import BottomOfHead from '@components/Global/BottomOfHead.astro'
 
-import FooterScripts from '@components/Global/FooterScripts.astro'
-
 import 'src/css/global.css'
 
 const { title = '', head, backLink = '/experiments' } = Astro.props
@@ -30,7 +28,6 @@ const { title = '', head, backLink = '/experiments' } = Astro.props
       {title !== "" && <h1 class="title">{title}</h1>}
       <slot />
     </section>
-    <FooterScripts />
     <style>
       body {
         --theme-accent: #52b788;
