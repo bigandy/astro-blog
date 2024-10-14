@@ -1,36 +1,36 @@
 {
-	"name": "andrewhudson-dev-astro",
-	"version": "2.0.0",
-	"private": true,
-	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"update": "npx @astrojs/upgrade beta && npx npm-check-updates && npx biome update",
-		"lint": "npx @biomejs/biome check ./src",
-		"lint:write": "npx @biomejs/biome check --write ./src"
-	},
-	"dependencies": {
-		"@astrojs/mdx": "4.0.0-beta.2",
-		"@astrojs/react": "3.6.2",
-		"@astrojs/svelte": "6.0.0-beta.1",
-		"@resvg/resvg-js": "2.6.2",
-		"astro": "5.0.0-beta.4",
-		"astro-robots-txt": "1.0.0",
-		"dayjs": "1.11.13",
-		"github-slugger": "2.0.0",
-		"lodash.groupby": "4.6.0",
-		"react": "18.3.1",
-		"react-dom": "18.3.1",
-		"rehype-external-links": "3.0.0",
-		"satori": "0.11.2",
-		"svelte": "4.2.19"
-	},
-	"devDependencies": {
-		"@11ty/eleventy-fetch": "4.0.1",
-		"@biomejs/biome": "1.9.3",
-		"@notionhq/client": "2.2.15",
-		"@types/lodash": "4.17.10",
-		"@types/lodash.groupby": "4.6.9"
-	}
+  "name": "andrewhudson-dev-astro",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "update": "npx @astrojs/upgrade beta && npx npm-check-updates",
+    "lint": "npx @biomejs/biome check ./src",
+    "lint:write": "npx @biomejs/biome check --write ./src"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "4.0.0-beta.2",
+    "@astrojs/react": "3.6.2",
+    "@astrojs/svelte": "6.0.0-beta.1",
+    "@resvg/resvg-js": "2.6.2",
+    "astro": "5.0.0-beta.4",
+    "astro-robots-txt": "1.0.0",
+    "dayjs": "1.11.13",
+    "github-slugger": "2.0.0",
+    "lodash.groupby": "4.6.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "rehype-external-links": "3.0.0",
+    "satori": "0.11.2",
+    "svelte": "4.2.19"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-fetch": "4.0.1",
+    "@biomejs/biome": "1.9.3",
+    "@notionhq/client": "2.2.15",
+    "@types/lodash": "4.17.10",
+    "@types/lodash.groupby": "4.6.9"
+  }
 }
