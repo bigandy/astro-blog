@@ -22,7 +22,7 @@ const socialImageURL = new URL(ogImage ?? 'og.png', Astro.url.origin).href
 const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
 ---
 
-<SpeculationRules />
+
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -39,9 +39,11 @@ const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
 />
 
 <!-- Primary Meta Tags -->
-<title>Andrew Hudson - {title}</title>
+<title>Andrew Hudson - {title}</title> 
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<SpeculationRules />
 
 <meta name="theme-color" content="#ffcc00" />
 <link rel="manifest" href="/manifest.json" />
