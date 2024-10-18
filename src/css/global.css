@@ -90,10 +90,10 @@
 		margin: 0;
 	}
 
-	p,
+	/* p,
 	li {
 		max-width: 600px;
-	}
+	} */
 
 	nav ul {
 		list-style: none;
