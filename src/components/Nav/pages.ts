@@ -1,4 +1,11 @@
-const pages = {
+const pages: {
+	[key: string]: {
+		url: string
+		title: string
+		header: boolean
+		external?: boolean
+	}
+} = {
 	'sites-i-like': {
 		url: '/sites-i-like',
 		title: 'Sites I like',
@@ -48,14 +55,16 @@ const pages = {
 	},
 
 	cv: {
+		// url: 'https://cv.andrewhudson.dev',
 		url: '/cv',
+		// external: true,
 		title: 'CV',
 		header: true,
 	},
 }
 
-export const headerPages = Object.values(pages).filter((page) =>
-	Boolean(page.header),
+export const headerPages = Object.values(pages).filter(({ header }) =>
+	Boolean(header),
 )
 
-export const footerPages = Object.values(pages).filter((page) => !page.header)
+export const footerPages = Object.values(pages).filter(({ header }) => !header)

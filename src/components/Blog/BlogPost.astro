@@ -2,6 +2,7 @@
 import BlogContent from '@components/Blog/BlogContent.astro'
 import BlogPostHeader from '@components/Blog/BlogPostHeader.astro'
 import BackArrow from '@components/Global/BackArrow.astro'
+import ExternalLink from '@components/Global/ExternalLink.astro'
 
 const {
 	post,
@@ -34,10 +35,9 @@ const { Content } = await post.render()
   }
 </article>
 
-<a
+<ExternalLink
   href={`https://github.com/bigandy/astro-blog/tree/main/src/content/${collection}/${post.slug}.md`}
-  target="_blank">Edit this post on Github</a
->
+  >Edit this post on Github</ExternalLink>
 
 <style>
   .content {

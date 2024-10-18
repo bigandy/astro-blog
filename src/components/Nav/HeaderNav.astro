@@ -1,6 +1,7 @@
 ---
 import { headerPages } from './pages'
 import { getNavClassName } from './utils'
+import ExternalLink from '@components/Global/ExternalLink.astro'
 
 const requestPathname = Astro.url.pathname
 ---
@@ -13,9 +14,13 @@ const requestPathname = Astro.url.pathname
 
         return (
           <li>
+            {entry.external ? (
+              <ExternalLink href={entry.url} size="1rem">{entry.title}</ExternalLink>
+            ) : (
             <a class={className} href={entry.url}>
               {entry.title}
             </a>
+            )}
           </li>
         );
       })

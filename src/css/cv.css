@@ -6,10 +6,17 @@
 		margin-block-start: 3rem;
 	}
 
+	li,
+	p {
+		max-width: unset;
+	}
+
 	.contact-name {
-		display: block;
-		font-size: 2rem;
+		/* display: block; */
+		/* font-size: 2rem; */
 		font-weight: 900;
+		line-height: 1;
+		margin-block-end: .75rem;
 	}
 
 	h2 {
@@ -47,7 +54,7 @@ li {
 	margin-block-end: 2rem;
 
 	* {
-		font-size: 1rem;
+		/* font-size: 1rem; */
 		display: inline-block;
 		margin-right: 1em;
 	}
@@ -114,15 +121,17 @@ li {
 }
 
 .entrylist > li::after {
+	--dimension: 10px;
+
 	content: "";
 	display: block;
 	border-radius: 50%;
 	background: var(--theme-accent);
-	width: 20px;
+	width: var(--dimension);
 	aspect-ratio: 1;
 	position: absolute;
-	top: 0.25em;
-	left: -34px;
+	top: 1.25em;
+	left: calc(-1.5rem - calc(var(--dimension) / 2));
 	z-index: 1;
 }
 
@@ -132,7 +141,7 @@ li {
 }
 
 .cv li::marker {
-	color: rgba(var(--theme-accent-rgb), 0.5);
+	color: rgb(from var(--theme-accent) r g b / 0.5);
 	font-size: 1.5rem;
 }
 
