@@ -1,10 +1,12 @@
 <script lang="ts">
-// biome-ignore lint/style/useConst: svelte
-export let options: string[] = []
-// biome-ignore lint/style/useConst: svelte
-export let active = ''
-// biome-ignore lint/style/useConst: svelte
-export let handleClick = (option: any) => {}
+  interface Props {
+    handleClick: (option: any) => void;
+    options: string[];
+    active: string;
+  }
+
+  // biome-ignore lint/style/useConst: svelte
+  let { handleClick, options, active }: Props = $props();
 </script>
 
 {#each options as option}
@@ -14,7 +16,7 @@ export let handleClick = (option: any) => {}
     bind:group={active}
     value={option}
     id={option}
-    on:input={() => handleClick && handleClick(option)}
+    onchange={() => handleClick(option)}
   />
   <label for={option}>{option}</label>
 {/each}
