@@ -1,10 +1,9 @@
 <script>
-const classname = ''
-export { classname as class }
+  let { classname, children } = $props();
 </script>
 
 <div class={`warning ${classname}`}>
-  <slot />
+  {@render children()}
 </div>
 
 <style>

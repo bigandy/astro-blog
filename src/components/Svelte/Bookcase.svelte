@@ -1,8 +1,8 @@
-<script context="module" lang="ts">
-export type Option = 'month' | 'year'
+<script module lang="ts">
 </script>
 
 <script lang="ts">
+  type Option = "month" | "year";
   import type { Book } from "src/utils/getBooksFromNotion";
   import dayjs from "dayjs";
   import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -12,7 +12,11 @@ export type Option = 'month' | 'year'
   import Toggle from "./Toggle.svelte";
   import Warning from "./Warning.svelte";
 
-  export let books: Book[] = [];
+  interface Props {
+    books: Book[];
+  }
+
+  let { books }: Props = $props();
 
   const groupedBooks = (books: Book[], format: Option) => {
     let formatString = "";
@@ -50,14 +54,14 @@ export type Option = 'month' | 'year'
     return sortedGroups;
   };
 
-  $: monthsActive = true;
+  let monthsActive = $state(true);
 
-  $: filterStart = monthsActive ? "MM-YYYY" : "YYYY";
-  $: filterEnd = monthsActive ? "MMMM YYYY" : "YYYY";
+  let filterStart = $derived(monthsActive ? "MM-YYYY" : "YYYY");
+  let filterEnd = $derived(monthsActive ? "MMMM YYYY" : "YYYY");
 
-  $: groups = monthsActive
-    ? groupedBooks(books, "month")
-    : groupedBooks(books, "year");
+  let groups = $derived(
+    monthsActive ? groupedBooks(books, "month") : groupedBooks(books, "year")
+  );
 
   function toggle(option: Option) {
     monthsActive = option === "month";
@@ -86,7 +90,7 @@ export type Option = 'month' | 'year'
       </ol>
     {/each}
   {:else}
-    <Warning class="warning">No books returned from the API.</Warning>
+    <Warning classname="warning">No books returned from the API.</Warning>
   {/if}
 </div>
 

@@ -5,7 +5,6 @@
     active: string;
   }
 
-  // biome-ignore lint/style/useConst: svelte
   let { handleClick, options, active }: Props = $props();
 </script>
 
