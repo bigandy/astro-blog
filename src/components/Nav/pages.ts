@@ -2,69 +2,69 @@ const pages: {
 	[key: string]: {
 		url: string
 		title: string
-		header: boolean
+		location: 'header' | 'footer' | 'both'
 		external?: boolean
 	}
 } = {
 	'sites-i-like': {
 		url: '/sites-i-like',
 		title: 'Sites I like',
-		header: false,
+		location: 'footer',
 	},
 
 	about: {
 		url: '/about',
 		title: 'About',
-		header: false,
+		location: 'footer',
 	},
 
 	demos: {
 		url: '/experiments',
 		title: 'Experiments',
-		header: false,
+		location: 'footer',
 	},
 
 	tools: {
 		url: '/tools',
 		title: 'Tools',
-		header: false,
-	},
-
-	now: {
-		url: '/now',
-		title: 'Now',
-		header: false,
+		location: 'footer',
 	},
 
 	blog: {
 		url: '/blog',
 		title: 'Archive',
-		header: true,
+		location: 'header',
 	},
 
 	weeknotes: {
 		url: '/weeknotes',
 		title: 'Weeknotes',
-		header: true,
+		location: 'header',
 	},
 
 	bookshelf: {
 		url: '/bookshelf',
 		title: 'Bookshelf',
-		header: true,
+		location: 'header',
 	},
 
 	cv: {
 		// url: 'https://cv.andrewhudson.dev',
 		url: '/cv',
-		// external: true,
 		title: 'CV',
-		header: true,
+		location: 'header',
+	},
+	now: {
+		url: '/now',
+		title: 'Now',
+		location: 'both',
 	},
 }
 
-export const headerPages = Object.values(pages).filter(({ header }) =>
-	Boolean(header),
+export const headerPages = Object.values(pages).filter(({ location }) =>
+	['header', 'both'].includes(location),
 )
 
-export const footerPages = Object.values(pages).filter(({ header }) => !header)
+export const footerPages = Object.values(pages).filter(({ location }) =>
+	['footer', 'both'].includes(location),
+)
