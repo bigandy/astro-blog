@@ -2,22 +2,21 @@
 import ExternalLink from '@components/Global/ExternalLink.astro'
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 
+import dayjs from 'dayjs';
+
 const title = 'Now'
+const lastUpdated = '08/11/2024';
 ---
 
 <DefaultLayout title={title}>
   <div class="container">
-    <p><strong>Life</strong></p>
 
-    We're going to move to Grenoble, France in mid-August. Super excited and a
-    huge change. Counting down the days but savouring them while we are still
-    here in the UK. Less than 3 weeks now until we go.
+    <p class="intro">After upping our lives and moving country to live in Grenoble in August we've now been here for almost three months. I am studying French and looking for a new job. Marion started her new job and our children started International school. It would be a lie to say that everything is perfect but living here in the heart of the french alps we have just to look at the horizon or take a short car journey and be in the middle of nature.</p>
 
     <p><strong>Learning</strong></p>
 
     <p>
-      I am learning French again. Using DuoLingo. Currently on the 100 day
-      streak marker.
+      I am learning French. Currently I am having twice-weekly classes at the Alliance Française here in Grenoble. Suplementing this is my continued Duolingo use. I've just passed 200 days streak. This morning I started listening to some French podcasts and regularly watch French TV in the evening.
     </p>
 
     <p><strong>Side project I am currently working on:</strong></p>
@@ -33,11 +32,7 @@ const title = 'Now'
     <p><strong>Reading</strong></p>
 
     <p>
-      The first half of the year I read quite a lot of books but recently the
-      frequency of books has dramatically dropped. This is due to many reasons
-      including: sport (Olympics, Tour de France, Euro 2024, etc), preparing to
-      move to France and saying goodbye to friends, family (and doing stuff
-      necessary to move to another country), and the
+      The last few weeks I have read quite a number of books. Living in France means that English books are either unavailable or much more expensive which has meant that so far I have been reading books that I had already bought when we lived in England. For my birthday I was given a number of books and I have almost finished all of them. I would like to start reading in French as well and I am on the lookout for my first French book to read (actually I know which one - Le Petit Prince - its here in the house somewhere but heavens knows where!)
     </p>
 
     <p><strong>Fitness</strong></p>
@@ -53,17 +48,17 @@ const title = 'Now'
     <p><strong>Job</strong></p>
 
     <p>
-      I have resigned my job as my company were incapable of employing me in
-      France (French tax laws require your company to have an office in France).
+      After moving to France I am currently looking for a new job (I had to resign from my previous job as my company were incapable of employing me in
+      France due to French tax laws). I am using the time also to re-consider which industries I would like to work and what I would like to be doing. 
     </p>
 
-    <!-- <p>Family</p>
+    <p><strong>Family</strong></p>
     <p>
-      Emma is almost 6 and Arthur is 9. Both busy with school and out of school.
-    </p> -->
+       Our children are in international school here which means they get 4 hours a week in English with the rest being in French. Emma is struggling a lot to settle in, especially to make friends and with the school work. Arthur is finding it easier. Emma does art once a week and Arthur plays hockey. We go hiking in the countryside as a family on Sundays. 
+    </p>
 
     <footer>
-      <p>Last updated: 01 August 2024.</p>
+      <p>Last updated: {dayjs(lastUpdated).format('MM.DD.YYYY')}.</p>
 
       <p>
         Credit for now page: first seen on <ExternalLink href="https://sivers.org/now"
@@ -102,5 +97,14 @@ const title = 'Now'
 
   p {
     max-width: unset;
+  }
+
+  .intro {
+    font-size: 110%;
+    line-height: 1.5;
+    font-weight: 555;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: orange;
   }
 </style>
