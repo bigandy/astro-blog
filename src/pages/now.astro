@@ -104,7 +104,10 @@ const lastUpdated = '08/11/2024';
     line-height: 1.5;
     font-weight: 555;
     margin-bottom: 2rem;
-    padding: 1rem;
-    background: orange;
+    padding: 1em;
+    background: oklch(from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25);
+    border-left: 0.5em solid;
+    border-color: oklch(from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25);
+    
   }
 </style>
