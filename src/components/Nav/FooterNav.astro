@@ -1,6 +1,8 @@
 ---
 import { footerPages } from './pages'
+import { socialLinks } from './social-links'
 import { getNavClassName } from './utils'
+import { Icon } from 'astro-icon/components'
 
 const requestPathname = Astro.url.pathname
 ---
@@ -21,6 +23,28 @@ const requestPathname = Astro.url.pathname
       })
     }
   </ul>
+
+  {socialLinks.length > 0 && (
+  <ul class="layout-inner nav nav-social">
+      {
+        socialLinks.map((entry) => {
+          const className = getNavClassName(entry.url, requestPathname);
+
+          return (
+            <li>
+              <a class={className} href={entry.url} target="_blank">
+                {entry.title}
+                {entry.icon && (
+                  <Icon name={`fa6-brands:${entry.icon.name}`} size="1em" color={entry.icon.color} />
+                )}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  )}
+  
 </nav>
 
 <style>
@@ -48,6 +72,36 @@ const requestPathname = Astro.url.pathname
 
   ul {
     padding-inline-start: 0;
-    margin-block-end: 1rem;
+    margin-block-end: 2rem;
+    display: inline-block;
+  }
+
+  .nav-social {
+    position: relative;
+    display: block;
+
+    svg {
+      translate: 0.25rem;
+      vertical-align: -0.25em;
+    }
+  }
+
+  .nav-social::before {
+    display: block;
+    position: absolute;
+    top: 0.25em;
+    left: -0.75rem;
+    height: calc(100% - 0.5em);
+    width: 2px;
+    background: oklch(from var(--theme-accent) calc(l * 2) c calc(h + 180));
+  }
+
+  @container (min-width: 700px) {
+    .nav-social {
+      display: inline-block;
+    }
+    .nav-social::before {
+      content: "";
+    }
   }
 </style>
