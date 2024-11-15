@@ -27,15 +27,15 @@ const requestPathname = Astro.url.pathname
   {socialLinks.length > 0 && (
   <ul class="layout-inner nav nav-social">
       {
-        socialLinks.map((entry) => {
-          const className = getNavClassName(entry.url, requestPathname);
+        socialLinks.map(({url, icon, title }) => {
+          const className = getNavClassName(url, requestPathname);
 
           return (
             <li>
-              <a class={className} href={entry.url} target="_blank">
-                {entry.title}
-                {entry.icon && (
-                  <Icon name={`fa6-brands:${entry.icon.name}`} size="1em" color={entry.icon.color} />
+              <a class={className} href={url} target="_blank">
+                {title}
+                {icon && (
+                  <Icon name={`fa6-brands:${icon.name}`} size="1em" color={icon.color} />
                 )}
               </a>
             </li>
