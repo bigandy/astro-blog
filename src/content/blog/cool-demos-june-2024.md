@@ -93,19 +93,19 @@ on <a href="https://codepen.io">CodePen</a>.</span></p>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 </li>
-<li>Boxes moving around box with lines to center. CSS anchor positioning. Hover the big square!
+<!-- <li>Boxes moving around box with lines to center. CSS anchor positioning. Hover the big square! - Seems to be be broken by a Chrome update. I will investigate when I have the time! 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="result" data-slug-hash="LYodVMM" data-pen-title="Boxes around box with line to middle (Chrome+)" data-user="bigandy" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/bigandy/pen/LYodVMM">
   Boxes around box with line to middle (Chrome+)</a> by Andrew Hudson (<a href="https://codepen.io/bigandy">@bigandy</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 </li>
-<li>v2 Boxes moving around box with lines to center. CSS anchor positioning. Hover the big square!
+<li>v2 Boxes moving around box with lines to center. CSS anchor positioning. Hover the big square! - Seems to be be broken by a Chrome update. I will investigate when I have the time!
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="result" data-slug-hash="vYwRyPq" data-pen-title="v2 Boxes around box with line to middle (Chrome+)" data-user="bigandy" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/bigandy/pen/vYwRyPq">
   v2 Boxes around box with line to middle (Chrome+)</a> by Andrew Hudson (<a href="https://codepen.io/bigandy">@bigandy</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+</p> -->
 
 </li>
 </ul>
