@@ -1,20 +1,22 @@
 ---
 import PublishDate from './PublishDate.astro'
 
-const { date, title, isPreview = false, slug } = Astro.props
+const { date, title, isPreview = false, slug, viewTransitionName } = Astro.props
 
 interface Props {
 	date?: Date
 	title: string
 	isPreview?: boolean
 	slug: string
+  viewTransitionName: string
 }
 ---
 
 <header
   class={`${isPreview ? "preview" : "post"}`}
-  style={`view-transition-name: ${slug.replaceAll("/", "")}`}
+  style={`view-transition-name: vt-${viewTransitionName.replaceAll('/', '')}`}
 >
+{}
   {
     isPreview ? (
       <a href={`/${slug}`}>
