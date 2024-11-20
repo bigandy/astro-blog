@@ -1,21 +1,22 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 
 import { Icon } from 'astro-icon/components';
 
-interface Props {
+interface Props extends HTMLAttributes<'a'>{
 	href: string;
     size?: string;
 }
 
-const { href, size = '1rem' } = Astro.props
+const { href, size = '1rem', ...attrs } = Astro.props
 ---
 
-<a href={href} target="_blank">
+<a href={href} target="_blank" {...attrs}>
     <slot />
     <Icon name="external-arrow" size={size ??  ''} />
 </a>
 
-<style define:vars={{ size, }}>
+<style define:vars={{ size }}>
     a {
         margin-right: calc(var(--size) + 0.5rem);
     }

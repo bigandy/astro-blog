@@ -37,9 +37,14 @@ const { Content } = await post.render()
 
 <ExternalLink
   href={`https://github.com/bigandy/astro-blog/tree/main/src/content/${collection}/${post.slug}.md`}
+  class="external-link"
   >Edit this post on Github</ExternalLink>
 
 <style>
+  .external-link {
+    margin-block: 2rem;
+    padding-block: 1rem;
+  }
   .content {
     margin-block-end: 8rem;
   }

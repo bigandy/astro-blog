@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import dayjs from 'dayjs'
+
+const { date, ...attrs } = Astro.props
+
+interface Props extends HTMLAttributes<'h3'> {
+	date?: Date
+}
+---
+
+
+{
+    date && (
+      <h3 {...attrs}>{dayjs(date).format("dddd, DD MMMM YYYY")}</h3>
+    )
+  }
