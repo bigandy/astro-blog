@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && cp _redirects dist/_redirects",
     "preview": "astro preview",
     "update": "npx @astrojs/upgrade beta && npx npm-check-updates",
     "lint": "npx @biomejs/biome check ./src",
