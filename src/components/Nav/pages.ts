@@ -49,10 +49,10 @@ const pages: {
 	},
 
 	cv: {
-		// url: 'https://cv.andrewhudson.dev',
-		url: '/cv',
+		url: 'https://cv.andrewhudson.dev',
 		title: 'CV',
 		location: 'header',
+		external: true,
 	},
 	now: {
 		url: '/now',
