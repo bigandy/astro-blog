@@ -48,16 +48,17 @@ const pages: {
 		location: 'header',
 	},
 
+	now: {
+		url: '/now',
+		title: 'Now',
+		location: 'both',
+	},
+
 	cv: {
 		url: 'https://cv.andrewhudson.dev',
 		title: 'CV',
 		location: 'header',
 		external: true,
-	},
-	now: {
-		url: '/now',
-		title: 'Now',
-		location: 'both',
 	},
 }
 
