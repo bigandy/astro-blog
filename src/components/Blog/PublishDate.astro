@@ -3,16 +3,40 @@ import type { HTMLAttributes } from 'astro/types';
 
 import dayjs from 'dayjs'
 
-const { date, ...attrs } = Astro.props
+const { date, showLine = false, ...attrs } = Astro.props
 
 interface Props extends HTMLAttributes<'h3'> {
 	date?: Date
+    showLine?: boolean
 }
 ---
 
-
 {
-    date && (
-      <h3 {...attrs}>{dayjs(date).format("dddd, DD MMMM YYYY")}</h3>
-    )
-  }
+date && (
+    <h3 class={`${showLine ? 'show-line' : ''} ${attrs.class}`} {...attrs}>{dayjs(date).format("dddd, DD MMMM YYYY")}</h3>)
+}
+
+<style>
+    .publish-date {
+      font-size: 1rem;
+      color: var(--theme-text-lighter);
+      
+    }
+
+    .show-line {
+        display: grid;
+      grid-template-columns: auto max-content auto;
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: currentColor; /* this is the color from the parent */
+      }
+
+    }
+</style>
