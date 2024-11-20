@@ -24,7 +24,7 @@ interface Props {
 const { page } = Astro.props
 ---
 
-<DefaultLayout title={`Blog Archive Page ${page.currentPage}`}>
+<DefaultLayout title={`Blog Archive Page ${page.currentPage}`}> 
   <div class="top-nav">
     <ArchiveNav page={page} />
   </div>
@@ -36,8 +36,5 @@ const { page } = Astro.props
 <style>
   .top-nav {
     margin-block-end: 2em;
-  }
-  body {
-    --theme-accent: var(--theme-accent-blue);
   }
 </style>

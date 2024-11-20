@@ -2,9 +2,12 @@
 import BlogPostList from '@components/Blog/utils/blogPostList.astro'
 import ForwardArrow from '@components/Global/ForwardArrow.astro'
 import DefaultLayout from '@layouts/DefaultLayout.astro'
+
+
+const themeAccent = "#cb4f00";
 ---
 
-<DefaultLayout title="Welcome!">
+<DefaultLayout title="Welcome!" accent={themeAccent}>
   <p>
     Hello there👋 I am Andrew and I am a senior front-end software engineer who
     lives in Grenoble, France.
@@ -26,7 +29,5 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
   .blog-post-list {
     margin-block-start: 3rem;
   }
-  body {
-    --theme-accent: #cb4f00;
-  }
+  
 </style>

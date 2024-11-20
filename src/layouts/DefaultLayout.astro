@@ -6,7 +6,13 @@ import FooterNav from '@components/Nav/FooterNav.astro'
 import 'src/css/global.css'
 import BottomOfHead from '@components/Global/BottomOfHead.astro'
 
-const { title, head } = Astro.props
+interface Props {
+  accent?: string,
+  title: string;
+  head?: string;
+}
+
+const { title, head, accent = "var(--theme-accent-blue)" }: Props = Astro.props
 ---
 
 <html lang="en">
@@ -15,10 +21,13 @@ const { title, head } = Astro.props
 
     {head}
 
-    <style>
+    <style define:vars={{ accent }}>
+      body {
+        --theme-accent: var(--accent);
+      }
+
       .content {
         margin-block-start: 2rem;
-        margin-block-end: 8rem;
       }
 
       .content :global(main > * + *) {

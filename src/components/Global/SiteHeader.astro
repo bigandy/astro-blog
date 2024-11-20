@@ -1,6 +1,4 @@
 ---
-import Logo from '@components/Global/Logo.astro'
-
 import HeaderNav from '@components/Nav/HeaderNav.astro'
 ---
 
@@ -8,8 +6,7 @@ import HeaderNav from '@components/Nav/HeaderNav.astro'
   <div class="layout-inner">
     <h1>
       <a href="/">
-        <Logo />
-        <span>Andrew Hudson</span>
+        Andrew Hudson
       </a>
     </h1>
     <HeaderNav />
@@ -40,8 +37,12 @@ import HeaderNav from '@components/Nav/HeaderNav.astro'
     font-size: 1.5rem;
 
     a {
-      vertical-align: -10px;
+      vertical-align: -1px;
     }
+  }
+
+  header a {
+    font-weight: bold;
   }
 
   .logo {

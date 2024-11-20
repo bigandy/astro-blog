@@ -31,7 +31,15 @@ const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 <link
-  href="/fonts/anybody/anybody-v4-latin-900.woff2"
+  href="/fonts/WorkSans-VariableFont_wght.woff2"
+  rel="preload"
+  type="font/woff2"
+  as="font"
+  crossorigin=""
+/>
+
+<link
+  href="/fonts/Fraunces-Variable.woff2"
   rel="preload"
   type="font/woff2"
   as="font"

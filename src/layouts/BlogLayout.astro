@@ -17,10 +17,6 @@ const { title, head, ogImage, permalink } = Astro.props
     {head}
 
     <style>
-      .content {
-        margin-block-end: 8rem;
-      }
-
       .content :global(main > * + *) {
         margin-block-start: 1rem;
       }

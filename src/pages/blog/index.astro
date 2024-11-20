@@ -7,13 +7,7 @@ const title = 'Blog'
 ---
 
 <DefaultLayout title={title}>
-  <BlogPostList number={9}  ignoreWeeknotes />
+  <BlogPostList number={9} />
 
   <ForwardArrow url="/blog/2" title="See more posts" />
 </DefaultLayout>
-
-<style>
-  body {
-    --theme-accent: var(--theme-accent-blue);
-  }
-</style>
