@@ -32,11 +32,11 @@ const requestPathname = Astro.url.pathname
 
           return (
             <li>
-              <a class={className} href={url} target="_blank">
-                {title}
+              <a class={className} href={url} target="_blank" style={`color: ${icon.color}`}>
                 {icon && (
-                  <Icon name={`fa6-brands:${icon.name}`} size="1em" color={icon.color} />
+                  <Icon name={`fa6-brands:${icon.name}`} size="1em" />
                 )}
+                {title}
               </a>
             </li>
           );
@@ -80,8 +80,11 @@ const requestPathname = Astro.url.pathname
     position: relative;
     display: block;
 
+    a:hover { 
+      border-color: inherit; 
+    }
+
     svg {
-      translate: 0.25rem;
       vertical-align: -0.25em;
     }
   }
