@@ -160,37 +160,7 @@ li {
 		padding-inline-start: 1.2rem;
 	}
 
-	a {
-		svg {
-			display: none;
-		}
-	}
-
-	.cv li::marker {
-		font-size: unset;
-	}
-
-	.cv a {
-		color: inherit;
-	}
-
-	.cv ul.skills {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-
-		li {
-			padding-right: 1rem;
-		}
-	}
-
-	.cv .contact {
-		margin-block-end: 0;
-	}
-
-	astro-dev-toolbar,
-	.cv nav,
-	.cv header,
-	.cv footer {
+	astro-dev-toolbar {
 		display: none;
 	}
 
@@ -199,9 +169,46 @@ li {
 	}
 
 	.cv {
-		/* Hide the external link markers */
-		a::after {
+		/* This is body padding */
+		padding: 1.5em 3em;
+
+		.p-experience {
+			break-inside: avoid;
+		}
+
+		a svg,
+		nav,
+		header,
+		footer {
 			display: none;
+		}
+
+		li::marker {
+			font-size: unset;
+		}
+
+		a {
+			color: inherit;
+
+			/* Hide the external link markers */
+			&::after {
+				display: none;
+			}
+		}
+
+		.skills {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+
+			li {
+				padding-right: 1rem;
+			}
+		}
+
+		h3,
+		.h-card,
+		.contact {
+			margin-block-end: 0;
 		}
 
 		.meta {
@@ -216,15 +223,16 @@ li {
 			margin-inline-end: 1rem;
 		}
 
-		:not(.meta) > a:not(.u-url)[href]::after {
-			content: " (" attr(href) ")";
+		.cv-portfolio-list a::after {
+			content: " (" attr(data-url) ")";
 			word-wrap: break-word;
 			font-style: italic;
 			font-size: 0.9em;
 			white-space: wrap;
 			opacity: 0.75;
 			display: inline;
-			color: #006fc6 !important;
+			color: inherit;
+			/* color: #006fc6 !important; */
 			text-decoration: none !important;
 			background-image: none !important;
 			text-shadow: none !important;
@@ -237,12 +245,13 @@ li {
 		h2 {
 			font-size: 18px;
 			margin-bottom: 0.5rem;
+			border-color: transparent;
+			margin-block-start: 1rem;
 		}
 
 		h3 {
 			order: -1;
 			font-size: 16px;
-			margin-bottom: 0;
 		}
 
 		.p-grid {
@@ -252,11 +261,6 @@ li {
 
 		.p-grid li {
 			padding-inline-end: 1.5rem;
-		}
-
-		h2 {
-			border-bottom-color: inherit;
-			margin-block-start: 1rem;
 		}
 
 		ul:last-child {
@@ -275,10 +279,6 @@ li {
 			text-decoration: none;
 		}
 
-		h2 {
-			border-color: transparent;
-		}
-
 		p,
 		li {
 			max-width: unset;
@@ -286,7 +286,13 @@ li {
 
 		li,
 		p {
-			font-size: 16px;
+			font-size: 14px;
+		}
+
+		.meta p,
+		.meta a {
+			font-size: 12px;
+			line-height: 1;
 		}
 
 		.entry__organization {
@@ -308,15 +314,6 @@ li {
 				display: block;
 			}
 		}
-
-		.h-card {
-			font-size: 1rem;
-		}
-	}
-
-	.meta p,
-	.meta a {
-		font-size: 14px;
 	}
 
 	.entrylist {
@@ -332,4 +329,8 @@ li {
 	.content {
 		margin-block-start: 1rem;
 	}
+}
+
+@page {
+	margin: 1%;
 }
