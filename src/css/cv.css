@@ -12,8 +12,8 @@
 	}
 
 	.contact-name {
-		/* display: block; */
-		/* font-size: 2rem; */
+		display: block;
+		font-size: 1.5rem;
 		font-weight: 900;
 		line-height: 1;
 		margin-block-end: .75rem;
@@ -53,8 +53,12 @@ li {
 .contact {
 	margin-block-end: 2rem;
 
-	* {
-		/* font-size: 1rem; */
+	.meta {
+		display: inline-flex;
+		margin-left: auto;
+	}
+
+	.meta * {
 		display: inline-block;
 		margin-right: 1em;
 	}
@@ -68,11 +72,6 @@ li {
 	position: relative;
 	list-style: none;
 	margin-block-end: 3em;
-}
-
-.entry__header {
-	/* display: flex;
-  flex-direction: column; */
 }
 
 .entry__time {
@@ -94,6 +93,7 @@ li {
 	display: inline-block;
 }
 
+.entry__organization,
 .entry__time,
 .entry__title {
 	display: inline-block;
@@ -146,12 +146,41 @@ li {
 }
 
 @media print {
+	.cv-portfolio-list {
+		a {
+			margin-right: 0;
+		}
+	}
+
+	p {
+		margin-block-end: 0;
+	}
+
+	ul {
+		padding-inline-start: 1.2rem;
+	}
+
+	a {
+		svg {
+			display: none;
+		}
+	}
+
+	.cv li::marker {
+		font-size: unset;
+	}
+
 	.cv a {
-		color: black;
+		color: inherit;
 	}
 
 	.cv ul.skills {
-		margin-block-end: 0.5rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+		li {
+			padding-right: 1rem;
+		}
 	}
 
 	.cv .contact {
@@ -175,7 +204,19 @@ li {
 			display: none;
 		}
 
-		:not(.contact) > a[href]::after {
+		.meta {
+			* {
+				margin-inline-end: 0.5rem;
+			}
+		}
+
+		.contact-name {
+			display: inline-block;
+			margin-block-end: 0;
+			margin-inline-end: 1rem;
+		}
+
+		:not(.meta) > a:not(.u-url)[href]::after {
 			content: " (" attr(href) ")";
 			word-wrap: break-word;
 			font-style: italic;
@@ -191,22 +232,16 @@ li {
 
 		h1 {
 			margin-block-end: 1rem;
-			font-size: 30px;
-			display: none;
-
-			/* &::before {
-        content: "Andrew Hudson - ";
-      } */
 		}
 
 		h2 {
-			font-size: 28px;
+			font-size: 18px;
 			margin-bottom: 0.5rem;
 		}
 
 		h3 {
 			order: -1;
-			font-size: 24px;
+			font-size: 16px;
 			margin-bottom: 0;
 		}
 
@@ -249,9 +284,6 @@ li {
 			max-width: unset;
 		}
 
-		p {
-			margin-bottom: 0.75rem;
-		}
 		li,
 		p {
 			font-size: 16px;
@@ -259,11 +291,32 @@ li {
 
 		.entry__organization {
 			font-size: unset;
+			position: relative;
+			padding-left: 1em;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				translate: 0 -50%;
+				left: 5px;
+
+				border-radius: 50%;
+				background: black;
+				height: 2px;
+				aspect-ratio: 1;
+				content: "";
+				display: block;
+			}
 		}
 
-		/* [class^="p-grid"] {
-      --grid-number: 1;
-    } */
+		.h-card {
+			font-size: 1rem;
+		}
+	}
+
+	.meta p,
+	.meta a {
+		font-size: 14px;
 	}
 
 	.entrylist {
