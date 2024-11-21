@@ -1,0 +1,184 @@
+---
+import FullScreenLayout from '@layouts/FullScreenLayout.astro'
+
+const title = 'Anchor Positioning a Popover Menu'
+---
+
+<script type="module">
+    if (!("anchorName" in document.documentElement.style)) {
+        console.log("should import the anchor positioning polyfill")
+      import("https://unpkg.com/@oddbird/css-anchor-positioning");
+    } else {
+        console.log("browser has support for anchor positioning")
+    }
+  </script>
+
+<FullScreenLayout title={title}>
+  <div class="container">
+    
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><button popovertarget="popover-menu">Show the Menu</button></li>
+        </ul>
+    </nav>
+
+    <div id="popover-menu" popover class="menu">
+        <header>
+            <p>Where should the menu be situated?</p>
+
+            <label for="left">Left</label>
+            <input type="radio" name="position" id="left" checked />
+
+
+            <label for="center">Center</label>
+            <input type="radio" name="position" id="center" />
+
+            <label for="right">Right</label>
+            <input type="radio" name="position" id="right" />
+
+        </header>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Derp</a></li>
+            <li><a href="#">Alps</a></li>
+            <li><a href="#">Runs</a></li>
+            <li><a href="#">Runs</a></li>
+            <li><a href="#">Runs</a></li>
+        </ul>
+    </div>
+  </div>
+</FullScreenLayout>
+
+<style>
+    .container {
+        min-height: 300vh;
+    }
+
+    nav {
+        margin-top: 100vh;
+        /* max-width: 300px; */
+        max-width: calc(90%);
+        margin-inline: auto;
+        border: 1px solid;
+
+        li {
+            display: block;
+            text-align: center;
+
+            a {
+                display: block;
+            }
+        }
+
+        button {
+            display: block;
+            margin-left: auto;
+            anchor-name: --nav;
+        }
+
+    }
+
+
+    /* .container:has(#left:checked) {
+        .menu { 
+            position-area: bottom left; 
+        }
+    }
+
+    .container:has(#right:checked) {
+        .menu { 
+            position-area: bottom right; 
+        }
+    }
+
+    .container:has(#center:checked) {
+        .menu { 
+            position-area: bottom; 
+            width: calc(anchor-size() * 3);
+        }
+    } */
+
+    .menu {
+        padding: 0;
+        position-anchor: --nav;
+        position-area: bottom span-left;
+        margin-top: 1em;
+        position-try-fallbacks: flip-block flip-inline; 
+        transition: display 1s, opacity 1s, transform 1s;
+        transition-behavior: allow-discrete;
+        --initial-x: -100%;
+
+        opacity: 0;
+        transform: translateX(var(--initial-x));
+
+        @supports not (position-area: bottom right) {
+            position: absolute;
+            top: anchor(--nav bottom);
+            left: anchor(--nav left, 50%);
+            width: calc(anchor-size(width) * 3);
+            translate: -33%;
+
+            header {
+                display: none;
+            }
+        }
+
+        &:popover-open {
+            opacity: 1;
+            transform: translateX(0);
+
+            /* This needs to go at the end of this nested block! */
+            @starting-style {
+                opacity: 0;
+                transform: translateX(var(--initial-x));
+            }
+        }
+
+        header {
+            background: gainsboro;
+            padding: 1rem;
+        }
+
+        ul {
+            display: grid;
+            list-style: "";
+            grid-template-columns: repeat(2, 1fr);
+            padding-left: 0;
+            justify-content: center;
+            /* border-bottom: 1px solid; */
+
+            li {
+                text-align: center;
+                border-right: 1px solid;
+                border-top: 1px solid;
+
+                &:nth-child(even) {
+                    border-right: 0;
+                    /* border-left: 1px solid; */
+                }
+            }
+
+            a {
+                padding: 0.5rem;
+                display: block;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &:focus,
+                &:hover {
+                    background: black;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    
+</style>
+
+
+
