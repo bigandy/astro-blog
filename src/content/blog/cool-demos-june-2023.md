@@ -1,5 +1,5 @@
 ---
-title: "cool demos I created in june 2023"
+title: "Cool demos I created in june 2023"
 date: 2023-06-14
 draft: false
 description: ""
