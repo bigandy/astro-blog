@@ -192,7 +192,12 @@
 		max-width: calc(100% + (var(--padding-inline) * 2));
 		overflow-y: hidden;
 		overflow-x: auto;
-		margin-block-start: 1rem;
+		margin-block: 1rem;
+
+		::selection {
+			background: white;
+			color: black;
+		}
 	}
 
 	@container root (min-width: 37.75em) {
