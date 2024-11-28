@@ -13,12 +13,13 @@ interface Props {
 }
 
 const { title, head, accent = "var(--theme-accent-blue)" }: Props = Astro.props
+
+const locale = Astro.currentLocale ?? 'en'; 
 ---
 
-<html lang="en">
+<html lang={locale}>
   <head>
     <BaseHead title={title} />
-
     {head}
 
     <style define:vars={{ accent }}>
