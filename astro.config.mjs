@@ -15,14 +15,14 @@ export default defineConfig({
     defaultLocale: "en",
     routing: "manual",
   },
-  routing: {
-    prefixDefaultLocale: false,
+  vite: {
+    plugins: [],
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"],
+    },
   },
   integrations: [svelte(), robotsTxt(robotsTxtConfig), mdx(), react(), icon()],
   scopedStyleStrategy: "class",
-  vite: {
-    plugins: [],
-  },
   server: {
     port: 8888,
   },

@@ -19,8 +19,6 @@ export const collections = {
       draft: z.boolean().default(false),
       tags: z.array(z.string().optional()).optional(),
       template: z.enum(getValues(Template)).optional(),
-      // AHTODO: does this collection also need hasTranslation?
-      hasTranslation: z.boolean().default(false),
     }),
   }),
 
