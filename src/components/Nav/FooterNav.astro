@@ -32,7 +32,7 @@ const locale = Astro.currentLocale ?? 'en';
   {socialLinks.length > 0 && (
   <ul class="layout-inner nav nav-social">
       {
-        socialLinks.map(({url, icon, title }) => {
+        socialLinks.map(({ url, icon, title }) => {
           const className = getNavClassName(url, requestPathname);
 
           return (

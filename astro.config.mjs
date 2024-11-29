@@ -3,6 +3,8 @@ import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
 import robotsTxt from "astro-robots-txt";
 import mdx from "@astrojs/mdx";
+import icon from "astro-icon";
+import react from "@astrojs/react";
 
 import { robotsTxtConfig } from "./robots";
 
@@ -13,7 +15,10 @@ export default defineConfig({
     defaultLocale: "en",
     routing: "manual",
   },
-  integrations: [lit(), svelte(), robotsTxt(robotsTxtConfig), mdx()],
+  routing: {
+    prefixDefaultLocale: false,
+  },
+  integrations: [svelte(), robotsTxt(robotsTxtConfig), mdx(), react(), icon()],
   scopedStyleStrategy: "class",
   vite: {
     plugins: [],
