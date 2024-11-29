@@ -1,0 +1,37 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import BlogPostPreview from "@components/Blog/BlogPostPreview.astro";
+import ArchiveNav from "@components/Global/ArchiveNav.astro";
+
+import { getAllPosts } from "@components/Blog/utils/blogPostList.astro";
+
+export async function getStaticPaths({ paginate }) {
+  // Load your data with fetch(), Astro.fetchContent(), etc.
+
+  const allPosts = await getAllPosts(Astro.currentLocale);
+
+  // Return a paginated collection of paths for all posts
+  return paginate(allPosts, { pageSize: 10 });
+}
+// If set up correctly, The page prop now has everything that
+// you need to render a single page (see next section).
+const { page } = Astro.props;
+---
+
+<DefaultLayout title={`Blog Archive Page ${page.currentPage}`}>
+  <div class="top-nav">
+    <ArchiveNav page={page} />
+  </div>
+
+  {page.data.map((p) => <BlogPostPreview post={p} />)}
+
+  <ArchiveNav page={page} />
+</DefaultLayout>
+<style>
+  .top-nav {
+    margin-block-end: 2em;
+  }
+  body {
+    --theme-accent: var(--theme-accent-blue);
+  }
+</style>

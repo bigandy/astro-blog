@@ -1,63 +1,86 @@
 const pages: {
   [key: string]: {
     url: string;
-    title: string;
+    title: { default: string; fr?: string };
     location: "header" | "footer" | "both";
     external?: boolean;
   };
 } = {
   "sites-i-like": {
     url: "/sites-i-like",
-    title: "Sites I like",
+    title: {
+      default: "Sites I like",
+    },
     location: "footer",
   },
 
   about: {
     url: "/about",
-    title: "About",
-    location: "footer",
+    title: {
+      default: "About",
+      fr: "À propos",
+    },
+    location: "header",
   },
 
   demos: {
     url: "/experiments",
-    title: "Experiments",
     location: "footer",
+    title: {
+      default: "Experiments",
+      fr: "Expériences",
+    },
   },
 
   tools: {
     url: "/tools",
-    title: "Tools",
+    title: {
+      default: "Tools",
+    },
     location: "footer",
   },
 
   blog: {
-    url: "/blog",
-    title: "Archive",
+    url: "/",
+    title: {
+      default: "Archive",
+      fr: "Les Archives",
+    },
     location: "header",
   },
 
   weeknotes: {
     url: "/weeknotes",
-    title: "Weeknotes",
     location: "header",
-  },
-
-  bookshelf: {
-    url: "/bookshelf",
-    title: "Bookshelf",
-    location: "header",
+    title: {
+      default: "Weeknotes",
+    },
   },
 
   now: {
     url: "/now",
-    title: "Now",
-    location: "both",
+    title: {
+      default: "Now",
+    },
+    location: "footer",
+  },
+
+  bookshelf: {
+    url: "/bookshelf",
+    title: {
+      default: "Bookshelf",
+      fr: "Bibliothèque",
+    },
+    location: "header",
   },
 
   cv: {
     url: "/cv",
-    title: "CV",
     location: "header",
+    title: {
+      default: "CV",
+      fr: "CV",
+    },
   },
 };
 

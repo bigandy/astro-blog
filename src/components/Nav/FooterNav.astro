@@ -4,7 +4,12 @@ import { socialLinks } from './social-links'
 import { getNavClassName } from './utils'
 import { Icon } from 'astro-icon/components'
 
-const requestPathname = Astro.url.pathname
+const requestPathname = Astro.url.pathname;
+
+
+
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : ""; 
+const locale = Astro.currentLocale ?? 'en'; 
 ---
 
 <nav class="layout footer-nav">
@@ -15,8 +20,8 @@ const requestPathname = Astro.url.pathname
 
         return (
           <li>
-            <a class={className} href={entry.url}>
-              {entry.title}
+            <a class={className} href={prefix + entry.url}>
+              {entry.title?.[locale] ?? entry.title.default}
             </a>
           </li>
         );
@@ -27,7 +32,7 @@ const requestPathname = Astro.url.pathname
   {socialLinks.length > 0 && (
   <ul class="layout-inner nav nav-social">
       {
-        socialLinks.map(({url, icon, title }) => {
+        socialLinks.map(({ url, icon, title }) => {
           const className = getNavClassName(url, requestPathname);
 
           return (

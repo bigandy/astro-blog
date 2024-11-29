@@ -1,0 +1,55 @@
+---
+import { getCollection, CollectionEntry } from "astro:content";
+
+import BlogLayout from "@layouts/BlogLayout.astro";
+import FullPageLayout from "@layouts/FullPageLayout.astro";
+import BlogPost from "@components/Blog/BlogPost.astro";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        post,
+      },
+    };
+  });
+}
+
+// If set up correctly, The page prop now has everything that
+// you need to render a single page (see next section).
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { template, title } = post.data;
+---
+
+{
+  template === "full-page" ? (
+    <FullPageLayout title={title}>
+      <BlogPost post={post} showBackLink={false} showDate={false} />
+    </FullPageLayout>
+  ) : (
+    <BlogLayout title={title}>
+      <BlogPost post={post} />
+    </BlogLayout>
+  )
+}
+
+<style>
+  .top-nav {
+    margin-block-end: 2em;
+  }
+  body {
+    --theme-accent: var(--theme-accent-blue);
+  }
+</style>
