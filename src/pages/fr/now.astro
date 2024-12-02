@@ -1,0 +1,69 @@
+---
+import ExternalLink from '@components/Global/ExternalLink.astro'
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+
+import dayjs from 'dayjs';
+
+const title = 'Now'
+const lastUpdated = '08/11/2024';
+---
+
+<DefaultLayout title={title}>
+  <div class="container">
+
+    <p>Français 🇫🇷</p>
+
+    <!-- <footer>
+      <p>Last updated: {dayjs(lastUpdated).format('MM.DD.YYYY')}.</p>
+
+      <p>
+        Credit for now page: first seen on <ExternalLink href="https://sivers.org/now"
+          >Derek Sivers now page</ExternalLink>
+      </p>
+    </footer> -->
+  </div>
+</DefaultLayout>
+
+<style>
+  body {
+    --theme-accent: #fa7e61;
+  }
+
+  footer {
+    background: hsl(from black h s l / 0.05);
+    padding: 1rem;
+    margin-block: 3rem;
+    gap: 0.5rem;
+    display: grid;
+
+    p {
+      font-size: 90%;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    margin-block: 1rem;
+    padding-inline-start: 1.5rem;
+  }
+
+  p {
+    max-width: unset;
+  }
+
+  .intro {
+    font-size: 110%;
+    line-height: 1.5;
+    font-weight: 555;
+    margin-bottom: 2rem;
+    padding: 1em;
+    background: oklch(from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25);
+    border-left: 0.5em solid;
+    border-color: oklch(from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25);
+    
+  }
+</style>

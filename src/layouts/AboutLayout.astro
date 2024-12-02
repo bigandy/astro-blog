@@ -1,0 +1,34 @@
+---
+import DefaultLayout from "./DefaultLayout.astro";
+
+const content = {
+    en: {
+        title: 'About',
+        content: `
+        <p>
+            Hi there! I'm Andrew and I'm a senior front-end software engineer. I live in Grenoble, France
+            with my wife and two kids. I love running (the muddier and the further and the higher the
+            better), reading and learning, watching the cycling on TV and going on long
+            country walks, playing with the kids, and seeing family.
+        </p>
+
+        
+        `
+    }, 
+    fr: {
+        title: 'À Propos',
+        // Warning! Translated with Google Translate
+        content: "<p>Bonjour ! Je m'appelle Andrew et je suis ingénieur logiciel senior en front-end. Je vis à Grenoble, en France, avec ma femme et mes deux enfants. J'adore courir (plus c'est boueux, plus c'est loin et plus c'est haut, mieux c'est), lire et apprendre, regarder le cyclisme à la télévision et faire de longues promenades à la campagne, jouer avec les enfants et voir la famille.</p>"
+    }
+}
+
+type Locale = 'en' | 'fr'
+
+const locale: Locale = Astro.currentLocale as Locale ?? 'en';
+const title = content[locale].title;
+const pageContent = content[locale].content;
+---
+
+<DefaultLayout title={title} accent="#623cea">
+    <Fragment set:html={pageContent} />
+</DefaultLayout>

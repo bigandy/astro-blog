@@ -3,7 +3,9 @@ import { headerPages } from './pages'
 import { getNavClassName } from './utils'
 import ExternalLink from '@components/Global/ExternalLink.astro'
 
-const requestPathname = Astro.url.pathname
+const requestPathname = Astro.url.pathname;
+const locale = Astro.currentLocale ?? 'en'; 
+const prefix = locale !== 'en' ? `/${locale}` : ""; 
 ---
 
 <nav class="layout">
@@ -17,8 +19,8 @@ const requestPathname = Astro.url.pathname
             {entry.external ? (
               <ExternalLink href={entry.url} size="1rem">{entry.title}</ExternalLink>
             ) : (
-            <a class={className} href={entry.url}>
-              {entry.title}
+            <a class={className} href={prefix + entry.url}>
+              {entry.title?.[locale] ?? entry.title.default}
             </a>
             )}
           </li>

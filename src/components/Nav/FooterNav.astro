@@ -4,19 +4,25 @@ import { socialLinks } from './social-links'
 import { getNavClassName } from './utils'
 import { Icon } from 'astro-icon/components'
 
-const requestPathname = Astro.url.pathname
+const requestPathname = Astro.url.pathname;
+const locale = Astro.currentLocale ?? 'en'; 
+const prefix = locale !== 'en' ? `/${locale}` : ""; 
+
+
+// remove the urls without a entry.title?.[locale]
+const filteredFooterPages = footerPages.filter(({title}) => title?.[locale])
 ---
 
 <nav class="layout footer-nav">
   <ul class="layout-inner nav">
     {
-      footerPages.map((entry) => {
+      filteredFooterPages.map((entry) => {
         const className = getNavClassName(entry.url, requestPathname);
 
         return (
           <li>
-            <a class={className} href={entry.url}>
-              {entry.title}
+            <a class={className} href={prefix + entry.url}>
+              {entry.title?.[locale] ?? entry.title.default}
             </a>
           </li>
         );
@@ -72,6 +78,7 @@ const requestPathname = Astro.url.pathname
 
   ul {
     padding-inline-start: 0;
+    margin-block-start: 2rem;
     margin-block-end: 2rem;
     display: inline-block;
   }

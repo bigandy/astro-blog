@@ -1,0 +1,34 @@
+---
+import BlogPostList from '@components/Blog/utils/blogPostList.astro'
+import ForwardArrow from '@components/Global/ForwardArrow.astro'
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+
+
+const themeAccent = "#cb4f00";
+
+
+---
+
+<DefaultLayout title="Bienvenue!" accent={themeAccent}>
+  <p>
+    Bonjour!
+  </p>
+
+  <p>
+    <!-- This site is hand-crafted with lashings of strong black coffee, with Astro as the framework of choice with a bit of Svelte (for the bookshelf) but mostly vanilla html and css using markdown to write the blog posts and articles. -->
+  </p>
+
+  <!-- <div class="blog-post-list">
+    <h2>Latest Blog Posts</h2>
+    <BlogPostList number={9} />
+
+    <ForwardArrow url={"/blog"} title="See more posts" />
+  </div> -->
+</DefaultLayout>
+
+<style>
+  .blog-post-list {
+    margin-block-start: 3rem;
+  }
+  
+</style>

@@ -1,15 +1,19 @@
 ---
 import HeaderNav from '@components/Nav/HeaderNav.astro'
+import LanguageSelector from '@components/Nav/LanguageSelector.astro'
+
+const homeUrl = Astro.currentLocale === 'en' ? "/" : "/fr";
 ---
 
 <header class="layout">
   <div class="layout-inner">
     <h1>
-      <a href="/">
+      <a href={homeUrl}>
         Andrew Hudson
       </a>
     </h1>
     <HeaderNav />
+    <LanguageSelector />
   </div>
 </header>
 

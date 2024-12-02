@@ -1,0 +1,147 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+
+interface Pages {
+	[key: string]: {
+		parent: string
+		children: {
+			title: string
+			url: string
+			active?: boolean
+		}[]
+	}
+}
+
+const pages: Pages = {
+	canvas: {
+		parent: 'Canvas Experiments',
+		children: [
+			{ title: 'Canvas 1 - Drawing Rectangles', url: 'canvas-1' },
+			{ title: 'Canvas 2 - drawing circles', url: 'canvas-2' },
+			{
+				title: 'Canvas 3 - animating circle around other circle',
+				url: 'canvas-3',
+			},
+			{ title: 'Canvas 4 - some random squares', url: 'canvas-4' },
+			{ title: 'Canvas 5 - some random circles', url: 'canvas-5' },
+			{ title: 'Canvas 6 - click on canvas', url: 'canvas-6' },
+			{ title: 'Canvas 7 - Spirograph pt.1', url: 'canvas-7' },
+			{ title: 'Canvas 8 - Spirograph pt.2', url: 'canvas-8' },
+			{ title: 'Canvas 9 - Zigzag', url: 'canvas-9' },
+			{ title: 'Canvas 10 - Radar', url: 'canvas-10', active: false },
+		],
+	},
+	houdini: {
+		parent: 'Houdini Paint experiments',
+		children: [
+			{
+				title: 'Houdini 1 - Checkerboard',
+				url: 'houdini-paint-1',
+			},
+			{
+				title: 'Houdini 2 - Zigzag',
+				url: 'houdini-paint-2',
+			},
+		],
+	},
+	'talk-to-window': {
+		parent: 'Window Postmessaging',
+		children: [{ title: 'Talk to Window', url: 'talk-to-window-parent' }],
+	},
+	'css-has': {
+		parent: ':has() (Chrome / Safari / Edge support)',
+		children: [
+			{
+				title: ':has() css demo',
+				url: 'css-has-1',
+			},
+		],
+	},
+	'container-queries': {
+		parent: 'Container Queries',
+		children: [
+			{
+				title: 'Container Queries 1',
+				url: 'container-queries-1',
+			},
+			{
+				title: 'Container Style Queries',
+				url: 'style-query',
+			},
+		],
+	},
+	'view-transitions': {
+		parent: 'View Transitions - Chromium Browsers only',
+		children: [
+			{
+				title: 'view transitions 1',
+				url: '1',
+			},
+			{
+				title: 'view transitions 2',
+				url: '2',
+			},
+		],
+	},
+	scope: {
+		parent: 'CSS @scope - Chrome 118+ only so far',
+		children: [
+			{
+				title: 'Basic Problem',
+				url: 'basic-problem',
+			},
+			{
+				title: 'Basic Solution',
+				url: 'basic-solution',
+			},
+		],
+	},
+	'anchor-positioning': {
+		parent: 'CSS Anchoring',
+		children: [
+			{
+				title: 'Dropdown popover Menu positioned with anchor',
+				url: 'anchor-1',
+			},
+		],
+	},
+}
+---
+
+<style>
+  body {
+    --theme-accent: #52b788;
+  }
+
+  h3 {
+    margin-block-start: 3rem;
+  }
+</style>
+
+<DefaultLayout title="Expériences">
+
+    <p>Français 🇫🇷</p>
+  <!-- <div class="container">
+    {
+      Object.keys(pages).map((group) => {
+        return (
+          <section>
+            <h3>{pages[group].parent}</h3>
+
+            <ol>
+              {pages[group].children
+                .filter(({ active }) => active !== false)
+                .map(({ title, url }) => {
+                  return (
+                    <li>
+                      <a href={`/experiments/${group}/${url}`}>{title}</a>
+                    </li>
+                  );
+                })}
+            </ol>
+          </section>
+        );
+      })
+    }
+  </div> -->
+</DefaultLayout>
