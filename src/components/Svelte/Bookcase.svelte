@@ -1,6 +1,3 @@
-<script module lang="ts">
-</script>
-
 <script lang="ts">
   type Option = "month" | "year";
   import type { Book } from "src/utils/getBooksFromNotion";
