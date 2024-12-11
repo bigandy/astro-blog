@@ -1,63 +1,61 @@
 ---
-import BaseHead from '@components/Global/BaseHead.astro'
-import BlogHeader from '@components/Global/SiteHeader.astro'
-import FooterNav from '@components/Nav/FooterNav.astro'
+import BaseHead from "@components/Global/BaseHead.astro";
+import BlogHeader from "@components/Global/SiteHeader.astro";
+import FooterNav from "@components/Nav/FooterNav.astro";
 
-import 'src/css/global.css'
-import BottomOfHead from '@components/Global/BottomOfHead.astro'
+import "src/css/global.css";
+import BottomOfHead from "@components/Global/BottomOfHead.astro";
 
 interface Props {
-  accent?: string,
-  title: string;
-  head?: string;
+    accent?: string;
+    title: string;
+    head?: string;
 }
 
-const { title, head, accent = "var(--theme-accent-blue)" }: Props = Astro.props
+const { title, head, accent = "var(--theme-accent-blue)" }: Props = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <BaseHead title={title} />
+    <head>
+        <BaseHead title={title} />
 
-    {head}
+        {head}
 
-    <style define:vars={{ accent }}>
-      body {
-        --theme-accent: var(--accent);
-      }
+        <style define:vars={{ accent }}>
+            body {
+                --theme-accent: var(--accent);
+            }
 
-      .content {
-        margin-block-start: 2rem;
-      }
+            .content {
+                margin-block-start: 2rem;
+            }
 
-      .content :global(main > * + *) {
-        margin-block-start: 1rem;
-      }
+            .content :global(main > * + *) {
+                margin-block-start: 1rem;
+            }
 
-      .intro {
-        margin-block-end: 2rem;
-      }
+            .intro {
+                margin-block-end: 2rem;
+            }
 
-      .intro > * {
-        margin: 0;
-      }
-    </style>
-    <BottomOfHead />
-  </head>
+            .intro > * {
+                margin: 0;
+            }
+        </style>
+        <BottomOfHead />
+    </head>
 
-  <body>
-    <BlogHeader />
+    <body>
+        <BlogHeader />
 
-    <div class="layout">
-      <article class="content layout-inner">
-        <section class="intro">
-          <h1 class="title">{title}</h1>
-        </section>
-        <section>
-          <slot />
-        </section>
-      </article>
-    </div>
-    <FooterNav />
-  </body>
+        <main class="content layout">
+            <div class="intro">
+                <h1 class="title">{title}</h1>
+            </div>
+            <section>
+                <slot />
+            </section>
+        </main>
+        <FooterNav />
+    </body>
 </html>

@@ -2,7 +2,6 @@
 import type { CollectionEntry } from 'astro:content'
 import BlogPostHeader from '@components/Blog/BlogPostHeader.astro'
 import type { Collection } from '@components/Blog/utils/getAllPosts'
-import ForwardArrow from '@components/Global/ForwardArrow.astro'
 
 interface Props {
 	post: CollectionEntry<'blog'>
@@ -27,9 +26,6 @@ const future = new Date(date) > new Date()
     viewTransitionName={slug}
     isPreview
   />
-  <main>
-    <ForwardArrow url={`/${collection}/${slug}`} title={title} isBlog />
-  </main>
 </article>
 
 <style>
@@ -41,11 +37,15 @@ const future = new Date(date) > new Date()
     margin-block-end: 1rem;
     padding-block-end: 1rem;
     border-block-end: 4px double var(--theme-divider);
-    max-width: max-content;
 
-    &:hover {
-      max-width: 100%;
+    a:not(:focus-visible) {
+      outline: none;
     }
+    /* max-width: max-content; */
+
+    /* &:hover {
+      max-width: 100%;
+    } */
   }
 
   .future,
@@ -71,7 +71,6 @@ const future = new Date(date) > new Date()
     &:hover {
       padding-inline-start: 0;
       border-inline-start: 0;
-      max-width: 100%;
 
       &::before {
         opacity: 0;

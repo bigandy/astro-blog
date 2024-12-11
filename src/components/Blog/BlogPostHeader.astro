@@ -16,18 +16,22 @@ interface Props {
   class={`${isPreview ? "preview" : "post"}`}
   style={`view-transition-name: vt-${viewTransitionName.replaceAll('/', '')}`}
 >
-{}
   {
     isPreview ? (
       <a href={`/${slug}`}>
-        <PublishDate date={date} class="publish-date" />
         
         <h2 class="title">{title}</h2>
+
+        {date && (
+          <PublishDate date={date} class="publish-date" />
+        )}
       </a>
     ) : (
       <fragment>
         <h1 class="title">{title}</h1>
-        <PublishDate date={date} class="publish-date" showLine />
+        {date && (
+          <PublishDate date={date} class="publish-date" showLine />
+        )}
       </fragment>
     )
   }
@@ -36,6 +40,7 @@ interface Props {
 <style>
   .preview {
     display: grid;
+
     &.header {
       display: flex;
       flex-direction: column;
@@ -43,6 +48,10 @@ interface Props {
       align-items: flex-start;
       justify-content: center;
       padding-block-end: 1rem;
+    }
+
+    a {
+      display: grid;
     }
 
     .title,
@@ -56,6 +65,7 @@ interface Props {
       font-weight: var(--f-body-weight);
       font-family: var(--header-font-family);
       line-height: 1.3;
+      order: -1;
     }
 
     .title {

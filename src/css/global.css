@@ -1,339 +1,337 @@
 @layer base, theme;
 
 @layer base {
-	@font-face {
-		font-family: Fraunces;
-		font-style: normal;
-		font-weight: 100 900;
-		font-display: fallback;
-		src: url("/fonts/Fraunces-Variable.woff2") format("woff2");
-		font-stretch: normal;
-	}
-	@font-face {
-		font-family: "Work Sans";
-		font-style: normal;
-		font-weight: 100 900;
-		font-display: fallback;
-		src: url("/fonts/WorkSans-VariableFont_wght.woff2") format("woff2");
-		font-stretch: normal;
-	}
+    @font-face {
+        font-family: Fraunces;
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: fallback;
+        src: url("/fonts/Fraunces-Variable.woff2") format("woff2");
+        font-stretch: normal;
+    }
+    @font-face {
+        font-family: "Work Sans";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: fallback;
+        src: url("/fonts/WorkSans-VariableFont_wght.woff2") format("woff2");
+        font-stretch: normal;
+    }
 
-	:root {
-		--heading-font: "Fraunces", serif;
-		--body-font: "Work Sans", serif;
-	}
+    :root {
+        --heading-font: "Fraunces", serif;
+        --body-font: "Work Sans", serif;
+    }
 
-	html {
-		/* adding this here so we can use @container queries with the name of 'root' or 'layout' and it applies here.  */
-		container: root layout / inline-size;
-		min-height: 100%;
-		scrollbar-gutter: stable;
-	}
+    html {
+        /* adding this here so we can use @container queries with the name of 'root' or 'layout' and it applies here.  */
+        container: root layout / inline-size;
+        min-height: 100%;
+        scrollbar-gutter: stable;
+    }
 
-	body {
-		background: var(--theme-background);
-		font-family: var(--body-font);
-		accent-color: var(--theme-accent);
+    body {
+        background: var(--theme-background);
+        font-family: var(--body-font);
+        accent-color: var(--theme-accent);
 
-		color: var(--theme-text);
+        color: var(--theme-text);
 
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		font-size: 18px;
-		line-height: 1.625;
-		padding-inline: 1rem;
-	}
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-size: 18px;
+        line-height: 1.625;
+        padding-inline: 1rem;
+    }
 
-	input,
-	label {
-		cursor: pointer;
-	}
+    input,
+    label {
+        cursor: pointer;
+    }
 
-	h1 {
-		font-size: var(--font-size-5);
-	}
+    h1 {
+        font-size: var(--font-size-5);
+    }
 
-	h2 {
-		font-size: var(--font-size-4);
-	}
+    h2 {
+        font-size: var(--font-size-4);
+    }
 
-	h3 {
-		font-size: var(--font-size-3);
-	}
+    h3 {
+        font-size: var(--font-size-3);
+    }
 
-	small,
-	.text-small {
-		font-size: var(--font-size--1);
-		line-height: calc(var(--f-small-lh) * 1px);
-	}
+    small,
+    .text-small {
+        font-size: var(--font-size--1);
+        line-height: calc(var(--f-small-lh) * 1px);
+    }
 
-	:where(p, li) {
-		line-height: 24px;
-	}
+    :where(p, li) {
+        line-height: 24px;
+    }
 
-	:where(h1, h2, h3) {
-		font-weight: var(--f-body-weight);
-		font-family: var(--heading-font);
-	}
+    :where(h1, h2, h3) {
+        font-weight: var(--f-body-weight);
+        font-family: var(--heading-font);
+    }
 
-	::selection {
-		color: hsl(from var(--theme-accent, black) calc(h + 100) 100% calc(l - 50));
-		background-color: hsl(
-			from var(--theme-accent, black) calc(h + 60) calc(s + 100) l /
-			0.25
-		);
-	}
+    ::selection {
+        color: hsl(
+            from var(--theme-accent, black) calc(h + 100) 100% calc(l - 50)
+        );
+        background-color: hsl(
+            from var(--theme-accent, black) calc(h + 60) calc(s + 100) l / 0.25
+        );
+    }
 
-	* {
-		box-sizing: border-box;
-		margin: 0;
-	}
+    * {
+        box-sizing: border-box;
+        margin: 0;
+    }
 
-	nav ul {
-		list-style: none;
-		padding: 0;
-	}
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
 
-	/* Typography */
-	:is(h1, h2, h3) {
-		margin-block-end: 1.38rem;
-		line-height: 1;
-	}
+    /* Typography */
+    :is(h1, h2, h3) {
+        margin-block-end: 1.38rem;
+        line-height: 1;
+    }
 
-	:is(h1, h2) {
-		max-width: 40ch;
-	}
+    :is(h1, h2) {
+        max-width: 40ch;
+    }
 
-	:is(h2, h3):not(:first-child) {
-		margin-block-start: 3rem;
-	}
+    :is(h2, h3):not(:first-child) {
+        margin-block-start: 3rem;
+    }
 
-	p + p {
-		margin-block-start: 1rem;
-	}
+    p + p {
+        margin-block-start: 1rem;
+    }
 
-	a {
-		color: var(--theme-accent);
-		font-weight: 400;
-		text-underline-offset: 0.08em;
-		text-decoration: none;
-		align-items: center;
-		gap: 0.5rem;
-	}
+    a {
+        color: var(--theme-accent);
+        font-weight: 400;
+        text-underline-offset: 0.08em;
+        text-decoration: none;
+        align-items: center;
+        gap: 0.5rem;
+    }
 
-	a > code:not([class*="language"]) {
-		position: relative;
-		color: var(--theme-accent);
-		background: transparent;
-		text-underline-offset: var(--padding-block);
-	}
+    a > code:not([class*="language"]) {
+        position: relative;
+        color: var(--theme-accent);
+        background: transparent;
+        text-underline-offset: var(--padding-block);
+    }
 
-	a > code:not([class*="language"])::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		display: block;
-		background: var(--theme-accent);
-		opacity: var(--theme-accent-opacity);
-		border-radius: var(--border-radius);
-	}
+    a > code:not([class*="language"])::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        background: var(--theme-accent);
+        opacity: var(--theme-accent-opacity);
+        border-radius: var(--border-radius);
+    }
 
-	a:hover,
-	a:focus {
-		text-decoration: underline;
-	}
+    a:hover,
+    a:focus {
+        text-decoration: underline;
+    }
 
-	a:focus {
-		outline: 2px solid currentColor;
-		outline-offset: 0.25em;
-	}
+    a:focus {
+        outline: 2px solid currentColor;
+        outline-offset: 0.25em;
+    }
 
-	strong {
-		font-weight: 600;
-		color: inherit;
-	}
+    strong {
+        font-weight: 600;
+        color: inherit;
+    }
 
-	/* Supporting Content */
-	code:not([class*="language"]) {
-		--border-radius: 3px;
-		--padding-block: 0.2rem;
-		--padding-inline: 0.33rem;
+    /* Supporting Content */
+    code:not([class*="language"]) {
+        --border-radius: 3px;
+        --padding-block: 0.2rem;
+        --padding-inline: 0.33rem;
 
-		font-family: var(--font-mono);
-		font-size: 0.85em;
-		color: inherit;
-		background-color: var(--theme-code-inline-bg);
-		padding: var(--padding-block) var(--padding-inline);
-		margin: calc(var(--padding-block) * -1) -0.125em;
-		border-radius: var(--border-radius);
-	}
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        color: inherit;
+        background-color: var(--theme-code-inline-bg);
+        padding: var(--padding-block) var(--padding-inline);
+        margin: calc(var(--padding-block) * -1) -0.125em;
+        border-radius: var(--border-radius);
+    }
 
-	pre > code:not([class*="language"]) {
-		background-color: transparent;
-		padding: 0;
-		margin: 0;
-		border-radius: 0;
-		color: inherit;
-	}
+    pre > code:not([class*="language"]) {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        color: inherit;
+    }
 
-	pre {
-		position: relative;
-		background-color: var(--theme-code-bg);
-		color: var(--theme-code-text);
-		--padding-block: 1rem;
-		--padding-inline: 2rem;
-		padding: var(--padding-block) var(--padding-inline);
-		padding-inline-end: calc(var(--padding-inline) * 2);
-		line-height: 1.414;
-		max-width: calc(100% + (var(--padding-inline) * 2));
-		overflow-y: hidden;
-		overflow-x: auto;
-		margin-block: 1rem;
+    pre {
+        position: relative;
+        background-color: var(--theme-code-bg);
+        color: var(--theme-code-text);
+        --padding-block: 1rem;
+        --padding-inline: 2rem;
+        padding: var(--padding-block) var(--padding-inline);
+        padding-inline-end: calc(var(--padding-inline) * 2);
+        line-height: 1.414;
+        max-width: calc(100% + (var(--padding-inline) * 2));
+        overflow-y: hidden;
+        overflow-x: auto;
+        margin-block: 1rem;
 
-		::selection {
-			background: white;
-			color: black;
-		}
-	}
+        ::selection {
+            background: white;
+            color: black;
+        }
+    }
 
-	@container root (min-width: 37.75em) {
-		pre {
-			--padding-inline: 1.25rem;
-			border-radius: var(--border-radius-medium);
-		}
-	}
+    @container root (min-width: 37.75em) {
+        pre {
+            --padding-inline: 1.25rem;
+            border-radius: var(--border-radius-medium);
+        }
+    }
 
-	.flex {
-		display: flex;
-		align-items: center;
-	}
+    .flex {
+        display: flex;
+        align-items: center;
+    }
 
-	img.cover {
-		width: 100%;
-		max-height: 50vh;
-		object-fit: cover;
-	}
+    img.cover {
+        width: 100%;
+        max-height: 50vh;
+        object-fit: cover;
+    }
 
-	blockquote {
-		font-size: 1.5rem;
-		--padding-block: 1rem;
-		--padding-inline: 1.25rem;
-		--color: var(--theme-divider);
+    blockquote {
+        font-size: 1.5rem;
+        --padding-block: 1rem;
+        --padding-inline: 1.25rem;
+        --color: var(--theme-divider);
 
-		display: flex;
-		flex-direction: column;
+        display: flex;
+        flex-direction: column;
 
-		padding: var(--padding-block) var(--padding-inline);
-		margin-inline-start: calc(var(--padding-inline) * -1);
-		margin-right: calc(var(--padding-inline) * -1);
+        padding: var(--padding-block) var(--padding-inline);
+        margin-inline-start: calc(var(--padding-inline) * -1);
+        margin-right: calc(var(--padding-inline) * -1);
 
-		background: transparent;
-		border-inline-start: calc(var(--padding-inline) / 2) solid var(--color);
-		border-radius: 0;
-	}
+        background: transparent;
+        border-inline-start: calc(var(--padding-inline) / 2) solid var(--color);
+        border-radius: 0;
+    }
 
-	blockquote .source {
-		font-weight: 500;
-		color: var(--color);
-		font-size: 1rem;
-	}
+    blockquote .source {
+        font-weight: 500;
+        color: var(--color);
+        font-size: 1rem;
+    }
 
-	li ul li {
-		list-style-type: disc;
-	}
+    li ul li {
+        list-style-type: disc;
+    }
 }
 
 @layer theme {
-	:root {
-		--font-fallback:
-			-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
-			Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-		--font-mono:
-			"IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono",
-			"Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
-			"Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco,
-			"Courier New", Courier, monospace;
+    :root {
+        --font-fallback: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+            Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        --font-mono: "IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono",
+            "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+            "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
+            Monaco, "Courier New", Courier, monospace;
 
-		--color-white: #fff;
-		--color-black: #000014;
+        --color-white: #fff;
+        --color-black: #000014;
 
-		--color-gray-50: #f9fafb;
-		--color-gray-100: #f3f4f6;
-		--color-gray-200: #e5e7eb;
-		--color-gray-300: #d1d5db;
-		--color-gray-400: #9ca3af;
-		--color-gray-500: #6b7280;
-		--color-gray-600: #4b5563;
-		--color-gray-700: #374151;
-		--color-gray-800: #1f2937;
-		--color-gray-900: #111827;
+        --color-gray-50: #f9fafb;
+        --color-gray-100: #f3f4f6;
+        --color-gray-200: #e5e7eb;
+        --color-gray-300: #d1d5db;
+        --color-gray-400: #9ca3af;
+        --color-gray-500: #6b7280;
+        --color-gray-600: #4b5563;
+        --color-gray-700: #374151;
+        --color-gray-800: #1f2937;
+        --color-gray-900: #111827;
 
-		--color-purple: #882de7;
-		--color-purple-rgb: 136, 45, 231;
+        --color-purple: #882de7;
+        --color-purple-rgb: 136, 45, 231;
 
-		--f-body-weight: 900;
+        --f-body-weight: 900;
 
-		/* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,28,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+        /* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,28,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-		--font-size--2: clamp(0.6076rem, 0.4294rem + 0.8911vw, 1.12rem);
-		--font-size--1: clamp(0.7292rem, 0.4958rem + 1.1667vw, 1.4rem);
-		--font-size-0: clamp(0.875rem, 0.5707rem + 1.5217vw, 1.75rem);
-		--font-size-1: clamp(1.05rem, 0.6543rem + 1.9783vw, 2.1875rem);
-		--font-size-2: clamp(1.26rem, 0.7472rem + 2.5641vw, 2.7344rem);
-		--font-size-3: clamp(1.512rem, 0.8491rem + 3.3147vw, 3.418rem);
-		--font-size-4: clamp(1.8144rem, 0.9594rem + 4.2749vw, 4.2725rem);
-		--font-size-5: clamp(2.1773rem, 1.077rem + 5.5014vw, 5.3406rem);
+        --font-size--2: clamp(0.6076rem, 0.4294rem + 0.8911vw, 1.12rem);
+        --font-size--1: clamp(0.7292rem, 0.4958rem + 1.1667vw, 1.4rem);
+        --font-size-0: clamp(0.875rem, 0.5707rem + 1.5217vw, 1.75rem);
+        --font-size-1: clamp(1.05rem, 0.6543rem + 1.9783vw, 2.1875rem);
+        --font-size-2: clamp(1.26rem, 0.7472rem + 2.5641vw, 2.7344rem);
+        --font-size-3: clamp(1.512rem, 0.8491rem + 3.3147vw, 3.418rem);
+        --font-size-4: clamp(1.8144rem, 0.9594rem + 4.2749vw, 4.2725rem);
+        --font-size-5: clamp(2.1773rem, 1.077rem + 5.5014vw, 5.3406rem);
 
-		color-scheme: light;
-		--theme-accent-blue: #3454d1;
-		--theme-accent: var(--color-purple);
-		--theme-accent-rgb: var(--color-purple-rgb);
-		--theme-accent-opacity: 0.1;
-		--theme-divider: var(--color-gray-100);
-		--theme-text: var(--color-gray-800);
-		--theme-text-light: var(--color-gray-600);
-		--theme-text-lighter: var(--color-gray-500);
-		--theme-bg: var(--color-white);
-		--theme-code-inline-bg: var(--color-gray-100);
-		--theme-code-text: var(--color-gray-100);
-		--theme-code-bg: var(--color-gray-700);
-		--border-radius-medium: 8px;
-	}
+        color-scheme: light;
+        --theme-accent-blue: #3454d1;
+        --theme-accent: var(--color-purple);
+        --theme-accent-rgb: var(--color-purple-rgb);
+        --theme-accent-opacity: 0.1;
+        --theme-divider: var(--color-gray-100);
+        --theme-text: var(--color-gray-800);
+        --theme-text-light: var(--color-gray-600);
+        --theme-text-lighter: var(--color-gray-500);
+        --theme-bg: var(--color-white);
+        --theme-code-inline-bg: var(--color-gray-100);
+        --theme-code-text: var(--color-gray-100);
+        --theme-code-bg: var(--color-gray-700);
+        --border-radius-medium: 8px;
+    }
 
-	:root {
-		@media (prefers-color-scheme: dark) {
-			color-scheme: dark;
-			--theme-accent-blue: #90a6ff;
-			--theme-accent-opacity: 0.3;
-			--theme-divider: var(--color-gray-200);
-			--theme-text: var(--color-gray-200);
-			--theme-text-light: var(--color-gray-300);
-			--theme-text-lighter: var(--color-gray-300);
-			--theme-bg: var(--color-black);
-			--theme-code-inline-bg: var(--color-gray-800);
-			--theme-code-text: var(--color-gray-200);
-			--theme-code-bg: var(--color-gray-900);
-		}
-	}
+    :root {
+        @media (prefers-color-scheme: dark) {
+            color-scheme: dark;
+            --theme-accent-blue: #90a6ff;
+            --theme-accent-opacity: 0.3;
+            --theme-divider: var(--color-gray-200);
+            --theme-text: var(--color-gray-200);
+            --theme-text-light: var(--color-gray-300);
+            --theme-text-lighter: var(--color-gray-300);
+            --theme-bg: var(--color-black);
+            --theme-code-inline-bg: var(--color-gray-800);
+            --theme-code-text: var(--color-gray-200);
+            --theme-code-bg: var(--color-gray-900);
+        }
+    }
 
-	body > .layout {
-		max-width: 900px;
-		width: 100%;
-		margin-inline: auto;
-	}
+    body > .layout {
+        width: min(900px, 100%);
+        margin-inline: auto;
+    }
 
-	/* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
-	.post img {
-		max-width: 100%;
-		height: auto;
-		vertical-align: middle;
-		font-style: italic;
-		background-repeat: no-repeat;
-		background-size: cover;
-		shape-margin: 0.75rem;
-	}
+    /* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
+    .post img {
+        max-width: 100%;
+        height: auto;
+        vertical-align: middle;
+        font-style: italic;
+        background-repeat: no-repeat;
+        background-size: cover;
+        shape-margin: 0.75rem;
+    }
 }
