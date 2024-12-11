@@ -1,7 +1,4 @@
 .cv {
-	--theme-accent-rgb: 255, 105, 180;
-	--theme-accent: rgb(var(--theme-accent-rgb));
-
 	.footer-nav {
 		margin-block-start: 3rem;
 	}

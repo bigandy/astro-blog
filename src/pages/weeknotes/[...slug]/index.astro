@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content'
 
 import BlogPost from '@components/Blog/BlogPost.astro'
-import BlogLayout from '@layouts/BlogLayout.astro'
+import DefaultLayout from '@layouts/DefaultLayout.astro'
 import FullPageLayout from '@layouts/FullPageLayout.astro'
 
 export const prerender = true
@@ -47,9 +47,9 @@ const slug = `weeknotes/${post.slug}`
       />
     </FullPageLayout>
   ) : (
-    <BlogLayout title={title} ogImage={ogImage} permalink={slug}>
+    <DefaultLayout title="" ogImage={ogImage} >
       <BlogPost post={post} collection={collection} />
-    </BlogLayout>
+    </DefaultLayout>
   )
 }
 <style>
