@@ -23,7 +23,6 @@
     "lodash.groupby": "4.6.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "satori": "0.11.2",
     "svelte": "5.2.7"
   },
   "devDependencies": {
