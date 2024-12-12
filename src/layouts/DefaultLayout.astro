@@ -12,7 +12,6 @@ interface Props {
     title: string;
     head?: string;
     bodyClass?: string;
-    ogImage?: string;
 }
 
 const {
@@ -20,13 +19,12 @@ const {
     head,
     accent = "var(--theme-accent-blue)",
     bodyClass = "",
-    ogImage,
 }: Props = Astro.props;
 ---
 
 <html lang="en">
     <head>
-        <BaseHead title={title} ogImage={ogImage} />
+        <BaseHead title={title} />
 
         {head}
 

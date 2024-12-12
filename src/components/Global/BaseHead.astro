@@ -1,28 +1,23 @@
 ---
-import SpeculationRules from './SpeculationRules.astro'
+import SpeculationRules from "./SpeculationRules.astro";
 
 interface Props {
-	title: string
-	description?: string
-	permalink?: string
-	ogImage?: string
+    title: string;
+    description?: string;
+    permalink?: string;
 }
 
-const descriptionFallback = 'Senior Software Engineer looking for answers.'
-const permalinkFallback = 'https://andrewhudson.dev/'
+const descriptionFallback = "Senior Software Engineer looking for answers.";
+const permalinkFallback = "https://andrewhudson.dev/";
 
 const {
-	title,
-	description = descriptionFallback,
-	permalink = permalinkFallback,
-	ogImage,
-} = Astro.props
+    title,
+    description = descriptionFallback,
+    permalink = permalinkFallback,
+} = Astro.props;
 
-const socialImageURL = new URL(ogImage ?? 'og.png', Astro.url.origin).href
-const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
+const permalinkUrl = new URL(permalink ?? "", Astro.url.origin).href;
 ---
-
-
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -31,23 +26,23 @@ const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 <link
-  href="/fonts/WorkSans-VariableFont_wght.woff2"
-  rel="preload"
-  type="font/woff2"
-  as="font"
-  crossorigin=""
+    href="/fonts/WorkSans-VariableFont_wght.woff2"
+    rel="preload"
+    type="font/woff2"
+    as="font"
+    crossorigin=""
 />
 
 <link
-  href="/fonts/Fraunces-Variable.woff2"
-  rel="preload"
-  type="font/woff2"
-  as="font"
-  crossorigin=""
+    href="/fonts/Fraunces-Variable.woff2"
+    rel="preload"
+    type="font/woff2"
+    as="font"
+    crossorigin=""
 />
 
 <!-- Primary Meta Tags -->
-<title>Andrew Hudson - {title}</title> 
+<title>Andrew Hudson - {title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
@@ -61,7 +56,6 @@ const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
 <meta property="og:url" content={permalinkUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={socialImageURL} />
 
 <!-- Mastodon -->
 <meta property="fediverse:creator" content="@bigandy@indieweb.social" />
@@ -71,4 +65,3 @@ const permalinkUrl = new URL(permalink ?? '', Astro.url.origin).href
 <meta property="twitter:url" content={permalinkUrl} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={socialImageURL} />

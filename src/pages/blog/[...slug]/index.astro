@@ -1,55 +1,53 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { type CollectionEntry, getCollection } from "astro:content";
 
-import BlogPost from '@components/Blog/BlogPost.astro'
-import BlogLayout from '@layouts/BlogLayout.astro'
-import FullPageLayout from '@layouts/FullPageLayout.astro'
-import DefaultLayout from '@layouts/DefaultLayout.astro'
+import BlogPost from "@components/Blog/BlogPost.astro";
+import FullPageLayout from "@layouts/FullPageLayout.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
 
-export const prerender = true
+export const prerender = true;
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog')
-	return posts.map((post) => {
-		return {
-			params: {
-				slug: post.slug,
-			},
-			props: {
-				post,
-			},
-		}
-	})
+    const posts = await getCollection("blog");
+    return posts.map((post) => {
+        return {
+            params: {
+                slug: post.slug,
+            },
+            props: {
+                post,
+            },
+        };
+    });
 }
 
 interface Props {
-	post: CollectionEntry<'blog'>
+    post: CollectionEntry<"blog">;
 }
 
-const { post } = Astro.props
-const { template, title } = post.data
-const ogImage = `blog/${post.slug}.png`
-const slug = `blog/${post.slug}`
+const { post } = Astro.props;
+const { template, title } = post.data;
+const slug = `blog/${post.slug}`;
 ---
 
 {
-  template === "full-page" ? (
-    <FullPageLayout title={title} ogImage={ogImage} permalink={slug}>
-      <BlogPost
-        post={post}
-        showBackLink={false}
-        showDate={false}
-        permalink={post.slug}
-      />
-    </FullPageLayout>
-  ) : (
-    <DefaultLayout title="" ogImage={ogImage}>
-      <BlogPost post={post} />
-    </DefaultLayout>
-  )
+    template === "full-page" ? (
+        <FullPageLayout title={title} permalink={slug}>
+            <BlogPost
+                post={post}
+                showBackLink={false}
+                showDate={false}
+                permalink={post.slug}
+            />
+        </FullPageLayout>
+    ) : (
+        <DefaultLayout title="">
+            <BlogPost post={post} />
+        </DefaultLayout>
+    )
 }
 <style>
-  .top-nav {
-    margin-block-end: 2em;
-  }
+    .top-nav {
+        margin-block-end: 2em;
+    }
 </style>

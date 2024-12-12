@@ -1,92 +1,91 @@
 ---
-import BaseHead from '@components/Global/BaseHead.astro'
+import BaseHead from "@components/Global/BaseHead.astro";
 
-const { title, head, ogImage, permalink } = Astro.props
+const { title, head, permalink } = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <BaseHead title={title} ogImage={ogImage} permalink={permalink} />
+    <head>
+        <BaseHead title={title} permalink={permalink} />
 
-    {head}
+        {head}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap"
-      rel="stylesheet"
-    />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap"
+            rel="stylesheet"
+        />
 
-    <style>
-      .full-page-layout {
-        font-family: "PT Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
+        <style>
+            .full-page-layout {
+                font-family: "PT Mono", monospace;
+                font-weight: 400;
+                font-style: normal;
 
-        --header-font-family: "Libre Baskerville", serif;
-      }
+                --header-font-family: "Libre Baskerville", serif;
+            }
 
-      .full-page-layout :global(*) {
-        max-width: unset;
-      }
+            .full-page-layout :global(*) {
+                max-width: unset;
+            }
 
-      .full-page-layout :global(li, p, h3) {
-        max-width: 60ch;
-        max-width: 80rch;
-      }
+            .full-page-layout :global(li, p, h3) {
+                max-width: 60ch;
+                max-width: 80rch;
+            }
 
-      .full-page-layout :global(a) {
-        text-decoration-thickness: 2px;
-        text-decoration-color: cadetblue;
-        text-decoration-line: underline;
-        text-underline-offset: 0.25em;
+            .full-page-layout :global(a) {
+                text-decoration-thickness: 2px;
+                text-decoration-color: cadetblue;
+                text-decoration-line: underline;
+                text-underline-offset: 0.25em;
 
-        &:active,
-        &:focus {
-          text-decoration: unset;
-        }
+                &:active,
+                &:focus {
+                    text-decoration: unset;
+                }
 
-        &:hover {
-          text-decoration-thickness: 1px;
-        }
-      }
+                &:hover {
+                    text-decoration-thickness: 1px;
+                }
+            }
 
-      .full-page-layout :global(ul, ol) {
-        margin-block: 1.5rem;
+            .full-page-layout :global(ul, ol) {
+                margin-block: 1.5rem;
 
-        ::marker {
-          color: orangered;
-        }
-      }
+                ::marker {
+                    color: orangered;
+                }
+            }
 
-      .full-page-layout :global(ol) {
-        li:nth-child(odd) {
-          &::marker {
-            color: magenta;
-          }
-        }
-      }
+            .full-page-layout :global(ol) {
+                li:nth-child(odd) {
+                    &::marker {
+                        color: magenta;
+                    }
+                }
+            }
 
-      .full-page-layout :global(h1) {
-        font-size: calc(var(--f-h4-size) * 1px);
-      }
+            .full-page-layout :global(h1) {
+                font-size: calc(var(--f-h4-size) * 1px);
+            }
 
-      .full-page-layout :global(h2) {
-        font-size: calc(var(--f-h5-size) * 1px);
-      }
+            .full-page-layout :global(h2) {
+                font-size: calc(var(--f-h5-size) * 1px);
+            }
 
-      .full-page-layout :global(li) {
-        &:has(input:checked) {
-          text-decoration: line-through;
-        }
-      }
-    </style>
-  </head>
+            .full-page-layout :global(li) {
+                &:has(input:checked) {
+                    text-decoration: line-through;
+                }
+            }
+        </style>
+    </head>
 
-  <body class="full-page-layout">
-    <main class="layout">
-      <slot />
-    </main>
-
-  </body>
+    <body class="full-page-layout">
+        <main class="layout">
+            <slot />
+        </main>
+    </body>
 </html>

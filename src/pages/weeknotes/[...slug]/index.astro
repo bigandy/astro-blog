@@ -1,59 +1,58 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { type CollectionEntry, getCollection } from "astro:content";
 
-import BlogPost from '@components/Blog/BlogPost.astro'
-import DefaultLayout from '@layouts/DefaultLayout.astro'
-import FullPageLayout from '@layouts/FullPageLayout.astro'
+import BlogPost from "@components/Blog/BlogPost.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import FullPageLayout from "@layouts/FullPageLayout.astro";
 
-export const prerender = true
+export const prerender = true;
 
-const collection = 'weeknotes'
+const collection = "weeknotes";
 
 export async function getStaticPaths() {
-	const collection = 'weeknotes'
-	const posts = await getCollection(collection)
+    const collection = "weeknotes";
+    const posts = await getCollection(collection);
 
-	return posts.map((post) => {
-		return {
-			params: {
-				slug: post.slug,
-			},
-			props: {
-				post,
-			},
-		}
-	})
+    return posts.map((post) => {
+        return {
+            params: {
+                slug: post.slug,
+            },
+            props: {
+                post,
+            },
+        };
+    });
 }
 
 interface Props {
-	post: CollectionEntry<'weeknotes'>
+    post: CollectionEntry<"weeknotes">;
 }
 
-const { post } = Astro.props
-const { template, title } = post.data
+const { post } = Astro.props;
+const { template, title } = post.data;
 
-const ogImage = `weeknotes/${post.slug}.png`
-const slug = `weeknotes/${post.slug}`
+const slug = `weeknotes/${post.slug}`;
 ---
 
 {
-  template === "full-page" ? (
-    <FullPageLayout title={title} ogImage={ogImage} permalink={slug}>
-      <BlogPost
-        post={post}
-        showBackLink={false}
-        showDate={false}
-        collection={collection}
-      />
-    </FullPageLayout>
-  ) : (
-    <DefaultLayout title="" ogImage={ogImage} >
-      <BlogPost post={post} collection={collection} />
-    </DefaultLayout>
-  )
+    template === "full-page" ? (
+        <FullPageLayout title={title} permalink={slug}>
+            <BlogPost
+                post={post}
+                showBackLink={false}
+                showDate={false}
+                collection={collection}
+            />
+        </FullPageLayout>
+    ) : (
+        <DefaultLayout title="">
+            <BlogPost post={post} collection={collection} />
+        </DefaultLayout>
+    )
 }
 <style>
-  .top-nav {
-    margin-block-end: 2em;
-  }
+    .top-nav {
+        margin-block-end: 2em;
+    }
 </style>
