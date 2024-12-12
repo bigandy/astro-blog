@@ -1,334 +1,416 @@
 ---
-import ExternalLink from '@components/Global/ExternalLink.astro'
-import CVLayout from '../layouts/CVLayout.astro'
+import ExternalLink from "@components/Global/ExternalLink.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+import "src/css/cv.css";
 ---
 
-<CVLayout>
-  <div class="contact h-card">
-    <h1 class="contact-name p-name">Andrew JD Hudson</h1>
-    <div class="meta">
-      <!-- <p>Senior Front-end Developer</p> -->
-      <a href="mailto:ahudson@gmail.com">ahudson@gmail.com</a>
-      <a href="tel:+33608985800" class="tel">+33 6 08 98 58 00</a>
-      <p class="p-locality">Grenoble, France</p>
+<DefaultLayout title="" bodyClass="cv" accent="rgb(255, 105, 180)" isCV>
+    <div class="contact h-card">
+        <h1 class="contact-name p-name">Andrew JD Hudson</h1>
+        <div class="meta">
+            <!-- <p>Senior Front-end Developer</p> -->
+            <a href="mailto:ahudson@gmail.com">ahudson@gmail.com</a>
+            <a href="tel:+33608985800" class="tel">+33 6 08 98 58 00</a>
+            <p class="p-locality">Grenoble, France</p>
+        </div>
     </div>
-  </div>
 
-  <h2 id="personal-statement">Personal Statement</h2>
+    <h2 id="personal-statement">Personal Statement</h2>
 
-  <p>
-    <!-- I am an experienced senior front-end and javascript developer looking to create exciting and useful products and services in places that are powered by JavaScript, HTML and CSS. -->
+    <p>
+        <!-- I am an experienced senior front-end and javascript developer looking to create exciting and useful products and services in places that are powered by JavaScript, HTML and CSS. -->
 
-    I am a senior front-end engineer with 14+ years experience creating highly performant and usable products, websites, desktop applications, and browser extensions.
-  </p>
+        I am a senior front-end engineer with 14+ years experience creating
+        highly performant and usable products, websites, desktop applications,
+        and browser extensions.
+    </p>
 
-  <h2 id="skills">Skills</h2>
+    <h2 id="skills">Skills</h2>
 
-  <ul class="skills">
-    <li>TypeScript, CSS, JavaScript</li>
-    <li>Extensive experience of Next.js and Astro</li>
-    <li>React, Svelte and Lit</li>
-    <li>Testing with Cypress and Jest</li>
-    <li>Documentation with Storybook, and Confluence</li>
-    <li>Electron and Chrome Browser Extension development</li>
-    <li>Native English</li> 
-    <li>Intermediate French</li>
-    <!-- <li>Website Performance Optimisation.</li> -->
-    <!-- <li>Databases (Firebase and Postgres).</li> -->
-    <!-- <li>Serverless functions with custom API routes.</li> -->
-  </ul>
+    <ul class="skills">
+        <li>TypeScript, CSS, JavaScript</li>
+        <li>Extensive experience of Next.js and Astro</li>
+        <li>React, Svelte and Lit</li>
+        <li>Testing with Cypress and Jest</li>
+        <li>Documentation with Storybook, and Confluence</li>
+        <li>Electron and Chrome Browser Extension development</li>
+        <li>Native English</li>
+        <li>Intermediate French</li>
+        <!-- <li>Website Performance Optimisation.</li> -->
+        <!-- <li>Databases (Firebase and Postgres).</li> -->
+        <!-- <li>Serverless functions with custom API routes.</li> -->
+    </ul>
 
-  <h2 id="experience">Roles</h2>
+    <h2 id="experience">Roles</h2>
 
-  <ol class="entrylist" reversed>
-    <li class="entrylist__item h-event p-experience">
-      <article class="entry">
-        <div class="entry__header">
-          <h3 class="entry__title p-name">Senior Front-end Engineer</h3>
-          <p class="entry__time">
-            <time class="dt-start" datetime="2023-07">July 2023</time><span
-              >–</span
-            >
-            <time class="dt-end" datetime="2024-08">August 2024</time>
-          </p>
-          <p class="entry__organization p-org h-card">
-            <a
-              href="https://www.scalable.com"
-              class="p-name u-url"
-              rel="noreferrer"
-              >Scalable Software</a>
-            <span aria-hidden="true">·</span>
-            <span class="p-location">Remote, UK</span>
-          </p>
-        </div>
-        <div class="entry__content p-summary">
-          <ul>
-            <li>Web app development with React.js, Typescript, and D3 taking designs in Figma and Confluence and turning them into stories, tasks and sub-tasks and then delivering the work.</li>
-            <li>I mentored junior developers and reviewed merge requests across the front-end team ensuring a consistently high quality in our product.</li>
-            <li>Estimating, planned and documented new features with product and design.</li>
-            <li>Creating new features and speccing out API changes with the backend team</li>
-            <!-- <li>Creating API contract with the backend API developer</li> -->
-            <!-- <li>Mocking data with express to simulate the API response until backend finished API work</li> -->
-          </ul>
-        </div>
-      </article>
-    </li>
-    <li class="entrylist__item h-event p-experience">
-      <article class="entry">
-        <div class="entry__header">
-          <h3 class="entry__title p-name">Senior Software Engineer</h3>
-          <p class="entry__time">
-            <time class="dt-start" datetime="2017-10">October 2017</time><span
-              >–</span
-            >
-            <time class="dt-end" datetime="2023-02">February 2023</time>
-          </p>
-          <p class="entry__organization p-org h-card">
-            <a
-              href="https://www.ventureharbour.com"
-              class="p-name u-url"
-             
-              rel="noreferrer">Venture Harbour</a
-            >
-            <span aria-hidden="true">·</span>
-            <span class="p-location">Wallingford, UK</span>
-          </p>
-        </div>
-        <div class="entry__content p-summary">
-          <ul>
-            <li>Web app development with CSS-in-JS, Next.js, GraphQL and Typescript.</li>
-            
-            <li>I created two Progressive Web Apps and concentrated on improving the performance of our websites and products. This helped our improve our SEO and our Lighthouse Scores and Web Page Test performance.</li>
+    <ol class="entrylist" reversed>
+        <li class="entrylist__item h-event p-experience">
+            <article class="entry">
+                <div class="entry__header">
+                    <h3 class="entry__title p-name">
+                        Senior Front-end Engineer
+                    </h3>
+                    <p class="entry__time">
+                        <time class="dt-start" datetime="2023-07"
+                            >July 2023</time
+                        ><span>–</span>
+                        <time class="dt-end" datetime="2024-08"
+                            >August 2024</time
+                        >
+                    </p>
+                    <p class="entry__organization p-org h-card">
+                        <a
+                            href="https://www.scalable.com"
+                            class="p-name u-url"
+                            rel="noreferrer">Scalable Software</a
+                        >
+                        <span aria-hidden="true">·</span>
+                        <span class="p-location">Remote, UK</span>
+                    </p>
+                </div>
+                <div class="entry__content p-summary">
+                    <ul>
+                        <li>
+                            Web app development with React.js, Typescript, and
+                            D3 taking designs in Figma and Confluence and
+                            turning them into stories, tasks and sub-tasks and
+                            then delivering the work.
+                        </li>
+                        <li>
+                            I mentored junior developers and reviewed merge
+                            requests across the front-end team ensuring a
+                            consistently high quality in our product.
+                        </li>
+                        <li>
+                            Estimating, planned and documented new features with
+                            product and design.
+                        </li>
+                        <li>
+                            Creating new features and speccing out API changes
+                            with the backend team
+                        </li>
+                        <!-- <li>Creating API contract with the backend API developer</li> -->
+                        <!-- <li>Mocking data with express to simulate the API response until backend finished API work</li> -->
+                    </ul>
+                </div>
+            </article>
+        </li>
+        <li class="entrylist__item h-event p-experience">
+            <article class="entry">
+                <div class="entry__header">
+                    <h3 class="entry__title p-name">
+                        Senior Software Engineer
+                    </h3>
+                    <p class="entry__time">
+                        <time class="dt-start" datetime="2017-10"
+                            >October 2017</time
+                        ><span>–</span>
+                        <time class="dt-end" datetime="2023-02"
+                            >February 2023</time
+                        >
+                    </p>
+                    <p class="entry__organization p-org h-card">
+                        <a
+                            href="https://www.ventureharbour.com"
+                            class="p-name u-url"
+                            rel="noreferrer">Venture Harbour</a
+                        >
+                        <span aria-hidden="true">·</span>
+                        <span class="p-location">Wallingford, UK</span>
+                    </p>
+                </div>
+                <div class="entry__content p-summary">
+                    <ul>
+                        <li>
+                            Web app development with CSS-in-JS, Next.js, GraphQL
+                            and Typescript.
+                        </li>
 
-            <!-- <li>I created a component library using Storybook to showcase and document.</li> -->
-            
-            <li>I mentored the rest of the engineering team on front-end topics regularly producing demos and presentations on what I made and learned.</li>
+                        <li>
+                            I created two Progressive Web Apps and concentrated
+                            on improving the performance of our websites and
+                            products. This helped our improve our SEO and our
+                            Lighthouse Scores and Web Page Test performance.
+                        </li>
 
-            <li>I founded a culture of code quality based on automated code quality checking which helped dramatically when working with multiple developers, especially when reviewing merge requests and enforcing coding standards.</li>
-          </ul>
-        </div>
-      </article>
-    </li>
-    <li class="entrylist__item h-event p-experience">
-      <article class="entry">
-        <div class="entry__header">
-          <h3 class="entry__title p-name">Full Stack Web Developer</h3>
-          <p class="entry__time">
-            <time class="dt-start" datetime="2016-10">October 2016</time><span
-              >–</span
-            >
-            <time class="dt-end" datetime="2017-10">October 2017</time>
-          </p>
-          <p class="entry__organization p-org h-card">
-            <a
-              href="https://taylorandfrancis.com/"
-              class="p-name u-url"
-             
-              rel="noreferrer">Taylor &amp; Francis</a
-            >
-            <span aria-hidden="true">·</span>
-            <span class="p-location">Didcot, UK</span>
-          </p>
-        </div>
-        <div class="entry__content p-summary">
-          <ul>
-            <li>
-              I created custom performant WordPress and Expression Engine sites.
-            </li>
-            <li>
-              I hand-crafted a node tool to benchmark and monitor Business Sites
-              using the Web Page Test API and display with React.
-            </li>
-            <li>
-              Perform performance audits and carry out improvements on business
-              and society sites.
-            </li>
-          </ul>
-        </div>
-      </article>
-    </li>
-    <li class="entrylist__item h-event p-experience">
-      <article class="entry">
-        <div class="entry__header">
-          <h3 class="entry__title p-name">Front-end React Developer</h3>
-          <p class="entry__time">
-            <time class="dt-start" datetime="2016-03">March 2016</time><span
-              >–</span
-            >
-            <time class="dt-end" datetime="2016-08">August 2016</time>
-          </p>
-          <p class="entry__organization p-org h-card">
-            <a
-              href="https://www.photocrowd.com"
-              class="p-name u-url"
-             
-              rel="noreferrer">Photocrowd</a
-            >
-            <span aria-hidden="true">·</span>
-            <span class="p-location">Oxford, UK</span>
-          </p>
-        </div>
-        <div class="entry__content p-summary">
-          <ul>
-            <li>
-              I creating new components and pages using React/Relay and Less from
-              Photoshop designs.
-            </li>
-            <li>
-              I integrated Webpack into the development process to allow for
-              code modularity, linting, and writing modular ES6 JS.
-            </li>
-            <li>I implemented the application of BEM code methodology for new CSS components.</li>
-          </ul>
-        </div>
-      </article>
-    </li>
-    <li class="entrylist__item h-event p-experience">
-      <article class="entry">
-        <div class="entry__header">
-          <h3 class="entry__title p-name">Front-end WordPress Developer</h3>
-          <p class="entry__time">
-            <time class="dt-start" datetime="2013-01">2013</time><span>–</span>
-            <time class="dt-end" datetime="2016-02">2016</time>
-          </p>
-          <p class="entry__organization p-org h-card">
-            <a
-              href="https://www.electricstudio.co.uk"
-              class="p-name u-url"
-             
-              rel="noreferrer">Electic Studio</a
-            >
-            <span aria-hidden="true">·</span>
-            <span class="p-location">Didcot, UK</span>
-          </p>
-        </div>
-        <div class="entry__content p-summary">
-          <ul>
-            <li>
-              I created highly customised WordPress sites from Photoshop
-              designs, with custom post-types, taxonomies, meta boxes,
-              shortcodes and functions.
-            </li>
-            <li>
-              The sites were performant, using best practices and technologies,
-              built within budget and in timeframes.
-            </li>
-            <li>
-              Pre-launch client training, dealing with any client feedback via
-              Basecamp or telephone.
-            </li>
-          </ul>
-        </div>
-      </article>
-    </li>
-    <li class="entrylist__item h-event p-experience">
-      <article class="entry">
-        <div class="entry__header">
-          <h3 class="entry__title p-name">Creative UI Developer</h3>
-          <p class="entry__time">
-            <time class="dt-start" datetime="2010-08">2010</time><span>–</span>
-            <time class="dt-end" datetime="2013-01">2013</time>
-          </p>
-          <p class="entry__organization p-org h-card">
-            HeathWallace Ltd
-            <span aria-hidden="true">·</span>
-            <span class="p-location">Reading, UK</span>
-          </p>
-        </div>
-        <div class="entry__content p-summary">
-          <ul>
-            <li>
-              I built highly accessible websites for clients including HSBC, RBS
-              and Grant Thornton.
-            </li>
-            <li>
-              Using CMSs such as WordPress, CQ5 and Sitecore to allow the client
-              to control all content on their site.
-            </li>
-            <li>
-              Knowledge Sharing through weekly masterclass sessions (I ran three
-              : WordPress; CSS3; and Sass).
-            </li>
-          </ul>
-        </div>
-      </article>
-    </li>
-  </ol>
+                        <!-- <li>I created a component library using Storybook to showcase and document.</li> -->
 
-  <h2 id="relevant-experience">Selected Portfolio</h2>
+                        <li>
+                            I mentored the rest of the engineering team on
+                            front-end topics regularly producing demos and
+                            presentations on what I made and learned.
+                        </li>
 
-  <!-- <p>
+                        <li>
+                            I founded a culture of code quality based on
+                            automated code quality checking which helped
+                            dramatically when working with multiple developers,
+                            especially when reviewing merge requests and
+                            enforcing coding standards.
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </li>
+        <li class="entrylist__item h-event p-experience">
+            <article class="entry">
+                <div class="entry__header">
+                    <h3 class="entry__title p-name">
+                        Full Stack Web Developer
+                    </h3>
+                    <p class="entry__time">
+                        <time class="dt-start" datetime="2016-10"
+                            >October 2016</time
+                        ><span>–</span>
+                        <time class="dt-end" datetime="2017-10"
+                            >October 2017</time
+                        >
+                    </p>
+                    <p class="entry__organization p-org h-card">
+                        <a
+                            href="https://taylorandfrancis.com/"
+                            class="p-name u-url"
+                            rel="noreferrer">Taylor &amp; Francis</a
+                        >
+                        <span aria-hidden="true">·</span>
+                        <span class="p-location">Didcot, UK</span>
+                    </p>
+                </div>
+                <div class="entry__content p-summary">
+                    <ul>
+                        <li>
+                            I created custom performant WordPress and Expression
+                            Engine sites.
+                        </li>
+                        <li>
+                            I hand-crafted a node tool to benchmark and monitor
+                            Business Sites using the Web Page Test API and
+                            display with React.
+                        </li>
+                        <li>
+                            Perform performance audits and carry out
+                            improvements on business and society sites.
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </li>
+        <li class="entrylist__item h-event p-experience">
+            <article class="entry">
+                <div class="entry__header">
+                    <h3 class="entry__title p-name">
+                        Front-end React Developer
+                    </h3>
+                    <p class="entry__time">
+                        <time class="dt-start" datetime="2016-03"
+                            >March 2016</time
+                        ><span>–</span>
+                        <time class="dt-end" datetime="2016-08"
+                            >August 2016</time
+                        >
+                    </p>
+                    <p class="entry__organization p-org h-card">
+                        <a
+                            href="https://www.photocrowd.com"
+                            class="p-name u-url"
+                            rel="noreferrer">Photocrowd</a
+                        >
+                        <span aria-hidden="true">·</span>
+                        <span class="p-location">Oxford, UK</span>
+                    </p>
+                </div>
+                <div class="entry__content p-summary">
+                    <ul>
+                        <li>
+                            I creating new components and pages using
+                            React/Relay and Less from Photoshop designs.
+                        </li>
+                        <li>
+                            I integrated Webpack into the development process to
+                            allow for code modularity, linting, and writing
+                            modular ES6 JS.
+                        </li>
+                        <li>
+                            I implemented the application of BEM code
+                            methodology for new CSS components.
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </li>
+        <li class="entrylist__item h-event p-experience">
+            <article class="entry">
+                <div class="entry__header">
+                    <h3 class="entry__title p-name">
+                        Front-end WordPress Developer
+                    </h3>
+                    <p class="entry__time">
+                        <time class="dt-start" datetime="2013-01">2013</time
+                        ><span>–</span>
+                        <time class="dt-end" datetime="2016-02">2016</time>
+                    </p>
+                    <p class="entry__organization p-org h-card">
+                        <a
+                            href="https://www.electricstudio.co.uk"
+                            class="p-name u-url"
+                            rel="noreferrer">Electic Studio</a
+                        >
+                        <span aria-hidden="true">·</span>
+                        <span class="p-location">Didcot, UK</span>
+                    </p>
+                </div>
+                <div class="entry__content p-summary">
+                    <ul>
+                        <li>
+                            I created highly customised WordPress sites from
+                            Photoshop designs, with custom post-types,
+                            taxonomies, meta boxes, shortcodes and functions.
+                        </li>
+                        <li>
+                            The sites were performant, using best practices and
+                            technologies, built within budget and in timeframes.
+                        </li>
+                        <li>
+                            Pre-launch client training, dealing with any client
+                            feedback via Basecamp or telephone.
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </li>
+        <li class="entrylist__item h-event p-experience">
+            <article class="entry">
+                <div class="entry__header">
+                    <h3 class="entry__title p-name">Creative UI Developer</h3>
+                    <p class="entry__time">
+                        <time class="dt-start" datetime="2010-08">2010</time
+                        ><span>–</span>
+                        <time class="dt-end" datetime="2013-01">2013</time>
+                    </p>
+                    <p class="entry__organization p-org h-card">
+                        HeathWallace Ltd
+                        <span aria-hidden="true">·</span>
+                        <span class="p-location">Reading, UK</span>
+                    </p>
+                </div>
+                <div class="entry__content p-summary">
+                    <ul>
+                        <li>
+                            I built highly accessible websites for clients
+                            including HSBC, RBS and Grant Thornton.
+                        </li>
+                        <li>
+                            Using CMSs such as WordPress, CQ5 and Sitecore to
+                            allow the client to control all content on their
+                            site.
+                        </li>
+                        <li>
+                            Knowledge Sharing through weekly masterclass
+                            sessions (I ran three : WordPress; CSS3; and Sass).
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </li>
+    </ol>
+
+    <h2 id="relevant-experience">Selected Portfolio</h2>
+
+    <!-- <p>
     Here are a selection of the sites, app and browser extension that I have
     made:
   </p> -->
 
-  <ul class="cv-portfolio-list">
-    <li>
-      <ExternalLink href="https://www.scalable.com/" data-url="scalable.com">Acumen</ExternalLink> - a digital experience web app for visualising Productivity and Digital Workplace Efficiency using React, Typescript, and D3.
-    </li>
-    <li>
-      <ExternalLink href="https://truenorth.io" data-url="truenorth.io">TrueNorth</ExternalLink> - a marketing web app using NextJS, Typescript, GraphQL, Apollo, Prisma, with a Material-UI
-      based component library.
-    </li>
-    <!-- <li>
+    <ul class="cv-portfolio-list">
+        <li>
+            <ExternalLink
+                href="https://www.scalable.com/"
+                data-url="scalable.com">Acumen</ExternalLink
+            > - a digital experience web app for visualising Productivity and Digital
+            Workplace Efficiency using React, Typescript, and D3.
+        </li>
+        <li>
+            <ExternalLink href="https://truenorth.io" data-url="truenorth.io"
+                >TrueNorth</ExternalLink
+            > - a marketing web app using NextJS, Typescript, GraphQL, Apollo, Prisma,
+            with a Material-UI based component library.
+        </li>
+        <!-- <li>
       <strike><ExternalLink href="https://mergeco.in">MergeCoin</ExternalLink></strike> MergeCoin was a proof of concept
       Github based team productivity app that incentivizes and rewards PR code and
       reviews. Tailwind, NextJS, Github API.
     </li> -->
-    <li>
-      <ExternalLink href="https://sereneapp.com" data-url="sereneapp.com">Serene App</ExternalLink> – Productivity Application for MacOS users using Electron, Firebase, and React. With companion Chrome, Firefox and Edge extensions.
-      <!-- <ExternalLink
+        <li>
+            <ExternalLink href="https://sereneapp.com" data-url="sereneapp.com"
+                >Serene App</ExternalLink
+            > – Productivity Application for MacOS users using Electron, Firebase,
+            and React. With companion Chrome, Firefox and Edge extensions.
+            <!-- <ExternalLink
         href="https://chrome.google.com/webstore/detail/serene-extension/nbealbhmmmaiiiddmianmjoecmipnjij"
        >Chrome Extension</ExternalLink
       > -->
-    </li>
-    <li>
-      <ExternalLink href="https://photocrowd.com" data-url="photocrowd.com">photocrowd.com</ExternalLink> – front-end
-      development with React/Relay, Less, and webpack
-    </li>
-    <li>
-      <ExternalLink href="https://allistergodfrey.com/"
-      data-url="allistergodfrey.com">allistergodfrey.com</ExternalLink
-      > – a custom responsive WordPress site with many interactive features, galleries,
-      and css transitions
-    </li>
-    <li>
-      <ExternalLink href="https://ojwmanagement.com/" data-url="ojwmanagement.com">ojwmanagement.com</ExternalLink
-      > – a single page responsive WordPress site with flexbox, responsive images,
-      and SVG
-    </li>
-    <li>
-      <ExternalLink href="https://blog.oup.com/" data-url="blog.oup.com">blog.oup.com</ExternalLink> – responsive
-      WordPress blog for Oxford University Press
-    </li>
-    <li>
-      <ExternalLink href="https://github.com/bigandy" data-url="github.com/bigandy">github.com/bigandy</ExternalLink
-      > – my GitHub account
-    </li>
-    <li>
-      <ExternalLink href="https://andrewhudson.dev" data-url="andrewhudson.dev">andrewhudson.dev</ExternalLink> – This
-      site - powered currently by Astro and Svelte with a dash of Notion API. 
-    </li>
-    <li>
-      <ExternalLink href="https://codepen.io/bigandy" data-url="codepen.io/bigandy">My Codepen</ExternalLink> a place
-      to experiment with any aspect of front-end web technologies.
-    </li>
-  </ul>
+        </li>
+        <li>
+            <ExternalLink
+                href="https://photocrowd.com"
+                data-url="photocrowd.com">photocrowd.com</ExternalLink
+            > – front-end development with React/Relay, Less, and webpack
+        </li>
+        <li>
+            <ExternalLink
+                href="https://allistergodfrey.com/"
+                data-url="allistergodfrey.com">allistergodfrey.com</ExternalLink
+            > – a custom responsive WordPress site with many interactive features,
+            galleries, and css transitions
+        </li>
+        <li>
+            <ExternalLink
+                href="https://ojwmanagement.com/"
+                data-url="ojwmanagement.com">ojwmanagement.com</ExternalLink
+            > – a single page responsive WordPress site with flexbox, responsive
+            images, and SVG
+        </li>
+        <li>
+            <ExternalLink href="https://blog.oup.com/" data-url="blog.oup.com"
+                >blog.oup.com</ExternalLink
+            > – responsive WordPress blog for Oxford University Press
+        </li>
+        <li>
+            <ExternalLink
+                href="https://github.com/bigandy"
+                data-url="github.com/bigandy">github.com/bigandy</ExternalLink
+            > – my GitHub account
+        </li>
+        <li>
+            <ExternalLink
+                href="https://andrewhudson.dev"
+                data-url="andrewhudson.dev">andrewhudson.dev</ExternalLink
+            > – This site - powered currently by Astro and Svelte with a dash of
+            Notion API.
+        </li>
+        <li>
+            <ExternalLink
+                href="https://codepen.io/bigandy"
+                data-url="codepen.io/bigandy">My Codepen</ExternalLink
+            > a place to experiment with any aspect of front-end web technologies.
+        </li>
+    </ul>
 
-  <h2 id="education">Education</h2>
-  <ul class="p-grid p-grid--halfs">
-    <li>MChem (hons) Chemistry – University of Manchester</li>
-    <!-- <li><ExternalLink href="https://www.joyofreact.com/">Joy of React</ExternalLink></li>
+    <h2 id="education">Education</h2>
+    <ul class="p-grid p-grid--halfs">
+        <li>MChem (hons) Chemistry – University of Manchester</li>
+        <!-- <li><ExternalLink href="https://www.joyofreact.com/">Joy of React</ExternalLink></li>
     <li>
       Frontend Masters courses - including Typescript, Web Components, and Enterprise UI Testing
     </li> -->
-  </ul>
+    </ul>
 
-  <!-- <h2 id="interests">Interests</h2>
+    <!-- <h2 id="interests">Interests</h2>
 
   <ul class="p-grid p-grid--halfs">
     <li>Learning French</li>
     <li>Being active outdoors (Mountain Biking, cycling, running, hiking)</li>
     <li>Drinking and learning about Coffee</li>
   </ul> -->
-</CVLayout>
+</DefaultLayout>

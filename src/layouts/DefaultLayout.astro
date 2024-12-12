@@ -5,7 +5,7 @@ import FooterNav from "@components/Nav/FooterNav.astro";
 
 import "src/css/global.css";
 import BottomOfHead from "@components/Global/BottomOfHead.astro";
-import RotatingScrollLogo from '@components/Global/RotatingScrollLogo.astro';
+import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
 
 interface Props {
     accent?: string;
@@ -13,10 +13,15 @@ interface Props {
     head?: string;
     bodyClass?: string;
     ogImage?: string;
-
 }
 
-const { title, head, accent = "var(--theme-accent-blue)", bodyClass = '', ogImage }: Props = Astro.props;
+const {
+    title,
+    head,
+    accent = "var(--theme-accent-blue)",
+    bodyClass = "",
+    ogImage,
+}: Props = Astro.props;
 ---
 
 <html lang="en">
@@ -50,15 +55,18 @@ const { title, head, accent = "var(--theme-accent-blue)", bodyClass = '', ogImag
     </head>
 
     <body class={bodyClass}>
+        <span id="top"></span>
         <BlogHeader />
 
         <main class="content layout">
-            {title !== '' && (
-                <div class="intro">
-                    <h1 class="title">{title}</h1>
-                </div>
-            )}
-            
+            {
+                title !== "" && (
+                    <div class="intro">
+                        <h1 class="title">{title}</h1>
+                    </div>
+                )
+            }
+
             <section>
                 <slot />
             </section>

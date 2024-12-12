@@ -1,110 +1,123 @@
 ---
-import { footerPages } from './pages'
-import { socialLinks } from './social-links'
-import { getNavClassName } from './utils'
-import { Icon } from 'astro-icon/components'
+import { footerPages } from "./pages";
+import { socialLinks } from "./social-links";
+import { getNavClassName } from "./utils";
+import { Icon } from "astro-icon/components";
 
-const requestPathname = Astro.url.pathname
+const requestPathname = Astro.url.pathname;
 ---
 
 <nav class="layout footer-nav">
-  <ul class="layout-inner nav">
-    {
-      footerPages.map((entry) => {
-        const className = getNavClassName(entry.url, requestPathname);
+    <ul class="layout-inner nav">
+        {
+            footerPages.map((entry) => {
+                const className = getNavClassName(entry.url, requestPathname);
 
-        return (
-          <li>
-            <a class={className} href={entry.url}>
-              {entry.title}
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul>
-
-  {socialLinks.length > 0 && (
-  <ul class="layout-inner nav nav-social">
-      {
-        socialLinks.map(({url, icon, title }) => {
-          const className = getNavClassName(url, requestPathname);
-
-          return (
-            <li>
-              <a class={className} href={url} target="_blank" style={`color: ${icon.color}`}>
-                {icon && (
-                  <Icon name={`fa6-brands:${icon.name}`} size="1em" />
-                )}
-                {title}
-              </a>
-            </li>
-          );
-        })
-      }
+                return (
+                    <li>
+                        <a class={className} href={entry.url}>
+                            {entry.title}
+                        </a>
+                    </li>
+                );
+            })
+        }
     </ul>
-  )}
-  
+
+    {
+        socialLinks.length > 0 && (
+            <ul class="layout-inner nav nav-social">
+                {socialLinks.map(({ url, icon, title }) => {
+                    const className = getNavClassName(url, requestPathname);
+
+                    return (
+                        <li>
+                            <a
+                                class={className}
+                                href={url}
+                                target="_blank"
+                                style={`color: ${icon.color}`}
+                            >
+                                {icon && (
+                                    <Icon
+                                        name={`fa6-brands:${icon.name}`}
+                                        size="1em"
+                                    />
+                                )}
+                                {title}
+                            </a>
+                        </li>
+                    );
+                })}
+            </ul>
+        )
+    }
 </nav>
 
 <style>
-  li {
-    display: inline-grid;
-    margin-right: 1em;
-  }
-
-  a {
-    border-block-end: 2px solid transparent;
-  }
-
-  :global(.nav) {
-    & a {
-      &:hover {
-        text-decoration: none;
-      }
+    .footer-nav {
+        padding-block-start: 3rem;
     }
-  }
-
-  a:hover,
-  .active {
-    border-bottom-color: var(--theme-accent);
-  }
-
-  ul {
-    padding-inline-start: 0;
-    margin-block-end: 2rem;
-    display: inline-block;
-  }
-
-  .nav-social {
-    position: relative;
-    display: block;
-
-    a:hover { 
-      border-color: inherit; 
+    li {
+        display: inline-grid;
+        margin-right: 1em;
     }
 
-    svg {
-      vertical-align: -0.25em;
+    a {
+        border-block-end: 2px solid transparent;
     }
-  }
 
-  .nav-social::before {
-    display: block;
-    position: absolute;
-    top: 0.25em;
-    left: -0.75rem;
-    height: calc(100% - 0.5em);
-    width: 2px;
-    background: oklch(from var(--theme-accent) calc(l * 2) c calc(h + 180));
-  }
+    :global(.nav) {
+        & a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
 
-  @container (min-width: 700px) {
+    a:hover,
+    .active {
+        border-bottom-color: var(--theme-accent);
+    }
+
+    ul {
+        padding-inline-start: 0;
+        margin-block-end: 2rem;
+        display: inline-block;
+    }
+
     .nav-social {
-      display: inline-block;
+        position: relative;
+        display: block;
+
+        a:hover {
+            border-color: inherit;
+        }
+
+        svg {
+            vertical-align: -0.25em;
+        }
     }
+
     .nav-social::before {
-      content: "";
+        display: block;
+        position: absolute;
+        top: 0.25em;
+        left: -0.75rem;
+        height: calc(100% - 0.5em);
+        width: 2px;
+        background: oklch(from var(--theme-accent) calc(l * 2) c calc(h + 180));
     }
-  }
+
+    .footer-nav {
+    }
+
+    @container (min-width: 700px) {
+        .nav-social {
+            display: inline-block;
+        }
+        .nav-social::before {
+            content: "";
+        }
+    }
 </style>

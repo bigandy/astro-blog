@@ -1,107 +1,133 @@
 ---
-const string = 'andrew hudson :) • ';
-const characters = string.split('');
+const string = "andrew hudson :) • ";
+const characters = string.split("");
 const length = characters.length;
+const charCount = length * 2;
 ---
 
-<div class="ring-wrapper" style=`--char-count: ${length * 2};`>
-  <div class="ring" 
-  >
-	{[...characters, ...characters].map((char, charIndex) => {
-		return (
-			<span aria-hidden="true" class="char" style={`--char-index: ${charIndex}`}>{char}</span>
-		)
+<div class="ring-wrapper" style=`--char-count: ${charCount};`>
+    <div class="ring" aria-hidden="true">
+        {
+            [...characters, ...characters].map((char, charIndex) => {
+                return (
+                    <span class="char" style={`--char-index: ${charIndex}`}>
+                        {char}
+                    </span>
+                );
+            })
+        }
 
-	})}
-   
-    <span class="sr-only">{string} {string}</span>
-  </div>
+        <span class="sr-only">{string} {string}</span>
+    </div>
 </div>
 
 <style>
+    @layer base, ring, scroll;
 
-@layer base, ring, scroll;
+    .ring-wrapper {
+        a {
+            scroll-behavior: smooth;
+        }
+    }
 
-@layer scroll {
-	body {
-		view-timeline: --header-vtl;
-	}
+    @layer scroll {
+        body {
+            view-timeline: --header-vtl;
+        }
 
-	@keyframes rotation {
-		to {
-			rotate: 360deg;
-		}
-	}
+        @keyframes rotation {
+            to {
+                --degrees: calc(360 * 13deg);
+            }
+        }
 
-	.ring-wrapper {
-		animation: rotation linear both;
-		animation-timeline: --header-vtl;
-	}
+        @media (prefers-reduced-motion: no-preference) {
+            .ring-wrapper {
+                animation: rotation linear both;
+                animation-timeline: --header-vtl;
+            }
+        }
 
-	.ring {
-		--font-size: 0.5;
-	}
+        .ring {
+            --font-size: 0.5;
+        }
 
-	@container (min-width: 1300px) {
-		.ring {
-			--font-size: .75;
-		}
-	}
-}
+        @container (min-width: 1300px) {
+            .ring-wrapper {
+                animation-play-state: playing;
+                display: block;
+            }
+            .ring {
+                --font-size: 0.75;
+            }
+        }
+    }
 
-@layer ring {
-	.ring-wrapper {
-		--inner-angle: calc((360 / var(--char-count)) * 1deg);
-		--character-width: 1;
-		--radius: calc((1 / 0.324699) * -2ch);
-		--font-size: 2.5rem;
-		position: fixed;
-		top: 150px;
-		right: 150px;
-		aspect-ratio: 1;
-		translate: 0% 0%;
-		display: grid;
-		place-items: center;
-		z-index: 10;
-		border-radius: 50%;
-		font-weight: bold;
-	}
+    @layer ring {
+        .ring-wrapper {
+            --inner-angle: calc((360 / var(--char-count)) * 1deg);
+            --character-width: 1;
+            --radius: calc((1 / 0.324699) * -2ch);
+            --font-size: 2.5rem;
 
-	.ring {
-		font-family: monospace;
-		text-transform: uppercase;
-		font-size: calc(var(--font-size, 1) * 2rem);
-		position: relative;
-	}
+            transform: rotate(var(--degrees));
+            position: fixed;
+            top: 150px;
+            right: 150px;
+            aspect-ratio: 1;
+            translate: 0% 0%;
+            display: grid;
+            place-items: center;
+            z-index: 10;
+            border-radius: 50%;
+            font-weight: bold;
+            display: none;
+        }
 
-	.char {
-		display: inline-block;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		/* color: hsl(calc(var(--char-index) * 10deg) 100% 50%); */
-		transform: translate(-50%, -50%)
-			rotate(calc(var(--inner-angle) * var(--char-index)))
-			translateY(var(--radius));
-	}
-}
+        .ring {
+            font-family: monospace;
+            text-transform: uppercase;
+            font-size: calc(var(--font-size, 1) * 2rem);
+            position: relative;
+        }
 
-@layer base {
-	.sr-only {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		padding: 0;
-		margin: -1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		border-width: 0;
-	}
+        .char {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* color: hsl(calc(var(--char-index) * 10deg) 100% 50%); */
+            transform: translate(-50%, -50%)
+                rotate(calc(var(--inner-angle) * var(--char-index)))
+                translateY(var(--radius));
 
-	* {
-		box-sizing: border-box;
-	}
-}
+            &:nth-child(odd) {
+                color: var(--theme-accent);
+            }
+        }
+    }
 
+    @layer base {
+        @property --degrees {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: true;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+    }
 </style>
