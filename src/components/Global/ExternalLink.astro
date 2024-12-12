@@ -12,13 +12,12 @@ const { href, size = "1rem", ...attrs } = Astro.props;
 ---
 
 <a href={href} target="_blank" {...attrs}>
-    <slot />
-    <Icon name="external-arrow" size={size ?? ""} />
+    <slot /><Icon name="external-arrow" size={size ?? ""} />
 </a>
 
 <style define:vars={{ size }}>
     a {
-        margin-right: calc(var(--size) + 0.5rem);
+        padding-right: 1rem;
     }
     svg {
         position: absolute;
