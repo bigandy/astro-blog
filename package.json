@@ -20,6 +20,7 @@
     "astro-robots-txt": "1.0.0",
     "dayjs": "1.11.13",
     "github-slugger": "2.0.0",
+    "linkedom": "0.18.5",
     "lodash.groupby": "4.6.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",

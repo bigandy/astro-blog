@@ -41,7 +41,7 @@ const slug = `blog/${post.slug}`;
             />
         </FullPageLayout>
     ) : (
-        <DefaultLayout title="">
+        <DefaultLayout title={post.data.title} hideTitle>
             <BlogPost post={post} />
         </DefaultLayout>
     )

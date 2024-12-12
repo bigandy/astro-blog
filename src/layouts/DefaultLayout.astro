@@ -7,11 +7,14 @@ import "src/css/global.css";
 import BottomOfHead from "@components/Global/BottomOfHead.astro";
 import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
 
+import NegativeList from '@components/Global/NegativeList.astro'
+
 interface Props {
     accent?: string;
     title: string;
     head?: string;
     bodyClass?: string;
+    hideTitle?: boolean;
 }
 
 const {
@@ -19,6 +22,7 @@ const {
     head,
     accent = "var(--theme-accent-blue)",
     bodyClass = "",
+    hideTitle
 }: Props = Astro.props;
 ---
 
@@ -53,12 +57,11 @@ const {
     </head>
 
     <body class={bodyClass}>
-        <span id="top"></span>
         <BlogHeader />
 
         <main class="content layout">
             {
-                title !== "" && (
+                !hideTitle && title !== "" && (
                     <div class="intro">
                         <h1 class="title">{title}</h1>
                     </div>

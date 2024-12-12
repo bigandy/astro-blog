@@ -27,12 +27,12 @@ interface Props {
         )}
       </a>
     ) : (
-      <fragment>
+      <Fragment>
         <h1 class="title">{title}</h1>
         {date && (
           <PublishDate date={date} class="publish-date" showLine />
         )}
-      </fragment>
+      </Fragment>
     )
   }
 </header>

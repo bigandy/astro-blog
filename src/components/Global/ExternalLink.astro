@@ -1,19 +1,19 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
-interface Props extends HTMLAttributes<'a'>{
-	href: string;
+interface Props extends HTMLAttributes<"a"> {
+    href: string;
     size?: string;
 }
 
-const { href, size = '1rem', ...attrs } = Astro.props
+const { href, size = "1rem", ...attrs } = Astro.props;
 ---
 
 <a href={href} target="_blank" {...attrs}>
     <slot />
-    <Icon name="external-arrow" size={size ??  ''} />
+    <Icon name="external-arrow" size={size ?? ""} />
 </a>
 
 <style define:vars={{ size }}>
@@ -22,8 +22,5 @@ const { href, size = '1rem', ...attrs } = Astro.props
     }
     svg {
         position: absolute;
-        
-        /* text-decoration: none; */
-        /* border-bottom: 1px solid; */
     }
 </style>
