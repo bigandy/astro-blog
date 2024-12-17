@@ -4,7 +4,9 @@ import FullScreenLayout from '@layouts/FullScreenLayout.astro'
 
 <FullScreenLayout>
   <div class="container">
-    <p>Scroll down to see the red blob animate across the page. This is handled by scroll-driven view() animations - when the blob is fully inside the scrollport I activate the animation, ending it when the blob reaches the top of the scrollport. I have added some margin </p>
+    <ol>
+        <li>Scroll down to see the red blob animate across the page. This is handled by scroll-driven view() animations - when the blob is fully inside the scrollport I activate the animation, ending it when the blob reaches the top of the scrollport. I have added some margin </li>
+    </ol>
     <div class="blob"></div>
   </div>
 </FullScreenLayout>
@@ -26,7 +28,7 @@ body {
     height: 200vh;
     margin-block-end: 50vh;
 
-    p {
+    ol {
         padding: 3rem;
         padding-block-end: 100vh;
     }
@@ -38,12 +40,14 @@ body {
     height: 300px;
     aspect-ratio: 1;
     border-radius: 50%;
-    animation: moveRight ease-in-out both;
+    animation: moveRight linear both;
     animation-timeline: view(block);
 
-    --view-timeline-inset: 100px;
+    --view-timeline-inset: 10px;
 
-    animation-range: entry-crossing calc(100% + var(--view-timeline-inset)) exit-crossing calc(0% - var(--view-timeline-inset));
+    animation-range: 
+        entry-crossing calc(100% + var(--view-timeline-inset)) 
+        exit-crossing calc(0% - var(--view-timeline-inset));
 
 }
     

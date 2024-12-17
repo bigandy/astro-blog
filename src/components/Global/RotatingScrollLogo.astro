@@ -42,7 +42,7 @@ const charCount = length * 2;
                 animation: rotation linear both;
                 /* animation-timeline: --header-vtl; */
                 animation-timeline: scroll();
-                animation-range: 0vh 90vh;
+                /* animation-range: 0vh 90vh; */
             }
         }
 
@@ -51,6 +51,12 @@ const charCount = length * 2;
         }
 
         .ring-wrapper {
+            display: none;
+            position: fixed;
+            /* At the moment these are fixed. Is it possible to calculate the width of the .ring-wrapper? Currently its width is "zero" */
+            top: 100px;
+            right: 100px;
+
             a {
                 scroll-behavior: smooth;
             }
@@ -61,9 +67,9 @@ const charCount = length * 2;
                 animation-play-state: playing;
                 display: block;
             }
-            .ring {
+            /* .ring {
                 --font-size: 0.75;
-            }
+            } */
         }
     }
 
