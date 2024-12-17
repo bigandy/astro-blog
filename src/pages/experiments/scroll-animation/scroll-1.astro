@@ -1,0 +1,64 @@
+---
+import FullScreenLayout from '@layouts/FullScreenLayout.astro'
+---
+
+<FullScreenLayout>
+  <div class="container">
+    <p>Scroll down to see the red blob animate across the page. This is handled by scroll-driven view() animations - when the blob is fully inside the scrollport I activate the animation, ending it when the blob reaches the top of the scrollport. I have added some margin </p>
+    <div class="blob"></div>
+  </div>
+</FullScreenLayout>
+
+<style>
+
+body {
+    container-type: inline-size;
+}
+
+:global(body),
+:global(.slot.slot) {
+    padding: 0;
+    margin: 0;
+}
+
+
+.container {
+    height: 200vh;
+    margin-block-end: 50vh;
+
+    p {
+        padding: 3rem;
+        padding-block-end: 100vh;
+    }
+}
+
+.blob {
+    background: red;
+    position: absolute;
+    height: 300px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    animation: moveRight ease-in-out both;
+    animation-timeline: view(block);
+
+    --view-timeline-inset: 100px;
+
+    animation-range: entry-crossing calc(100% + var(--view-timeline-inset)) exit-crossing calc(0% - var(--view-timeline-inset));
+
+}
+    
+
+
+@keyframes moveRight {
+    to {
+
+        /* Problem: The 1rem stops the blob going out of the scrollport in the inline direction and causing an overflow: scroll in that direction. */
+        /* translate: calc(100cqi - 1rem - 100%); */
+
+        /* Fixed: using container-type: inline-size; on body allows us
+        to use container queries here so no need for hacks! Win!! */
+        translate: calc(100cqi - 100%);
+    }
+}
+
+</style>
