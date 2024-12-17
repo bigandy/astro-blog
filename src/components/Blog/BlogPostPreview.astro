@@ -16,7 +16,8 @@ const {
 } = Astro.props
 const { draft, title, date } = data
 const future = new Date(date) > new Date()
-const showPostNumber = collection === 'blog'
+// const showPostNumber = collection === 'blog'
+const showPostNumber = true;
 ---
 
 <article
