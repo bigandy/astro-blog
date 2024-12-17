@@ -19,7 +19,7 @@
     }
 
     :root {
-        --heading-font: "Fraunces", serif;
+        --header-font-family: "Fraunces", serif;
         --body-font: "Work Sans", serif;
     }
 
@@ -32,6 +32,7 @@
 
     body {
         background: var(--theme-background);
+
         font-family: var(--body-font);
         accent-color: var(--theme-accent);
 
@@ -74,7 +75,7 @@
 
     :where(h1, h2, h3) {
         font-weight: var(--f-body-weight);
-        font-family: var(--heading-font);
+        font-family: var(--header-font-family);
     }
 
     ::selection {

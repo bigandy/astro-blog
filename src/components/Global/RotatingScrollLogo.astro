@@ -24,11 +24,7 @@ const charCount = length * 2;
 <style>
     @layer base, ring, scroll;
 
-    .ring-wrapper {
-        a {
-            scroll-behavior: smooth;
-        }
-    }
+    
 
     @layer scroll {
         body {
@@ -44,12 +40,20 @@ const charCount = length * 2;
         @media (prefers-reduced-motion: no-preference) {
             .ring-wrapper {
                 animation: rotation linear both;
-                animation-timeline: --header-vtl;
+                /* animation-timeline: --header-vtl; */
+                animation-timeline: scroll();
+                animation-range: 0vh 90vh;
             }
         }
 
         .ring {
             --font-size: 0.5;
+        }
+
+        .ring-wrapper {
+            a {
+                scroll-behavior: smooth;
+            }
         }
 
         @container (min-width: 1300px) {

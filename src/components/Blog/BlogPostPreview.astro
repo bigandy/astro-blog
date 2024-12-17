@@ -6,14 +6,17 @@ import type { Collection } from '@components/Blog/utils/getAllPosts'
 interface Props {
 	post: CollectionEntry<'blog'>
 	collection?: Collection
+  postIndex: number
 }
 
 const {
-	post: { slug, data },
+	post: { slug, data,  },
 	collection = 'blog',
+  postIndex
 } = Astro.props
 const { draft, title, date } = data
 const future = new Date(date) > new Date()
+const showPostNumber = collection === 'blog'
 ---
 
 <article
@@ -25,7 +28,9 @@ const future = new Date(date) > new Date()
     slug={`${collection}/${slug}`}
     viewTransitionName={slug}
     isPreview
+    postIndex={showPostNumber ? postIndex : undefined}
   />
+  
 </article>
 
 <style>

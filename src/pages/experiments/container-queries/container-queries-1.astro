@@ -1,58 +1,58 @@
 ---
-import Block from '@components/Global/Block.astro'
-import ContainerQuerySupport from '@components/Global/ContainerQuerySupport.astro'
-import FullScreenLayout from '@layouts/FullScreenLayout.astro'
-import 'src/css/container-queries-1.css'
+import Block from "@components/Global/Block.astro";
+import ContainerQuerySupport from "@components/Global/ContainerQuerySupport.astro";
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import "src/css/container-queries-1.css";
 
-const title = 'Continer Queries 1 - Intro'
+const title = "Continer Queries 1 - Intro";
 ---
 
 <FullScreenLayout title={title}>
-  <ContainerQuerySupport />
-  <div class="container">
-    <main>
-      <section>
-        <Block />
-        <Block />
-        <Block />
-      </section>
-      <aside>
-        <Block />
-        <Block />
-      </aside>
-    </main>
+    <ContainerQuerySupport />
+    <div class="container">
+        <main>
+            <section>
+                <Block />
+                <Block />
+                <Block />
+            </section>
+            <aside>
+                <Block />
+                <Block />
+            </aside>
+        </main>
 
-    <footer>
-      <Block />
-    </footer>
-  </div>
+        <footer>
+            <Block />
+        </footer>
+    </div>
 </FullScreenLayout>
 
 <style>
-  main {
-    gap: 1em;
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-  }
+    main {
+        gap: 1em;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
 
-  section,
-  footer,
-  aside {
-    border: 1px solid black;
-    padding: 1em;
-  }
+    section,
+    footer,
+    aside {
+        border: 1px solid black;
+        padding: 1em;
+    }
 
-  aside {
-    display: grid;
-    grid-template-rows: 3fr 1fr;
-  }
+    aside {
+        display: grid;
+        grid-template-rows: 3fr 1fr;
+    }
 
-  section {
-    display: grid;
-    grid-template-columns: 3fr 2fr 1fr;
-  }
+    section {
+        display: grid;
+        grid-template-columns: 3fr 2fr 1fr;
+    }
 
-  footer {
-    margin-block-start: 1em;
-  }
+    footer {
+        padding-block-start: 1em;
+    }
 </style>

@@ -1,15 +1,17 @@
 ---
 import PublishDate from './PublishDate.astro'
 
-const { date, title, isPreview = false, slug, viewTransitionName } = Astro.props
 
 interface Props {
-	date?: Date
+  date?: Date
 	title: string
 	isPreview?: boolean
 	slug: string
   viewTransitionName: string
+  postIndex?: number
 }
+
+const { date, title, isPreview = false, slug, viewTransitionName, postIndex } = Astro.props
 ---
 
 <header
@@ -35,9 +37,41 @@ interface Props {
       </Fragment>
     )
   }
+  {postIndex && (
+    <div class="post-number" aria-hidden="true"><span>{postIndex}</span></div>
+  )}
 </header>
 
 <style>
+  header {
+    position: relative;
+
+    &:focus-within,
+    &:hover {
+      .post-number {
+        font-size: 300%;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .post-number {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    right: 0;
+    font-size: 200%;
+    /* font-weight: bold; */
+    color: var(--theme-accent);
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right, hsl(from var(--theme-accent) calc(h + 240) s l), hsl(from var(--theme-accent) h s l / .8));
+    transition: all 0.3s;
+
+    /* span {
+      color: rgb(from currentColor r g b / .8);
+    } */
+  }
   .preview {
     display: grid;
 

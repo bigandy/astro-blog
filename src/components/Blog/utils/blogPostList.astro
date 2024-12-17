@@ -19,4 +19,4 @@ let allPosts = await getAllPosts(collection)
 allPosts = allPosts.slice(0, number)
 ---
 
-{allPosts.map((p) => <BlogPostPreview post={p} collection={collection} />)}
+{allPosts.map((p) => <BlogPostPreview postIndex={p.postIndex} post={p} collection={collection} />)}
