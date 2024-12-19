@@ -14,9 +14,9 @@ interface Props {
 
 const { number = 9, collection = 'blog' } = Astro.props
 
-let allPosts = await getAllPosts(collection)
-
-allPosts = allPosts.slice(0, number)
+const allPosts = await getAllPosts(collection, number)
 ---
 
-{allPosts.map((p) => <BlogPostPreview postIndex={p.postIndex} post={p} collection={collection} />)}
+{allPosts.map((p) => {
+	return <BlogPostPreview postIndex={p.postIndex} post={p} collection={collection} />
+})}

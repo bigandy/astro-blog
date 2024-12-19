@@ -1,4 +1,5 @@
 ---
+import type { GetStaticPaths } from 'astro';
 import type { CollectionEntry } from 'astro:content'
 
 import BlogPostPreview from '@components/Blog/BlogPostPreview.astro'
@@ -7,12 +8,12 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 
 import { getAllPosts } from '@components/Blog/utils/getAllPosts'
 
-export async function getStaticPaths({ paginate }) {
+export const getStaticPaths = (async ({ paginate}) => {
 	const allPosts = await getAllPosts('weeknotes')
 
 	// Return a paginated collection of paths for all posts
 	return paginate(allPosts, { pageSize: 10 })
-}
+}) satisfies GetStaticPaths;
 
 interface Props {
 	page: {

@@ -14,14 +14,13 @@ const {
 	collection = 'blog',
   postIndex
 } = Astro.props
-const { draft, title, date } = data
+const { draft, title, date, template } = data
 const future = new Date(date) > new Date()
-// const showPostNumber = collection === 'blog'
 const showPostNumber = true;
 ---
 
 <article
-  class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}
+  class={`post-preview layout-inner ${draft && "draft"} ${future && "future"} ${template && "template"}`}
 >
   <BlogPostHeader
     date={date}
@@ -43,6 +42,7 @@ const showPostNumber = true;
     margin-block-end: 1rem;
     padding-block-end: 1rem;
     border-block-end: 4px solid var(--theme-divider); 
+    position: relative;
 
     a:not(:focus-visible) {
       outline: none;
@@ -91,5 +91,9 @@ const showPostNumber = true;
   .future {
     --border-color: color-mix(in lch, var(--theme-accent), red);
     --content: "future";
+  }
+
+  .template {
+    display: none;
   }
 </style>

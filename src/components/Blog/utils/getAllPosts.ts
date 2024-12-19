@@ -2,14 +2,19 @@ import { getCollection } from "astro:content";
 
 export type Collection = "blog" | "weeknotes";
 
-export const getAllPosts = async (collection: Collection = "blog") => {
+import { isProduction } from "./isProduction";
+
+export const getAllPosts = async (
+  collection: Collection = "blog",
+  numberToReturn?: number
+) => {
   const showFuturePosts = false;
   // Data Fetching: List all Markdown posts in the repo.
   let allPosts = [];
   const now = new Date();
   // Get all the posts from the posts directory
   allPosts = await getCollection(collection);
-  if (import.meta.env.MODE === "production") {
+  if (isProduction) {
     allPosts = allPosts.filter((post) => {
       // Get rid of draft posts first
       if (post.data.draft && post.data.draft === true) {
@@ -19,7 +24,7 @@ export const getAllPosts = async (collection: Collection = "blog") => {
     });
   }
 
-  if (import.meta.env.MODE === "production" || showFuturePosts === false) {
+  if (isProduction || showFuturePosts === false) {
     allPosts = allPosts.filter((post) => {
       // get rid of future posts
       return new Date(post.data.date).getTime() <= now.getTime();
@@ -32,8 +37,14 @@ export const getAllPosts = async (collection: Collection = "blog") => {
     (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
   );
 
-  return allPosts.map((post, postIndex) => ({
+  let postsWithPostIndex = allPosts.map((post, postIndex) => ({
     ...post,
     postIndex: allPostCount - postIndex,
   }));
+
+  if (numberToReturn) {
+    postsWithPostIndex = postsWithPostIndex.slice(0, numberToReturn);
+  }
+
+  return postsWithPostIndex;
 };

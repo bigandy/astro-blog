@@ -12,6 +12,7 @@ interface Props {
 }
 
 const { date, title, isPreview = false, slug, viewTransitionName, postIndex } = Astro.props
+
 ---
 
 <header
@@ -37,41 +38,88 @@ const { date, title, isPreview = false, slug, viewTransitionName, postIndex } = 
       </Fragment>
     )
   }
-  {postIndex && (
-    <div class="post-number" aria-hidden="true"><span>{postIndex}</span></div>
-  )}
 </header>
 
+{postIndex && (
+  <div class="post-index-wrapper" style={`--vtp: wrapper-num-${postIndex};`}>
+    <div class="post-index" 
+      style={`--vt: num-${postIndex};`}
+    >
+      <span>{postIndex}</span>
+    </div>
+</div>
+)}
+
+
+
 <style>
+  :root {
+    view-transition-name: none;
+  }
+
   header {
     position: relative;
 
-    &:focus-within,
+    /* &:focus-within,
     &:hover {
-      .post-number {
+      .post-index {
         font-size: 300%;
         font-weight: bold;
       }
+    } */
+
+    /* &:hover {
+      view-transition-name: current;
+    } */
+
+    header::view-transition-group(*) {
+        animation-duration: 2s;
+        animation-timing-function: linear;
     }
   }
 
-  .post-number {
-    position: absolute;
+  .post-index-wrapper {
+    view-transition-name: var(--vtp);
+  }
+
+  .post-index {
+    font-size: 200%;
+    font-weight: bold;
+    color: var(--theme-accent);
+    position: absolute; 
     top: 50%;
     translate: 0 -50%;
     right: 0;
-    font-size: 200%;
-    /* font-weight: bold; */
-    color: var(--theme-accent);
-    color: transparent;
-    background-clip: text;
-    background-image: linear-gradient(to right, hsl(from var(--theme-accent) calc(h + 240) s l), hsl(from var(--theme-accent) h s l / .8));
     transition: all 0.3s;
+    color: transparent; 
+    background-clip: text;
+     background-image: linear-gradient(to right, hsl(from var(--theme-accent) calc(h + 240) s l), hsl(from var(--theme-accent) h s l / .8));
+    
+    view-transition-name: var(--vt);
 
-    /* span {
-      color: rgb(from currentColor r g b / .8);
-    } */
+    span {
+      /* color: black;
+       */
+      /* view-transition-name: var(--vt)finger-span; */
+    }
+
+    
   }
+
+  
+
+  
+
+  .post .post-index {
+    /* translate: 0px;
+     */
+    translate: unset;
+    /* position: relative; */
+    top: unset;
+    left: unset;
+    right: unset;
+  }
+
   .preview {
     display: grid;
 
@@ -120,8 +168,6 @@ const { date, title, isPreview = false, slug, viewTransitionName, postIndex } = 
     .publish-date {
       margin: 0;
     }
-
-    
 
     .title {
       line-height: 1;

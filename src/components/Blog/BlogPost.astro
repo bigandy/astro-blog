@@ -11,6 +11,7 @@ const {
 	showBackLink = true,
 	showDate = true,
 	collection = 'blog',
+  postIndex
 } = Astro.props
 const { Content } = await render(post);
 ---
@@ -22,6 +23,7 @@ const { Content } = await render(post);
     isPreview={false}
     slug={post.slug}
     viewTransitionName={post.slug}
+    postIndex={postIndex}
   />
 
   <BlogContent>

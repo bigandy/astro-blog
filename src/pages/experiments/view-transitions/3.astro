@@ -1,0 +1,71 @@
+---
+import FullScreenLayout from '@layouts/FullScreenLayout.astro'
+---
+
+<FullScreenLayout>
+  <div class="container">
+    <button id="doSomething">Trigger View Transition</button>
+  </div>
+</FullScreenLayout>
+
+<script>
+    const updateTheDOMSomehow = () => {
+        // console.log("must do some updating here?!");
+        container?.classList.toggle('active');
+    }
+function handleClick() {
+  // Fallback for browsers that don't support this API:
+  if (!document.startViewTransition) {
+    updateTheDOMSomehow();
+    return;
+  }
+
+  // With a View Transition:
+  document.startViewTransition(() => updateTheDOMSomehow());
+}
+
+const button = document.getElementById('doSomething');
+const container = document.querySelector('.container');
+button?.addEventListener('click', handleClick)
+
+</script>
+
+<style>
+html::view-transition-old(container) {
+    animation-duration: 1s;
+    transition: 100px;
+    
+
+    animation-name: derp;
+    animation-fill-mode: forwards;
+}
+
+html {
+    view-transition-name: container;
+
+}
+
+.container {
+
+    mix-blend-mode: darken;
+    background-blend-mode: luminosity;
+
+    min-height: 100vh;
+    background: red;
+}
+
+.active {
+    background: purple;
+}
+
+@keyframes derp {
+    from {
+        translate: -100px -100px;
+    }
+
+    to {
+        translate: 50px 50px;
+    }
+}
+
+</style>

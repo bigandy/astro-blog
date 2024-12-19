@@ -1,51 +1,54 @@
 ---
-import FullScreenLayout from '@layouts/FullScreenLayout.astro'
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
 ---
 
 <FullScreenLayout>
   <div class="container">
     <ol>
-        <li>
-            Scroll down to see the red blob animate across the page. This is handled by scroll-driven view() animations - when the blob is foy inside the scrollport I activate the animation, ending it when the blob reaches the top of the scrollport. I have added some margin.
-        </li>
-        <li>
-            In this part I look at chainging multiple animations on the same view() based css animation.
-        </li>
+      <li>
+        Scroll down to see the red blob animate across the page. This is handled
+        by scroll-driven view() animations - when the blob is foy inside the
+        scrollport I activate the animation, ending it when the blob reaches the
+        top of the scrollport. I have added some margin.
+      </li>
+      <li>
+        In this part I look at chainging multiple animations on the same view()
+        based css animation.
+      </li>
     </ol>
-    
+
     <div class="blob"></div>
   </div>
 </FullScreenLayout>
 
 <style>
-
-body {
+  body {
     container-type: inline-size;
-}
+  }
 
-:global(body),
-:global(.slot.slot) {
+  :global(body),
+  :global(.slot.slot) {
     padding: 0;
     margin: 0;
-}
+  }
 
-.container {
+  .container {
     height: 200vh;
     margin-block-start: 200vh;
     margin-block-end: 200vh;
 
     ol {
-        padding: 3rem;
-        border-bottom: 1px solid;
-        display: none;
+      padding: 3rem;
+      border-bottom: 1px solid;
+      display: none;
     }
 
     li {
-        margin-bottom: 1rem;
+      margin-bottom: 1rem;
     }
-}
+  }
 
-.blob {
+  .blob {
     background: var(--background);
     position: absolute;
     height: 30px;
@@ -53,54 +56,48 @@ body {
     border-radius: 50%;
     animation-timing-function: linear, linear, linear;
     animation-fill-mode: both, both, both;
-    animation-name: showDot
-    , moveRight, makeBigger
-    ;
+    animation-name: showDot, moveRight, makeBigger;
     animation-timeline: view(block);
 
     --view-timeline-inset: 110px;
 
-    animation-range: 
-        cover 0% cover var(--view-timeline-inset)
-
-        ,entry-crossing calc(100% + var(--view-timeline-inset)) exit-crossing calc(0% - var(--view-timeline-inset)),
-        
-        exit-crossing calc(20% - var(--view-timeline-inset))
-        ;
+    animation-range:
+      cover 0% cover var(--view-timeline-inset),
+      entry-crossing calc(100% + var(--view-timeline-inset)) exit-crossing
+        calc(0% - var(--view-timeline-inset)),
+      exit-crossing calc(20% - var(--view-timeline-inset));
 
     /* Not sure how the below works. So commenting out for now.  */
-    view-timeline-inset: -200px;
+    /* view-timeline-inset: -200px; */
+  }
 
-}
-    
-@keyframes showDot {
+  @keyframes showDot {
     from {
-        --background: green;
+      --background: green;
     }
     to {
-        --background: red;
+      --background: red;
     }
-}
+  }
 
-@keyframes moveRight {
+  @keyframes moveRight {
     to {
-        translate: calc(100cqi - 100%);
+      translate: calc(100cqi - 100%);
     }
-}
+  }
 
-@keyframes makeBigger {
+  @keyframes makeBigger {
     to {
-        /* Move to the middle a bit so scale increase */
-        translate: calc(50cqi - 100%);
-        scale: 10;
-        --background: orange;
+      /* Move to the middle a bit so scale increase */
+      translate: calc(50cqi - 100%);
+      scale: 10;
+      --background: orange;
     }
-}
+  }
 
-@property --background {
+  @property --background {
     syntax: "<color>";
     initial-value: #f00;
     inherits: true;
-}
-
+  }
 </style>

@@ -1,0 +1,150 @@
+---
+import FullScreenLayout from '@layouts/FullScreenLayout.astro'
+---
+
+<FullScreenLayout>
+    <main>
+  <div class="container">
+    <button id="doSomething">Trigger View Transition</button>
+
+    <div class="blob">
+        I am blob 1
+    </div>
+
+    <div class="blob2">
+        I am blob 2
+    </div>
+  </div>
+</main>
+</FullScreenLayout>
+
+<script>
+    const updateTheDOMSomehow = () => {
+        // console.log("must do some updating here?!");
+        container?.classList.toggle('active');
+    }
+async function handleClick() {
+  // Fallback for browsers that don't support this API:
+  if (!document.startViewTransition) {
+    updateTheDOMSomehow();
+    return;
+  }
+
+  // With a View Transition:
+  const transition = document.startViewTransition(() => updateTheDOMSomehow());
+
+  async function animateTransition(transition) {
+    await transition.ready;
+    console.time('anim')
+
+    button?.setAttribute('disabled', 'disabled')
+
+    console.log("ready")
+    await transition.finished
+    console.log("finished")
+    button?.removeAttribute('disabled')
+    console.timeEnd('anim')
+    return await transition.finished;
+    }
+
+    animateTransition(transition);
+
+//   console.log({transition: await transition})
+}
+
+const button = document.getElementById('doSomething');
+const container = document.querySelector('.container');
+button?.addEventListener('click', handleClick)
+
+</script>
+
+<style>
+:global(.slot.slot),
+body {
+    padding: 0;
+}
+
+:root {
+    view-transition-name: none;
+}
+
+/* This is the non-active state */
+.container {
+    view-transition-name: container;
+    min-height: 100vh;
+    background: rebeccapurple;
+
+    [class^=blob] {
+        background: white;
+        color: black;
+
+        contain: paint;
+
+        border: 20px solid;
+        height: 200px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: grid;
+        place-content: center;
+
+        transition-duration: 0s;
+    }
+
+
+    .blob {
+        view-transition-name: --vt-blob;
+
+        translate: 0;
+    }
+
+    .blob2 {
+        view-transition-name: --vt-blob2;
+        
+        translate: calc(100cqi - 100%);
+    }
+}
+
+html::view-transition-group(--vt-blob) {
+    animation-duration: 1s;
+    
+    animation-timing-function: linear; 
+
+}
+
+/* This ensures a linear background transition */
+html::view-transition-old(--vt-blob),
+html::view-transition-new(--vt-blob) {
+    animation-timing-function: linear;
+}
+
+html::view-transition-group(--vt-blob2) {
+    animation-duration: 2s;
+}
+
+html::view-transition-old(--vt-blob2),
+html::view-transition-new(--vt-blob2) {
+    animation-timing-function: linear;
+}
+
+
+.active {
+    background-color: green;
+
+    .blob {
+        transition-duration: 0s;
+        translate: calc(100cqi - 100%);
+        background: black;
+        color: white;
+    }
+
+    .blob2 {
+        transition: none;
+        translate: 0;
+        background: red;
+        color: white;
+    }
+}
+
+
+
+</style>
