@@ -1,178 +1,155 @@
 ---
-import PublishDate from './PublishDate.astro'
-
+import PublishDate from "./PublishDate.astro";
 
 interface Props {
-  date?: Date
-	title: string
-	isPreview?: boolean
-	slug: string
-  viewTransitionName: string
-  postIndex?: number
+    date?: Date;
+    title: string;
+    isPreview?: boolean;
+    slug: string;
+    viewTransitionName: string;
+    postIndex?: number;
 }
 
-const { date, title, isPreview = false, slug, viewTransitionName, postIndex } = Astro.props
-
+const {
+    date,
+    title,
+    isPreview = false,
+    slug,
+    viewTransitionName,
+    postIndex,
+} = Astro.props;
 ---
 
 <header
-  class={`${isPreview ? "preview" : "post"}`}
-  style={`view-transition-name: vt-${viewTransitionName.replaceAll('/', '')}`}
+    class={`${isPreview ? "preview" : "post"}`}
+    style={`view-transition-name: vt-${viewTransitionName.replaceAll("/", "")}`}
 >
-  {
-    isPreview ? (
-      <a href={`/${slug}`}>
-        
-        <h2 class="title">{title}</h2>
+    {
+        isPreview ? (
+            <a href={`/${slug}`}>
+                <h2 class="title">{title}</h2>
 
-        {date && (
-          <PublishDate date={date} class="publish-date" />
-        )}
-      </a>
-    ) : (
-      <Fragment>
-        <h1 class="title">{title}</h1>
-        {date && (
-          <PublishDate date={date} class="publish-date" showLine />
-        )}
-      </Fragment>
-    )
-  }
+                {date && <PublishDate date={date} class="publish-date" />}
+            </a>
+        ) : (
+            <Fragment>
+                <h1 class="title">{title}</h1>
+                {date && (
+                    <PublishDate date={date} class="publish-date" showLine />
+                )}
+            </Fragment>
+        )
+    }
+
+    {
+        postIndex && (
+            <div class="post-index" style={`--vt: num-${postIndex};`}>
+                <span>{postIndex}</span>
+            </div>
+        )
+    }
 </header>
 
-{postIndex && (
-  <div class="post-index-wrapper" style={`--vtp: wrapper-num-${postIndex};`}>
-    <div class="post-index" 
-      style={`--vt: num-${postIndex};`}
-    >
-      <span>{postIndex}</span>
-    </div>
-</div>
-)}
-
-
-
 <style>
-  :root {
-    view-transition-name: none;
-  }
+    html::view-transition-group(.header-group) {
+    }
 
-  header {
-    position: relative;
+    html::view-transition-group(.post-index) {
+        animation-duration: 333ms;
+    }
 
-    /* &:focus-within,
-    &:hover {
-      .post-index {
-        font-size: 300%;
-        font-weight: bold;
-      }
-    } */
-
-    /* &:hover {
-      view-transition-name: current;
-    } */
-
-    header::view-transition-group(*) {
-        animation-duration: 2s;
+    html::view-transition-old(.post-index),
+    html::view-transition-new(.post-index) {
         animation-timing-function: linear;
-    }
-  }
-
-  .post-index-wrapper {
-    view-transition-name: var(--vtp);
-  }
-
-  .post-index {
-    font-size: 200%;
-    font-weight: bold;
-    color: var(--theme-accent);
-    position: absolute; 
-    top: 50%;
-    translate: 0 -50%;
-    right: 0;
-    transition: all 0.3s;
-    color: transparent; 
-    background-clip: text;
-     background-image: linear-gradient(to right, hsl(from var(--theme-accent) calc(h + 240) s l), hsl(from var(--theme-accent) h s l / .8));
-    
-    view-transition-name: var(--vt);
-
-    span {
-      /* color: black;
-       */
-      /* view-transition-name: var(--vt)finger-span; */
+        animation-duration: 0.9s;
     }
 
-    
-  }
-
-  
-
-  
-
-  .post .post-index {
-    /* translate: 0px;
-     */
-    translate: unset;
-    /* position: relative; */
-    top: unset;
-    left: unset;
-    right: unset;
-  }
-
-  .preview {
-    display: grid;
-
-    &.header {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      align-items: flex-start;
-      justify-content: center;
-      padding-block-end: 1rem;
+    header {
+        position: relative;
+        view-transition-class: header-group;
     }
 
-    a {
-      display: grid;
+    .post-index {
+        font-size: 200%;
+        font-weight: bold;
+        color: var(--theme-accent);
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        right: 0;
+        transition: all 0.3s;
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(
+            to right,
+            hsl(from var(--theme-accent) calc(h + 240) s l),
+            hsl(from var(--theme-accent) h s l / 0.8)
+        );
+
+        view-transition-name: var(--vt);
+        view-transition-class: header-group post-index;
     }
 
-    .title,
-    .publish-date {
-      margin: 0;
+    .post .post-index {
+        top: 50%;
+        left: 0;
+        right: auto;
+        rotate: -90deg;
+        translate: -100% -50%;
     }
 
-    .publish-date {
-      font-size: 1.25rem;
-      color: var(--theme-text-lighter);
-      font-weight: var(--f-body-weight);
-      font-family: var(--header-font-family);
-      line-height: 1.3;
-      order: -1;
+    .preview {
+        display: grid;
+
+        &.header {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            align-items: flex-start;
+            justify-content: center;
+            padding-block-end: 1rem;
+        }
+
+        a {
+            display: grid;
+        }
+
+        .title,
+        .publish-date {
+            margin: 0;
+        }
+
+        .publish-date {
+            font-size: 1.25rem;
+            color: var(--theme-text-lighter);
+            font-weight: var(--f-body-weight);
+            font-family: var(--header-font-family);
+            line-height: 1.3;
+            order: -1;
+        }
+
+        .title {
+            font-size: 2.25rem;
+            color: var(--theme-text);
+        }
     }
 
-    .title {
-      font-size: 2.25rem;
-      color: var(--theme-text);
-    }
-  }
+    /* BlogPost */
+    .post {
+        padding-block: 2rem;
 
-  /* BlogPost */
-  .post {
-    padding-block: 2rem;
+        & p,
+        & li {
+            margin-block-end: 1rem;
+        }
 
-    & p,
-    & li {
-      margin-block-end: 1rem;
-    }
+        .publish-date {
+            margin: 0;
+        }
 
-    .publish-date {
-      margin: 0;
+        .title {
+            line-height: 1;
+            text-wrap: pretty;
+        }
     }
-
-    .title {
-      line-height: 1;
-      text-wrap: pretty;
-      
-    }
-  }
 </style>
