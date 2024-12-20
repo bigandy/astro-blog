@@ -38,4 +38,7 @@ export default defineConfig({
     port: 8888,
   },
   site: "https://andrewhudson.dev",
+  devToolbar: {
+    enabled: false,
+  },
 });
