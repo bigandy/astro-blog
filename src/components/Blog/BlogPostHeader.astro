@@ -22,7 +22,7 @@ const {
 
 <header
     class={`${isPreview ? "preview" : "post"}`}
-    style={`view-transition-name: vt-${viewTransitionName.replaceAll("/", "")}`}
+    style={`--vt-header: vt-${viewTransitionName.replaceAll("/", "")}`}
 >
     {
         isPreview ? (
@@ -43,7 +43,7 @@ const {
 
     {
         postIndex && (
-            <div class="post-index" style={`--vt: num-${postIndex};`}>
+            <div class="post-index" style={`--vt-index: num-${postIndex};`}>
                 <span>{postIndex}</span>
             </div>
         )
@@ -51,25 +51,8 @@ const {
 </header>
 
 <style>
-    html::view-transition-group(.header-group) {
-    }
-
-    html::view-transition-group(.post-index) {
-        animation-duration: 333ms;
-    }
-
-    html::view-transition-old(.post-index),
-    html::view-transition-new(.post-index) {
-        animation-timing-function: linear;
-        animation-duration: 0.9s;
-    }
-
-    header {
-        position: relative;
-        view-transition-class: header-group;
-    }
-
     .post-index {
+        display: none;
         font-size: 200%;
         font-weight: bold;
         color: var(--theme-accent);
@@ -85,9 +68,6 @@ const {
             hsl(from var(--theme-accent) calc(h + 240) s l),
             hsl(from var(--theme-accent) h s l / 0.8)
         );
-
-        view-transition-name: var(--vt);
-        view-transition-class: header-group post-index;
     }
 
     .post .post-index {
@@ -150,6 +130,33 @@ const {
         .title {
             line-height: 1;
             text-wrap: pretty;
+        }
+    }
+
+    @container (inline-size > 1000px) {
+        html::view-transition-group(.post-index) {
+            animation-duration: 333ms;
+        }
+
+        html::view-transition-old(.post-index),
+        html::view-transition-new(.post-index) {
+            animation-timing-function: linear;
+            animation-duration: 0.9s;
+        }
+
+        header {
+            position: relative;
+            view-transition-class: header-group;
+        }
+
+        .post-index {
+            display: block;
+            view-transition-name: var(--vt-index);
+            view-transition-class: header-group post-index;
+        }
+
+        header {
+            view-transition-name: var(--vt-header);
         }
     }
 </style>

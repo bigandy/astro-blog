@@ -37,25 +37,50 @@ const charCount = length * 2;
 
         .ring {
             --font-size: 0.5;
+
+            height: calc(
+                var(--radius) * calc(var(--parent-ring-font-size) * -2.1)
+            );
+            border-radius: 50%;
+            aspect-ratio: 1;
+            display: grid;
+            place-content: center;
+
+            &::after {
+                transform: rotate(calc(14deg * var(--degrees)));
+                content: "☝️ Top";
+                font-size: 0.8em;
+                color: var(--theme-accent);
+            }
         }
 
         .ring-wrapper {
             display: none;
             position: fixed;
-            /* At the moment these are fixed. Is it possible to calculate the width of the .ring-wrapper? Currently its width is "zero" */
-
-            /* top: 0; */
             top: calc(var(--radius) * calc(var(--parent-ring-font-size) * -2));
             right: calc(
                 var(--radius) * calc(var(--parent-ring-font-size) * -2)
             );
-            /* right: 0; */
             opacity: 0;
-            /* translate: calc(var(--radius) * 2); */
-            transition: opacity 300ms;
+            transition:
+                opacity 300ms,
+                scale 300ms;
 
             a {
                 scroll-behavior: smooth;
+            }
+
+            &:hover {
+                scale: 1.1;
+                cursor: pointer;
+
+                background-color: var(--theme-accent);
+
+                .ring::after {
+                    transition: all 0.3s;
+                    color: white;
+                    transform: rotate(calc(calc(360 * 1deg) - var(--degrees)));
+                }
             }
         }
 
@@ -159,3 +184,11 @@ const charCount = length * 2;
         syntax: "<number>";
     }
 </style>
+
+<script>
+    const rotator = document.querySelector(".ring-wrapper");
+
+    rotator?.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
