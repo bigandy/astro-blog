@@ -1,4 +1,5 @@
 ---
+import ExternalLink from "@components/Global/ExternalLink.astro";
 import FullScreenLayout from "@layouts/FullScreenLayout.astro";
 import { Code } from "astro:components";
 ---
@@ -53,6 +54,8 @@ import { Code } from "astro:components";
                 </li>
             </ol>
 
+            <h2>Staggered View Transitions</h2>
+
             <p>
                 This is an attempt at staggering the view-transitions on a list.
             </p>
@@ -104,8 +107,8 @@ html::view-transition-group(list-5) {
             />
 
             <p>
-                The second option is to use transition-durations and thus avoid
-                the animation-duration.
+                2. The second option is to use transition-durations and thus
+                avoid the animation-duration.
             </p>
 
             <Code
@@ -138,126 +141,130 @@ li {
 `
                 lang="css"
             />
+
+            <p>
+                Chris Coyier on Frontend Masters blog had similar findings. <ExternalLink
+                    href="https://frontendmasters.com/blog/view-transitions-staggering/"
+                    >View Transitions Staggering</ExternalLink
+                >
+            </p>
         </div>
     </main>
-</FullScreenLayout>
 
-<script>
-    const updateTheDOMSomehow = () => {
-        // console.log("must do some updating here?!");
-        container?.classList.toggle("active");
-    };
-    async function handleClick() {
-        // Fallback for browsers that don't support this API:
-        if (!document.startViewTransition) {
-            updateTheDOMSomehow();
-            return;
+    <script>
+        const updateTheDOMSomehow = () => {
+            // console.log("must do some updating here?!");
+            container?.classList.toggle("active");
+        };
+        async function handleClick() {
+            // Fallback for browsers that don't support this API:
+            if (!document.startViewTransition) {
+                updateTheDOMSomehow();
+                return;
+            }
+
+            // With a View Transition:
+            const transition = document.startViewTransition(() =>
+                updateTheDOMSomehow()
+            );
+
+            async function animateTransition(transition) {
+                await transition.ready;
+
+                button?.setAttribute("disabled", "disabled");
+
+                console.log("ready");
+
+                await transition.finished;
+                console.log("finished");
+                button?.removeAttribute("disabled");
+                return;
+            }
+
+            animateTransition(transition);
         }
 
-        // With a View Transition:
-        const transition = document.startViewTransition(() =>
-            updateTheDOMSomehow()
-        );
+        const button = document.getElementById("doSomething");
+        const container = document.querySelector(".container");
+        button?.addEventListener("click", handleClick);
+    </script>
 
-        async function animateTransition(transition) {
-            await transition.ready;
-
-            button?.setAttribute("disabled", "disabled");
-
-            console.log("ready");
-
-            await transition.finished;
-            console.log("finished");
-            button?.removeAttribute("disabled");
-            return;
+    <style>
+        .container {
+            padding: 3rem;
         }
 
-        animateTransition(transition);
-    }
+        :global(.slot.slot),
+        body {
+            padding: 0;
+        }
+        /* This is the non-active state */
+        .container {
+            view-transition-name: --vt-container;
+            min-height: 100vh;
+            contain: paint;
+        }
 
-    const button = document.getElementById("doSomething");
-    const container = document.querySelector(".container");
-    button?.addEventListener("click", handleClick);
-</script>
+        body:has(#css:checked) {
+            li {
+                transition-duration: calc(var(--delay) * 300ms);
+            }
+        }
 
-<style>
-    .container {
-        padding: 3rem;
-    }
+        html:has(#vt:checked) {
+            &::view-transition-group(.list-item) {
+                animation-duration: calc(var(--delay) * 300ms);
+            }
+        }
 
-    :global(.slot.slot),
-    body {
-        padding: 0;
-    }
-    /* This is the non-active state */
-    .container {
-        view-transition-name: --vt-container;
-        background: green;
-        min-height: 100vh;
-        contain: paint;
-    }
-
-    body:has(#css:checked) {
         li {
-            transition-duration: calc(var(--delay) * 300ms);
+            view-transition-class: list-item;
+
+            &:nth-child(1) {
+                ---delay: 0;
+            }
+
+            &:nth-child(2) {
+                --delay: 1;
+            }
+
+            &:nth-child(3) {
+                --delay: 2;
+            }
+
+            &:nth-child(4) {
+                --delay: 3;
+            }
+
+            &:nth-child(5) {
+                --delay: 4;
+            }
         }
-    }
 
-    html:has(#vt:checked) {
-        &::view-transition-group(.list-item) {
-            animation-duration: calc(var(--delay) * 300ms);
-        }
-    }
-
-    li {
-        view-transition-class: list-item;
-
-        &:nth-child(1) {
-            ---delay: 0;
+        html::view-transition-group(list-1) {
+            --delay: 0;
         }
 
-        &:nth-child(2) {
+        html::view-transition-group(list-2) {
             --delay: 1;
         }
 
-        &:nth-child(3) {
+        html::view-transition-group(list-3) {
             --delay: 2;
         }
 
-        &:nth-child(4) {
+        html::view-transition-group(list-4) {
             --delay: 3;
         }
 
-        &:nth-child(5) {
+        html::view-transition-group(list-5) {
             --delay: 4;
         }
-    }
 
-    html::view-transition-group(list-1) {
-        --delay: 0;
-    }
-
-    html::view-transition-group(list-2) {
-        --delay: 1;
-    }
-
-    html::view-transition-group(list-3) {
-        --delay: 2;
-    }
-
-    html::view-transition-group(list-4) {
-        --delay: 3;
-    }
-
-    html::view-transition-group(list-5) {
-        --delay: 4;
-    }
-
-    .active {
-        background: purple;
-
-        li {
-            translate: 100px;
+        .active {
+            li {
+                translate: 100px;
+            }
         }
-    }
-</style>
+    </style>
+</FullScreenLayout>
