@@ -1,37 +1,38 @@
 {
-  "name": "andrewhudson-dev-astro",
-  "version": "2.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "update": "npx @astrojs/upgrade beta && npx npm-check-updates",
-    "lint": "npx @biomejs/biome check ./src",
-    "lint:write": "npx @biomejs/biome check --write ./src"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "4.0.2",
-    "@astrojs/react": "4.1.0",
-    "@astrojs/svelte": "7.0.1",
-    "@resvg/resvg-js": "2.6.2",
-    "astro": "5.0.5",
-    "astro-icon": "1.1.1",
-    "astro-robots-txt": "1.0.0",
-    "dayjs": "1.11.13",
-    "github-slugger": "2.0.0",
-    "linkedom": "0.18.5",
-    "lodash.groupby": "4.6.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "svelte": "5.2.7"
-  },
-  "devDependencies": {
-    "@11ty/eleventy-fetch": "5.0.1",
-    "@biomejs/biome": "1.9.3",
-    "@iconify-json/fa6-brands": "1.2.1",
-    "@notionhq/client": "2.2.15",
-    "@types/lodash": "4.17.10",
-    "@types/lodash.groupby": "4.6.9"
-  }
+    "name": "andrewhudson-dev-astro",
+    "version": "2.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "update": "npx @astrojs/upgrade beta && npx npm-check-updates",
+        "lint": "npx prettier --check ./src",
+        "lint:write": "npx prettier --check --write ./src"
+    },
+    "dependencies": {
+        "@astrojs/mdx": "4.0.2",
+        "@astrojs/react": "4.1.0",
+        "@astrojs/svelte": "7.0.1",
+        "@resvg/resvg-js": "2.6.2",
+        "astro": "5.0.5",
+        "astro-icon": "1.1.1",
+        "astro-robots-txt": "1.0.0",
+        "dayjs": "1.11.13",
+        "github-slugger": "2.0.0",
+        "linkedom": "0.18.5",
+        "lodash.groupby": "4.6.0",
+        "react": "19.0.0",
+        "react-dom": "19.0.0",
+        "svelte": "5.2.7"
+    },
+    "devDependencies": {
+        "@11ty/eleventy-fetch": "5.0.1",
+        "@biomejs/biome": "1.9.3",
+        "@iconify-json/fa6-brands": "1.2.1",
+        "@notionhq/client": "2.2.15",
+        "@types/lodash": "4.17.10",
+        "@types/lodash.groupby": "4.6.9",
+        "prettier": "3.4.2"
+    }
 }

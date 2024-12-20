@@ -1,10 +1,10 @@
 ---
-title: 'Weeknotes #23'
+title: "Weeknotes #23"
 date: 2019-11-01
 draft: false
-description: 'November Already! Serene launches! Cambridge visited!'
-tags: ['weeknotes']
-author: 'andrew'
+description: "November Already! Serene launches! Cambridge visited!"
+tags: ["weeknotes"]
+author: "andrew"
 ---
 
 ## Serene is launched into the world!

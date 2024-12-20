@@ -3,7 +3,7 @@ title: "Summer Spring Morning"
 date: 2024-04-30
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Last week was all about:

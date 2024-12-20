@@ -3,7 +3,7 @@ title: "Skiing season Starts"
 date: 2024-11-25
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 The best part of last week was most definitely when we went to Chamrousse 1650 - our local ski resort - where there was lots of snow, and we played all day in it. The kids were extremely happy: Emma made a snowman and Arthur, Emma, Marion and I played for hours taboganing on the sled that we had brought with us.

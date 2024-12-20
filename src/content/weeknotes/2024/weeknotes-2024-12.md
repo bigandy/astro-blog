@@ -3,7 +3,7 @@ title: "In Ascension"
 date: 2024-03-25
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Last week was all about:

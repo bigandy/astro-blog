@@ -4,14 +4,14 @@ date: 2012-12-16 16:58:22
 draft: false
 description: ""
 tags:
-  [
-    "developing",
-    "hero",
-    "interlink conference",
-    "jessica hische",
-    "new adventures in web design",
-    "presentation",
-  ]
+    [
+        "developing",
+        "hero",
+        "interlink conference",
+        "jessica hische",
+        "new adventures in web design",
+        "presentation",
+    ]
 author: "Andrew"
 ---
 

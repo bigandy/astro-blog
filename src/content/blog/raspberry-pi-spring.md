@@ -3,8 +3,8 @@ title: Raspberry Pi Springs back to Life!
 date: 2021-03-21
 draft: true
 description: ""
-tags: ['raspberry-pi']
-author: 'Andrew'
+tags: ["raspberry-pi"]
+author: "Andrew"
 ---
 
 Woo-hoo! Spring is finally here, ofically and in real-life. A whole new season and to celebrate this I am writing a post about my Pi springing back to life!

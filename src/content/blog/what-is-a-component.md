@@ -13,7 +13,7 @@ I would define a component in its simplest words as a part of an application tha
 // Definining the component
 
 const Button = ({ text, handleClick }) => {
-  return <button onClick={handleClick}>{text}</button>;
+    return <button onClick={handleClick}>{text}</button>;
 };
 
 // Calling the component

@@ -4,7 +4,7 @@ date: 2023-03-06
 draft: true
 description: "weeknotes #10 2023"
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Here's what I got up to over the last week:

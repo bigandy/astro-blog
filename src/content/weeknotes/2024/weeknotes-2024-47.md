@@ -3,7 +3,7 @@ title: "Zwifting Season re-starts"
 date: 2024-11-19
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 ### Exercise

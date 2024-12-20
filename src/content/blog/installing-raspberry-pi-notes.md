@@ -21,16 +21,16 @@ author: "Andrew"
 - vim wpa_suplicant.conf
 - enter wifi and country code in the file but that note that this will need to be the 2.4GHz network if you have a Raspberry Pi that does not support 5GHz.
 
-  ```
-  ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-  update_config=1
-  country=GB<Insert 2 letter ISO 3166-1 country code here>
+    ```
+    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+    update_config=1
+    country=GB<Insert 2 letter ISO 3166-1 country code here>
 
-  network={
-  ssid="<Name of your wireless LAN>"
-  psk="<Password for your wireless LAN>"
-  }
-  ```
+    network={
+    ssid="<Name of your wireless LAN>"
+    psk="<Password for your wireless LAN>"
+    }
+    ```
 
 - enable ssh https://www.raspberrypi.org/documentation/remote-access/ssh/README.md easiest is to place a `ssh` file in the sd card during setup
 - eject the SD card and put in the raspberry pi and turn it on
@@ -91,15 +91,15 @@ author: "Andrew"
 const five = require("johnny-five");
 const Raspi = require("raspi-io").RaspiIO;
 const board = new five.Board({
-  io: new Raspi(),
+    io: new Raspi(),
 });
 
 board.on("ready", function () {
-  const button1 = new five.Button("P1-7");
+    const button1 = new five.Button("P1-7");
 
-  button1.on("press", async () => {
-    console.log("button1 pressed");
-  });
+    button1.on("press", async () => {
+        console.log("button1 pressed");
+    });
 });
 ```
 

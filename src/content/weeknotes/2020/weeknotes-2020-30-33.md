@@ -3,8 +3,8 @@ title: 3.5 weeks in France
 date: 2020-08-16
 draft: false
 description: Our first holiday since last Christmas.
-tags: ['weeknotes']
-author: 'andrew'
+tags: ["weeknotes"]
+author: "andrew"
 ---
 
 ## Three and a half weeks in France

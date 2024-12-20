@@ -4,15 +4,15 @@ date: 2012-10-19 10:14:34
 draft: false
 description: ""
 tags:
-  [
-    "beta",
-    "developing",
-    "guardian",
-    "oocss",
-    "requirejs",
-    "responsive",
-    "smacss",
-  ]
+    [
+        "beta",
+        "developing",
+        "guardian",
+        "oocss",
+        "requirejs",
+        "responsive",
+        "smacss",
+    ]
 author: "Andrew"
 ---
 

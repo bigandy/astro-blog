@@ -3,20 +3,16 @@ title: "A weekend in the Vercors"
 date: 2024-12-16
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 The best part of last week was the time we spent in Villard de Lans in the Vercors.
 
 ## Music I am loving currently
+
 Love the new Michael Kiwanuka album "Small Changes".
 
 As it is december on heavy rotation is the XFM "Its a Cool Cool Christmas" which I found out is 24 years old and I play it every Christmas. A truly excellent collection of Christmas inspired covers.
-
-
-
-
-
 
 ### Job Search
 

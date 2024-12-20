@@ -3,7 +3,7 @@ title: "Built another Raycast Extension"
 date: 2023-12-10
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Here's what I got up to last week:

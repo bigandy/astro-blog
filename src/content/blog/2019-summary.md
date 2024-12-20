@@ -1,10 +1,10 @@
 ---
-title: '2019 Review'
+title: "2019 Review"
 date: 2019-12-31
 draft: false
 description: 2019 in Review
-tags: ['review']
-author: 'Andrew'
+tags: ["review"]
+author: "Andrew"
 ---
 
 ## What a year 2019 has been!

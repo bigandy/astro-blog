@@ -1,10 +1,10 @@
 ---
-title: 'Wedding and Website'
+title: "Wedding and Website"
 date: 2011-05-20 19:53:27
 draft: false
-description: ''
-tags: ['css3', 'development', 'html5', 'life', 'marriage', 'wedding']
-author: 'Andrew'
+description: ""
+tags: ["css3", "development", "html5", "life", "marriage", "wedding"]
+author: "Andrew"
 ---
 
 Yeah it's been really hectic lately, life that is! I've been working on a wordpress website for a designer called Kat, Marion and I have found a venue for our wedding and a date.

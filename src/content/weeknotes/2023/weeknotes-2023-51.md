@@ -3,7 +3,7 @@ title: "Christmas in France"
 date: 2023-12-24
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Here's what I got up to last week:

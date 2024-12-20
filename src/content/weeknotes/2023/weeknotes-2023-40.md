@@ -3,7 +3,7 @@ title: "Updates weekenote"
 date: 2023-10-06
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Been a mega long time since I last posted and many things have happened. I started a new job, have been to France for 3 weeks in the summer, have been on many excellent escapades on the mountain bike and have read a lot of wonderful books.

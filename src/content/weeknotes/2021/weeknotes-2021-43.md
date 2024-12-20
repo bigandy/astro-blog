@@ -3,7 +3,7 @@ title: New Computer!
 date: 2021-10-30
 draft: false
 description: yeah
-tags: ['weeknotes']
+tags: ["weeknotes"]
 ---
 
 ## New Computer!
@@ -18,9 +18,9 @@ Rather than getting going with all the same software and settings that I had in 
 
 ## Rest of the week
 
--   my birthday was last Sunday and we took the kids glamping in Watlington. We had a Bell tent with a kingsize bed, two singles, and a woodburner in the tent and a firepit outside the tent. Being autumn it was pretty cold at night and having the thick duvet, the woodburner, and some delicious whisky helped keep out the cold.
--   I went swimming on Wednesday. 40 lengths and 1000m.
--   Work was good and worked on three different projects. The new tool we're working on [MergeCoin](https://mergeco.in) is proving to be very useful for us as a team bringing out a very competitive aspect in some team members (me and James!), and improving our time to close merge request (TTCMR) with some fun in the process!
--   Started reading "The Wim Hof Method" by Wim Hof
--   Read the entire ["Do Walk"](https://thedobook.co/products/do-walk) book by Lana DeLana.
--   Started looking at the Houdini Paint API
+- my birthday was last Sunday and we took the kids glamping in Watlington. We had a Bell tent with a kingsize bed, two singles, and a woodburner in the tent and a firepit outside the tent. Being autumn it was pretty cold at night and having the thick duvet, the woodburner, and some delicious whisky helped keep out the cold.
+- I went swimming on Wednesday. 40 lengths and 1000m.
+- Work was good and worked on three different projects. The new tool we're working on [MergeCoin](https://mergeco.in) is proving to be very useful for us as a team bringing out a very competitive aspect in some team members (me and James!), and improving our time to close merge request (TTCMR) with some fun in the process!
+- Started reading "The Wim Hof Method" by Wim Hof
+- Read the entire ["Do Walk"](https://thedobook.co/products/do-walk) book by Lana DeLana.
+- Started looking at the Houdini Paint API

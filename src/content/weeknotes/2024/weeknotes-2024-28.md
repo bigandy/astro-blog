@@ -3,7 +3,7 @@ title: "Sold my car!"
 date: 2024-07-08
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Last week was all about:

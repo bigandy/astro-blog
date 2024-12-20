@@ -3,7 +3,7 @@ title: "Moving to France"
 date: 2024-07-08
 draft: true
 tags:
-  - "life update"
+    - "life update"
 ---
 
 It is going to happen! We are moving to Grenoble! Something that we have dreamed of for such a long time is actually going to happen. We are going to live in Grenoble, France from the end of August.

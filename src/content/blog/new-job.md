@@ -4,16 +4,16 @@ date: 2013-01-02 14:53:06
 draft: false
 description: ""
 tags:
-  [
-    "abingdon",
-    "developing",
-    "electric studio",
-    "job",
-    "life",
-    "new job",
-    "wordpress",
-    "wordpress",
-  ]
+    [
+        "abingdon",
+        "developing",
+        "electric studio",
+        "job",
+        "life",
+        "new job",
+        "wordpress",
+        "wordpress",
+    ]
 author: "Andrew"
 ---
 

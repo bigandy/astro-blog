@@ -5,8 +5,8 @@ publishDate: "January 31 2023"
 draft: true
 description: ""
 tags:
-  - "css"
-  - "container-queries"
+    - "css"
+    - "container-queries"
 ---
 
 Up there with :has(), container queries are one of my most desired CSS features of many years. I am very excited for this new CSS feature and I want to go in detail how I am excited for them and how to use them.
@@ -17,9 +17,9 @@ Imagine a world where you have a calendar component and you want to change the U
 
 ```css
 @media (min-width: 600px) {
-  .title {
-    font-size: 3em;
-  }
+    .title {
+        font-size: 3em;
+    }
 }
 ```
 

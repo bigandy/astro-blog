@@ -3,7 +3,7 @@ title: "Trip to Grenoble"
 date: 2024-05-09
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Last week was all about:

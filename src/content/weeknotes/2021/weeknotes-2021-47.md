@@ -3,7 +3,7 @@ title: Return to the Gym. Snow!
 date: 2021-11-28
 draft: false
 description: ""
-tags: ['weeknotes']
+tags: ["weeknotes"]
 ---
 
 # Summary of week

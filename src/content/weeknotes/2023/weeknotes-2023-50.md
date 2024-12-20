@@ -3,7 +3,7 @@ title: "Pre-Christmas Partying"
 date: 2023-12-17
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Here's what I got up to last week:

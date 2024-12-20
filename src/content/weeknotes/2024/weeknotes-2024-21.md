@@ -3,7 +3,7 @@ title: "Weekend at my Parents"
 date: 2024-05-21
 draft: false
 tags:
-  - "weeknotes"
+    - "weeknotes"
 ---
 
 Last week was all about:

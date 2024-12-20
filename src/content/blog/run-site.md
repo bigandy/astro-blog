@@ -1,10 +1,10 @@
 ---
-title: 'How I run my site'
+title: "How I run my site"
 date: 2014-08-21 07:41:24
 draft: false
-description: 'Skills that I’ve learned in my day job have enabled working on the latest version of this site much more simple and pleasurable than previously. I use Gulp, Bower and Continuous deployment to streamline everything.'
-tags: ['developing']
-author: 'Andrew'
+description: "Skills that I’ve learned in my day job have enabled working on the latest version of this site much more simple and pleasurable than previously. I use Gulp, Bower and Continuous deployment to streamline everything."
+tags: ["developing"]
+author: "Andrew"
 ---
 
 Skills that I've learned in my day job have enabled working on the latest version of this site much more simple and pleasurable than previously. I use Gulp, Bower and Continuous deployment to streamline everything.

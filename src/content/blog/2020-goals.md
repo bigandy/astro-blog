@@ -1,10 +1,10 @@
 ---
-title: '2020 Goals'
+title: "2020 Goals"
 date: 2019-01-01
 draft: true
 description: 2020 Goals
-tags: ['goals', '2020']
-author: 'Andrew'
+tags: ["goals", "2020"]
+author: "Andrew"
 ---
 
 ## 2020 Goals
