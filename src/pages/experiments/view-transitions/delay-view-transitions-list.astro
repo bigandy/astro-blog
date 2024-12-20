@@ -1,0 +1,263 @@
+---
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import { Code } from "astro:components";
+---
+
+<FullScreenLayout>
+    <main>
+        <div class="container">
+            <button id="doSomething">Trigger View Transition</button>
+
+            <label for="css">CSS Transitions</label><input
+                type="radio"
+                name="options"
+                id="css"
+                checked
+            />
+            <label for="vt">View-Transitions</label><input
+                type="radio"
+                name="options"
+                id="vt"
+            />
+
+            <ol>
+                <li style="view-transition-name: list-1">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos facilis quis magni deserunt fugiat explicabo doloribus,
+                    necessitatibus expedita at dolor numquam maxime quae, ut ea
+                    repellendus alias accusamus soluta fugit!
+                </li>
+                <li style="view-transition-name: list-2">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos facilis quis magni deserunt fugiat explicabo doloribus,
+                    necessitatibus expedita at dolor numquam maxime quae, ut ea
+                    repellendus alias accusamus soluta fugit!
+                </li>
+                <li style="view-transition-name: list-3">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos facilis quis magni deserunt fugiat explicabo doloribus,
+                    necessitatibus expedita at dolor numquam maxime quae, ut ea
+                    repellendus alias accusamus soluta fugit!
+                </li>
+                <li style="view-transition-name: list-4">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos facilis quis magni deserunt fugiat explicabo doloribus,
+                    necessitatibus expedita at dolor numquam maxime quae, ut ea
+                    repellendus alias accusamus soluta fugit!
+                </li>
+                <li style="view-transition-name: list-5">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Quos facilis quis magni deserunt fugiat explicabo doloribus,
+                    necessitatibus expedita at dolor numquam maxime quae, ut ea
+                    repellendus alias accusamus soluta fugit!
+                </li>
+            </ol>
+
+            <p>
+                This is an attempt at staggering the view-transitions on a list.
+            </p>
+
+            <p>After some experimentation there are two possible options.</p>
+            <p>1. use a custom animation-delay for each item.</p>
+
+            <Code
+                lang="html"
+                code=`
+<li style="view-transition-name: list-1">...</li>
+<li style="view-transition-name: list-2">...</li>
+<li style="view-transition-name: list-3">...</li>
+<li style="view-transition-name: list-4">...</li>
+<li style="view-transition-name: list-5">...</li>
+`
+            />
+            <Code
+                code=`
+li {
+    view-transition-class: list-item;
+}
+
+html::view-transition-group(.list-item) {
+    animation-duration: calc(var(--delay) * 300ms);
+}
+
+html::view-transition-group(list-1) {
+    --delay: 0;
+}
+
+html::view-transition-group(list-2) {
+    --delay: 1;
+}
+
+html::view-transition-group(list-3) {
+    --delay: 2;
+}
+
+html::view-transition-group(list-4) {
+    --delay: 3;
+}
+
+html::view-transition-group(list-5) {
+    --delay: 4;
+}
+                `
+                lang="css"
+            />
+
+            <p>
+                The second option is to use transition-durations and thus avoid
+                the animation-duration.
+            </p>
+
+            <Code
+                code=`
+li {
+    view-transition-class: list-item;
+
+    transition-duration: calc(var(--delay) * 300ms);
+
+    &:nth-child(1) {
+        ---delay: 0;
+    }
+
+    &:nth-child(2) {
+        --delay: 1;
+    }
+
+    &:nth-child(3) {
+        --delay: 2;
+    }
+
+    &:nth-child(4) {
+        --delay: 3;
+    }
+
+    &:nth-child(5) {
+        --delay: 4;
+    }
+}
+`
+                lang="css"
+            />
+        </div>
+    </main>
+</FullScreenLayout>
+
+<script>
+    const updateTheDOMSomehow = () => {
+        // console.log("must do some updating here?!");
+        container?.classList.toggle("active");
+    };
+    async function handleClick() {
+        // Fallback for browsers that don't support this API:
+        if (!document.startViewTransition) {
+            updateTheDOMSomehow();
+            return;
+        }
+
+        // With a View Transition:
+        const transition = document.startViewTransition(() =>
+            updateTheDOMSomehow()
+        );
+
+        async function animateTransition(transition) {
+            await transition.ready;
+
+            button?.setAttribute("disabled", "disabled");
+
+            console.log("ready");
+
+            await transition.finished;
+            console.log("finished");
+            button?.removeAttribute("disabled");
+            return;
+        }
+
+        animateTransition(transition);
+    }
+
+    const button = document.getElementById("doSomething");
+    const container = document.querySelector(".container");
+    button?.addEventListener("click", handleClick);
+</script>
+
+<style>
+    .container {
+        padding: 3rem;
+    }
+
+    :global(.slot.slot),
+    body {
+        padding: 0;
+    }
+    /* This is the non-active state */
+    .container {
+        view-transition-name: --vt-container;
+        background: green;
+        min-height: 100vh;
+        contain: paint;
+    }
+
+    body:has(#css:checked) {
+        li {
+            transition-duration: calc(var(--delay) * 300ms);
+        }
+    }
+
+    html:has(#vt:checked) {
+        &::view-transition-group(.list-item) {
+            animation-duration: calc(var(--delay) * 300ms);
+        }
+    }
+
+    li {
+        view-transition-class: list-item;
+
+        &:nth-child(1) {
+            ---delay: 0;
+        }
+
+        &:nth-child(2) {
+            --delay: 1;
+        }
+
+        &:nth-child(3) {
+            --delay: 2;
+        }
+
+        &:nth-child(4) {
+            --delay: 3;
+        }
+
+        &:nth-child(5) {
+            --delay: 4;
+        }
+    }
+
+    html::view-transition-group(list-1) {
+        --delay: 0;
+    }
+
+    html::view-transition-group(list-2) {
+        --delay: 1;
+    }
+
+    html::view-transition-group(list-3) {
+        --delay: 2;
+    }
+
+    html::view-transition-group(list-4) {
+        --delay: 3;
+    }
+
+    html::view-transition-group(list-5) {
+        --delay: 4;
+    }
+
+    .active {
+        background: purple;
+
+        li {
+            translate: 100px;
+        }
+    }
+</style>
