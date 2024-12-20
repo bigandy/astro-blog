@@ -1,99 +1,94 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import BlogPostHeader from '@components/Blog/BlogPostHeader.astro'
-import type { Collection } from '@components/Blog/utils/getAllPosts'
+import type { CollectionEntry } from "astro:content";
+import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
+import type { Collection } from "@components/Blog/utils/getAllPosts";
 
 interface Props {
-	post: CollectionEntry<'blog'>
-	collection?: Collection
-  postIndex: number
+    post: CollectionEntry<"blog">;
+    collection?: Collection;
+    postIndex: number;
 }
 
 const {
-	post: { slug, data,  },
-	collection = 'blog',
-  postIndex
-} = Astro.props
-const { draft, title, date, template } = data
-const future = new Date(date) > new Date()
-const showPostNumber = true;
+    post: { slug, data },
+    collection = "blog",
+    postIndex,
+} = Astro.props;
+const { draft, title, date } = data;
+const future = new Date(date) > new Date();
+const showPostNumber = !draft;
 ---
 
 <article
-  class={`post-preview layout-inner ${draft && "draft"} ${future && "future"} ${template && "template"}`}
+    class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}
 >
-  <BlogPostHeader
-    date={date}
-    title={title}
-    slug={`${collection}/${slug}`}
-    viewTransitionName={slug}
-    isPreview
-    postIndex={showPostNumber ? postIndex : undefined}
-  />
-   
+    <BlogPostHeader
+        date={date}
+        title={title}
+        slug={`${collection}/${slug}`}
+        viewTransitionName={slug}
+        isPreview
+        postIndex={showPostNumber ? postIndex : undefined}
+    />
 </article>
 
 <style>
-  .content :global(main > * + *) {
-    margin-block-start: 1rem;
-  }
- 
-  .post-preview {
-    margin-block-end: 1rem;
-    padding-block-end: 1rem;
-    border-block-end: 4px solid var(--theme-divider); 
-    position: relative;
-
-    a:not(:focus-visible) {
-      outline: none;
-    }
-  }
-
-  .future,
-  .draft {
-    border-inline-start: 10px solid var(--border-color);
-    padding-inline-start: 2rem;
-    position: relative;
-    transition: all 0.3s;
-
-    &::before {
-      transition: all 0.3s;
-      text-transform: uppercase;
-      position: absolute;
-      font-size: 10px;
-      left: 5px;
-      top: 50%;
-      content: var(--content);
-      display: block;
-      transform: translate(-50%, 0%) rotate(-90deg);
-      transform-origin: center top;
+    .content :global(main > * + *) {
+        margin-block-start: 1rem;
     }
 
-    &:hover {
-      padding-inline-start: 0;
-      border-inline-start: 0;
+    .post-preview {
+        margin-block-end: 1rem;
+        padding-block-end: 1rem;
+        border-block-end: 4px solid var(--theme-divider);
+        position: relative;
 
-      &::before {
-        opacity: 0;
-      }
+        a:not(:focus-visible) {
+            outline: none;
+        }
     }
-  }
 
-  .draft {
-    --border-color: color-mix(
-      in lch,
-      var(--theme-accent),
-      var(--theme-divider) 50%
-    );
-    --content: "draft";
-  }
+    .future,
+    .draft {
+        border-inline-start: 10px solid var(--border-color);
+        padding-inline-start: 2rem;
+        position: relative;
+        transition: all 0.3s;
 
-  .future {
-    --border-color: color-mix(in lch, var(--theme-accent), red);
-    --content: "future";
-  }
+        &::before {
+            transition: all 0.3s;
+            text-transform: uppercase;
+            position: absolute;
+            font-size: 10px;
+            left: 5px;
+            top: 50%;
+            content: var(--content);
+            display: block;
+            transform: translate(-50%, 0%) rotate(-90deg);
+            transform-origin: center top;
+        }
 
-  .template {
-    display: none;
-  }
+        &:hover {
+            padding-inline-start: 0;
+            border-inline-start: 0;
+
+            &::before {
+                opacity: 0;
+            }
+        }
+    }
+
+    .draft {
+        --border-color: color-mix(
+            in lch,
+            var(--theme-accent),
+            var(--theme-divider) 50%
+        );
+        --content: "draft";
+    }
+
+    .future {
+        --border-color: color-mix(in lch, var(--theme-accent), red);
+        --content: "future";
+    }
 </style>

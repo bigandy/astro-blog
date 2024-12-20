@@ -14,6 +14,7 @@ export const getAllPosts = async (
     const now = new Date();
     // Get all the posts from the posts directory
     allPosts = await getCollection(collection);
+
     if (isProduction) {
         allPosts = allPosts.filter((post) => {
             // Get rid of draft posts first
@@ -38,14 +39,10 @@ export const getAllPosts = async (
             new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
     );
 
-    let postsWithPostIndex = allPosts.map((post, postIndex) => ({
+    const postsWithPostIndex = allPosts.map((post, postIndex) => ({
         ...post,
         postIndex: allPostCount - postIndex,
     }));
 
-    if (numberToReturn) {
-        postsWithPostIndex = postsWithPostIndex.slice(0, numberToReturn);
-    }
-
-    return postsWithPostIndex;
+    return postsWithPostIndex.slice(0, numberToReturn ? numberToReturn : -1);
 };
