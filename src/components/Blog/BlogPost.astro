@@ -4,7 +4,7 @@ import { render } from "astro:content";
 import BlogContent from '@components/Blog/BlogContent.astro'
 import BlogPostHeader from '@components/Blog/BlogPostHeader.astro'
 import BackArrow from '@components/Global/BackArrow.astro'
-import ExternalLink from '@components/Global/ExternalLink.astro'
+import EditPostOnGithub from '@components/Global/EditPostOnGithub.astro'
 
 const {
 	post,
@@ -40,23 +40,11 @@ const { Content } = await render(post);
   }
 </article>
 
-<ExternalLink
-  href={`https://github.com/bigandy/astro-blog/tree/main/src/content/${collection}/${post.slug}.md`}
-  class="external-link"
-  >Edit this post on Github</ExternalLink>
+<EditPostOnGithub slug={post.slug} collection={collection} />
+
 
 <style>
-  .external-link {
-    margin-block: 2rem;
-    padding-block: 1rem;
-  }
-
   .content :global(main > * + *) {
     margin-block-start: 1rem;
-  }
-
-  a {
-    margin-bottom: 2rem;
-    display: inline-block;
   }
 </style>

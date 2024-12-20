@@ -1,0 +1,18 @@
+---
+import ExternalLink from '@components/Global/ExternalLink.astro'
+
+const { slug, collection } = Astro.props;
+---
+
+<ExternalLink
+  href={`https://github.com/bigandy/astro-blog/tree/main/src/content/${collection}/${slug}.md`}
+  class="external-link"
+  >Edit this post on Github</ExternalLink>
+
+<style>
+.external-link {
+    margin-block: 2rem;
+    padding-block: 1rem;
+    display: inline-block;
+  }
+</style>
