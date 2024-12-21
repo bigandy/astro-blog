@@ -51,13 +51,15 @@ li {
     margin-block-end: 2rem;
 
     .meta {
-        display: inline-flex;
         margin-left: auto;
     }
 
     .meta * {
-        display: inline-block;
         margin-right: 1em;
+
+        @container (min-width: 768px) {
+            display: inline-block;
+        }
     }
 
     + h2 {

@@ -18,21 +18,26 @@ const pages: {
         location: "footer",
     },
 
-    demos: {
-        url: "/experiments",
-        title: "Experiments",
-        location: "footer",
-    },
-
     tools: {
         url: "/tools",
         title: "Tools",
         location: "footer",
     },
 
-    blog: {
+    archive: {
         url: "/blog",
         title: "Archive",
+        location: "header",
+    },
+    cv: {
+        url: "/cv",
+        title: "CV",
+        location: "header",
+    },
+
+    experiments: {
+        url: "/experiments",
+        title: "Experiments",
         location: "header",
     },
 
@@ -52,12 +57,6 @@ const pages: {
         url: "/now",
         title: "Now",
         location: "both",
-    },
-
-    cv: {
-        url: "/cv",
-        title: "CV",
-        location: "header",
     },
 };
 
