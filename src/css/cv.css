@@ -120,7 +120,7 @@ li {
 }
 
 .entrylist > li::after {
-    --dimension: 10px;
+    --dimension: 20px;
 
     content: "";
     display: block;
@@ -130,7 +130,7 @@ li {
     aspect-ratio: 1;
     position: absolute;
     top: 1.25em;
-    left: calc(-1.5rem - calc(var(--dimension) / 2));
+    left: calc(-1.5rem - calc(var(--dimension) / 2) + 0.5px);
     z-index: 1;
 }
 
@@ -144,47 +144,168 @@ li {
     font-size: 1.5rem;
 }
 
-@media print {
-    .cv-portfolio-list {
-        a {
-            margin-right: 0;
-        }
-    }
-
-    p {
-        margin-block-end: 0;
-    }
-
-    ul {
-        padding-inline-start: 1.2rem;
-    }
-
-    astro-dev-toolbar {
+.cv {
+    .contact-title {
         display: none;
     }
+}
 
-    .entry__time {
-        margin-block-end: 0.3rem;
+@media print {
+    body {
+        --print: true;
     }
+}
 
+.force-print {
+    --print: true;
+}
+
+@container style(--print: true) {
     .cv {
         /* This is body padding */
         padding: 1.5em 3em;
 
-        .p-experience {
-            break-inside: avoid;
+        .meta a,
+        li,
+        p {
+            font-size: 14px;
+        }
+
+        ol {
+            margin-bottom: 0;
+            /* padding-bottom: 0; */
+        }
+
+        h2 {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .contact {
+            margin-block-end: 0;
+        }
+
+        .cv-social {
+            span {
+                display: block;
+                font-size: 90%;
+                color: grey;
+            }
+        }
+
+        li::marker {
+            color: inherit;
+            font-size: inherit;
+        }
+
+        h2 {
+            font-size: 20px;
+            text-transform: uppercase;
+            /* margin-bottom: 0.3rem; */
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            display: block;
+            max-width: unset;
+            font-family: Rubik, Arial, Helvetica, "Noto Sans Devanagari",
+                "Noto Sans CJK SC Thin", "Noto Sans SC", "Noto Sans Hebrew",
+                sans-serif;
+        }
+
+        h3 {
+            margin: 0;
+            margin-bottom: 0.25rem;
+            padding: 0;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: calc(66.66% - 2rem) calc(33.32% - 2rem);
+            gap: 2rem;
+        }
+
+        section {
+            /* background: blue; */
+        }
+
+        .entry__content {
+            margin-top: 0.5rem;
+        }
+
+        .p-name,
+        .name {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .name {
+            color: var(--accent);
+            display: block;
+            font-size: 16px;
+            margin-top: 0.25rem;
+        }
+
+        .entry__organization {
+            display: block;
+            margin-bottom: 0;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        .entry__time {
+            margin-top: 0;
+        }
+
+        .entrylist {
+            padding-left: 0;
+
+            > li {
+                padding-bottom: 1rem;
+                border-bottom: 1px dashed rgb(from var(--accent) r g b / 0.5);
+            }
+
+            li::after,
+            &::after {
+                display: none;
+            }
+        }
+
+        .contact-name {
+            font-size: 36px;
+            display: block;
+        }
+
+        .contact-title {
+            color: var(--accent);
+            display: block !important;
+            margin-bottom: 0.25rem;
+        }
+
+        header {
+            grid-column: 1 / -1;
+        }
+
+        aside {
+            /* background: red; */
+        }
+
+        > .layout {
+            width: auto;
         }
 
         .ring-wrapper,
         a svg,
         nav,
-        header,
+        header:is(body > header),
         footer {
             display: none;
-        }
-
-        li::marker {
-            font-size: unset;
         }
 
         a {
@@ -196,138 +317,26 @@ li {
             }
         }
 
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        .cv-portfolio-list {
+            a {
+                padding-right: 0;
 
-            li {
-                padding-right: 1rem;
+                &::after {
+                    content: " (" attr(data-url) ")";
+                    word-wrap: break-word;
+                    font-style: italic;
+                    font-size: 0.9em;
+                    white-space: wrap;
+                    opacity: 0.75;
+                    display: inline;
+                    color: inherit;
+                    /* color: #006fc6 !important; */
+                    text-decoration: none !important;
+                    background-image: none !important;
+                    text-shadow: none !important;
+                }
             }
         }
-
-        h3,
-        .h-card,
-        .contact {
-            margin-block-end: 0;
-        }
-
-        .meta {
-            * {
-                margin-inline-end: 0.5rem;
-            }
-        }
-
-        .contact-name {
-            display: inline-block;
-            margin-block-end: 0;
-            margin-inline-end: 1rem;
-        }
-
-        .cv-portfolio-list a::after {
-            content: " (" attr(data-url) ")";
-            word-wrap: break-word;
-            font-style: italic;
-            font-size: 0.9em;
-            white-space: wrap;
-            opacity: 0.75;
-            display: inline;
-            color: inherit;
-            /* color: #006fc6 !important; */
-            text-decoration: none !important;
-            background-image: none !important;
-            text-shadow: none !important;
-        }
-
-        h1 {
-            margin-block-end: 1rem;
-        }
-
-        h2 {
-            font-size: 18px;
-            margin-bottom: 0.5rem;
-            border-color: transparent;
-            margin-block-start: 1rem;
-        }
-
-        h3 {
-            order: -1;
-            font-size: 16px;
-        }
-
-        .p-grid {
-            display: grid;
-            grid-template-columns: repeat(var(--grid-number, 1), 1fr);
-        }
-
-        .p-grid li {
-            padding-inline-end: 1.5rem;
-        }
-
-        ul:last-child {
-            margin-block-end: 0;
-        }
-
-        main {
-            padding-block-end: 0;
-        }
-
-        li::marker {
-            color: inherit;
-        }
-
-        article a {
-            text-decoration: none;
-        }
-
-        p,
-        li {
-            max-width: unset;
-        }
-
-        li,
-        p {
-            font-size: 14px;
-        }
-
-        .meta p,
-        .meta a {
-            font-size: 12px;
-            line-height: 1;
-        }
-
-        .entry__organization {
-            font-size: unset;
-            position: relative;
-            padding-left: 1em;
-
-            &::before {
-                position: absolute;
-                top: 50%;
-                translate: 0 -50%;
-                left: 5px;
-
-                border-radius: 50%;
-                background: black;
-                height: 2px;
-                aspect-ratio: 1;
-                content: "";
-                display: block;
-            }
-        }
-    }
-
-    .entrylist {
-        padding-inline-start: 0;
-        margin-block-end: 0;
-    }
-
-    .entrylist::after,
-    .entrylist > li::after {
-        display: none;
-    }
-
-    .content {
-        margin-block-start: 1rem;
     }
 }
 
