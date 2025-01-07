@@ -11,12 +11,13 @@ import PorfolioList from "@components/CV/PorfolioList.astro";
 import "src/css/cv.css";
 
 import {
+    summary,
     roles,
     skills,
     socialLinks,
     personalInformation,
     portfolioLinks,
-} from "./data";
+} from "./content";
 ---
 
 <DefaultLayout title="CV" hideTitle bodyClass="cv force-print" accent="#008cff">
@@ -65,10 +66,7 @@ import {
 
         <p>
             <!-- I am an experienced senior front-end and javascript developer looking to create exciting and useful products and services in places that are powered by JavaScript, HTML and CSS. -->
-
-            I am a senior front-end engineer with 14+ years of experience
-            creating highly performant and usable products, websites, desktop
-            applications, and browser extensions.
+            {summary}
         </p>
 
         <h2 id="key-achievements">Key Achievements</h2>

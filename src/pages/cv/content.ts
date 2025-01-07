@@ -1,3 +1,6 @@
+export const summary = `I am a senior software engineer with 14+ years of experience creating highly performant and usable
+products, websites, desktop applications, and browser extensions using React, JS, and CSS.`;
+
 export const personalInformation = {
     name: "Andrew JD Hudson",
     title: "Senior Front-end Engineer",
@@ -14,7 +17,7 @@ export interface Role {
         title: string;
         start: string;
         end: string;
-        showFullDates?: boolean;
+        showFullDates: boolean;
         summary: string[];
     };
 }
@@ -58,6 +61,7 @@ export const roles: Role = {
         title: "Full Stack Web Developer",
         start: "October 2016",
         end: "October 2017",
+        showFullDates: true,
         summary: [
             "I created custom performant WordPress and Expression Engine sites.",
             "I hand-crafted a node tool to benchmark and monitor Business Sites using the Web Page Test API and display with React.",
@@ -70,6 +74,7 @@ export const roles: Role = {
         title: "Front-end React Developer",
         start: "March 2016",
         end: "August 2016",
+        showFullDates: true,
         summary: [
             "I created new components and pages using React/Relay and Less from Photoshop designs.",
             "I integrated Webpack into the development process to allow for code modularity, linting, and writing modular ES6 JS.",
@@ -82,6 +87,7 @@ export const roles: Role = {
         title: "Front-end WordPress Developer",
         start: "2013",
         end: "2016",
+        showFullDates: true,
         summary: [
             "I created highly customised WordPress sites from Photoshop designs, with custom post types, taxonomies, meta boxes, shortcodes and functions.",
             "The sites were performant, using best practices and technologies, built within budget and in timeframes.",
@@ -94,6 +100,7 @@ export const roles: Role = {
         title: "Creative UI Developer",
         start: "2010",
         end: "2013",
+        showFullDates: true,
         summary: [
             "I built highly accessible websites for clients including HSBC, RBS and Grant Thornton.",
             "Using CMSs such as WordPress, CQ5 and Sitecore to allow the client to control all content on their site.",
@@ -103,6 +110,8 @@ export const roles: Role = {
 };
 
 export const skills = [
+    "Web Scraping",
+    "Chrome Extension Development",
     "React",
     "Typescript",
     "CSS",
@@ -111,7 +120,6 @@ export const skills = [
     "Svelte",
     "Lit",
     "Svelte",
-    "Chrome Extension Development",
     "Electron",
     "GraphQL",
     "Sass",
