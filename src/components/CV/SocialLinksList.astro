@@ -1,0 +1,29 @@
+---
+import type { SocialLink } from "@pages/cv/data";
+
+interface Props {
+    links: Array<SocialLink>;
+}
+const { links } = Astro.props;
+---
+
+<ul class="cv-social">
+    {
+        links.map((link) => (
+            <li>
+                <a href={link.href}>{link.name}</a>
+                <span>{link.shortLink}</span>
+            </li>
+        ))
+    }
+</ul>
+
+<style>
+    .cv-social {
+        span {
+            display: block;
+            font-size: 90%;
+            color: grey;
+        }
+    }
+</style>

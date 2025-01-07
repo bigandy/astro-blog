@@ -1,0 +1,22 @@
+---
+import ExternalLink from "@components/Global/ExternalLink.astro";
+interface Props {
+    links: any[];
+}
+const { links } = Astro.props;
+---
+
+<ul class="cv-portfolio-list">
+    {
+        links.map((link) => (
+            <li>
+                <ExternalLink href={link.href} data-url={link.shortLink}>
+                    {link.name}
+                </ExternalLink>{" "}
+                - {link.description}
+            </li>
+        ))
+    }
+</ul>
+
+<style></style>

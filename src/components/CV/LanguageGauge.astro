@@ -34,11 +34,11 @@ const { language, levelText, level } = Astro.props;
         &:first-of-type {
             padding-bottom: 0.5em;
             margin-bottom: 1rem;
-            border-bottom: 1px dashed var(--theme-accent);
+            border-bottom: 1px dashed rgb(from var(--theme-accent) r g b / 0.5);
         }
     }
 
-    h3,
+    .wrapper h3, /* need to be more specific to override the default styles */
     h4 {
         margin: 0;
         font-size: 14px;
