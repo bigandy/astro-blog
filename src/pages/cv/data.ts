@@ -31,7 +31,7 @@ export const roles: Role = {
             "Web app development with React.js, Typescript, and D3 taking designs in Figma and Confluence and turning them into stories, tasks and sub-tasks and then delivering the work.",
             "Mentored junior developers and reviewed merge requests across the front-end team ensuring a consistently high quality product.",
             "Estimated, planned and documented new features with product and design.",
-            "Created new features and specced out API changes with the backend team",
+            "Created new features and specced out API changes with the backend team.",
             // "<li>Creating API contract with the backend API developer</li>",
             // <li>Mocking data with express to simulate the API response until backend finished API work</li>",
         ],
