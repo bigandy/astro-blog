@@ -55,7 +55,7 @@ li {
     }
 
     .meta * {
-        margin-right: 1em;
+        margin-right: 1rem;
 
         @container (min-width: 768px) {
             display: inline-block;
@@ -160,19 +160,43 @@ li {
     --print: true;
 }
 
+.contact-photo {
+    display: none;
+}
+
 @container style(--print: true) {
     @container (min-width: 768px) {
         .cv {
             /* This is body padding */
             padding: 1.5em 3em;
 
+            .contact-photo {
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                aspect-ratio: 1;
+                top: 0.5rem;
+                right: -0.5rem;
+                height: 100px;
+            }
+
+            header {
+                /* min-height: 100px; */
+            }
+
             strong {
                 font-weight: bold;
             }
 
             .meta a,
+            .meta p {
+                font-size: 12px;
+                margin-right: 0;
+            }
+
             li,
-            p {
+            p,
+            .meta .contact-title {
                 font-size: 14px;
             }
 
@@ -301,8 +325,9 @@ li {
             .contact-title {
                 color: var(--theme-accent);
                 display: block !important;
-                margin-bottom: 0.25rem;
+                /* margin-bottom: 0.25rem; */
                 font-size: 16px;
+                line-height: 1;
             }
 
             header {
