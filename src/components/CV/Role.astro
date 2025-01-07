@@ -1,0 +1,61 @@
+---
+import dayjs from "dayjs";
+import { type Role } from "@pages/cv/data.ts";
+
+interface Props {
+    role: Role;
+    company: string;
+}
+
+const { role, company } = Astro.props;
+---
+
+<li class="entrylist__item h-event p-experience">
+    <article class="entry">
+        <div class="entry__header">
+            <h3 class="entry__title p-name">
+                {role.title}
+            </h3>
+
+            <p class="entry__organization p-org h-card">
+                <a href={role.url} class="p-name u-url" rel="noreferrer">
+                    {company}
+                </a>
+            </p>
+
+            <p class="entry__time">
+                <time
+                    class="dt-start"
+                    datetime={dayjs(role.start).format("DD-MM-YYYY")}
+                    >{
+                        role.showFullDates
+                            ? dayjs(role.start).format("MM/YYYY")
+                            : dayjs(role.start).format("YYYY")
+                    }</time
+                >
+                <span>–</span>
+                <time
+                    class="dt-end"
+                    datetime={dayjs(role.end).format("DD-MM-YYYY")}
+                    >{
+                        role.showFullDates
+                            ? dayjs(role.end).format("MM/YYYY")
+                            : dayjs(role.end).format("YYYY")
+                    }</time
+                ><span aria-hidden="true">·</span><span class="p-location"
+                    >{role.location}</span
+                >
+            </p>
+        </div>
+
+        <div class="entry__content p-summary">
+            <ul>
+                {
+                    role.summary.map((point: string) => {
+                        return <li>{point}</li>;
+                    })
+                }
+            </ul>
+        </div>
+    </article>
+</li>

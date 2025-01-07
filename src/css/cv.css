@@ -165,6 +165,10 @@ li {
         /* This is body padding */
         padding: 1.5em 3em;
 
+        strong {
+            font-weight: bold;
+        }
+
         .meta a,
         li,
         p {
@@ -199,14 +203,14 @@ li {
             font-size: inherit;
         }
 
+        h1 {
+            /* font-weight: bold; */
+            text-transform: uppercase;
+        }
+
         h2 {
             font-size: 20px;
             text-transform: uppercase;
-            /* margin-bottom: 0.3rem; */
-        }
-
-        h3 {
-            font-size: 18px;
         }
 
         h1,
@@ -214,25 +218,29 @@ li {
         h3 {
             display: block;
             max-width: unset;
-            font-family: Rubik, Arial, Helvetica, "Noto Sans Devanagari",
-                "Noto Sans CJK SC Thin", "Noto Sans SC", "Noto Sans Hebrew",
-                sans-serif;
+            font-family: var(--body-font);
+            font-weight: bold;
         }
 
         h3 {
             margin: 0;
             margin-bottom: 0.25rem;
             padding: 0;
+            font-size: 18px;
         }
 
         main {
             display: grid;
-            grid-template-columns: calc(66.66% - 2rem) calc(33.32% - 2rem);
+            grid-template-columns: calc(66.66% - 2rem) calc(33.32% - 0rem);
             gap: 2rem;
         }
 
-        section {
-            /* background: blue; */
+        /* Hiding for now. */
+        #key-achievements {
+            &,
+            & + ul {
+                display: none;
+            }
         }
 
         .entry__content {
@@ -261,6 +269,10 @@ li {
 
         .entry__time {
             margin-top: 0;
+
+            time:nth-child(1) + span {
+                margin-inline-start: 0;
+            }
         }
 
         .entrylist {
@@ -286,14 +298,11 @@ li {
             color: var(--accent);
             display: block !important;
             margin-bottom: 0.25rem;
+            font-size: 16px;
         }
 
         header {
             grid-column: 1 / -1;
-        }
-
-        aside {
-            /* background: red; */
         }
 
         > .layout {

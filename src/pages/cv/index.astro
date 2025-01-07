@@ -1,0 +1,165 @@
+---
+import ExternalLink from "@components/Global/ExternalLink.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+import "src/css/cv.css";
+
+import { roles } from "./data";
+
+import Role from "@components/CV/Role.astro";
+import LanguageGauge from "@components/CV/LanguageGauge.astro";
+---
+
+<DefaultLayout title="CV" hideTitle bodyClass="cv force-print" accent="#008cff">
+    <header>
+        <div class="contact h-card">
+            <h1 class="contact-name p-name">Andrew JD Hudson</h1>
+            <div class="meta">
+                <p class="contact-title">
+                    <strong>Senior Front-end Engineer</strong>
+                </p>
+                <a href="mailto:ahudson@gmail.com">ahudson@gmail.com</a>
+                <a href="https://andrewhudson.dev">andrewhudson.dev</a>
+                <a href="tel:+33608985800" class="tel">+33608 985800</a>
+                <p class="p-locality">Grenoble, France</p>
+            </div>
+        </div>
+    </header>
+    <section>
+        <h2 id="experience">Experience</h2>
+
+        <ol class="entrylist" reversed>
+            {
+                Object.entries(roles).map(([company, role]) => {
+                    return <Role company={company} role={role} />;
+                })
+            }
+        </ol>
+
+        <h2 id="relevant-experience">Selected Portfolio</h2>
+
+        <ul class="cv-portfolio-list">
+            <li>
+                <ExternalLink
+                    href="https://www.scalable.com/"
+                    data-url="scalable.com">Acumen</ExternalLink
+                > - a digital experience web app for visualising Productivity and
+                Digital Workplace Efficiency using React, Typescript, and D3.
+            </li>
+            <li>
+                <ExternalLink
+                    href="https://truenorth.io"
+                    data-url="truenorth.io">TrueNorth</ExternalLink
+                > - a marketing web app using NextJS, Typescript, GraphQL, Apollo,
+                Prisma, with a Material-UI based component library.
+            </li>
+            <li>
+                <ExternalLink
+                    href="https://sereneapp.com"
+                    data-url="sereneapp.com">Serene App</ExternalLink
+                > – Productivity Application for MacOS users using Electron, Firebase,
+                and React. With companion Chrome, Firefox and Edge extensions.
+            </li>
+            <li>
+                <ExternalLink
+                    href="https://photocrowd.com"
+                    data-url="photocrowd.com">photocrowd.com</ExternalLink
+                > – front-end development with React/Relay, Less, and webpack
+            </li>
+            <li>
+                <ExternalLink
+                    href="https://allistergodfrey.com/"
+                    data-url="allistergodfrey.com"
+                    >allistergodfrey.com</ExternalLink
+                > – a custom responsive WordPress site with many interactive features,
+                galleries, and css transitions
+            </li>
+            <li>
+                <ExternalLink
+                    href="https://ojwmanagement.com/"
+                    data-url="ojwmanagement.com">ojwmanagement.com</ExternalLink
+                > – a single page responsive WordPress site with flexbox, responsive
+                images, and SVG
+            </li>
+            <li>
+                <ExternalLink
+                    href="https://blog.oup.com/"
+                    data-url="blog.oup.com">blog.oup.com</ExternalLink
+                > – responsive WordPress blog for Oxford University Press
+            </li>
+        </ul>
+    </section>
+    <aside>
+        <h2>Summary</h2>
+
+        <p>
+            <!-- I am an experienced senior front-end and javascript developer looking to create exciting and useful products and services in places that are powered by JavaScript, HTML and CSS. -->
+
+            I am a senior front-end engineer with 14+ years experience creating
+            highly performant and usable products, websites, desktop
+            applications, and browser extensions.
+        </p>
+
+        <h2 id="key-achievements">Key Achievements</h2>
+
+        <ul>
+            <li><strong>Performance Boost</strong></li>
+        </ul>
+
+        <h2 id="skills">Skills</h2>
+        <ul class="skills">
+            <li>TypeScript, CSS, JavaScript</li>
+            <li>Extensive experience of Next.js and Astro</li>
+            <li>React, Svelte and Lit</li>
+            <li>Testing with Cypress and Jest</li>
+            <li>Documentation with Storybook, and Confluence</li>
+            <li>Electron and Chrome Browser Extension development</li>
+            <li>Native English</li>
+            <li>Intermediate French</li>
+            <!-- <li>Website Performance Optimisation.</li> -->
+            <!-- <li>Databases (Firebase and Postgres).</li> -->
+            <!-- <li>Serverless functions with custom API routes.</li> -->
+        </ul>
+
+        <h2 id="find-online">Find me Online</h2>
+
+        <ul class="cv-social">
+            <li>
+                <a href="https://github.com/bigandy">Github</a>
+                <span>github.com/bigandy</span>
+            </li>
+            <li>
+                <a href="https://codepen.io/bigandy">Codepen</a><span
+                    >codepen.io/bigandy</span
+                >
+            </li>
+            <li>
+                <a
+                    href="https://www.linkedin.com/in/andrew-hudson-software-engineer/"
+                    >Linkedin</a
+                >
+                <span>linkedin.com/in/andrew-hudson-software-engineer/</span>
+            </li>
+            <li>
+                <a href="https://andrewhudson.dev">Personal Blog</a><span
+                    >andrewhudson.dev</span
+                >
+            </li>
+        </ul>
+
+        <h2 id="Languages">Languages</h2>
+
+        <LanguageGauge language="English" level={5} levelText="Native" />
+        <LanguageGauge language="French" level={2} levelText="Intermediate" />
+
+        <h2 id="education">Education</h2>
+        <ul class="p-grid p-grid--halfs">
+            <li>
+                MChem (hons) Chemistry
+                <h3 class="name">University of Manchester</h3>
+                <time class="dt-start" datetime="1999">1999</time><span>–</span>
+                <time class="dt-end" datetime="2003">2003</time>
+            </li>
+        </ul>
+    </aside>
+</DefaultLayout>

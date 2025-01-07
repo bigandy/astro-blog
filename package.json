@@ -28,7 +28,6 @@
     },
     "devDependencies": {
         "@11ty/eleventy-fetch": "5.0.1",
-        "@biomejs/biome": "1.9.3",
         "@iconify-json/fa6-brands": "1.2.1",
         "@notionhq/client": "2.2.15",
         "@types/lodash": "4.17.10",

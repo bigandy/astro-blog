@@ -1,0 +1,71 @@
+---
+interface Props {
+    language: string;
+    level: 1 | 2 | 3 | 4 | 5;
+    levelText: string;
+}
+const { language, levelText, level } = Astro.props;
+---
+
+<div class="wrapper">
+    <div>
+        <h3>{language}</h3>
+        <h4>{levelText}</h4>
+    </div>
+
+    <ul>
+        {
+            Array(5)
+                .fill(0)
+                .map((_, index) => (
+                    <li class={level - 1 >= index ? "active" : ""} />
+                ))
+        }
+    </ul>
+</div>
+
+<style>
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding-inline-end: 1.2rem;
+
+        &:first-of-type {
+            padding-bottom: 0.5em;
+            margin-bottom: 1rem;
+            border-bottom: 1px dashed var(--theme-accent);
+        }
+    }
+
+    h3,
+    h4 {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    h4 {
+        font-weight: normal;
+    }
+
+    ul {
+        display: flex;
+        margin-left: auto;
+    }
+
+    li {
+        list-style-type: none;
+        height: 1.25rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: #ccc;
+
+        &:not(:last-child) {
+            margin-right: 0.5rem;
+        }
+    }
+
+    .active {
+        background-color: var(--theme-accent);
+    }
+</style>
