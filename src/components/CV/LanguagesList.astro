@@ -1,0 +1,24 @@
+---
+import LanguageGauge from "@components/CV/LanguageGauge.astro";
+
+interface Props {
+    languages: any[];
+}
+const { languages } = Astro.props;
+---
+
+<>
+    {
+        languages.map((language) => {
+            return (
+                <li>
+                    <LanguageGauge
+                        language={language.language}
+                        level={language.level}
+                        levelText={language.levelText}
+                    />
+                </li>
+            );
+        })
+    }
+</>

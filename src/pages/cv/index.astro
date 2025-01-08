@@ -3,10 +3,13 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 
 // CV Specific Components
 import Role from "@components/CV/Role.astro";
-import LanguageGauge from "@components/CV/LanguageGauge.astro";
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
 import PorfolioList from "@components/CV/PorfolioList.astro";
+import EducationList from "@components/CV/EducationList.astro";
+import LanguagesList from "@components/CV/LanguagesList.astro";
+
+import SettingsToggler from "@components/CV/SettingsToggler.svelte";
 
 import "src/css/cv.css";
 
@@ -17,10 +20,19 @@ import {
     socialLinks,
     personalInformation,
     portfolioLinks,
+    education,
+    languages,
 } from "./content";
 ---
 
 <DefaultLayout title="CV" hideTitle bodyClass="cv force-print" accent="#008cff">
+    <script>
+        if (localStorage.getItem("themeColor")) {
+            const themeColor = localStorage.getItem("themeColor") as string;
+
+            document.body.style.setProperty("--accent", themeColor);
+        }
+    </script>
     <header>
         <div class="contact h-card">
             <div>
@@ -46,7 +58,8 @@ import {
                 </div>
             </div>
 
-            <img
+            <SettingsToggler
+                client:visible
                 class="contact-photo"
                 src="/images/cv/andrew-profile.jpg"
                 alt="Photo of Andrew JD Hudson"
@@ -57,7 +70,7 @@ import {
     <section>
         <h2 id="experience">Experience</h2>
 
-        <ol class="entrylist" reversed>
+        <ol class="entrylist list--dashed" reversed>
             {
                 Object.entries(roles).map(([company, role]) => {
                     return <Role company={company} role={role} />;
@@ -90,21 +103,19 @@ import {
 
         <h2 id="online-links">Online Links</h2>
 
-        <SocialLinksList links={socialLinks} />
+        <ul class="cv-social list--plain list--dashed list--compact">
+            <SocialLinksList links={socialLinks} />
+        </ul>
 
         <h2 id="Languages">Languages</h2>
 
-        <LanguageGauge language="English" level={5} levelText="Native" />
-        <LanguageGauge language="French" level={2} levelText="Intermediate" />
+        <ul class="list--plain list--dashed list--compact">
+            <LanguagesList languages={languages} />
+        </ul>
 
         <h2 id="education">Education</h2>
-        <ul class="p-grid p-grid--halfs">
-            <li>
-                MChem (hons) Chemistry
-                <h3 class="name">University of Manchester</h3>
-                <time class="dt-start" datetime="1999">1999</time><span>–</span>
-                <time class="dt-end" datetime="2003">2003</time>
-            </li>
+        <ul class="list--dashed list--plain list--compact">
+            <EducationList education={education} />
         </ul>
     </aside>
 </DefaultLayout>

@@ -7,7 +7,7 @@ interface Props {
 const { links } = Astro.props;
 ---
 
-<ul class="cv-social">
+<>
     {
         links.map((link) => (
             <li>
@@ -16,14 +16,12 @@ const { links } = Astro.props;
             </li>
         ))
     }
-</ul>
+</>
 
 <style>
-    .cv-social {
-        span {
-            display: block;
-            font-size: 90%;
-            color: grey;
-        }
+    span {
+        display: block;
+        font-size: 90%;
+        color: grey;
     }
 </style>

@@ -1,3 +1,5 @@
+import dayjs, { type Dayjs } from "dayjs";
+
 export const summary = `I am a senior software engineer with 14+ years of experience creating highly performant and usable
 products, websites, desktop applications, and browser extensions using React, JS, and CSS.`;
 
@@ -11,24 +13,25 @@ export const personalInformation = {
 };
 
 export interface Role {
-    [key: string]: {
-        url: string;
-        location: string;
-        title: string;
-        start: string;
-        end: string;
-        showFullDates: boolean;
-        summary: string[];
-    };
+    url: string;
+    location: string;
+    title: string;
+    start: Dayjs;
+    end: Dayjs;
+    showFullDates: boolean;
+    summary: string[];
+}
+interface Roles {
+    [key: string]: Role;
 }
 
-export const roles: Role = {
+export const roles: Roles = {
     "Scalable Software": {
         url: "https://www.scalable.com",
         location: "Remote, UK",
         title: "Senior Front-end Engineer",
-        start: "July 2023",
-        end: "August 2024",
+        start: dayjs("July 2023"),
+        end: dayjs("August 2024"),
         showFullDates: true,
         summary: [
             "Web app development with React.js, Typescript, and D3 taking designs in Figma and Confluence and turning them into stories, tasks and sub-tasks and then delivering the work.",
@@ -43,8 +46,8 @@ export const roles: Role = {
         url: "https://ventureharbour.com",
         location: "Remote, UK",
         title: "Senior Software Engineer",
-        start: "October 2017",
-        end: "February 2023",
+        start: dayjs("October 2017"),
+        end: dayjs("February 2023"),
         showFullDates: true,
         summary: [
             "Web app development with CSS-in-JS, Next.js, GraphQL and Typescript.",
@@ -59,8 +62,8 @@ export const roles: Role = {
         url: "https://taylorandfrancis.com",
         location: "Didcot, UK",
         title: "Full Stack Web Developer",
-        start: "October 2016",
-        end: "October 2017",
+        start: dayjs("October 2016"),
+        end: dayjs("October 2017"),
         showFullDates: true,
         summary: [
             "I created custom performant WordPress and Expression Engine sites.",
@@ -72,8 +75,8 @@ export const roles: Role = {
         url: "https://www.photocrowd.com",
         location: "Oxford, UK",
         title: "Front-end React Developer",
-        start: "March 2016",
-        end: "August 2016",
+        start: dayjs("March 2016"),
+        end: dayjs("August 2016"),
         showFullDates: true,
         summary: [
             "I created new components and pages using React/Relay and Less from Photoshop designs.",
@@ -85,8 +88,8 @@ export const roles: Role = {
         url: "https://www.electricstudio.co.uk",
         location: "Didcot, UK",
         title: "Front-end WordPress Developer",
-        start: "2013",
-        end: "2016",
+        start: dayjs("2013"),
+        end: dayjs("2016"),
         showFullDates: true,
         summary: [
             "I created highly customised WordPress sites from Photoshop designs, with custom post types, taxonomies, meta boxes, shortcodes and functions.",
@@ -98,8 +101,8 @@ export const roles: Role = {
         url: "https://www.heathwallace.com",
         location: "Reading, UK",
         title: "Creative UI Developer",
-        start: "2010",
-        end: "2013",
+        start: dayjs("2010"),
+        end: dayjs("2013"),
         showFullDates: true,
         summary: [
             "I built highly accessible websites for clients including HSBC, RBS and Grant Thornton.",
@@ -210,5 +213,33 @@ export const portfolioLinks = [
         name: "blog.oup.com",
         shortLink: "blog.oup.com",
         description: "responsive WordPress blog for Oxford University Press",
+    },
+];
+
+export const education = [
+    {
+        name: "Masters CIW Designer",
+        institution: "Computeach",
+        start: dayjs("2009"),
+        end: dayjs("2010"),
+    },
+    {
+        name: "MChem (hons) Chemistry",
+        institution: "University of Manchester",
+        start: dayjs("1999"),
+        end: dayjs("2003"),
+    },
+];
+
+export const languages = [
+    {
+        language: "English",
+        level: 5,
+        levelText: "Native",
+    },
+    {
+        language: "French",
+        level: 2,
+        levelText: "Intermediate",
     },
 ];
