@@ -17,11 +17,22 @@ const { skills } = Astro.props;
     li {
         display: inline-block;
         padding-right: 0.25rem;
+        font-size: 10px;
+        margin-bottom: 0;
+        padding-bottom: 0;
 
         &:not(:last-child)::after {
             content: "/";
             padding-left: 0.25rem;
             color: var(--theme-accent);
         }
+    }
+
+    ul li {
+        font-size: 12px !important;
+    }
+
+    ul {
+        line-height: 1 !important;
     }
 </style>
