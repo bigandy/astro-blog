@@ -4,11 +4,13 @@
     interface Props {
         src: string;
         alt: string;
+        themeColorKey: string;
     }
 
-    let { alt, src }: Props = $props();
+    let { alt, src, themeColorKey }: Props = $props();
 
     let themeColor = $state("");
+    let debug = $state(false);
 
     const handleColor = (e: any) => {
         const body = document.body;
@@ -17,7 +19,7 @@
         body.style.setProperty("--accent", themeColor);
 
         // save to localStorage
-        localStorage.setItem("themeColor", themeColor);
+        localStorage.setItem(themeColorKey, themeColor);
     };
 
     const closePopover = () => {
@@ -26,6 +28,7 @@
             // @ts-expect-error
             popover.hidePopover();
         }
+        debug = false;
     };
 
     const resetTheme = () => {
@@ -40,14 +43,25 @@
             body.style.setProperty("--accent", rootThemeColor);
 
             // save to localStorage
-            localStorage.setItem("themeColor", rootThemeColor);
+            localStorage.setItem(themeColorKey, rootThemeColor);
         }
     };
 
     onMount(() => {
-        const storageTheme = localStorage.getItem("themeColor");
+        const storageTheme = localStorage.getItem(themeColorKey);
+
         if (storageTheme && storageTheme !== "") {
             themeColor = storageTheme;
+        }
+
+        debug = false;
+    });
+
+    $effect(() => {
+        if (debug) {
+            document.body.classList.add("debug");
+        } else {
+            document.body.classList.remove("debug");
         }
     });
 </script>
@@ -57,7 +71,7 @@
         <img {src} {alt} />
     </button>
 
-    <div class="box" popover="auto" id="settings-menu">
+    <div class="settings-menu" popover="auto" id="settings-menu">
         <h2>Theme Picker</h2>
 
         <label for="color">Theme color:</label>
@@ -69,6 +83,15 @@
             value={themeColor}
         />
         <button onclick={resetTheme} class="reset">Reset Theme</button>
+
+        <label for="debug">Debug</label>
+        <input
+            type="checkbox"
+            name="debug"
+            id="debug"
+            bind:checked={debug}
+            class="inline"
+        />
         <button onclick={closePopover} class="close">x</button>
     </div>
 </div>
@@ -78,7 +101,14 @@
         all: unset;
     }
 
+    img,
+    label,
     button {
+        cursor: pointer;
+    }
+
+    button {
+        cursor: pointer;
         &:hover {
             img {
                 filter: drop-shadow(0px 0px 6px var(--theme-accent));
@@ -92,7 +122,6 @@
         border-radius: 50%;
         aspect-ratio: 1;
         height: 100px;
-
         transition: 300ms filter ease-in-out;
     }
 
@@ -104,17 +133,25 @@
         font-size: 14px;
     }
 
-    .box {
+    .settings-menu {
         /* display: block; */
         width: calc(anchor-size(width) * 3);
         position: absolute;
         inset: auto;
         margin: 0;
-        position-anchor: --image;
-        top: calc(anchor(bottom) + 10px);
-        right: anchor(right);
+        background-color: white;
         padding: 1rem;
         border-radius: 0.25rem;
+
+        position-anchor: --image;
+        position-try-fallbacks: flip-inline;
+
+        /* top: calc(anchor(bottom) + 10px);
+        right: anchor(right); */
+        /* left: auto; */
+
+        position-area: span-right bottom;
+        margin-top: 10px;
 
         h2 {
             font-weight: bold;
@@ -122,11 +159,18 @@
             margin-top: 0;
             margin-bottom: 0.5rem;
             padding-top: 0;
+            font-size: 18px;
         }
 
         input {
             width: 100%;
             margin-bottom: 1rem;
+        }
+
+        [type="checkbox"] {
+            width: auto;
+            vertical-align: middle;
+            margin-bottom: 0;
         }
 
         .reset {
@@ -140,13 +184,16 @@
             background: transparent;
             border: none;
             font-weight: bold;
-            cursor: pointer;
         }
     }
 
     @media print {
         [popover] {
             display: none;
+        }
+
+        img {
+            filter: none !important;
         }
     }
 </style>

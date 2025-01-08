@@ -1,5 +1,7 @@
 import dayjs, { type Dayjs } from "dayjs";
 
+export const themeColorKey = "cv-themeColor";
+
 export const summary = `I am a senior software engineer with 14+ years of experience creating highly performant and usable
 products, websites, desktop applications, and browser extensions using React, JS, and CSS.`;
 
@@ -21,7 +23,7 @@ export interface Role {
     showFullDates: boolean;
     summary: string[];
 }
-interface Roles {
+export interface Roles {
     [key: string]: Role;
 }
 

@@ -26,8 +26,15 @@ const { language, levelText, level } = Astro.props;
 
 <style>
     .wrapper {
+        --dot-dimension: 1.25rem;
+        --dot-gap: 0.5rem;
+        --dot-color-fallback: var(--lightergrey);
+        --dot-color-active: var(--theme-accent);
+
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr calc(
+                calc(var(--dot-dimension) * 5) + calc(var(--dot-gap) * 4)
+            );
         align-items: center;
         padding-inline-end: 1.2rem;
     }
@@ -49,10 +56,10 @@ const { language, levelText, level } = Astro.props;
 
     li {
         list-style-type: none;
-        height: 1.25rem;
+        height: var(--dot-dimension);
         aspect-ratio: 1;
         border-radius: 50%;
-        background: #ccc;
+        background-color: var(--dot-color-fallback);
 
         &:not(:last-child) {
             margin-right: 0.5rem;
@@ -60,6 +67,6 @@ const { language, levelText, level } = Astro.props;
     }
 
     .active {
-        background-color: var(--theme-accent);
+        background-color: var(--dot-color-active);
     }
 </style>

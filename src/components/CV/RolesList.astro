@@ -1,0 +1,18 @@
+---
+import Role from "@components/CV/Role.astro";
+
+import type { Roles } from "@pages/cv/content";
+
+interface Props {
+    roles: Roles;
+}
+const { roles } = Astro.props;
+---
+
+<>
+    {
+        Object.entries(roles).map(([company, role]) => {
+            return <Role company={company} role={role} />;
+        })
+    }
+</>

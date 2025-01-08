@@ -1,4 +1,7 @@
 .cv {
+    --lightgrey: grey;
+    --lightergrey: #ccc;
+
     .footer-nav {
         margin-block-start: 3rem;
     }
@@ -187,6 +190,12 @@ li {
 }
 
 @container style(--print: true) {
+    .debug {
+        * {
+            outline: 1px dotted red;
+        }
+    }
+
     .cv {
         /* This is body padding */
         padding: 1.5em 3em;
@@ -198,6 +207,20 @@ li {
 
         strong {
             font-weight: bold;
+        }
+
+        aside > section {
+            break-inside: avoid;
+            page-break-inside: avoid;
+
+            &:not(:first-of-type) {
+                margin-top: 1rem;
+            }
+        }
+
+        .main-column > section li {
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
         .meta a,
@@ -265,7 +288,7 @@ li {
 
         main {
             display: grid;
-            gap: 2rem;
+            column-gap: 2rem;
 
             &.content {
                 margin-block: 1rem;
@@ -339,8 +362,9 @@ li {
         }
 
         .contact-name {
-            font-size: 36px;
+            font-size: 28px;
             display: block;
+            margin-bottom: 0.5rem;
         }
 
         .contact-title {
@@ -389,7 +413,6 @@ li {
                     opacity: 0.75;
                     display: inline;
                     color: inherit;
-                    /* color: #006fc6 !important; */
                     text-decoration: none !important;
                     background-image: none !important;
                     text-shadow: none !important;
@@ -411,13 +434,13 @@ li {
     }
 }
 
-/* @media print {
-    .cv {
-        [popover] {
-            display: none;
+@media print {
+    .debug {
+        * {
+            outline: none;
         }
     }
-} */
+}
 
 @page {
     margin: 1%;

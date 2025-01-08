@@ -2,18 +2,20 @@
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 
 // CV Specific Components
-import Role from "@components/CV/Role.astro";
+
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
 import PorfolioList from "@components/CV/PorfolioList.astro";
 import EducationList from "@components/CV/EducationList.astro";
 import LanguagesList from "@components/CV/LanguagesList.astro";
+import RolesList from "@components/CV/RolesList.astro";
 
 import SettingsToggler from "@components/CV/SettingsToggler.svelte";
 
 import "src/css/cv.css";
 
 import {
+    themeColorKey,
     summary,
     roles,
     skills,
@@ -25,12 +27,17 @@ import {
 } from "./content";
 ---
 
-<DefaultLayout title="CV" hideTitle bodyClass="cv force-print" accent="#008cff">
-    <script>
-        if (localStorage.getItem("themeColor")) {
-            const themeColor = localStorage.getItem("themeColor") as string;
-
-            document.body.style.setProperty("--accent", themeColor);
+<DefaultLayout
+    title="CV"
+    hideTitle
+    bodyClass="cv force-print"
+    accent="#008cff"
+    showToggler={false}
+>
+    <script define:vars={{ themeColorKey }}>
+        const localThemeColor = localStorage.getItem(themeColorKey);
+        if (localThemeColor) {
+            document.body.style.setProperty("--accent", localThemeColor);
         }
     </script>
     <header>
@@ -63,59 +70,70 @@ import {
                 class="contact-photo"
                 src="/images/cv/andrew-profile.jpg"
                 alt="Photo of Andrew JD Hudson"
+                themeColorKey={themeColorKey}
             />
         </div>
     </header>
 
-    <section>
-        <h2 id="experience">Experience</h2>
+    <section class="main-column">
+        <section>
+            <h2 id="experience">Experience</h2>
 
-        <ol class="entrylist list--dashed" reversed>
-            {
-                Object.entries(roles).map(([company, role]) => {
-                    return <Role company={company} role={role} />;
-                })
-            }
-        </ol>
+            <ol class="entrylist list--dashed" reversed>
+                <RolesList roles={roles} />
+            </ol>
+        </section>
 
-        <h2 id="relevant-experience">Selected Portfolio</h2>
+        <section>
+            <h2 id="relevant-experience">Selected Portfolio</h2>
 
-        <PorfolioList links={portfolioLinks} />
+            <PorfolioList links={portfolioLinks} />
+        </section>
     </section>
 
     <aside>
-        <h2>Summary</h2>
+        <section>
+            <h2>Summary</h2>
 
-        <p>
-            <!-- I am an experienced senior front-end and javascript developer looking to create exciting and useful products and services in places that are powered by JavaScript, HTML and CSS. -->
-            {summary}
-        </p>
+            <p>
+                <!-- I am an experienced senior front-end and javascript developer looking to create exciting and useful products and services in places that are powered by JavaScript, HTML and CSS. -->
+                {summary}
+            </p>
+        </section>
 
-        <h2 id="key-achievements">Key Achievements</h2>
+        <section>
+            <h2 id="key-achievements">Key Achievements</h2>
 
-        <ul>
-            <li><strong>Performance Boost</strong></li>
-        </ul>
+            <ul>
+                <li><strong>Performance Boost</strong></li>
+            </ul>
+        </section>
 
-        <h2 id="skills">Skills</h2>
+        <section>
+            <h2 id="skills">Skills</h2>
 
-        <SkillsList skills={skills} />
+            <SkillsList skills={skills} />
+        </section>
 
-        <h2 id="online-links">Online Links</h2>
+        <section>
+            <h2 id="online-links">Online Links</h2>
 
-        <ul class="cv-social list--plain list--dashed list--compact">
-            <SocialLinksList links={socialLinks} />
-        </ul>
+            <ul class="cv-social list--plain list--dashed list--compact">
+                <SocialLinksList links={socialLinks} />
+            </ul>
+        </section>
+        <section>
+            <h2 id="Languages">Languages</h2>
 
-        <h2 id="Languages">Languages</h2>
-
-        <ul class="list--plain list--dashed list--compact">
-            <LanguagesList languages={languages} />
-        </ul>
-
-        <h2 id="education">Education</h2>
-        <ul class="list--dashed list--plain list--compact">
-            <EducationList education={education} />
-        </ul>
+            <ul class="list--plain list--dashed list--compact">
+                <LanguagesList languages={languages} />
+            </ul>
+        </section>
+        <section>
+            <h2 id="education">Education</h2>
+            <ul class="list--dashed list--plain list--compact">
+                <EducationList education={education} />
+            </ul>
+        </section>
     </aside>
 </DefaultLayout>
