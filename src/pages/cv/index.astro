@@ -10,7 +10,7 @@ import EducationList from "@components/CV/EducationList.astro";
 import LanguagesList from "@components/CV/LanguagesList.astro";
 import RolesList from "@components/CV/RolesList.astro";
 
-import SettingsToggler from "@components/CV/SettingsToggler.svelte";
+import SettingsToggler from "@components/CV/SettingsToggler.astro";
 
 import "src/css/cv.css";
 
@@ -27,13 +27,7 @@ import {
 } from "./content";
 ---
 
-<DefaultLayout
-    title="CV"
-    hideTitle
-    bodyClass="cv force-print"
-    accent="#008cff"
-    showToggler={false}
->
+<DefaultLayout title="CV" hideTitle bodyClass="cv force-print" accent="#008cff">
     <script define:vars={{ themeColorKey }}>
         const localThemeColor = localStorage.getItem(themeColorKey);
         if (localThemeColor) {
@@ -66,8 +60,6 @@ import {
             </div>
 
             <SettingsToggler
-                client:visible
-                class="contact-photo"
                 src="/images/cv/andrew-profile.jpg"
                 alt="Photo of Andrew JD Hudson"
                 themeColorKey={themeColorKey}

@@ -13,12 +13,12 @@ const { language, levelText, level } = Astro.props;
         <h4>{levelText}</h4>
     </div>
 
-    <ul>
+    <ul class="star cp octagonx right-arrowx">
         {
             Array(5)
                 .fill(0)
                 .map((_, index) => (
-                    <li class={level - 1 >= index ? "active" : ""} />
+                    <li class={`${level - 1 >= index ? "active" : ""}`} />
                 ))
         }
     </ul>
@@ -36,7 +36,6 @@ const { language, levelText, level } = Astro.props;
                 calc(var(--dot-dimension) * 5) + calc(var(--dot-gap) * 4)
             );
         align-items: center;
-        padding-inline-end: 1.2rem;
     }
 
     .wrapper h3, /* need to be more specific to override the default styles */
@@ -52,6 +51,7 @@ const { language, levelText, level } = Astro.props;
     ul {
         display: flex;
         margin-left: auto;
+        padding-inline-start: 0;
     }
 
     li {
@@ -66,7 +66,52 @@ const { language, levelText, level } = Astro.props;
         }
     }
 
+    .cp li {
+        border-radius: 0;
+        clip-path: var(--clip-path);
+    }
+
     .active {
         background-color: var(--dot-color-active);
+    }
+
+    .star {
+        --clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+        );
+    }
+
+    .octagon {
+        --clip-path: polygon(
+            30% 0%,
+            70% 0%,
+            100% 30%,
+            100% 70%,
+            70% 100%,
+            30% 100%,
+            0% 70%,
+            0% 30%
+        );
+    }
+
+    .right-arrow {
+        --clip-path: polygon(
+            0% 20%,
+            60% 20%,
+            60% 0%,
+            100% 50%,
+            60% 100%,
+            60% 80%,
+            0% 80%
+        );
     }
 </style>

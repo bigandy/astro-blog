@@ -1,0 +1,62 @@
+---
+import SettingsMenu from "./SettingsMenu.svelte";
+
+interface Props {
+    src: string;
+    alt: string;
+    themeColorKey: string;
+}
+const { src, alt, themeColorKey } = Astro.props;
+---
+
+<div class="wrapper">
+    <button popovertarget="settings-menu">
+        <img {src} {alt} />
+    </button>
+
+    <SettingsMenu client:only themeColorKey={themeColorKey} />
+</div>
+
+<style>
+    .wrapper > button {
+        all: unset;
+    }
+
+    img,
+    button {
+        cursor: pointer;
+    }
+
+    button {
+        cursor: pointer;
+
+        &:hover {
+            img {
+                filter: drop-shadow(0px 0px 6px var(--theme-accent));
+            }
+        }
+    }
+
+    img {
+        anchor-name: --image;
+        display: block;
+        border-radius: 50%;
+        aspect-ratio: 1;
+        height: 100px;
+        transition: 300ms filter ease-in-out;
+    }
+
+    .wrapper:has([popover]:popover-open) img {
+        filter: drop-shadow(0px 0px 6px var(--theme-accent));
+    }
+
+    @media print {
+        [popover] {
+            display: none;
+        }
+
+        img {
+            filter: none !important;
+        }
+    }
+</style>

@@ -6,15 +6,12 @@ import FooterNav from "@components/Nav/FooterNav.astro";
 import "src/css/global.css";
 import BottomOfHead from "@components/Global/BottomOfHead.astro";
 import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
-import SettingsToggler from "@components/CV/SettingsToggler.svelte";
-
 interface Props {
     accent?: string;
     title: string;
     head?: string;
     bodyClass?: string;
     hideTitle?: boolean;
-    showToggler?: boolean;
 }
 
 const {
@@ -23,7 +20,6 @@ const {
     accent = "var(--theme-accent-blue)",
     bodyClass = "",
     hideTitle,
-    showToggler = false,
 }: Props = Astro.props;
 ---
 
@@ -59,25 +55,6 @@ const {
 
     <body class={bodyClass}>
         <BlogHeader />
-
-        {
-            showToggler && (
-                <SettingsToggler
-                    client:visible
-                    class="contact-photo"
-                    src="/images/cv/andrew-profile.jpg"
-                    alt="Photo of Andrew JD Hudson"
-                    themeColorKey={"theme-color-default"}
-                />
-
-                <script define:vars={{ themeColorKey: "theme-color-default" }}>
-                    const localThemeColor = localStorage.getItem(themeColorKey);
-                    if (localThemeColor) {
-                        document.body.style.setProperty("--accent", localThemeColor);
-                    }
-                </script>
-            )
-        }
 
         <main class="content layout">
             {

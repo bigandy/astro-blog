@@ -237,6 +237,7 @@ li {
         .meta p {
             font-size: 12px;
             margin-right: 0;
+            line-height: 19px;
         }
 
         li,
@@ -285,7 +286,7 @@ li {
         h3 {
             display: block;
             max-width: unset;
-            font-family: var(--body-font);
+            font-family: var(--cv-heading-font, var(--body-font));
             font-weight: bold;
         }
 

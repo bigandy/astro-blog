@@ -1,0 +1,32 @@
+---
+interface Props {
+    education: any[];
+}
+const { education } = Astro.props;
+---
+
+<>
+    {
+        education.map((education) => {
+            return (
+                <li>
+                    {education.name}
+                    <h3 class="name">{education.institution}</h3>
+                    <time
+                        class="dt-start"
+                        datetime={education.start.format("YYYY")}
+                    >
+                        {education.start.format("YYYY")}
+                    </time>
+                    <span>–</span>
+                    <time
+                        class="dt-end"
+                        datetime={education.end.format("YYYY")}
+                    >
+                        {education.end.format("YYYY")}
+                    </time>
+                </li>
+            );
+        })
+    }
+</>
