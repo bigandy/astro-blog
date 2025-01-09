@@ -2,9 +2,7 @@
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
 
-const slug = Astro.url.pathname;
-
-const themeColorKey = `${slug}-themeColorKey`;
+import { themeColorKey } from "@pages/cv/content";
 ---
 
 <script define:vars={{ themeColorKey }}>
@@ -17,7 +15,7 @@ const themeColorKey = `${slug}-themeColorKey`;
 <header class="layout">
     <div class="layout-inner">
         <h1>
-            <a href="/"> Andrew Hudson </a>
+            <a href="/"> Andrew JD Hudson </a>
         </h1>
         <HeaderNav />
     </div>
