@@ -336,3 +336,26 @@
         max-width: 80rch;
     }
 }
+
+.list--dashed {
+    > li {
+        margin-block-end: 1.5rem;
+        padding-bottom: 1rem;
+
+        &:not(:last-of-type) {
+            border-bottom: 1px dashed rgb(from var(--theme-accent) r g b / 0.5);
+        }
+    }
+
+    &.list--compact {
+        > li {
+            margin-block-end: 0.5rem;
+            padding-block-end: 0.5rem;
+        }
+    }
+}
+
+.list--plain {
+    padding-left: 0;
+    list-style: "";
+}

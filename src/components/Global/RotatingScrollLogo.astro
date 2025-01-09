@@ -62,6 +62,7 @@ const charCount = length * 2;
                 var(--radius) * calc(var(--parent-ring-font-size) * -2)
             );
             opacity: 0;
+            pointer-events: none;
             transition:
                 opacity 300ms,
                 scale 300ms;
@@ -83,22 +84,24 @@ const charCount = length * 2;
                 }
             }
         }
+        @supports (animation-timeline: scroll()) {
+            @container (min-width: 1300px) {
+                @media (prefers-reduced-motion: no-preference) {
+                    .ring-wrapper {
+                        --header-height: 53px;
 
-        @container (min-width: 1300px) {
-            @media (prefers-reduced-motion: no-preference) {
-                .ring-wrapper {
-                    --header-height: 53px;
+                        display: block;
+                        animation-range:
+                            var(--header-height)
+                                calc(var(--header-height) + 50px),
+                            calc(var(--header-height)) 100%;
+                        animation-name: fadeIn, rotation;
+                        animation-fill-mode: both;
+                        animation-timeline: scroll();
 
-                    display: block;
-                    animation-range:
-                        var(--header-height) calc(var(--header-height) + 50px),
-                        calc(var(--header-height)) 100%;
-                    animation-name: fadeIn, rotation;
-                    animation-fill-mode: both;
-                    animation-timeline: scroll();
-
-                    .ring {
-                        --font-size: var(--parent-ring-font-size);
+                        .ring {
+                            --font-size: var(--parent-ring-font-size);
+                        }
                     }
                 }
             }
@@ -175,6 +178,7 @@ const charCount = length * 2;
         to {
             opacity: 1;
             --parent-ring-font-size: 0.75;
+            pointer-events: auto;
         }
     }
 

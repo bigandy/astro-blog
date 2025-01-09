@@ -1,0 +1,60 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import Project from "@components/Portfolio/Project.astro";
+
+const title = "Portfolio";
+
+const projectList = [
+    {
+        name: "Acumen",
+        href: "https://scalable.com",
+        screenshots: [
+            {
+                src: "",
+                alt: "",
+            },
+        ],
+        introductionText:
+            "Acumen is a react-based productivity tool for large-scale businesses to assess and improve productivity and DX of their employees",
+        notes: ["I learned this during the project"],
+        technologiesUsed: [
+            "react",
+            "css",
+            "d3",
+            "express",
+            "jest",
+            "e2e",
+            "unit testing",
+        ],
+    },
+    {
+        name: "TrueNorth",
+        href: "https://truenorth.io",
+        screenshots: [
+            {
+                src: "",
+                alt: "",
+            },
+        ],
+        introductionText: "TrueNorth is blah blah blah",
+        notes: ["I learned this during the project"],
+        technologiesUsed: ["react"],
+    },
+];
+---
+
+<DefaultLayout title={title}>
+    <p>This is where my portfolio will go. Currently WIP.</p>
+
+    <ul class="list--dashed list--plain">
+        {
+            projectList.map((project) => {
+                return (
+                    <li>
+                        <Project project={project} />
+                    </li>
+                );
+            })
+        }
+    </ul>
+</DefaultLayout>

@@ -1,16 +1,8 @@
 ---
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
-
 import { themeColorKey } from "@pages/cv/content";
 ---
-
-<script define:vars={{ themeColorKey }}>
-    const localThemeColor = localStorage.getItem(themeColorKey);
-    if (localThemeColor) {
-        document.body.style.setProperty("--accent", localThemeColor);
-    }
-</script>
 
 <header class="layout">
     <div class="layout-inner">

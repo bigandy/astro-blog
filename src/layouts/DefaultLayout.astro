@@ -12,6 +12,7 @@ interface Props {
     head?: string;
     bodyClass?: string;
     hideTitle?: boolean;
+    hideToggler: boolean;
 }
 
 const {
@@ -20,7 +21,10 @@ const {
     accent = "var(--theme-accent-blue)",
     bodyClass = "",
     hideTitle,
+    hideToggler = false,
 }: Props = Astro.props;
+
+import { themeColorKey } from "@pages/cv/content";
 ---
 
 <html lang="en">
@@ -42,7 +46,14 @@ const {
     </head>
 
     <body class={bodyClass}>
-        <SiteHeader />
+        {!hideToggler && <SiteHeader />}
+
+        <script define:vars={{ themeColorKey }}>
+            const localThemeColor = localStorage.getItem(themeColorKey);
+            if (localThemeColor) {
+                document.body.style.setProperty("--accent", localThemeColor);
+            }
+        </script>
 
         <main class="content layout">
             {

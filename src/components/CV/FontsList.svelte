@@ -1,12 +1,12 @@
 <script lang="ts">
-    // @ts-expect-error
     import fonts from "google-fonts-complete";
 
+    // @ts-expect-error
     import WebFont from "webfontloader";
 
     let font = $state("");
 
-    const setFont = (font) => {
+    const setFont = (font: string) => {
         WebFont.load({
             events: true,
             classes: false,

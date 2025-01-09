@@ -12,7 +12,7 @@
     let themeColor = $state("");
     let debug = $state(false);
 
-    const handleColor = (e) => {
+    const handleColor = (e: any) => {
         const body = document.body;
         themeColor = e.target.value;
 
