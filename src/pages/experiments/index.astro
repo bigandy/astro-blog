@@ -142,16 +142,12 @@ const pages: Pages = {
 ---
 
 <style>
-    body {
-        --theme-accent: #52b788;
-    }
-
     h3 {
         margin-block-start: 3rem;
     }
 </style>
 
-<DefaultLayout title="Experiments">
+<DefaultLayout title="Experiments" accent="#52b788">
     <div class="container">
         {
             Object.keys(pages).map((group) => {

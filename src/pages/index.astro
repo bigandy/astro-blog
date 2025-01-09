@@ -1,23 +1,28 @@
 ---
 import BlogPostList from "@components/Blog/utils/blogPostList.astro";
 import ForwardArrow from "@components/Global/ForwardArrow.astro";
+// import DefaultLayoutNew from "@layouts/DefaultLayoutNew.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 
 const themeAccent = "#cb4f00";
+
+console.log(Astro);
 ---
 
 <DefaultLayout title="" accent={themeAccent}>
-    <p>
-        I'm Andrew and I am a senior front-end software engineer based in
-        Grenoble, France.
-    </p>
+    <div class="intro">
+        <p>
+            I'm Andrew and I am a senior front-end software engineer based in
+            Grenoble, France.
+        </p>
 
-    <p>
-        This site was created with Zed and strong black coffee, with Astro as
-        the framework of choice with a bit of Svelte (for the bookshelf) but
-        mostly vanilla html and css using markdown to write the blog posts and
-        articles.
-    </p>
+        <p>
+            This site was created with Zed and strong black coffee, with Astro
+            as the framework of choice with a bit of Svelte (for the bookshelf)
+            but mostly vanilla html and css using markdown to write the blog
+            posts and articles.
+        </p>
+    </div>
 
     <div class="blog-post-list">
         <h2>Latest Blog Posts</h2>
@@ -28,10 +33,11 @@ const themeAccent = "#cb4f00";
 </DefaultLayout>
 
 <style>
-    h1 {
-        font-size: var(--font-size-3);
-    }
     .blog-post-list {
         margin-block-start: 3rem;
+    }
+
+    .intro {
+        max-width: 80ch;
     }
 </style>

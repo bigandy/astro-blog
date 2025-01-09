@@ -37,10 +37,6 @@
     }
 }
 
-.content {
-    margin-block-start: 2rem;
-}
-
 ol,
 ul {
     padding-inline-start: 1.5rem;
@@ -286,7 +282,7 @@ li {
         h3 {
             display: block;
             max-width: unset;
-            font-family: var(--cv-heading-font, var(--body-font));
+            font-family: var(--settings-heading-font, var(--body-font));
             font-weight: bold;
         }
 

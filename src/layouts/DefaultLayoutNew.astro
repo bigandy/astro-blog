@@ -1,11 +1,11 @@
 ---
 import BaseHead from "@components/Global/BaseHead.astro";
-import SiteHeader from "@components/Global/SiteHeader.astro";
 import FooterNav from "@components/Nav/FooterNav.astro";
 
-import "src/css/global.css";
+import "src/css/global-new.css";
 import BottomOfHead from "@components/Global/BottomOfHead.astro";
 import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
+import SiteHeaderNew from "@components/Global/SiteHeaderNew.astro";
 interface Props {
     accent?: string;
     title: string;
@@ -33,16 +33,12 @@ const {
             body {
                 --theme-accent: var(--accent);
             }
-
-            .content :global(main > * + *) {
-                margin-block-start: 1rem;
-            }
         </style>
         <BottomOfHead />
     </head>
 
     <body class={bodyClass}>
-        <SiteHeader />
+        <SiteHeaderNew />
 
         <main class="content layout">
             {

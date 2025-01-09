@@ -14,7 +14,10 @@
                 families: [font],
             },
             fontactive: () => {
-                document.body.style.setProperty("--cv-heading-font", font);
+                document.body.style.setProperty(
+                    "--settings-heading-font",
+                    font,
+                );
                 font = font;
             },
         });

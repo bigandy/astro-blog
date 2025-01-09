@@ -28,12 +28,6 @@ import {
 ---
 
 <DefaultLayout title="CV" hideTitle bodyClass="cv force-print" accent="#008cff">
-    <script define:vars={{ themeColorKey }}>
-        const localThemeColor = localStorage.getItem(themeColorKey);
-        if (localThemeColor) {
-            document.body.style.setProperty("--accent", localThemeColor);
-        }
-    </script>
     <header>
         <div class="contact h-card">
             <div>

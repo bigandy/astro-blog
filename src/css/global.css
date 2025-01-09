@@ -75,7 +75,7 @@
 
     :where(h1, h2, h3) {
         font-weight: var(--f-body-weight);
-        font-family: var(--header-font-family);
+        font-family: var(--settings-heading-font, var(--header-font-family));
     }
 
     ::selection {
@@ -320,11 +320,6 @@
         }
     }
 
-    body > .layout {
-        width: min(900px, 100%);
-        margin-inline: auto;
-    }
-
     /* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
     .post img {
         max-width: 100%;
@@ -334,5 +329,10 @@
         background-repeat: no-repeat;
         background-size: cover;
         shape-margin: 0.75rem;
+    }
+
+    :is(li, p, h3) {
+        max-width: 60ch;
+        max-width: 80rch;
     }
 }
