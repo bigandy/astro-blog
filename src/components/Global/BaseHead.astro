@@ -59,9 +59,3 @@ const permalinkUrl = new URL(permalink ?? "", Astro.url.origin).href;
 
 <!-- Mastodon -->
 <meta property="fediverse:creator" content="@bigandy@indieweb.social" />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={permalinkUrl} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
