@@ -117,6 +117,7 @@ export const roles: Roles = {
 export const skills = [
     "Web Scraping",
     "Chrome Extension Development",
+    "Redux and other React state libraries",
     "React",
     "Typescript",
     "CSS",
