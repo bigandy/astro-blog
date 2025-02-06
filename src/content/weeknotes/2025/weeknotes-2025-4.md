@@ -38,11 +38,12 @@ This week I have started to write things down on a Field Notes notebook to recor
 ## Standing desk
 
 Since working remotely at Venture Harbour I have had a standing desk but for the most time I have not used the desk to stand. I'd try it for a bit and have painful back and legs and give up.
-Not this time! I have kept the desk in the standing configuration and not restored it to the sitting mode at all for three weeks. The chair sits under the desk, or in the corner of the room.
+
+Not this time! I have kept the desk in the standing configuration and not restored it to the sitting mode at all for three weeks. The chair sits under the desk, or in the corner of the room. Things
 
 ## Exercise
 
-Obvious really but doing something every day after I drop off the kids at school has really improved my mental state.
+Obvious really but doing something every day after I drop off the kids at school has really improved my mental state. Getting out the house before I can go back to the house and not go out again is really useful.
 
 ## Water
 
