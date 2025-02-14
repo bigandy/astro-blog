@@ -1,23 +1,26 @@
-# Astro: Blog
+# Astro: andrewhudson.dev 
 
-This site is created using Astro and I am currently using the same markdown files as on my andrewhudson.dev site. Personally I prefer the DX of Astro and I am using both to compare and contrast and perhaps I will swap over to Astro some time in the future. Who knows!
+This site is created using Astro and I am currently using the same markdown files as on my 11ty site (a simple copy-paste of the markdown from one to the other works). I prefer the DX of Astro and I am using Astro as my default Framework for content based sites!
 
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command         | Action                                      |
-| :-------------- | :------------------------------------------ |
-| `npm install`   | Installs dependencies                       |
-| `npm run dev`   | Starts local dev server at `localhost:8888` |
-| `npm run build` | Build your production site to `./dist/`     |
+| Command              | Action                                              |
+| :------------------- | :------------------------------------------         |
+| `npm install`        | Installs dependencies                               |
+| `npm run dev`        | Starts local dev server at `localhost:8888`         |
+| `npm run dev --open` | Starts local dev server and opens in defult browser |
 
-## Run with Bun
+## Current Content
+### Bookshelf
+I am tracking my reading habits in a Notion Database and grabbing the content from that - via the Notion API - each time the site is built. 
 
-Install bun : curl -fsSL https://bun.sh/install | bash
+### Weeknotes
+Sometimes I will write a weeknote but feels less often than when I started writing them. Who knows if they will continue on the site or not. To be Decided!
 
-| Command                  | Action                                      |
-| :----------------------- | :------------------------------------------ |
-| `bun install`            | Installs dependencies                       |
-| `bunx --bun astro dev`   | Starts local dev server at `localhost:8888` |
-| `bunx --bun astro build` | Build your production site to `./dist/`     |
+### Blog 
+Non-weeknote content. Can be random posts, or more in-depth.
+
+### CV
+I tried keeping a seperate repository but seems like its simpler to keep it here as I'm hosting the cv on this domain anyway.
