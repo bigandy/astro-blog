@@ -5,14 +5,15 @@ import type { Roles } from "@pages/cv/content";
 
 interface Props {
     roles: Roles;
+    overrideFullDates?: boolean;
 }
-const { roles } = Astro.props;
+const { roles, overrideFullDates } = Astro.props;
 ---
 
 <>
     {
         Object.entries(roles).map(([company, role]) => {
-            return <Role company={company} role={role} />;
+            return <Role company={company} role={role} overrideFullDates={overrideFullDates} />;
         })
     }
 </>

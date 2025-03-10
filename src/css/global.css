@@ -359,3 +359,9 @@
     padding-left: 0;
     list-style: "";
 }
+
+.debug {
+    * {
+        outline: 1px dotted red;
+    }
+}

@@ -15,7 +15,7 @@ const pages: {
     about: {
         url: "/about",
         title: "About",
-        location: "footer",
+        location: "header",
     },
 
     tools: {
@@ -26,7 +26,7 @@ const pages: {
 
     archive: {
         url: "/blog",
-        title: "Archive",
+        title: "Blog",
         location: "header",
     },
     cv: {
@@ -38,25 +38,25 @@ const pages: {
     experiments: {
         url: "/experiments",
         title: "Experiments",
-        location: "header",
+        location: "footer",
     },
 
-    weeknotes: {
-        url: "/weeknotes",
-        title: "Weeknotes",
-        location: "header",
-    },
+    // weeknotes: {
+    //     url: "/weeknotes",
+    //     title: "Weeknotes",
+    //     location: "header",
+    // },
 
     bookshelf: {
         url: "/bookshelf",
         title: "Bookshelf",
-        location: "header",
+        location: "footer",
     },
 
     now: {
         url: "/now",
         title: "Now",
-        location: "both",
+        location: "footer",
     },
 };
 

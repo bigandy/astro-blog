@@ -12,19 +12,19 @@ const useShadowMaker = false;
 ---
 
 <div class="wrapper">
-    <button popovertarget="settings-menu">
+    <img {src} {alt} />
+    <!-- <button popovertarget="settings-menu">
         {
             useShadowMaker ? (
                 <ShadowMaker client:only>
-                    <img {src} {alt} />
                 </ShadowMaker>
             ) : (
                 <img {src} {alt} />
             )
         }
-    </button>
+    </button> -->
 
-    <SettingsMenu client:only themeColorKey={themeColorKey} />
+    <!-- <SettingsMenu client:only themeColorKey={themeColorKey} /> -->
 </div>
 
 <style>
@@ -34,7 +34,7 @@ const useShadowMaker = false;
 
     img,
     button {
-        cursor: pointer;
+        /* cursor: pointer; */
     }
 
     button {

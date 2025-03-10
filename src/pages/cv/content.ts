@@ -170,6 +170,13 @@ export const socialLinks: Array<SocialLink> = [
 
 export const portfolioLinks = [
     {
+        href: "https://www.npmjs.com/package/@bigandy/sibling-count",
+        name: "sibling-count web-component",
+        shortLink: "npmjs.com/@bigandy/sibling-count",
+        description:
+            "A web-component that allows the prototyping of sibling-count() and sibing-index() before they come to browsers.",
+    },
+    {
         href: "https://www.scalable.com/",
         name: "Scalable",
         shortLink: "scalable.com",

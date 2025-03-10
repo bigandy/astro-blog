@@ -1,13 +1,26 @@
 ---
-import dayjs from "dayjs";
+import dayjs, { type Dayjs } from "dayjs";
 import { type Role } from "@pages/cv/content";
 
 interface Props {
     role: Role;
     company: string;
+    overrideFullDates?: boolean;
 }
 
-const { role, company } = Astro.props;
+const { role, company, overrideFullDates = false } = Astro.props;
+
+const getDateOutput = (
+    date: Dayjs,
+    overrideFullDates: boolean,
+    showFulldate: boolean
+) => {
+    if (overrideFullDates || showFulldate) {
+        return dayjs(date).format("YYYY");
+    }
+
+    return dayjs(role.start).format("MM/YYYY");
+};
 ---
 
 <li class="entrylist__item h-event p-experience">
@@ -28,9 +41,11 @@ const { role, company } = Astro.props;
                     class="dt-start"
                     datetime={dayjs(role.start).format("DD-MM-YYYY")}
                     >{
-                        role.showFullDates
-                            ? dayjs(role.start).format("MM/YYYY")
-                            : dayjs(role.start).format("YYYY")
+                        getDateOutput(
+                            role.start,
+                            overrideFullDates,
+                            role.showFullDates
+                        )
                     }</time
                 >
                 <span>–</span>
@@ -38,9 +53,11 @@ const { role, company } = Astro.props;
                     class="dt-end"
                     datetime={dayjs(role.end).format("DD-MM-YYYY")}
                     >{
-                        role.showFullDates
-                            ? dayjs(role.end).format("MM/YYYY")
-                            : dayjs(role.end).format("YYYY")
+                        getDateOutput(
+                            role.end,
+                            overrideFullDates,
+                            role.showFullDates
+                        )
                     }</time
                 ><span aria-hidden="true">·</span><span class="p-location"
                     >{role.location}</span

@@ -1,0 +1,25 @@
+---
+title: "<sibling-count> web-component"
+date: 2025-03-06
+draft: true
+description: "This is a test description"
+tags: ["dev"]
+author: "Andrew"
+template: "full-page"
+--- 
+
+I have been fascinated with the ability in CSS to know the current index of a sibling element. That is to know if I am the fifth child of a parent element. This is a feature that is not available in CSS, but it is something that I have been wanting to use for a while. I have been working on a project where I needed to know the index of a sibling element, and I found a way to do it using a web component.
+
+
+### Lessons learned
+
+During the process of creating this web component I learned a few things:
+
+- How to create a web component
+- How to test a web component
+- Make decisions based on real-life useage 
+- Deployments of new versions to npm using Github Actions
+- Automation of linting / testing with Github Actions
+- Conversion of web component code into Typescript
+- MutationObserver to monitor changes to the slot so that the sibling count is updated
+- Updating the component to match the newly released prototype in Chrome Canary and thinking whether I should feature detect the support for sibling-count() or not.
