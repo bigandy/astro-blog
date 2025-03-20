@@ -1,0 +1,60 @@
+---
+interface Props {
+    number?: number;
+    isPost?: boolean;
+}
+
+const { number, isPost } = Astro.props;
+---
+
+{
+    number && (
+        <div
+            class={`wrapper ${isPost ? "is-post" : ""}`}
+            style={`--vt-index: num-${number};`}
+        >
+            <span>{number}</span>
+        </div>
+    )
+}
+
+<style>
+    .wrapper {
+        view-transition-name: var(--vt-index);
+        /* display: none; */
+        font-size: 200%;
+        font-weight: bold;
+        color: var(--theme-accent);
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        right: 0;
+        transition: all 0.3s;
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(
+            to right,
+            hsl(from var(--theme-accent) calc(h + 240) s l),
+            hsl(from var(--theme-accent) h s l / 0.8)
+        );
+    }
+
+    .is-post {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+
+        right: auto;
+        /* rotate: -90deg; */
+        translate: -50% -25%;
+        scale: 10;
+        z-index: -1;
+        opacity: 0.1;
+
+        background-image: linear-gradient(
+            to right,
+            hsl(from black calc(h + 240) s l / 0.3),
+            hsl(from black h s l / 0.75)
+        );
+    }
+</style>

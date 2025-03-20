@@ -2,7 +2,7 @@ import { getCollection } from "astro:content";
 
 export type Collection = "blog" | "weeknotes";
 
-import { isProduction } from "./isProduction";
+import { isProduction } from "@utils/isProduction";
 
 export const getAllPosts = async (
     collection: Collection = "blog",

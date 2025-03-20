@@ -1,0 +1,16 @@
+<ul>
+    <li style="--sibling-index:1;--sibling-count: 5;"></li>
+    <li style="--sibling-index:2;--sibling-count: 5;"></li>
+    <li style="--sibling-index:3;--sibling-count: 5;"></li>
+    <li style="--sibling-index:4;--sibling-count: 5;"></li>
+    <li style="--sibling-index:5;--sibling-count: 5;"></li>
+</ul>
+
+<style>
+    li {
+        --per-slice: calc(360deg / var(--sibling-count));
+        --hue: calc(var(--sibling-index) * var(--per-slice));
+
+        background: hsl(var(--hue) 100% 50%);
+    }
+</style>

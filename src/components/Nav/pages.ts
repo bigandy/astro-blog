@@ -41,11 +41,11 @@ const pages: {
         location: "footer",
     },
 
-    // weeknotes: {
-    //     url: "/weeknotes",
-    //     title: "Weeknotes",
-    //     location: "header",
-    // },
+    weeknotes: {
+        url: "/weeknotes",
+        title: "Weeknotes",
+        location: "footer",
+    },
 
     bookshelf: {
         url: "/bookshelf",

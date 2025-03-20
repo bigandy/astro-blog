@@ -5,19 +5,22 @@ const length = characters.length;
 const charCount = length * 2;
 ---
 
-<div class="ring-wrapper" style=`--char-count: ${charCount};`>
+<div class="ring-wrapper">
     <div class="ring" aria-hidden="true">
         {
             [...characters, ...characters].map((char, charIndex) => {
                 return (
-                    <span class="char" style={`--char-index: ${charIndex}`}>
+                    <span
+                        class="char"
+                        style={`--sibling-index: ${charIndex}; --sibling-count: ${charCount};`}
+                    >
                         {char}
                     </span>
                 );
             })
         }
 
-        <span class="sr-only">{string} {string}</span>
+        <span class="sr-only">{string}</span>
     </div>
 </div>
 
@@ -80,7 +83,7 @@ const charCount = length * 2;
                 .ring::after {
                     transition: all 0.3s;
                     color: white;
-                    transform: rotate(calc(calc(360 * 1deg) - var(--degrees)));
+                    transform: rotate(calc(360deg - var(--degrees)));
                 }
             }
         }
@@ -110,10 +113,9 @@ const charCount = length * 2;
 
     @layer ring {
         .ring-wrapper {
-            --inner-angle: calc((360 / var(--char-count)) * 1deg);
-            --character-width: 1;
-            --radius: calc((1 / 0.324699) * -2ch);
-            transform: rotate(var(--degrees));
+            --radius: calc((1 / 0.2) * -2ch);
+
+            rotate: var(--degrees);
             position: fixed;
             top: 150px;
             right: 150px;
@@ -135,13 +137,14 @@ const charCount = length * 2;
         }
 
         .char {
+            --inner-angle: calc((360 / var(--sibling-count)) * 1deg);
             display: inline-block;
             position: absolute;
             top: 50%;
             left: 50%;
             /* color: hsl(calc(var(--char-index) * 10deg) 100% 50%); */
             transform: translate(-50%, -50%)
-                rotate(calc(var(--inner-angle) * var(--char-index)))
+                rotate(calc(var(--inner-angle) * var(--sibling-index)))
                 translateY(var(--radius));
 
             &:nth-child(odd) {
@@ -177,14 +180,14 @@ const charCount = length * 2;
     @keyframes fadeIn {
         to {
             opacity: 1;
-            --parent-ring-font-size: 0.75;
+            --parent-ring-font-size: 0.5;
             pointer-events: auto;
         }
     }
 
     @property --parent-ring-font-size {
         inherits: true;
-        initial-value: 0.65;
+        initial-value: 0.5;
         syntax: "<number>";
     }
 </style>

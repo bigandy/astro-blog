@@ -1,26 +1,11 @@
 @layer base, theme;
 
 @layer base {
-    @font-face {
-        font-family: Fraunces;
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: fallback;
-        src: url("/fonts/Fraunces-Variable.woff2") format("woff2");
-        font-stretch: normal;
-    }
-    @font-face {
-        font-family: "Work Sans";
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: fallback;
-        src: url("/fonts/WorkSans-VariableFont_wght.woff2") format("woff2");
-        font-stretch: normal;
-    }
-
     :root {
-        --header-font-family: "Fraunces", serif;
-        --body-font: "Work Sans", serif;
+        --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+            sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        --body-font: var(--system-ui);
+        --header-font-family: var(--body-font);
     }
 
     html {
@@ -32,12 +17,9 @@
 
     body {
         background: var(--theme-background);
-
         font-family: var(--body-font);
         accent-color: var(--theme-accent);
-
         color: var(--theme-text);
-
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -56,7 +38,7 @@
     }
 
     h2 {
-        font-size: var(--font-size-4);
+        font-size: var(--font-size-2);
     }
 
     h3 {

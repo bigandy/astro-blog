@@ -1,50 +1,49 @@
 ---
 import { render } from "astro:content";
 
-import BlogContent from '@components/Blog/BlogContent.astro'
-import BlogPostHeader from '@components/Blog/BlogPostHeader.astro'
-import BackArrow from '@components/Global/BackArrow.astro'
-import EditPostOnGithub from '@components/Global/EditPostOnGithub.astro'
+import BlogContent from "@components/Blog/BlogContent.astro";
+import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
+import BackArrow from "@components/Global/BackArrow.astro";
+import EditPostOnGithub from "@components/Global/EditPostOnGithub.astro";
 
 const {
-	post,
-	showBackLink = true,
-	showDate = true,
-	collection = 'blog',
-  postIndex
-} = Astro.props
+    post,
+    showBackLink = true,
+    showDate = true,
+    collection = "blog",
+    postIndex,
+} = Astro.props;
 const { Content } = await render(post);
 ---
 
 <article class="content post layout-inner">
-  <BlogPostHeader
-    date={showDate && post.data.date}
-    title={post.data.title}
-    isPreview={false}
-    slug={post.slug}
-    viewTransitionName={post.slug}
-    postIndex={postIndex}
-  />
+    <BlogPostHeader
+        date={showDate && post.data.date}
+        title={post.data.title}
+        isPreview={false}
+        slug={post.slug}
+        viewTransitionName={post.slug}
+        postIndex={postIndex}
+    />
 
-  <BlogContent>
-    <Content />
-  </BlogContent>
+    <BlogContent>
+        <Content />
+    </BlogContent>
 
-  {
-    showBackLink && (
-      <BackArrow
-        url={`/${collection}`}
-        title={`Back to all ${collection} posts`}
-      />
-    )
-  }
+    {
+        showBackLink && (
+            <BackArrow
+                url={`/${collection}`}
+                title={`Back to all ${collection} posts`}
+            />
+        )
+    }
 </article>
 
 <EditPostOnGithub slug={post.slug} collection={collection} />
 
-
 <style>
-  .content :global(main > * + *) {
-    margin-block-start: 1rem;
-  }
+    .content :global(main > * + *) {
+        margin-block-start: 1rem;
+    }
 </style>

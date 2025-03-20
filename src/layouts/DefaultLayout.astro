@@ -9,17 +9,17 @@ import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
 interface Props {
     accent?: string;
     title: string;
-    head?: string;
     bodyClass?: string;
     hideTitle?: boolean;
+    extraStyle?: Array<string>;
     hideToggler?: boolean;
 }
 
 const {
     title,
-    head,
     accent = "var(--theme-accent-blue)",
     bodyClass = "",
+    extraStyle = [],
     hideTitle,
     hideToggler = false,
 }: Props = Astro.props;
@@ -31,8 +31,6 @@ import { themeColorKey } from "@pages/cv/content";
     <head>
         <BaseHead title={title} />
 
-        {head}
-
         <style define:vars={{ accent }}>
             body {
                 --theme-accent: var(--accent);
@@ -43,11 +41,16 @@ import { themeColorKey } from "@pages/cv/content";
             }
         </style>
         <BottomOfHead />
+        {
+            extraStyle?.length > 0 &&
+                extraStyle.map((style) => {
+                    return <link rel="stylesheet" href={style} />;
+                })
+        }
     </head>
 
     <body class={bodyClass}>
         {!hideToggler && <SiteHeader />}
-
         <script define:vars={{ themeColorKey }}>
             const localThemeColor = localStorage.getItem(themeColorKey);
             if (localThemeColor) {

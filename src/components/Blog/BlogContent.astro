@@ -3,39 +3,38 @@
 ---
 
 <div>
-  <slot />
+    <slot />
 </div>
 
 <style>
-  div :global(h2) {
-    font-size: var(--font-size-2);
-  }
-
-  div :global(h3) {
-    font-size: var(--font-size-1);
-  }
-
-  div :global(ul) {
-    padding-inline-start: 1rem;
-  }
-
-  div :global(li),
-  div :global(p) {
-    margin-block-end: 0.5rem;
-  }
-
-  div :global(table) {
-    width: 100%;
-    max-width: 600px;
-    margin-block: 2rem;
-
-    table-layout: fixed;
-    border-collapse: collapse;
-
-    td,
-    th {
-      border: 1px solid var(--theme-accent);
-      padding: 0.25rem 0.5rem;
+    div :global(h2) {
+        font-size: var(--font-size-2);
     }
-  }
+
+    div :global(h3) {
+        font-size: var(--font-size-1);
+    }
+
+    div :global(ul) {
+        padding-inline-start: 1rem;
+    }
+
+    div :global(li),
+    div :global(p) {
+        margin-block-end: 0.5rem;
+    }
+
+    div :global(table) {
+        width: 100%;
+        max-width: 600px;
+        margin-block: 2rem;
+        table-layout: fixed;
+        border-collapse: collapse;
+
+        td,
+        th {
+            border: 1px solid var(--theme-accent);
+            padding: 0.25rem 0.5rem;
+        }
+    }
 </style>

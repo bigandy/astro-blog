@@ -11,13 +11,11 @@
         "lint:write": "npx prettier --check --write ./src"
     },
     "dependencies": {
-        "@astrojs/mdx": "4.1.0",
+        "@astrojs/mdx": "4.2.1",
         "@astrojs/react": "4.2.1",
-        "@astrojs/svelte": "7.0.5",
-        "@resvg/resvg-js": "2.6.2",
-        "astro": "5.4.2",
+        "@astrojs/svelte": "7.0.6",
+        "astro": "5.5.3",
         "astro-icon": "1.1.1",
-        "astro-robots-txt": "1.0.0",
         "dayjs": "1.11.13",
         "github-slugger": "2.0.0",
         "google-fonts-complete": "2.2.3",
