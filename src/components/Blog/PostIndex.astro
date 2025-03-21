@@ -21,8 +21,6 @@ const { number, isPost } = Astro.props;
 <style>
     .wrapper {
         view-transition-name: var(--vt-index);
-
-        /* display: none; */
         font-size: 200%;
         font-weight: bold;
         color: var(--theme-accent);
@@ -33,6 +31,7 @@ const { number, isPost } = Astro.props;
         transition: all 0.3s;
         color: transparent;
         background-clip: text;
+        pointer-events: none;
         background-image: linear-gradient(
             to right,
             hsl(from var(--theme-accent) calc(h + 240) s l),
@@ -44,13 +43,12 @@ const { number, isPost } = Astro.props;
         position: fixed;
         top: 50%;
         left: 50%;
-
         right: auto;
-        /* rotate: -90deg; */
         translate: -50% -25%;
-        /* scale: 10;
-         */
         font-size: 3000%;
+        font-size: clamp(14.3rem, 50cqi, 3000%);
+        width: max-content;
+
         line-height: 1;
         z-index: -2;
         opacity: 0.1;
