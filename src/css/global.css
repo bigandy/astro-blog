@@ -1,5 +1,9 @@
 @layer base, theme;
 
+@view-transition {
+    navigation: auto;
+}
+
 @layer base {
     :root {
         --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial,

@@ -1,37 +1,35 @@
 ---
-import BaseHead from '@components/Global/BaseHead.astro'
-import BottomOfHead from '@components/Global/BottomOfHead.astro'
+import BaseHead from "@components/Global/BaseHead.astro";
 
-import 'src/css/global.css'
+import "src/css/global.css";
 
-const { title = '', head, backLink = '/experiments' } = Astro.props
+const { title = "", head, backLink = "/experiments" } = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <BaseHead title={title} />
+    <head>
+        <BaseHead title={title} />
 
-    {head}
+        {head}
 
-    <style>
-      .slot {
-        margin-block-start: 2em;
-        padding-inline: 1em;
-      }
-    </style>
-    <BottomOfHead />
-  </head>
+        <style>
+            .slot {
+                margin-block-start: 2em;
+                padding-inline: 1em;
+            }
+        </style>
+    </head>
 
-  <body>
-    <section class="slot">
-      {backLink && <a href={backLink}>&larr; Back</a>}
-      {title !== "" && <h1 class="title">{title}</h1>}
-      <slot />
-    </section>
-    <style>
-      body {
-        --theme-accent: #52b788;
-      }
-    </style>
-  </body>
+    <body>
+        <section class="slot">
+            {backLink && <a href={backLink}>&larr; Back</a>}
+            {title !== "" && <h1 class="title">{title}</h1>}
+            <slot />
+        </section>
+        <style>
+            body {
+                --theme-accent: #52b788;
+            }
+        </style>
+    </body>
 </html>
