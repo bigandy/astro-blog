@@ -1,21 +1,33 @@
 ---
 import BaseHead from "@components/Global/BaseHead.astro";
 
-import "src/css/global.css";
+interface Props {
+    title?: string;
+    backLink?: string;
+    removePadding?: boolean;
+}
 
-const { title = "", head, backLink = "/experiments" } = Astro.props;
+const {
+    title = "",
+    backLink = "/experiments",
+    removePadding = false,
+} = Astro.props;
+
+const padding = !removePadding ? "1em" : "";
 ---
 
 <html lang="en">
     <head>
         <BaseHead title={title} />
 
-        {head}
-
-        <style>
+        <style define:vars={{ padding }}>
             .slot {
                 margin-block-start: 2em;
-                padding-inline: 1em;
+                padding-inline: var(--padding);
+            }
+
+            :global(body) {
+                padding: 0;
             }
         </style>
     </head>

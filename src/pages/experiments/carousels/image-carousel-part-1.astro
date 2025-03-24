@@ -1,0 +1,78 @@
+---
+// import Block from "@components/Global/Block.astro";
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+
+const title = "Carousel - Setup the carousel";
+
+const images = new Array(21).fill(null);
+const dimensions = { height: 500, width: 1000 };
+const imagesOut = images.map((_, index) => {
+    return `https://picsum.photos/seed/ah${index}/${dimensions.width}/${dimensions.height}?random=${index}`;
+});
+---
+
+<FullScreenLayout title={title} removePadding={true}>
+    <div class="container">
+        <ul class="carousel">
+            {
+                imagesOut.map((src) => (
+                    <li>
+                        <img
+                            src={src}
+                            alt=""
+                            loading="lazy"
+                            width={dimensions.width}
+                            height={dimensions.height}
+                        />
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</FullScreenLayout>
+
+<style>
+    ul {
+        overflow-y: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+
+        /* anchor-name: --carousel; */
+        overflow-x: auto;
+
+        list-style-type: none;
+        counter-reset: item;
+        padding: 1rem;
+        scroll-padding: 1rem;
+        /* container-type: inline-size scroll-state; */
+
+        inline-size: min(1024px, 100vw);
+        margin-inline: auto;
+        display: grid;
+        gap: 100px;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: 1rem;
+        background-color: #fff;
+
+        img {
+            max-width: 100%;
+        }
+
+        li {
+            /* 
+            * Snap the item to relative to the parent scrollport
+            *  */
+            scroll-snap-align: center;
+            /* container-type: scroll-state; */
+            /* display: inline-grid; */
+            counter-increment: item;
+
+            &::after {
+                content: counter(item);
+            }
+        }
+    }
+</style>
