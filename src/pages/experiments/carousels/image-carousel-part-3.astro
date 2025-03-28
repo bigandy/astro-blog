@@ -115,6 +115,9 @@ const imagesOut = images.map((_, index) => {
             border: none;
             padding: 1rem;
             z-index: 2;
+            cursor: pointer;
+
+            transition: 300ms ease-in-out;
 
             &::disabled {
                 cursor: not-allowed;
@@ -123,7 +126,6 @@ const imagesOut = images.map((_, index) => {
         }
 
         &::scroll-button(right) {
-            /* position-area: inline-end center; */
             right: 0;
             top: 50%;
             content: "arrow_forward" / "Next";
@@ -136,14 +138,15 @@ const imagesOut = images.map((_, index) => {
         }
 
         &::scroll-button(left) {
-            /* position-area: inline-start; */
-            /* position-try-fallback: inline-end; */
-            /* top: anchor(center);
-            left: anchor(left); */
             left: 0;
             top: 50%;
             content: "arrow_back" / "Previous";
             margin-right: 1rem;
+        }
+
+        &::scroll-button(*):not(:disabled):hover {
+            background-color: red;
+            color: white;
         }
 
         @container (width > 1024px) {
@@ -191,11 +194,13 @@ const imagesOut = images.map((_, index) => {
         /* The active scroll marker */
         li::scroll-marker:target-current {
             background: red;
-            border-radius: 0;
+            /* border-radius: 0; */
             content: counter(item);
             color: white;
-            /* padding: 2rem;
-             */
+            scale: 1.1;
+            padding: 0.25em;
+            top: -0.25em;
+            position: relative;
         }
         li::scroll-marker:hover {
             content: counter(item);

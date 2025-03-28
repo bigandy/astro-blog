@@ -11,27 +11,27 @@
         "lint:write": "npx prettier --check --write ./src"
     },
     "dependencies": {
-        "@astrojs/mdx": "4.2.1",
-        "@astrojs/react": "4.2.1",
-        "@astrojs/svelte": "7.0.7",
-        "astro": "5.5.4",
-        "astro-icon": "1.1.1",
+        "@astrojs/mdx": "4.2.2",
+        "@astrojs/react": "4.2.2",
+        "@astrojs/svelte": "7.0.8",
+        "astro": "5.5.5",
+        "astro-icon": "1.1.5",
         "dayjs": "1.11.13",
         "github-slugger": "2.0.0",
         "google-fonts-complete": "2.2.3",
-        "linkedom": "0.18.5",
+        "linkedom": "0.18.9",
         "lodash.groupby": "4.6.0",
         "react": "19.0.0",
         "react-dom": "19.0.0",
-        "svelte": "5.2.7",
+        "svelte": "5.25.3",
         "webfontloader": "1.6.28"
     },
     "devDependencies": {
-        "@11ty/eleventy-fetch": "5.0.1",
-        "@iconify-json/fa6-brands": "1.2.1",
-        "@notionhq/client": "2.2.15",
-        "@types/lodash": "4.17.10",
+        "@11ty/eleventy-fetch": "5.0.2",
+        "@iconify-json/fa6-brands": "1.2.5",
+        "@notionhq/client": "2.3.0",
+        "@types/lodash": "4.17.16",
         "@types/lodash.groupby": "4.6.9",
-        "prettier": "3.4.2"
+        "prettier": "3.5.3"
     }
 }
