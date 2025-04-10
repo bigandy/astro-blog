@@ -15,7 +15,7 @@ Two years ago I first heard about sibling-count and sibling-index. As an avid co
 
 Until now I had been hand-coding the inline style attributes onto each child element.
 
-```html
+```html title="index.html"
 <!--HTML-->
 <ul>
     <li style="--sibling-index:1;--sibling-count: 5;"></li>
@@ -25,9 +25,9 @@ Until now I had been hand-coding the inline style attributes onto each child ele
     <li style="--sibling-index:5;--sibling-count: 5;"></li>
 </ul>
 ```
+<br />
 
-```css
-/* CSS */
+```css  title="style.css"
 li {
     --per-slice: calc(360deg / var(--sibling-count));
     --hue: calc(var(--sibling-index) * var(--per-slice));
@@ -36,6 +36,7 @@ li {
 }
 ```
 <SiblingChildDemo1 />
+
 
 
 I have been fascinated with the ability in CSS to know the current index of a sibling element. That is to know if I am the fifth child of a parent element. This is a feature that is not available in CSS, but it is something that I have been wanting to use for a while. I have been working on a project where I needed to know the index of a sibling element, and I found a way to do it using a web component.
@@ -53,3 +54,26 @@ During the process of creating this web component I learned a few things:
 - Conversion of web component code into Typescript
 - MutationObserver to monitor changes to the slot so that the sibling count is updated
 - Updating the component to match the newly released prototype in Chrome Canary and thinking whether I should feature detect the support for sibling-count() or not.
+
+
+
+
+```astro
+---
+import { parseHTML } from "linkedom";
+
+const html = await Astro.slots.render("default");
+const { document } = parseHTML(html);
+const [...children] = document.children;
+const totalChildren = children.length;
+---
+
+{
+    children?.map((htmlString, index) => {
+        return (
+            <Fragment
+                set:html={`<li style="--sibling-index: ${index + 1}; --sibling-count: ${totalChildren};">${htmlString.textContent}</li>`}
+            />
+        );
+    })
+}

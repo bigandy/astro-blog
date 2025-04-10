@@ -6,6 +6,8 @@ import mdx from "@astrojs/mdx";
 
 import icon from "astro-icon";
 
+import expressiveCode from "astro-expressive-code";
+
 // https://astro.build/config
 export default defineConfig({
     env: {
@@ -23,7 +25,7 @@ export default defineConfig({
             }),
         },
     },
-    integrations: [svelte(), mdx(), react(), icon()],
+    integrations: [svelte(), expressiveCode(), mdx(), react(), icon()],
     scopedStyleStrategy: "class",
     server: {
         port: 8888,

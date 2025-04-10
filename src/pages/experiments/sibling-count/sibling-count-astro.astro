@@ -1,0 +1,183 @@
+---
+import { Code } from 'astro-expressive-code/components'
+
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+
+import AstroSiblingCount from "@components/Global/SiblingCount.astro";
+
+import importedCode from '/src/components/Global/SiblingCount.astro?raw';
+import Notes from '@components/Global/Notes.astro'; 
+---
+ 
+<FullScreenLayout>
+    <h1>Sibling Count with Astro</h1>
+
+    <ul class="demo">
+        <AstroSiblingCount>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </AstroSiblingCount>
+    </ul>
+
+    <p>It turns out that with Astro things are fairly straight forwards</p>
+
+    <p>Steps:</p>
+    <ol>
+        <li>
+            <p>Create a new Astro component. Let us call it `AstroSiblingCount`.</p>
+            <p>In this component:</p>
+            <ol><li>First of all you need a library to parse the html, I am using linkedom</li>
+                <li>grab the html content you have passed into the component in the default slot</li> 
+            <li>using this html I am selecting it all and creating an array of children</li>
+            <li>Looping through these children I attach the --sibling-index and --sibling-child inline custom variables.</li>
+        </ol>
+            <Code 
+                code={importedCode} 
+                lang="astro" 
+                title="AstroSiblingCount.astro" 
+                mark={[ 
+                    { label: '1.', range: '2'  },
+                    { label: '2.', range: '3'  },
+                    { label: '3.', range: '4'  }, 
+                    { label: '4.', range: '13-19'  } 
+                ]}
+            >
+        </li>
+
+        <li>
+            <p>Use the component:</p>
+
+            <Code 
+                code={`
+<ul class="demo">
+    <AstroSiblingCount>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </AstroSiblingCount>
+</ul>
+                `} 
+                lang="astro" 
+                title="demo.astro" 
+                
+            ></Code>
+
+            Would yield:
+
+            <Code 
+                code={`
+<ul class="demo">
+    <li style="--sibling-index: 1; --sibling-count: 5;"></li>
+    <li style="--sibling-index: 2; --sibling-count: 5;></li>
+    <li style="--sibling-index: 3; --sibling-count: 5;></li>
+    <li style="--sibling-index: 4; --sibling-count: 5;></li>
+    <li style="--sibling-index: 5; --sibling-count: 5;></li>
+</ul>
+                `} 
+                lang="html" 
+            ></Code>
+
+        </li>
+    </ol>
+</Code>
+</FullScreenLayout>
+
+<style is:global>
+.demo {
+	--_cell-size: 50px;
+	--_border-width: 1;
+	--_circle-size: calc(var(--_cell-size) * 3);
+    --rotational-angle: 0deg;
+
+	display: grid;
+	place-content: center;
+	grid: var(--_cell-size) / var(--_cell-size);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 300px;
+	aspect-ratio: 1;
+	border: 1px solid;
+	margin-inline: auto;
+	counter-reset: section;
+	border-radius: 50%;
+	border-width: calc(var(--_border-width) * 1px);
+	rotate: calc(270deg + var(--rotational-angle));
+	animation: circulate linear 10s infinite paused;
+
+	> * {
+		grid-area: 1 / 1;
+	}
+
+    li {
+        --_offset: calc(360deg / var(--sibling-count));
+
+        /* take child index * circle fraction offset */
+        --_angle: calc(calc(var(--sibling-index) - 1) * var(--_offset));
+        --_offset-x: calc(cos(var(--_angle)) * var(--_circle-size) * 1);
+        --_offset-y: calc(sin(var(--_angle)) * var(--_circle-size) * 1);
+
+        counter-increment: section;
+
+        /* cos() translateX, sin() translateY */
+        translate: var(--_offset-x) var(--_offset-y);
+        border-radius: 50%;
+        background: hsl(var(--_angle) 50% 50%);
+        isolation: isolate;
+        position: relative;
+    }
+
+    /* The Number */
+    li::after {
+        content: counter(section);
+        color: white;
+        width: 100%;
+        rotate: calc(90deg - var(--rotational-angle));
+        position: absolute;
+        text-align: center;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        z-index: 2;
+    }
+
+    /* The Line */
+    li::before {
+        --_dot-size: 24px;
+        content: "";
+        height: calc(250% - var(--_dot-size));
+        width: calc(var(--_border-width) * 1px);
+        background: black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: rotate(calc(var(--_angle) + 90deg)) translateY(var(--_dot-size));
+        transform-origin: 0% 0%;
+        z-index: -1;
+    }
+}
+
+
+</style>
+
+<Notes>
+    - https://expressive-code.com/key-features/text-markers/
+</Notes>

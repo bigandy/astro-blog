@@ -6,8 +6,9 @@
 
 @layer base {
     :root {
-        --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
-            sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        --system-ui:
+            system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         --body-font: var(--system-ui);
         --header-font-family: var(--body-font);
     }
@@ -237,9 +238,11 @@
 
 @layer theme {
     :root {
-        --font-fallback: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
-            Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-        --font-mono: "IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono",
+        --font-fallback:
+            -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+            sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        --font-mono:
+            "IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono",
             "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
             "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
             Monaco, "Courier New", Courier, monospace;
@@ -349,5 +352,11 @@
 .debug {
     * {
         outline: 1px dotted red;
+    }
+}
+
+@layer unsets {
+    li:has(.expressive-code) {
+        max-width: unset;
     }
 }
