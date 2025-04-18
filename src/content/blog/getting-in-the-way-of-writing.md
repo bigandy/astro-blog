@@ -1,0 +1,62 @@
+---
+title: "Getting in the way of writing"
+date: 2025-04-18
+draft: false
+tags: [""]
+---
+
+### Current Process when attempting to write a blog post
+
+I have a need to write a blog so I need to jump through a number of hoops before I can do it.
+
+1. Update Astro because that is always a thing that is nice and shiny and makes me feel good.
+2. Start the local server, open up the url in Chrome
+3. Find an old blog post that I can copy to get the new one started. This takes ages and takes mental energy.
+4. Set the title and date of the post, as well as optional tags. This takes more energy.
+5. Finally get round to starting to type the content of the blog post only to run out of mental energy and stop because the initial excitement about sharing something with the world has been reduced to a mear trickle and other things now seem more pressing.
+6. Convert the blog post into draft mode
+7. Commit the code to Git because why not
+8. Never update the blog post again and leave it forever more in draft unfinished mode.
+
+### Other distractions
+
+1. The design of my site
+2. the world outside
+3. the configuration of VS Code that I am using for this repository
+4. life, the internet, everything outside
+
+## Is there a better way?
+
+Of course the above is shit and this is why I have not written anything good on this site for a long time. The pressures from all sides are preventing me.
+
+### A better way:
+
+1. Have a script that creates a new blog post from a template e.g. with todays date, an option to enter a title, then once that is done it takes me directly to the new file, with the terminal running the local server and the browser pointing to the newly created page.
+2. This would prevent me from fiddling with anything that is not the content of the blog. And hopefully it would enable me to create better posts going forwards.
+
+### Final Solution
+I have created a [zx](https://github.com/google/zx) script and I start it with `make create` on the terminal. This then gives me the option of what I would like to call the blog post, then fires up the browser with the new url, fires up the local dev server, and also more importantly it focuses on the new markdown file in VS Code on the correct line to start typing straight away. 
+
+```javascript title="script.mjs"
+#!/usr/bin/env zx
+$.verbose = true;
+
+const postTitle = (
+    await question("What title do you want to give the post? ")
+).trim();
+
+const postTitleHyphenated = postTitle.replaceAll(" ", "-");
+
+const newFileLocation = `src/content/blog/${postTitleHyphenated}.md`;
+
+await $`cp template-content/template-blog-post.md ${newFileLocation}`;
+const PUB_DATE = await $`date +%Y-%m-%d`;
+
+const f1 = tmpfile();
+await $`awk -v postTitle=${postTitle} '{sub(/TITLE/,postTitle)}1' ${newFileLocation} | awk -v pubDate=${PUB_DATE} '{sub(/PUBDATE/,pubDate)}1' > ${f1} && mv ${f1} ${newFileLocation}`;
+
+await $(`open ${`http://localhost:1234/blog/${postTitleHyphenated}`}`);
+
+await $`code ${newFileLocation}:8:7 -g`;
+await $`npm run dev -- --port 1234`;
+```

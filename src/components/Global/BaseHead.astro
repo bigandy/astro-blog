@@ -1,4 +1,5 @@
 ---
+import { isProduction } from "@utils/isProduction";
 import SpeculationRules from "./SpeculationRules.astro";
 import "src/css/global.css";
 
@@ -31,7 +32,9 @@ const permalinkUrl = new URL(permalink ?? "", Astro.url.origin).href;
 <meta name="title" content={title !== "" ? title : descriptionFallback} />
 <meta name="description" content={description} />
 
-<SpeculationRules />
+{isProduction && (
+    <SpeculationRules />
+)}
 
 <meta name="theme-color" content="#ffcc00" />
 <link rel="manifest" href="/manifest.json" />

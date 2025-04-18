@@ -15,7 +15,7 @@ export const collections = {
         schema: z.object({
             title: z.string(),
             author: z.string().optional(),
-            date: z.date().transform((str) => new Date(str)),
+            date: z.date(),
             draft: z.boolean().default(false),
             tags: z.array(z.string().optional()).optional(),
             template: z.enum(getValues(Template)).optional(),
