@@ -24,3 +24,8 @@ Non-weeknote content. Can be random posts, or more in-depth.
 
 ### CV
 I tried keeping a seperate repository but seems like its simpler to keep it here as I'm hosting the cv on this domain anyway.
+
+
+## Re-write
+### Inspiration
+https://nazhamid.com/journal/
