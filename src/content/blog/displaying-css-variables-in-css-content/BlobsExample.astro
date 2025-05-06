@@ -1,0 +1,20 @@
+<div class="blob" style="--index: 1"></div>
+<div class="blob" style="--index: 2"></div>
+<div class="blob" style="--index: 3"></div>
+<div class="blob" style="--index: 4"></div>
+<div class="blob" style="--index: 5"></div>
+
+<style>
+   
+
+    .blob {
+        --hue: calc(10 * var(--index));
+
+        background: hsl(calc( var(--hue) * 1deg) 100% 50%);
+        counter-reset: hue var(--hue);
+
+        &::after {
+            content: counter(hue) "deg";
+        }
+    }
+</style>
