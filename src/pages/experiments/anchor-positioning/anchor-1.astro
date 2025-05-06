@@ -53,11 +53,11 @@ const title = 'Anchor Positioning a Popover Menu'
 
 <style>
     .container {
-        min-height: 300vh;
+        /* min-height: 300vh; */
     }
 
     nav {
-        margin-top: 100vh;
+        /* margin-top: 100vh; */
         /* max-width: 300px; */
         max-width: calc(90%);
         margin-inline: auto;
@@ -81,7 +81,7 @@ const title = 'Anchor Positioning a Popover Menu'
     }
 
 
-    /* .container:has(#left:checked) {
+    .container:has(#left:checked) {
         .menu { 
             position-area: bottom left; 
         }
@@ -98,7 +98,7 @@ const title = 'Anchor Positioning a Popover Menu'
             position-area: bottom; 
             width: calc(anchor-size() * 3);
         }
-    } */
+    }
 
     .menu {
         padding: 0;
@@ -106,7 +106,7 @@ const title = 'Anchor Positioning a Popover Menu'
         position-area: bottom span-left;
         margin-top: 1em;
         position-try-fallbacks: flip-block flip-inline; 
-        transition: display 1s, opacity 1s, transform 1s;
+        transition: 300ms ease-in-out;
         transition-behavior: allow-discrete;
         --initial-x: -100%;
 
