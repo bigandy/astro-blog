@@ -7,7 +7,7 @@ const postTitle = (
 
 const postTitleHyphenated = postTitle.replaceAll(" ", "-");
 
-const newFileLocation = `src/content/blog/${postTitleHyphenated}.md`;
+const newFileLocation = `src/content/blog/${postTitleHyphenated.toLowerCase()}.md`;
 
 await $`cp template-content/template-blog-post.md ${newFileLocation}`;
 const PUB_DATE = await $`date +%Y-%m-%d`;
