@@ -64,10 +64,10 @@ export const getBooks = async () => {
             return {
                 bookTitle,
                 bookAuthor,
-                createdDate,
+                // createdDate,
                 finishedDate,
                 thumbnail: thumbnail?.replaceAll("http:", "https:"),
-                rating,
+                rating: Number(rating),
             };
         });
 

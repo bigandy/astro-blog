@@ -30,7 +30,7 @@
     "devDependencies": {
         "@11ty/eleventy-fetch": "5.1.0",
         "@iconify-json/fa6-brands": "1.2.5",
-        "@notionhq/client": "2.3.0",
+        "@notionhq/client": "3.0.1",
         "@types/lodash": "4.17.16",
         "@types/lodash.groupby": "4.6.9",
         "prettier": "3.5.3"
