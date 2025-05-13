@@ -29,3 +29,5 @@ I tried keeping a seperate repository but seems like its simpler to keep it here
 ## Re-write
 ### Inspiration
 https://nazhamid.com/journal/
+
+I am really digging the style of https://maggieappleton.com/now so this could be something that I use going forwards for my now page
