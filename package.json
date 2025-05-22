@@ -11,10 +11,10 @@
         "lint:write": "npx prettier --check --write ./src"
     },
     "dependencies": {
-        "@astrojs/mdx": "4.2.6",
-        "@astrojs/react": "4.2.7",
-        "@astrojs/svelte": "7.0.13",
-        "astro": "5.7.12",
+        "@astrojs/mdx": "4.3.0",
+        "@astrojs/react": "4.3.0",
+        "@astrojs/svelte": "7.1.0",
+        "astro": "5.8.0",
         "astro-expressive-code": "0.41.2",
         "astro-icon": "1.1.5",
         "dayjs": "1.11.13",
