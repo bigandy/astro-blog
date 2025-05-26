@@ -8,7 +8,7 @@ products, websites, desktop applications, and browser extensions using React, JS
 export const personalInformation = {
     name: "Andrew JD Hudson",
     title: "Senior Front-end Engineer",
-    email: "ahudson@gmail.com",
+    email: "andrew@andrewhudson.dev",
     website: "https://andrewhudson.dev",
     phone: "+33608985800",
     location: "Grenoble, France",
@@ -36,12 +36,17 @@ export const roles: Roles = {
         end: dayjs("August 2024"),
         showFullDates: true,
         summary: [
-            "Web app development with React.js, Typescript, and D3 taking designs in Figma and Confluence and turning them into stories, tasks and sub-tasks and then delivering the work.",
-            "Mentored junior developers and reviewed merge requests across the front-end team ensuring a consistently high quality product.",
-            "Estimated, planned and documented new features with product and design.",
-            "Created new features and specced out API changes with the backend team.",
-            // "<li>Creating API contract with the backend API developer</li>",
-            // <li>Mocking data with express to simulate the API response until backend finished API work</li>",
+            "Front-end React, D3, Typescript development of a web app for large organisations to monitor and improve team productivity.",
+
+            "Took the designs of new features from Figma and turned them into stories, tasks and sub-tasks and then helping deliver the work.",
+
+            "Web app development with React.js, Typescript, and D3.",
+
+            "Mentored junior developers to help them understand front-end problems using my experience.",
+
+            "I reviewed merge requests across the front-end team ensuring a consistently high quality product, testing the code as if I was a user and pointing out any problems with the code or the work.",
+
+            "Worked closely with backend engineers to integrate APIs and manage data flows efficiently.",
         ],
     },
     "Venture Harbour": {
@@ -52,12 +57,21 @@ export const roles: Roles = {
         end: dayjs("February 2023"),
         showFullDates: true,
         summary: [
-            "Web app development with CSS-in-JS, Next.js, GraphQL and Typescript.",
-            "I created two Progressive Web Apps and concentrated on improving the performance of our websites and products. This helped improve our SEO, Lighthouse Scores, and Web Page Test performance.",
-            "I created a component library using Storybook to showcase and document.",
+            "Product-focused full-stack web development on an Electron-based productivity Desktop Application.",
+
+            "Rapid iteration and protyping and integration of prototypes into websites and products.",
+
+            "I created two Progressive Web Apps for two of our high traffic websites and concentrated on improving the performance of our websites and products. This helped improve our SEO, Lighthouse Scores, and Web Page Test performance resulting in a better UX and better Google Search ranking.",
+
             "I mentored the rest of the engineering team on front-end topics regularly producing demos and presentations on what I made and learned.",
+
+            "I founded a culture of code quality based on automated code quality checking which helped dramatically when working with multiple developers, especially when reviewing merge requests and enforcing coding standards, for example when dealing with external contractors.",
+
+            // "Web app development with CSS-in-JS, Next.js, GraphQL and Typescript.",
+
             // "I created a component library using Storybook to showcase and document.",
-            "I founded a culture of code quality based on automated code quality checking which helped dramatically when working with multiple developers, especially when reviewing merge requests and enforcing coding standards.",
+
+            // "I created a component library using Storybook to showcase and document.",
         ],
     },
     "Taylor & Francis": {
@@ -68,9 +82,10 @@ export const roles: Roles = {
         end: dayjs("October 2017"),
         showFullDates: true,
         summary: [
-            "I created custom performant WordPress and Expression Engine sites.",
-            "I hand-crafted a node tool to benchmark and monitor Business Sites using the Web Page Test API and display with React.",
-            "Perform performance audits and carry out improvements on business and society sites.",
+            "Created custom performant WordPress and Expression Engine sites, and maintained existing ones.",
+            "Designed, coded, delivered and trained up the users on a re-design of a society's new website.",
+            "Hand-crafted a node tool to benchmark and monitor Business Sites using the Web Page Test API and display with React.",
+            "Performed performance audits and carry out improvements on business and society sites.",
         ],
     },
     Photocrowd: {
@@ -81,9 +96,11 @@ export const roles: Roles = {
         end: dayjs("August 2016"),
         showFullDates: true,
         summary: [
-            "I created new components and pages using React/Relay and Less from Photoshop designs.",
-            "I integrated Webpack into the development process to allow for code modularity, linting, and writing modular ES6 JS.",
-            "I implemented the application of BEM code methodology for new CSS components.",
+            "Created new components and pages using React/Relay and Less from Photoshop designs.",
+
+            "Integrated Webpack into the front-end development process to allow for code modularity, linting, and modern Javascript, and CSS.",
+
+            "Instantiated the use of BEM code methodology for new CSS components as a better way of writing an maintaining CSS code.",
         ],
     },
     "Electric Studio": {
@@ -94,8 +111,10 @@ export const roles: Roles = {
         end: dayjs("2016"),
         showFullDates: true,
         summary: [
-            "I created highly customised WordPress sites from Photoshop designs, with custom post types, taxonomies, meta boxes, shortcodes and functions.",
+            "Created highly customised WordPress sites from Photoshop designs, with custom post types, taxonomies, meta boxes, shortcodes and functions.",
+
             "The sites were performant, using best practices and technologies, built within budget and in timeframes.",
+
             "Pre-launch client training, dealing with any client feedback via Basecamp or telephone.",
         ],
     },
@@ -107,9 +126,11 @@ export const roles: Roles = {
         end: dayjs("2013"),
         showFullDates: true,
         summary: [
-            "I built highly accessible websites for clients including HSBC, RBS and Grant Thornton.",
+            "I built accessible, usable websites for clients including HSBC, RBS and Grant Thornton.",
+
             "Using CMSs such as WordPress, CQ5 and Sitecore to allow the client to control all content on their site.",
-            "Knowledge Sharing through weekly masterclass sessions (I ran three: WordPress; CSS3; and Sass).",
+
+            "Knowledge Sharing through weekly masterclass sessions (I ran three: WordPress, CSS3, and Sass).",
         ],
     },
 };
@@ -174,14 +195,14 @@ export const portfolioLinks = [
         name: "sibling-count web-component",
         shortLink: "npmjs.com/@bigandy/sibling-count",
         description:
-            "A web-component that allows the prototyping of sibling-count() and sibing-index() before they come to browsers.",
+            "A web-component that allows the prototyping of sibling-count() and sibing-index() css functionality before it is available in all browsers.",
     },
     {
         href: "https://www.scalable.com/",
         name: "Scalable",
         shortLink: "scalable.com",
         description:
-            "a digital experience web app for visualising Productivity and Digital Workplace Efficiency using React, Typescript, and D3.",
+            "a digital experience (DX) web app for visualising productivity and digital workplace efficiency using React, Typescript, and D3.",
     },
     {
         href: "https://truenorth.io",
@@ -195,7 +216,7 @@ export const portfolioLinks = [
         name: "Serene App",
         shortLink: "sereneapp.com",
         description:
-            "Productivity Application for MacOS users using Electron, Firebase, and React. With companion Chrome, Firefox and Edge extensions.",
+            "Productivity desktop application for MacOS users using Electron, Firebase and React. With companion Chrome, Firefox and Edge extensions.",
     },
     {
         href: "https://photocrowd.com",
@@ -203,6 +224,13 @@ export const portfolioLinks = [
         shortLink: "photocrowd.com",
         description:
             "front-end development with React/Relay, Less, and Webpack",
+    },
+    {
+        href: "https://www.electrichosting.net/",
+        name: "electrichosting.net",
+        shortLink: "electrichosting.net",
+        description:
+            "a custom WordPress site where any part of the site was manageable by the client.",
     },
     {
         href: "https://allistergodfrey.com/",
@@ -234,7 +262,7 @@ export const education = [
         end: dayjs("2010"),
     },
     {
-        name: "MChem (hons) Chemistry",
+        name: "MChem (hons) Chemistry with Industrial Experience",
         institution: "University of Manchester",
         start: dayjs("1999"),
         end: dayjs("2003"),

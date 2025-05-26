@@ -25,6 +25,8 @@ import {
     education,
     languages,
 } from "./content";
+
+const overrideFullDates = false;
 ---
 
 <DefaultLayout
@@ -71,7 +73,7 @@ import {
             <h2 id="experience">Experience</h2>
 
             <ol class="entrylist list--dashed" reversed>
-                <RolesList roles={roles} />
+                <RolesList roles={roles} overrideFullDates={overrideFullDates} />
             </ol>
         </section>
 
@@ -115,7 +117,7 @@ import {
 
         <section>
             <h2 id="education">Education</h2>
-            <ul class="list--dashed list--plain list--compact">
+            <ul class="list--dashed list--plain list--compact cv-education-list">
                 <EducationList education={education} />
             </ul>
         </section>

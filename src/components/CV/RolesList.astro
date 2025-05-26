@@ -9,11 +9,6 @@ interface Props {
 }
 const { roles, overrideFullDates } = Astro.props;
 ---
-
-<>
-    {
-        Object.entries(roles).map(([company, role]) => {
-            return <Role company={company} role={role} overrideFullDates={overrideFullDates} />;
-        })
-    }
-</>
+{
+    Object.entries(roles).map(([company, role]) => <Role company={company} role={role} overrideFullDates={overrideFullDates} />)
+}

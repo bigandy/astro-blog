@@ -326,13 +326,24 @@
     }
 }
 
+:root {
+    --is-styling: 1;
+}
+
 .list--dashed {
     > li {
+        --border-color: rgb(from var(--theme-accent) r g b / 0.5);
         margin-block-end: 1.5rem;
         padding-bottom: 1rem;
 
         &:not(:last-of-type) {
-            border-bottom: 1px dashed rgb(from var(--theme-accent) r g b / 0.5);
+            border-bottom: 1px dashed;
+            border-bottom-color: var(--border-color);
+        }
+
+        @container style(--is-styling: 1) {
+            --border-color: transparent;
+            margin-block-end: 0;
         }
     }
 
