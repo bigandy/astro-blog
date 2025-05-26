@@ -10,7 +10,7 @@ export const personalInformation = {
     title: "Senior Front-end Engineer",
     email: "andrew@andrewhudson.dev",
     website: "https://andrewhudson.dev",
-    phone: "+33608985800",
+    phone: "+33 6 08 98 58 00",
     location: "Grenoble, France",
 };
 
