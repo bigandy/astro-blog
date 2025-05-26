@@ -25,7 +25,15 @@ export default defineConfig({
             }),
         },
     },
-    integrations: [svelte(), expressiveCode(), mdx(), react(), icon()],
+    integrations: [
+        svelte(),
+        expressiveCode({
+            emitExternalStylesheet: false,
+        }),
+        mdx(),
+        react(),
+        icon(),
+    ],
     scopedStyleStrategy: "class",
     server: {
         port: 8888,
