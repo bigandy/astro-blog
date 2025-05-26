@@ -36,12 +36,13 @@ const requestPathname = Astro.url.pathname;
                                 class={className}
                                 href={url}
                                 target="_blank"
-                                style={`color: ${icon.color}`}
+                                
                             >
                                 {icon && (
                                     <Icon
                                         name={`fa6-brands:${icon.name}`}
                                         size="1em"
+                                        style={`color: ${icon.color}`}
                                     />
                                 )}
                                 {title}
@@ -89,7 +90,7 @@ const requestPathname = Astro.url.pathname;
     .nav-social {
         position: relative;
         display: block;
-
+        
         a:hover {
             border-color: inherit;
         }
