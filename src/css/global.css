@@ -371,3 +371,7 @@
         max-width: unset;
     }
 }
+
+a {
+    word-wrap: break-word;
+}
