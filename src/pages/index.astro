@@ -1,8 +1,8 @@
 ---
-import BlogPostList from "@components/Blog/utils/blogPostList.astro";
-import ForwardArrow from "@components/Global/ForwardArrow.astro";
-// import DefaultLayoutNew from "@layouts/DefaultLayoutNew.astro";
-import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+// import BlogPostList from "@components/Blog/utils/blogPostList.astro"
+// import ForwardArrow from "@components/Global/ForwardArrow.astro"
+import DefaultLayout from "@layouts/DefaultLayout.astro"
 
 const themeAccent = "#cb4f00";
 ---
@@ -22,12 +22,12 @@ const themeAccent = "#cb4f00";
         </p>
     </div>
 
-    <div class="blog-post-list">
-        <h2>Latest Blog Posts</h2>
-        <BlogPostList number={9} />
+  <div class="blog-post-list">
+    <h2>Latest Blog Posts</h2>
+    <!-- <BlogPostList number={9} /> -->
 
-        <ForwardArrow url="/blog" title="See more posts" />
-    </div>
+    <!-- <ForwardArrow url={"/blog"} title="See more posts" /> -->
+  </div>
 </DefaultLayout>
 
 <style>

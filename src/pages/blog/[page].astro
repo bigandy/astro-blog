@@ -8,12 +8,14 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 
 import { getAllPosts } from '@components/Blog/utils/getAllPosts'
 
-export const getStaticPaths = (async ({ paginate}) => {
-	const allPosts = await getAllPosts()
 
-	// Return a paginated collection of paths for all posts
-	return paginate(allPosts, { pageSize: 10 })
-}) satisfies GetStaticPaths;
+export const getStaticPaths = (async ({ paginate}) => {
+  // Load your data with fetch(), Astro.fetchContent(), etc.
+  const allPosts = await getAllPosts();
+
+  // Return a paginated collection of paths for all posts
+  return paginate(allPosts, { pageSize: 10 });
+})  satisfies GetStaticPaths;
 
 interface Props {
 	page: {

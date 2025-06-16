@@ -3,17 +3,40 @@
     import type { Book } from "src/utils/getBooksFromNotion";
     import dayjs from "dayjs";
     import customParseFormat from "dayjs/plugin/customParseFormat";
+    import "dayjs/locale/fr";
     dayjs.extend(customParseFormat);
 
     import groupBy from "lodash.groupby";
     import Toggle from "./Toggle.svelte";
     import Warning from "./Warning.svelte";
 
-    interface Props {
-        books: Book[];
+    interface Text {
+        fallback: string;
+        completed: string;
+        book: string;
+        year: string;
+        month: string;
+        by: string;
     }
 
-    let { books }: Props = $props();
+    interface Props {
+        books: Book[];
+        locale: string;
+        text: Text;
+    }
+
+    let {
+        books,
+        text = {
+            fallback: "No books to display",
+            completed: "completed",
+            book: "book",
+            year: "year",
+            month: "month",
+            by: "by",
+        },
+        locale = "en",
+    }: Props = $props();
 
     const groupedBooks = (books: Book[], format: Option) => {
         let formatString = "";

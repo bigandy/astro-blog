@@ -12,11 +12,16 @@ const {
     showDate = true,
     collection = "blog",
     postIndex,
+    hasTranslation
 } = Astro.props;
 const { Content } = await render(post);
+// const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
+// const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
+const noTranslation = !hasTranslation && Astro.currentLocale;
 ---
 
 <article class="content post layout-inner">
+    {noTranslation && <p class="no-translation">Pas de traduction disponible.</p>}
     <BlogPostHeader
         date={showDate && post.data.date}
         title={post.data.title}
@@ -42,3 +47,30 @@ const { Content } = await render(post);
 
 <EditPostOnGithub slug={post.slug} collection={collection} />
 
+<style>
+  .external-link {
+    margin-block: 2rem;
+    padding-block: 1rem;
+  }
+
+  .content :global(main > * + *) {
+    margin-block-start: 1rem;
+  }
+
+  a {
+    margin-bottom: 2rem;
+    display: inline-block;
+
+  }
+  .post {
+    padding: 1rem;
+  }
+
+  .no-translation {
+    width: 100%;
+    padding: 1rem;
+    border: 0.25rem dotted red;
+    max-width: unset;
+    text-align: center;
+  }
+</style>

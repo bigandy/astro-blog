@@ -17,18 +17,18 @@ const {
     bodyClass = "",
     hideTitle,
 }: Props = Astro.props;
+const locale = Astro.currentLocale ?? 'en'; 
 ---
 
-<html lang="en">
-    <head>
-        <BaseHead title={title} />
+<html lang={locale}>
+  <head>
+    <BaseHead title={title} />
 
-        <style define:vars={{ accent }}>
-            body {
-                --theme-accent: var(--accent);
-            }
-        </style>
-    </head>
+    <style define:vars={{ accent }}>
+        body {
+            --theme-accent: var(--accent);
+        }
+    </style>
 
     <body class={bodyClass}>
         {<SiteHeader />}
