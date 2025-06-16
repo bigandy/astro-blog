@@ -4,7 +4,7 @@ import BlogPostList from "@components/Blog/utils/blogPostList.astro";
 import ForwardArrow from "@components/Global/ForwardArrow.astro";
 
 // is this correct?
-const blogHomeUrl = '/'
+const blogHomeUrl = '/blog/2'
 
 const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
 ---
@@ -24,7 +24,7 @@ const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
     <h2>Derniers articles du blog</h2>
     <BlogPostList number={9} />
 
-    <ForwardArrow url={prefix + blogHomeUrl} title="Voir plus de messages" />
+    <ForwardArrow url={prefix + blogHomeUrl} title="Voir plus de publications" />
   </div>
 </DefaultLayout>
 

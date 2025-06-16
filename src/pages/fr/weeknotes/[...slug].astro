@@ -16,10 +16,10 @@ interface Props {
     postIndex: number;
 }
 
-const { post, postIndex } = Astro.props;
+const { post, postIndex } = Astro.props; 
 const { template, title } = post.data;
 
-const slug = `/fr/weeknotes/${post.slug}`;
+const slug = `weeknotes/${post.slug}`;
 
 export async function getStaticPaths() {
     const posts = await getAllPosts("weeknotes");

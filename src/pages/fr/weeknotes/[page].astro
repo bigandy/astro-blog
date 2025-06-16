@@ -18,7 +18,7 @@ export const getStaticPaths = (async ({ paginate}) => {
 interface Props {
 	page: {
 		currentPage: number
-		data: CollectionEntry<'weeknotes'>
+		data: CollectionEntry<'blog'>
 	}
 }
 
@@ -30,7 +30,7 @@ const { page } = Astro.props
     <ArchiveNav page={page} />
   </div>
 
-  <!-- {page.data.map((p) => <BlogPostPreview post={p} />)} -->
+  {page.data.map((p) => <BlogPostPreview post={p} collection='weeknotes' />)}
 
   <ArchiveNav page={page} />
 </DefaultLayout>
