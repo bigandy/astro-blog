@@ -1,0 +1,121 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+// CV Specific Components
+
+import EducationList from "@components/CV/EducationList.astro";
+import PorfolioList from "@components/CV/PorfolioList.astro";
+import RolesList from "@components/CV/RolesList.astro";
+import SkillsList from "@components/CV/SkillsList.astro";
+import SocialLinksList from "@components/CV/SocialLinksList.astro";
+
+import SettingsToggler from "@components/CV/SettingsToggler.astro";
+
+import "src/css/cv.css";
+
+import {
+    education,
+    personalInformation,
+    portfolioLinks, 
+    roles,
+    skills,
+    socialLinks,
+    summary,
+    themeColorKey,
+} from "./content";
+
+const overrideFullDates = false;
+---
+
+<DefaultLayout
+    title="CV"
+    hideTitle
+    bodyClass="force-print cv-no-sidebar"
+    accent="#008cff"
+>
+    <header>
+        <div class="contact h-card">
+            <div>
+                <h1 class="contact-name p-name">
+                    <a href="/">{personalInformation.name}</a>
+                </h1>
+                <div class="meta">
+                    <p class="contact-title">
+                        <strong>{personalInformation.title}</strong>
+                    </p>
+                    <a href={`mailto:${personalInformation.email}`}
+                        >{personalInformation.email}</a
+                    >
+                </div>
+            </div>
+
+            <SettingsToggler
+                src="/images/cv/andrew-profile.jpg"
+                alt="Photo of Andrew JD Hudson"
+                themeColorKey={themeColorKey}
+            />
+        </div>
+    </header>
+
+    <section>
+        <h2>Summary</h2>
+
+        <p>
+            {summary}
+        </p>
+    </section>
+
+    <section class="main-column">
+        <section>
+            <h2 id="experience">Experience</h2>
+
+            <ol class="entrylist list--dashed" reversed>
+                <RolesList
+                    roles={roles}
+                    overrideFullDates={overrideFullDates}
+                />
+            </ol>
+        </section>
+
+        <section>
+            <h2 id="relevant-experience">Selected Portfolio</h2>
+
+            <PorfolioList links={portfolioLinks} />
+        </section>
+    </section>
+
+    <aside>
+        <section>
+            <h2 id="key-achievements">Key Achievements</h2>
+
+            <ul>
+                <li><strong>Performance Boost</strong></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 id="skills">Skills</h2>
+
+            <SkillsList skills={skills} />
+        </section>
+
+        <section>
+            <h2 id="online-links">Online Links</h2>
+
+            <ul class="cv-social list--dashed list--compact">
+                <SocialLinksList links={socialLinks} />
+            </ul>
+        </section>
+
+        <section>
+            <h2 id="education">Education</h2>
+            <ul class="list--dashed list--plain list--compact cv-education-list">
+                <EducationList education={education} />
+            </ul>
+        </section>
+    </aside>
+
+    <div class="hide-print switch-portfolio-link">
+        <a href="/cv/with-sidebar">Switch to version of CV with sidebar</a>
+    </div>
+</DefaultLayout>
