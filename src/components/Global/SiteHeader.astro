@@ -4,15 +4,13 @@ import HeaderNav from "@components/Nav/HeaderNav.astro";
 import { themeColorKey } from "@pages/cv/content";
 import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
 
-const homeUrl = Astro.currentLocale === 'fr' ? `/${Astro.currentLocale}` : "/";
+const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
 ---
 
 <header class="layout">
     <div class="layout-inner">
         <h1>
-            <a href={homeUrl}>    
-                Andrew Hudson
-            </a>
+            <a href={homeUrl}> Andrew JD Hudson </a>
         </h1>
         <HeaderNav />
         <LanguageSwitcher />

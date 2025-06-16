@@ -17,26 +17,25 @@ const {
     bodyClass = "",
     hideTitle,
 }: Props = Astro.props;
-const locale = Astro.currentLocale ?? 'en'; 
+const locale = Astro.currentLocale ?? "en";
 const showIntroAndTitle = !hideTitle && title !== "";
 ---
 
 <html lang={locale}>
-  <head>
-    <BaseHead title={title} />
+    <head>
+        <BaseHead title={title} />
 
-    <style define:vars={{ accent }}>
-        body {
-            --theme-accent: var(--accent);
-        }
-    </style>
-
-    <body class={bodyClass}>
+        <style define:vars={{ accent }}>
+            body {
+                --theme-accent: var(--accent);
+            }
+        </style>
+    </head><body class={bodyClass}>
         <SiteHeader />
 
         <main class={`content layout ${!showIntroAndTitle ? "no-intro" : ""}`}>
             {
-               showIntroAndTitle  && (
+                showIntroAndTitle && (
                     <div class="intro">
                         <h1 class="title">{title}</h1>
                     </div>
@@ -51,8 +50,10 @@ const showIntroAndTitle = !hideTitle && title !== "";
     </body>
 </html>
 <style>
-    .no-intro {
+    main {
+        padding-block-start: 1rem;
+    }
+    :where(.no-intro) {
         padding-top: 3rem;
     }
-
 </style>

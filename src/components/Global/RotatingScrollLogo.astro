@@ -28,13 +28,10 @@ const charCount = length * 2;
     :root {
         --top-text: "top";
 
-
         &[lang="fr"] {
-            --top-text: 'en haut';
+            --top-text: "en haut";
         }
     }
-
-
 
     @layer base, ring, scroll;
 
@@ -65,13 +62,7 @@ const charCount = length * 2;
                 content: "☝️ " var(--top-text);
                 font-size: 0.8em;
                 color: var(--theme-accent);
-
-                [lang='fr'] & {
-                content: 'en haut';
             }
-            }
-
-            
         }
 
         .ring-wrapper {
