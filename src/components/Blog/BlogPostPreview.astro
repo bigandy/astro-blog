@@ -17,6 +17,8 @@ const {
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
 const showPostNumber = !draft;
+
+const prefix = Astro.currentLocale === 'en' ? '' : Astro.currentLocale + '/';
 ---
 
 <article
@@ -25,7 +27,7 @@ const showPostNumber = !draft;
     <BlogPostHeader
         date={date}
         title={title}
-        slug={`${collection}/${slug}`}
+        slug={`${prefix}${collection}/${slug}`}
         viewTransitionName={slug}
         isPreview
         postIndex={showPostNumber ? postIndex : undefined}

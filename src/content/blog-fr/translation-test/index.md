@@ -1,6 +1,6 @@
 ---
 title: "Test de traduction - français"
-date: 2024-04-19
+date: 2025-06-16
 draft: false
 language: "fr"
 hasTranslation: true

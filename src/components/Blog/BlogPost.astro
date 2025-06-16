@@ -17,7 +17,7 @@ const {
 const { Content } = await render(post);
 // const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
 // const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
-const noTranslation = !hasTranslation && Astro.currentLocale;
+const noTranslation = !hasTranslation && Astro.currentLocale === 'fr';
 ---
 
 <article class="content post layout-inner">

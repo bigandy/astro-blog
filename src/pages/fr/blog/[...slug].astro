@@ -1,30 +1,14 @@
 ---
-import { getCollection, CollectionEntry } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 
-import BlogLayout from "@layouts/BlogLayout.astro";
-import FullPageLayout from "@layouts/FullPageLayout.astro";
 import BlogPost from "@components/Blog/BlogPost.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import FullPageLayout from "@layouts/FullPageLayout.astro";
+
+import { mungePosts } from "@components/Blog/utils/mungePosts";
+
 
 export const prerender = true;
-
-export const mungePosts = async (locale) => {
-  const collectionFrench = await getCollection("blog-fr");
-  const collectionEnglish = await getCollection("blog");
-
-  // Loop through the English posts (I currently will always start with the English version, so it will be there)
-  // If there is a french post with the same slug, replace the english with the French
-  // if not then set has
-  const posts = collectionEnglish.map((englishPost) => {
-    const frenchPost = collectionFrench.find(
-      ({ slug: frenchPostSlug }) => frenchPostSlug === englishPost.slug
-    );
-
-    const post = locale && frenchPost ? frenchPost : englishPost;
-
-    return { post, hasTranslation: locale && frenchPost };
-  });
-  return posts;
-};
 
 export async function getStaticPaths() {
   const posts = await mungePosts("fr");
@@ -48,9 +32,10 @@ export async function getStaticPaths() {
 interface Props {
   post: CollectionEntry<"blog">;
   hasTranslation: boolean;
+    postIndex: number;
 }
 
-const { post, hasTranslation } = Astro.props;
+const { post, postIndex, hasTranslation } = Astro.props;
 const { template, title } = post.data;
 ---
 
@@ -60,9 +45,9 @@ const { template, title } = post.data;
       <BlogPost post={post} showBackLink={false} showDate={false} />
     </FullPageLayout>
   ) : (
-    <BlogLayout title={title}>
-      <BlogPost post={post} hasTranslation={hasTranslation} />
-    </BlogLayout>
+    <DefaultLayout title={post.data.title} hideTitle>
+        <BlogPost post={post} postIndex={postIndex} hasTranslation={hasTranslation} />
+    </DefaultLayout>
   )
 }
 <style>

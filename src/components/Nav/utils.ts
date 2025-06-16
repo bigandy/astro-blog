@@ -3,15 +3,10 @@ export const getNavClassName = (url: string, requestPathname: string) => {
     if (url.includes("http")) {
         return "";
     }
-    // let requestPathnameWithNoSlashes = requestPathname.replaceAll("/", "");
-    // const urlWithNoSlashes = url.replaceAll("/", "");
 
-    // if (locale === "fr") {
-    //     requestPathnameWithNoSlashes.replace("fr", "");
-    // }
+    if (url === "/" && requestPathname.includes("/blog/")) {
+        return "active";
+    }
 
-    const className =
-        requestPathname.replace("/fr", "") === url ? "active" : "";
-
-    return className;
+    return requestPathname.replace("/fr", "") === url ? "active" : "";
 };
