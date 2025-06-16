@@ -1,5 +1,5 @@
 ---
-title: "easter friday not celebrated in france"
+title: "Good Friday not Celebrated in France"
 date: 2025-04-18
 draft: false
 tags: [""]
