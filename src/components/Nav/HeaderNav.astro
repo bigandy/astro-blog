@@ -7,7 +7,9 @@ const requestPathname = Astro.url.pathname;
 
 const locale = Astro.currentLocale ?? 'en'; 
 
-const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : ""; 
+const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : ""; 
+
+console.log({prefix, locale})
 
 ---
 

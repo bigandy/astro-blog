@@ -23,20 +23,21 @@ const { title } = Astro.props;
 ---
 
 <DefaultLayout title={title} accent="oklch(0.52 0.12 189.58)">
+
   <slot />
 
   <Bookcase
     client:visible
     books={books}
-    text={Astro.currentLocale && {
+    text={Astro.currentLocale === 'fr' ? {
       fallback: "aucun livre renvoyé par l'API.",
       completed: "terminés",
       book: "livre",
-      month: "mois",
-      year: "année",
+      month: "Mois",
+      year: "Année",
       by: "de",
-    }}
-    locale="fr"
+    } : undefined}
+    locale={Astro.currentLocale}
   />
 </DefaultLayout>
 
