@@ -3,27 +3,25 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 
 // CV Specific Components
 
+import EducationList from "@components/CV/EducationList.astro";
+import PorfolioList from "@components/CV/PorfolioList.astro";
+import RolesList from "@components/CV/RolesList.astro";
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
-import PorfolioList from "@components/CV/PorfolioList.astro";
-import EducationList from "@components/CV/EducationList.astro";
-import LanguagesList from "@components/CV/LanguagesList.astro";
-import RolesList from "@components/CV/RolesList.astro";
 
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
 
 import "src/css/cv.css";
 
 import {
-    themeColorKey,
-    summary,
+    education,
+    personalInformation,
+    portfolioLinks,
     roles,
     skills,
     socialLinks,
-    personalInformation,
-    portfolioLinks,
-    education,
-    languages,
+    summary,
+    themeColorKey,
 } from "./content";
 
 const overrideFullDates = false;
@@ -32,7 +30,7 @@ const overrideFullDates = false;
 <DefaultLayout
     title="CV"
     hideTitle
-    bodyClass="cv force-print"
+    bodyClass="force-print cv-no-sidebar"
     accent="#008cff"
 >
     <header>
@@ -48,15 +46,6 @@ const overrideFullDates = false;
                     <a href={`mailto:${personalInformation.email}`}
                         >{personalInformation.email}</a
                     >
-                    <a href={personalInformation.website}
-                        >{
-                            personalInformation.website.replace("https://", "")
-                        }</a
-                    >
-                    <a href={`tel:${personalInformation.phone}`} class="tel"
-                        >{personalInformation.phone}</a
-                    >
-                    <p class="p-locality">{personalInformation.location}</p>
                 </div>
             </div>
 
@@ -68,12 +57,23 @@ const overrideFullDates = false;
         </div>
     </header>
 
+    <section>
+        <h2>Summary</h2>
+
+        <p>
+            {summary}
+        </p>
+    </section>
+
     <section class="main-column">
         <section>
             <h2 id="experience">Experience</h2>
 
             <ol class="entrylist list--dashed" reversed>
-                <RolesList roles={roles} overrideFullDates={overrideFullDates} />
+                <RolesList
+                    roles={roles}
+                    overrideFullDates={overrideFullDates}
+                />
             </ol>
         </section>
 
@@ -85,14 +85,6 @@ const overrideFullDates = false;
     </section>
 
     <aside>
-        <section>
-            <h2>Summary</h2>
-
-            <p>
-                {summary}
-            </p>
-        </section>
-
         <section>
             <h2 id="key-achievements">Key Achievements</h2>
 
@@ -110,7 +102,7 @@ const overrideFullDates = false;
         <section>
             <h2 id="online-links">Online Links</h2>
 
-            <ul class="cv-social list--plain list--dashed list--compact">
+            <ul class="cv-social list--dashed list--compact">
                 <SocialLinksList links={socialLinks} />
             </ul>
         </section>
@@ -121,16 +113,9 @@ const overrideFullDates = false;
                 <EducationList education={education} />
             </ul>
         </section>
-
-        <section>
-            <h2 id="Languages">Languages</h2>
-
-            <ul class="list--plain list--dashed list--compact">
-                <LanguagesList languages={languages} />
-            </ul>
-        </section>
     </aside>
+
     <div class="hide-print switch-portfolio-link">
-        <a href="/cv/no-sidebar">Switch to version of CV with no sidebar</a>
+        <a href="/cv/with-sidebar">Switch to version of CV with sidebar</a>
     </div>
 </DefaultLayout>
