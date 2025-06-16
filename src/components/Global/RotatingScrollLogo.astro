@@ -25,6 +25,17 @@ const charCount = length * 2;
 </div>
 
 <style>
+    :root {
+        --top-text: "top";
+
+
+        &[lang="fr"] {
+            --top-text: 'en haut';
+        }
+    }
+
+
+
     @layer base, ring, scroll;
 
     @layer scroll {
@@ -51,10 +62,16 @@ const charCount = length * 2;
 
             &::after {
                 transform: rotate(calc(14deg * var(--degrees)));
-                content: "☝️ Top";
+                content: "☝️ " var(--top-text);
                 font-size: 0.8em;
                 color: var(--theme-accent);
+
+                [lang='fr'] & {
+                content: 'en haut';
             }
+            }
+
+            
         }
 
         .ring-wrapper {

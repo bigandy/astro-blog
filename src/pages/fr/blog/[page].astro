@@ -25,16 +25,20 @@ interface Props {
 }
 
 const { page } = Astro.props
+
+
+const prevText = "articles plus récents"
+const nextText = "articles plus anciens";
 ---
 
 <DefaultLayout title={`Blog Archive Page ${page.currentPage}`}> 
   <div class="top-nav">
-    <ArchiveNav page={page} />
+    <ArchiveNav page={page} prevText={prevText} nextText={nextText} />
   </div>
 
   {page.data.map((p) => <BlogPostPreview post={p} postIndex={p.postIndex} />)}
 
-  <ArchiveNav page={page} />
+   <ArchiveNav page={page} prevText={prevText} nextText={nextText} />
 </DefaultLayout>
 <style>
   .top-nav {

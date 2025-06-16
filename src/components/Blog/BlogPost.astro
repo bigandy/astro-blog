@@ -18,6 +18,8 @@ const { Content } = await render(post);
 // const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
 const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
 const noTranslation = !hasTranslation && Astro.currentLocale === 'fr';
+
+const backLinkText = Astro.currentLocale === 'fr' ? `retour à tous les articles du ${collection}` :`Back to all ${collection} posts`;
 ---
 
 <article class="content post layout-inner">
@@ -39,7 +41,7 @@ const noTranslation = !hasTranslation && Astro.currentLocale === 'fr';
         showBackLink && (
             <BackArrow
                 url={`${prefix}/${collection}`}
-                title={`Back to all ${collection} posts`}
+                title={backLinkText}
             />
         )
     }
