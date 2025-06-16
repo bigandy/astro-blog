@@ -5,11 +5,13 @@ interface Props {
 	isBlog?: boolean
 }
 
-const { url, title, isBlog = false } = Astro.props
+const { url, title, isBlog = false } = Astro.props;
+
+const text = Astro.currentLocale ? 'En savoir plus sur' : "Read more about";
 ---
 
 <a href={url}>
-  {isBlog ? <>Read more about &ldquo;{title}&rdquo;</> : title} &rarr;
+  {isBlog ? <>{text} &ldquo;{title}&rdquo;</> : title} &rarr;
 </a>
 <style>
   a {

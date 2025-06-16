@@ -5,6 +5,12 @@ import {
 } from '@components/Blog/utils/getAllPosts'
 import BlogPostPreview from '../BlogPostPreview.astro'
 
+
+interface Props {
+  number: number;
+  isFrench?: boolean;
+}
+
 // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
 
 interface Props {

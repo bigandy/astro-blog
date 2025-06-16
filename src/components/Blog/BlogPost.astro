@@ -9,11 +9,20 @@ const {
 	showBackLink = true,
 	showDate = true,
 	collection = 'blog',
+  hasTranslation,
 } = Astro.props
 const { Content } = await post.render()
+
+const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
+const noTranslation = !hasTranslation && Astro.currentLocale;
+
+// is this correct?
+const blogHomeUrl = '/'
 ---
 
-<article class="content post layout-inner">
+<article class={`content post layout-inner`}>
+  {noTranslation && <p class="no-translation">Pas de traduction disponible.</p>}
   <BlogPostHeader
     date={showDate && post.data.date}
     title={post.data.title}
@@ -26,14 +35,8 @@ const { Content } = await post.render()
     <Content />
   </BlogContent>
 
-  {
-    showBackLink && (
-      <BackArrow
-        url={`/${collection}`}
-        title={`Back to all ${collection} posts`}
-      />
-    )
-  }
+
+  {showBackLink && <BackArrow url={prefix + blogHomeUrl} title={backTitle} />}
 </article>
 
 <ExternalLink
@@ -54,5 +57,17 @@ const { Content } = await post.render()
   a {
     margin-bottom: 2rem;
     display: inline-block;
+
+  }
+  .post {
+    padding: 1rem;
+  }
+
+  .no-translation {
+    width: 100%;
+    padding: 1rem;
+    border: 0.25rem dotted red;
+    max-width: unset;
+    text-align: center;
   }
 </style>

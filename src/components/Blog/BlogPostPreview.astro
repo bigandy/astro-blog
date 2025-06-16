@@ -90,6 +90,6 @@ const future = new Date(date) > new Date()
 
   .future {
     --border-color: color-mix(in lch, var(--theme-accent), red);
-    --content: "future";
+    --content: var(--content-future, "future");
   }
 </style>

@@ -1,0 +1,28 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro';
+
+
+const locale = Astro.currentLocale ?? 'en'; 
+
+const copy = {
+	en: {
+		title: '404',
+		message: 'Page cannot be found',
+	},
+	fr: {
+		title: '404',
+		message: 'Page non trouvée',
+	},
+};
+
+---
+
+<DefaultLayout title={copy[locale].title}>
+	<p>{copy[locale].message}</p>
+</DefaultLayout>
+
+<style>
+body {
+	--theme-accent: #ea3c3c;
+}
+</style>
