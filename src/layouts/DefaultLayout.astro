@@ -18,6 +18,7 @@ const {
     hideTitle,
 }: Props = Astro.props;
 const locale = Astro.currentLocale ?? 'en'; 
+const showIntroAndTitle = !hideTitle && title !== "";
 ---
 
 <html lang={locale}>
@@ -33,9 +34,9 @@ const locale = Astro.currentLocale ?? 'en';
     <body class={bodyClass}>
         <SiteHeader />
 
-        <main class="content layout">
+        <main class={`content layout ${!showIntroAndTitle ? "no-intro" : ""}`}>
             {
-                !hideTitle && title !== "" && (
+               showIntroAndTitle  && (
                     <div class="intro">
                         <h1 class="title">{title}</h1>
                     </div>
@@ -49,3 +50,9 @@ const locale = Astro.currentLocale ?? 'en';
         <RotatingScrollLogo />
     </body>
 </html>
+<style>
+    .no-intro {
+        padding-top: 3rem;
+    }
+
+</style>

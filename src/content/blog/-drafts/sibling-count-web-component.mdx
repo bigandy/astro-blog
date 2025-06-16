@@ -6,12 +6,11 @@ description: "This is a test description"
 tags: ["dev"]
 author: "Andrew"
 template: "full-page"
---- 
+---
 
+import SiblingChildDemo1 from "./SiblingChildDemo1.astro";
 
-import SiblingChildDemo1 from './SiblingChildDemo1.astro';
-
-Two years ago I first heard about sibling-count and sibling-index. As an avid connoisseur of advanced CSS I have often styled the children of a parent element based on their index and indeed how many children there were so for me these two proposed additions were hugely cool to me. 
+Two years ago I first heard about sibling-count and sibling-index. As an avid connoisseur of advanced CSS I have often styled the children of a parent element based on their index and indeed how many children there were so for me these two proposed additions were hugely cool to me.
 
 Until now I had been hand-coding the inline style attributes onto each child element.
 
@@ -25,9 +24,10 @@ Until now I had been hand-coding the inline style attributes onto each child ele
     <li style="--sibling-index:5;--sibling-count: 5;"></li>
 </ul>
 ```
+
 <br />
 
-```css  title="style.css"
+```css title="style.css"
 li {
     --per-slice: calc(360deg / var(--sibling-count));
     --hue: calc(var(--sibling-index) * var(--per-slice));
@@ -35,12 +35,10 @@ li {
     background: hsl(var(--hue) 100% 50%);
 }
 ```
+
 <SiblingChildDemo1 />
 
-
-
 I have been fascinated with the ability in CSS to know the current index of a sibling element. That is to know if I am the fifth child of a parent element. This is a feature that is not available in CSS, but it is something that I have been wanting to use for a while. I have been working on a project where I needed to know the index of a sibling element, and I found a way to do it using a web component.
-
 
 ### Lessons learned
 
@@ -48,7 +46,7 @@ During the process of creating this web component I learned a few things:
 
 - How to create a web component
 - How to test a web component
-- Make decisions based on real-life useage 
+- Make decisions based on real-life useage
 - Deployments of new versions to npm using Github Actions
 - Automation of linting / testing with Github Actions
 - Conversion of web component code into Typescript

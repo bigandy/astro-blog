@@ -10,7 +10,6 @@ import { getAllPosts } from '@components/Blog/utils/getAllPosts'
 
 
 export const getStaticPaths = (async ({ paginate}) => {
-  // Load your data with fetch(), Astro.fetchContent(), etc.
   const allPosts = await getAllPosts();
 
   // Return a paginated collection of paths for all posts

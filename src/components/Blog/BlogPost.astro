@@ -12,18 +12,25 @@ const {
     showDate = true,
     collection = "blog",
     postIndex,
-    hasTranslation
+    hasTranslation,
 } = Astro.props;
 const { Content } = await render(post);
 // const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
 const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
-const noTranslation = !hasTranslation && Astro.currentLocale === 'fr';
+const noTranslation = !hasTranslation && Astro.currentLocale === "fr";
 
-const backLinkText = Astro.currentLocale === 'fr' ? `retour à tous les articles du ${collection}` :`Back to all ${collection} posts`;
+const backLinkText =
+    Astro.currentLocale === "fr"
+        ? `retour à tous les articles du ${collection}`
+        : `Back to all ${collection} posts`;
 ---
 
 <article class="content post layout-inner">
-    {noTranslation && <p class="no-translation">Pas de traduction disponible.</p>}
+    {
+        noTranslation && (
+            <p class="no-translation">Pas de traduction disponible.</p>
+        )
+    }
     <BlogPostHeader
         date={showDate && post.data.date}
         title={post.data.title}
@@ -39,10 +46,7 @@ const backLinkText = Astro.currentLocale === 'fr' ? `retour à tous les articles
 
     {
         showBackLink && (
-            <BackArrow
-                url={`${prefix}/${collection}`}
-                title={backLinkText}
-            />
+            <BackArrow url={`${prefix}/${collection}`} title={backLinkText} />
         )
     }
 </article>
@@ -50,29 +54,11 @@ const backLinkText = Astro.currentLocale === 'fr' ? `retour à tous les articles
 <EditPostOnGithub slug={post.slug} collection={collection} />
 
 <style>
-  .external-link {
-    margin-block: 2rem;
-    padding-block: 1rem;
-  }
-
-  .content :global(main > * + *) {
-    margin-block-start: 1rem;
-  }
-
-  a {
-    margin-bottom: 2rem;
-    display: inline-block;
-
-  }
-  .post {
-    padding: 1rem;
-  }
-
-  .no-translation {
-    width: 100%;
-    padding: 1rem;
-    border: 0.25rem dotted red;
-    max-width: unset;
-    text-align: center;
-  }
+    .no-translation {
+        width: 100%;
+        padding: 1rem;
+        border: 0.25rem dotted red;
+        max-width: unset;
+        text-align: center;
+    }
 </style>
