@@ -42,8 +42,3 @@ const { Content } = await render(post);
 
 <EditPostOnGithub slug={post.slug} collection={collection} />
 
-<style>
-    .content :global(main > * + *) {
-        margin-block-start: 1rem;
-    }
-</style>

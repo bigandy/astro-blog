@@ -9,17 +9,13 @@ interface Props {
     title: string;
     bodyClass?: string;
     hideTitle?: boolean;
-    extraStyle?: Array<string>;
-    hideToggler?: boolean;
 }
 
 const {
     title,
     accent = "var(--theme-accent-blue)",
     bodyClass = "",
-    extraStyle = [],
     hideTitle,
-    hideToggler = false,
 }: Props = Astro.props;
 ---
 
@@ -31,21 +27,11 @@ const {
             body {
                 --theme-accent: var(--accent);
             }
-
-            .content :global(main > * + *) {
-                margin-block-start: 1rem;
-            }
         </style>
-        {
-            extraStyle?.length > 0 &&
-                extraStyle.map((style) => {
-                    return <link rel="stylesheet" href={style} />;
-                })
-        }
     </head>
 
     <body class={bodyClass}>
-        {!hideToggler && <SiteHeader />}
+        {<SiteHeader />}
 
         <main class="content layout">
             {
