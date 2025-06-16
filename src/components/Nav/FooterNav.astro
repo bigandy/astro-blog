@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
 
 const requestPathname = Astro.url.pathname;
 
-const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : ""; 
+const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : ""; 
 const locale = Astro.currentLocale ?? 'en'; 
 
 ---
@@ -15,7 +15,7 @@ const locale = Astro.currentLocale ?? 'en';
     <ul class="layout-inner nav">
         {
             footerPages.map((entry) => {
-                const className = getNavClassName(entry.url, requestPathname);
+                const className = getNavClassName(entry.url, requestPathname, locale);
 
         return (
           <li>
@@ -32,7 +32,7 @@ const locale = Astro.currentLocale ?? 'en';
   <ul class="layout-inner nav nav-social">
       {
         socialLinks.map(({ url, icon, title }) => {
-          const className = getNavClassName(url, requestPathname);
+          const className = getNavClassName(url, requestPathname, locale);
 
           return (
             <li>

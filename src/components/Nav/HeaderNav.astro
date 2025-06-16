@@ -9,7 +9,6 @@ const locale = Astro.currentLocale ?? 'en';
 
 const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : ""; 
 
-console.log({prefix, locale})
 
 ---
 
@@ -17,7 +16,7 @@ console.log({prefix, locale})
   <ul class="layout-inner nav">
     {
       headerPages.map((entry) => {
-        const className = getNavClassName(entry.url, requestPathname);
+        const className = getNavClassName(entry.url, requestPathname, locale);
 
         return (
           <li>

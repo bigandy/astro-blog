@@ -4,7 +4,7 @@ import HeaderNav from "@components/Nav/HeaderNav.astro";
 import { themeColorKey } from "@pages/cv/content";
 import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
 
-const homeUrl = Astro.currentLocale ? `/${Astro.currentLocale}` : "/";
+const homeUrl = Astro.currentLocale === 'fr' ? `/${Astro.currentLocale}` : "/";
 ---
 
 <header class="layout">
