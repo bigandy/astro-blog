@@ -26,9 +26,9 @@ export default defineConfig({
         },
     },
     i18n: {
-      locales: ["en", "fr"],
-      defaultLocale: "en",
-      routing: "manual",
+        locales: ["en", "fr"],
+        defaultLocale: "en",
+        routing: "manual",
     },
     integrations: [
         svelte(),
