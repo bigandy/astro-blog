@@ -1,6 +1,6 @@
 {
     "[astro]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
         // "editor.wordWrap": "on",
         // "editor.defaultFormatter": "astro-build.astro-vscode"
     },
