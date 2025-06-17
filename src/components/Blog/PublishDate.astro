@@ -3,6 +3,11 @@ import type { HTMLAttributes } from "astro/types";
 
 import dayjs from "dayjs";
 
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import "dayjs/locale/fr";
+dayjs.extend(customParseFormat);
+dayjs.locale(Astro.currentLocale);
+
 const { date, showLine = false, ...attrs } = Astro.props;
 
 interface Props extends HTMLAttributes<"h3"> {
