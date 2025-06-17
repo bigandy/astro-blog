@@ -4,10 +4,7 @@ export type Collection = "blog" | "weeknotes";
 
 import { isProduction } from "@utils/isProduction";
 
-export const getAllPosts = async (
-    collection: Collection = "blog",
-    numberToReturn?: number,
-) => {
+export const getAllPosts = async (collection: Collection = "blog") => {
     const showFuturePosts = false;
     // Data Fetching: List all Markdown posts in the repo.
     let allPosts = [];
@@ -39,10 +36,18 @@ export const getAllPosts = async (
             new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
     );
 
-    const postsWithPostIndex = allPosts.map((post, postIndex) => ({
+    return allPosts.map((post, postIndex) => ({
         ...post,
         postIndex: allPostCount - postIndex,
     }));
+};
 
-    return postsWithPostIndex.slice(0, numberToReturn ? numberToReturn : -1);
+export const getSomePosts = async (
+    collection: Collection = "blog",
+    numberToReturn?: number,
+) => {
+    return (await getAllPosts(collection)).slice(
+        0,
+        numberToReturn ? numberToReturn : -1,
+    );
 };

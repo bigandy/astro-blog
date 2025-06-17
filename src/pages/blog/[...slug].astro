@@ -1,13 +1,13 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 
 import BlogPost from "@components/Blog/BlogPost.astro";
-import FullPageLayout from "@layouts/FullPageLayout.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
+import FullPageLayout from "@layouts/FullPageLayout.astro";
 
 import {
-	getAllPosts,
-} from '@components/Blog/utils/getAllPosts'
+    getAllPosts,
+} from '@components/Blog/utils/getAllPosts';
 
 export const prerender = true;
 
