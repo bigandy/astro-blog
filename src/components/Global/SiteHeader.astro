@@ -1,7 +1,7 @@
 ---
-import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
-import { themeColorKey } from "@pages/cv/content";
+// import SettingsToggler from "@components/CV/SettingsToggler.astro";
+
 import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
 
 const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
@@ -13,14 +13,15 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
             <a href={homeUrl}> Andrew JD Hudson </a>
         </h1>
         <HeaderNav />
-        <LanguageSwitcher />
     </div>
 
-    <!-- <SettingsToggler
-        src="/images/cv/andrew-profile.jpg"
-        alt="Photo of Andrew JD Hudson"
-        themeColorKey={themeColorKey}
-    /> -->
+    <div class="right">
+        <!-- <SettingsToggler
+            src="/images/cv/andrew-profile.jpg"
+            alt="Photo of Andrew JD Hudson"
+        /> -->
+        <LanguageSwitcher />
+    </div>
 </header>
 
 <style>
@@ -43,5 +44,11 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
                 text-decoration: none;
             }
         }
+    }
+    .right {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
     }
 </style>
