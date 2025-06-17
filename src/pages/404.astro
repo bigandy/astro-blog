@@ -1,9 +1,6 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro';
 
-
-const locale = Astro.currentLocale ?? 'en'; 
-
 const copy = {
 	en: {
 		title: '404',
@@ -15,10 +12,11 @@ const copy = {
 	},
 };
 
+const {title, message} = copy[Astro.currentLocale];
 ---
 
-<DefaultLayout title={copy[locale].title}>
-	<p>{copy[locale].message}</p>
+<DefaultLayout title={title}>
+	<p>{message}</p>
 </DefaultLayout>
 
 <style>

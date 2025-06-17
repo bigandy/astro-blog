@@ -4,10 +4,17 @@ import FullScreenLayout from '@layouts/FullScreenLayout.astro'
 
 <FullScreenLayout>
   <div class="container">
+    <a href="/experiments/view-transitions/2">Page 2</a>
+
     <header style="view-transition-name: demo-header">
       <h1>First Page</h1>
     </header>
 
-    <a href="/experiments/view-transitions/2">Page 2</a>
+    <img
+        height="500"
+        style="view-transition-name: img-swap"
+        src="https://plus.unsplash.com/premium_photo-1675979807697-24195c443a7f?q=80&w=1606&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+    />
   </div>
 </FullScreenLayout>
