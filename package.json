@@ -14,7 +14,7 @@
         "@astrojs/mdx": "4.3.0",
         "@astrojs/react": "4.3.0",
         "@astrojs/svelte": "7.1.0",
-        "astro": "5.9.3",
+        "astro": "5.9.4",
         "astro-expressive-code": "0.41.2",
         "astro-icon": "1.1.5",
         "dayjs": "1.11.13",
@@ -24,7 +24,7 @@
         "lodash.groupby": "4.6.0",
         "react": "19.1.0",
         "react-dom": "19.1.0",
-        "svelte": "5.34.3",
+        "svelte": "5.34.4",
         "webfontloader": "1.6.28"
     },
     "devDependencies": {
