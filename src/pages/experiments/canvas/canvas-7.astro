@@ -12,10 +12,10 @@ const title = 'Canvas 7 - spirograph pt.1'
 </FullScreenLayout>
 
 <script>
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+
   const { width, height } = canvas.getBoundingClientRect();
-  // @ts-ignore
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
 
   // Resize canvas
   // canvas.width = window.innerWidth;

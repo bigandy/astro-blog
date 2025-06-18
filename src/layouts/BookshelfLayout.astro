@@ -1,0 +1,52 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import Bookcase from "src/components/Svelte/Bookcase.svelte";
+
+import { getBooks } from "src/utils/getBooksFromNotion";
+
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
+
+
+const allBooks = await getBooks();
+const books = allBooks
+  .filter((book) => {
+    const finishedDate = dayjs(book.finishedDate);
+    return finishedDate.isValid();
+  })
+  .sort((a, b) => {
+    return dayjs(b.finishedDate, "MM-YYYY").diff(dayjs(a.finishedDate, "MM-YYYY"));
+  });
+
+const { title } = Astro.props;
+---
+
+<DefaultLayout title={title} accent="oklch(0.52 0.12 189.58)">
+
+  <slot />
+
+  <Bookcase
+    client:visible
+    books={books}
+    text={Astro.currentLocale === 'fr' ? {
+      fallback: "aucun livre renvoyé par l'API.",
+      completed: "terminés",
+      book: "livre",
+      month: "Mois",
+      year: "Année",
+      by: "de",
+    } : undefined}
+    locale={Astro.currentLocale}
+  />
+</DefaultLayout>
+
+<style>
+  :root {
+    --theme-accent: ;
+  }
+
+  p {
+    margin-block-end: 3rem;
+  }
+</style>

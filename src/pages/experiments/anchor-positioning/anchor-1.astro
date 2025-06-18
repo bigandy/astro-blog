@@ -4,12 +4,12 @@ import FullScreenLayout from '@layouts/FullScreenLayout.astro'
 const title = 'Anchor Positioning a Popover Menu'
 ---
 
-<script type="module">
+<script type="module" is:inline>
     if (!("anchorName" in document.documentElement.style)) {
-        console.log("should import the anchor positioning polyfill")
+        console.info("should import the anchor positioning polyfill")
       import("https://unpkg.com/@oddbird/css-anchor-positioning");
     } else {
-        console.log("browser has support for anchor positioning")
+        console.info("browser has support for anchor positioning")
     }
   </script>
 

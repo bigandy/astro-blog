@@ -17,9 +17,11 @@ const {
     bodyClass = "",
     hideTitle,
 }: Props = Astro.props;
+const locale = Astro.currentLocale ?? "en";
+const showIntroAndTitle = !hideTitle && title !== "";
 ---
 
-<html lang="en">
+<html lang={locale}>
     <head>
         <BaseHead title={title} />
 
@@ -28,14 +30,12 @@ const {
                 --theme-accent: var(--accent);
             }
         </style>
-    </head>
+    </head><body class={bodyClass}>
+        <SiteHeader />
 
-    <body class={bodyClass}>
-        {<SiteHeader />}
-
-        <main class="content layout">
+        <main class={`content layout ${!showIntroAndTitle ? "no-intro" : ""}`}>
             {
-                !hideTitle && title !== "" && (
+                showIntroAndTitle && (
                     <div class="intro">
                         <h1 class="title">{title}</h1>
                     </div>
@@ -49,3 +49,11 @@ const {
         <RotatingScrollLogo />
     </body>
 </html>
+<style>
+    main {
+        padding-block-start: 1rem;
+    }
+    :where(.no-intro) {
+        padding-top: 3rem;
+    }
+</style>

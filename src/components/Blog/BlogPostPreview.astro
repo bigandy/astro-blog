@@ -1,10 +1,10 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { type Item } from "@components/Blog/utils/getAllPosts";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import type { Collection } from "@components/Blog/utils/getAllPosts";
 
 interface Props {
-    post: CollectionEntry<"blog">;
+    post: Item;
     collection?: Collection;
     postIndex: number;
 }
@@ -17,15 +17,36 @@ const {
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
 const showPostNumber = !draft;
+
+const prefix = Astro.currentLocale === 'en' ? '' : Astro.currentLocale + '/';
+
+type TextType = { [key: string]: { draft: string, future: string } }
+
+const text: TextType = {
+  'en': {
+    draft: "draft",
+    future: "future",
+  },
+  'fr': {
+    draft: "brouillon",
+    future: "futur"
+  }
+}
+const articleType = draft ? 'draft' : future ? 'future': "";
+
+const locale = Astro.currentLocale ?? 'en';
 ---
 
 <article
-    class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}
+    class={`post-preview layout-inner`}
+    data-type={articleType}
+    data-draft={text[locale].draft}
+    data-future={text[locale].future}
 >
     <BlogPostHeader
         date={date}
         title={title}
-        slug={`${collection}/${slug}`}
+        slug={`${prefix}${collection}/${slug}`}
         viewTransitionName={slug}
         isPreview
         postIndex={showPostNumber ? postIndex : undefined}
@@ -44,8 +65,9 @@ const showPostNumber = !draft;
         }
     }
 
-    .future,
-    .draft {
+    [data-type]:not([data-type=""]) {
+        --type: attr(data-type);
+
         border-inline-start: 10px solid var(--border-color);
         padding-inline-start: 2rem;
         position: relative;
@@ -72,19 +94,16 @@ const showPostNumber = !draft;
                 opacity: 0;
             }
         }
-    }
 
-    .draft {
-        --border-color: color-mix(
-            in lch,
-            var(--theme-accent),
-            var(--theme-divider) 50%
+        --border-color: if(
+            style(--type: 'draft'): color-mix(
+                in lch,
+                var(--theme-accent),
+                var(--theme-divider) 50%
+            );
+            style(--type: 'future'): color-mix(in lch, var(--theme-accent), red)
         );
-        --content: "draft";
-    }
 
-    .future {
-        --border-color: color-mix(in lch, var(--theme-accent), red);
-        --content: "future";
+        --content: if(style(--type : 'draft'): attr(data-draft); style(--type: 'future'): attr(data-future));
     }
 </style>

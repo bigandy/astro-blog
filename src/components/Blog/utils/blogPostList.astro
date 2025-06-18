@@ -5,6 +5,10 @@ import {
 } from '@components/Blog/utils/getAllPosts'
 import BlogPostPreview from '@components/Blog/BlogPostPreview.astro'
 
+
+interface Props {
+  number: number;
+}
 // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
 
 interface Props {
@@ -12,12 +16,13 @@ interface Props {
 	collection?: Collection
 }
 
+const locale = Astro.currentLocale === 'fr' ? 'fr' : 'en';
 const { number = 9, collection = 'blog' } = Astro.props
 
-const posts = await getSomePosts(collection, number);
+const posts = await getSomePosts(locale, collection, number);
 ---
 {
 	posts.map(
-		(p) => <BlogPostPreview postIndex={p.postIndex} post={p} collection={collection} />
+		(post) => <BlogPostPreview postIndex={post.postIndex} post={post} collection={collection} />
 	)
 }

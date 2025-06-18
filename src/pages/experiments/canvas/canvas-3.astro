@@ -16,12 +16,12 @@ const title = 'Canvas 3 - animating circle around other circle'
     "canvas"
   ) as HTMLCanvasElement;
   const { width, height } = canvas.getBoundingClientRect();
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
 
   let velocityX = 0.05;
   let radians = 0;
 
-  const drawCircle = (x, y, size, color = "red") => {
+  const drawCircle = (x: number, y: number, size: number, color = "red") => {
     ctx.beginPath();
     ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fillStyle = color;
@@ -30,7 +30,7 @@ const title = 'Canvas 3 - animating circle around other circle'
   };
 
   // x, y, radius, start angle (in radians), end angle (in radians)
-  const drawCircles = (x, y) => {
+  const drawCircles = (x: number, y: number) => {
     // animate this circle
     drawCircle(x + width / 2, y + height / 2, 20, "red");
 
@@ -39,7 +39,7 @@ const title = 'Canvas 3 - animating circle around other circle'
     // drawCircle(width / 4, height / 4, 40, 'blue');
   };
 
-  function draw(x, y) {
+  function draw(x: number, y: number) {
     radians += velocityX;
     x = Math.cos(radians) * 150;
     y = Math.sin(radians) * 150;

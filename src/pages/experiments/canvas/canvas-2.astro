@@ -12,11 +12,15 @@ const title = 'Canvas 2 - drawing circles'
 </FullScreenLayout>
 
 <script>
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+  
   const { width, height } = canvas;
-  const ctx = canvas.getContext("2d");
 
-  const drawCircle = (x, y, size, color = "red") => {
+  const ctx = canvas.getContext("2d")!;
+
+ 
+
+  const drawCircle = (x: number, y: number, size: number, color = "red") => {
     ctx.beginPath();
     ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fillStyle = color;
@@ -25,7 +29,7 @@ const title = 'Canvas 2 - drawing circles'
   };
 
   // Make a circle
-  const middle = (height / 2, width / 2);
+  // const middle = (height / 2, width / 2);
 
   // x, y, radius, start angle (in radians), end angle (in radians)
   drawCircle(width / 2, height / 2, 100, "black");

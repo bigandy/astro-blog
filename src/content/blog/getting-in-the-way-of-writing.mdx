@@ -5,8 +5,8 @@ draft: false
 tags: [""]
 ---
 
-import { Code } from 'astro-expressive-code/components'
-import importedCode from '/script.mjs?raw';
+import { Code } from "astro-expressive-code/components";
+import importedCode from "/script.mjs?raw";
 
 ### Current Process when attempting to write a blog post
 
@@ -38,10 +38,7 @@ Of course the above is shit and this is why I have not written anything good on 
 2. This would prevent me from fiddling with anything that is not the content of the blog. And hopefully it would enable me to create better posts going forwards.
 
 ### Final Solution
-I have created a [zx](https://github.com/google/zx) script and I start it with `make create` on the terminal. This then gives me the option of what I would like to call the blog post, then fires up the browser with the new url, fires up the local dev server, and also more importantly it focuses on the new markdown file in VS Code on the correct line to start typing straight away. 
 
-<Code 
-    code={importedCode} 
-    lang="javascript" 
-    title="script.mjs" 
-/>
+I have created a [zx](https://github.com/google/zx) script and I start it with `make create` on the terminal. This then gives me the option of what I would like to call the blog post, then fires up the browser with the new url, fires up the local dev server, and also more importantly it focuses on the new markdown file in VS Code on the correct line to start typing straight away.
+
+<Code code={importedCode} lang="javascript" title="script.mjs" />

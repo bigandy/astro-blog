@@ -12,10 +12,9 @@ const title = 'Canvas 8 - spirograph gone crazy'
 </FullScreenLayout>
 
 <script>
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
   const { width, height } = canvas.getBoundingClientRect();
-  // @ts-ignore
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
 
   // Resize canvas
   // width = window.innerWidth;
@@ -23,6 +22,8 @@ const title = 'Canvas 8 - spirograph gone crazy'
 
   // Draw Spirograph
   function drawSpirograph() {
+  
+    
     var offset = -Math.PI / 2;
 
     // Calculate center point and radius

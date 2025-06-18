@@ -1,0 +1,37 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import BlogPostList from "@components/Blog/utils/blogPostList.astro";
+import ForwardArrow from "@components/Global/ForwardArrow.astro";
+
+// is this correct?
+const blogHomeUrl = '/blog/2'
+
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
+---
+
+<DefaultLayout title="">
+  <p>
+    Je m'appelle Andrew et je suis un ingénieur logiciel front-end senior vivant à Grenoble, en France.
+  </p>
+
+  <p>
+    Ceci est mon site et je compte y travailler beaucoup pour le mettre à
+    niveau. Je viens de passer à Astro (à partir de 11ty) et jusqu'à présent,
+    l'expérience et le produit final sont de premier ordre.
+  </p>
+  <div class="blog-post-list">
+    <h2>Derniers articles du blog</h2>
+    <BlogPostList number={9} />
+
+    <ForwardArrow url={prefix + blogHomeUrl} title="Voir plus de publications" />
+  </div>
+</DefaultLayout>
+
+<style>
+  .blog-post-list {
+    margin-block-start: 3rem;
+  }
+  body {
+    --theme-accent: #cb4f00;
+  }
+</style>

@@ -12,12 +12,15 @@ const title = 'Canvas 6 - click on canvas'
 </FullScreenLayout>
 
 <script>
-  const canvas = document.getElementById("canvas");
-  const { width, height } = canvas.getBoundingClientRect();
-  // @ts-ignore
-  const ctx = canvas.getContext("2d");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
-  const drawCircle = (x, y, size, color = "red") => {
+
+  const { width, height } = canvas.getBoundingClientRect();
+  const ctx = canvas.getContext("2d")!;
+
+
+
+  const drawCircle = (x: number, y: number, size: number, color = "red") => {
     ctx.beginPath();
     ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fillStyle = color;
@@ -25,7 +28,7 @@ const title = 'Canvas 6 - click on canvas'
     ctx.closePath();
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: MouseEvent) => {
     const { offsetLeft, offsetTop } = canvas;
     const { clientX, clientY } = e;
 
@@ -44,7 +47,9 @@ const title = 'Canvas 6 - click on canvas'
 
   const clearButton = document.getElementById("clear");
 
-  clearButton.addEventListener("click", () => {
-    ctx.clearRect(0, 0, width, height);
-  });
+  if (clearButton && ctx) {
+    clearButton.addEventListener("click", function () {
+      ctx.clearRect(0, 0, width, height);
+    });
+  }
 </script>

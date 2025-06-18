@@ -301,6 +301,7 @@
         main {
             display: grid;
             column-gap: 2rem;
+            padding-block-start: 0;
 
             &.content {
                 margin-block: 1rem;

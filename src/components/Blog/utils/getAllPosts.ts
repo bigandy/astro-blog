@@ -1,20 +1,37 @@
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
-export type Collection = "blog" | "weeknotes";
+export type Collection = "blog" | "weeknotes" | "blog-fr";
 
 import { isProduction } from "@utils/isProduction";
+import { mungePosts } from "./mungePosts";
 
-export const getAllPosts = async (collection: Collection = "blog") => {
+export type Item = CollectionEntry<Collection> & {
+    postIndex: number;
+    hasTranslation?: boolean;
+};
+
+export const getAllPosts = async (
+    collection: Collection = "blog",
+    locale: "en" | "fr",
+): Promise<Array<Item>> => {
     const showFuturePosts = false;
+
     // Data Fetching: List all Markdown posts in the repo.
     let allPosts = [];
+
+    if (collection === "weeknotes") {
+        // Get all the posts from the posts directory
+        allPosts = await getCollection(collection);
+    } else {
+        allPosts = await mungePosts(locale);
+    }
+
     const now = new Date();
-    // Get all the posts from the posts directory
-    allPosts = await getCollection(collection);
 
     if (isProduction) {
+        // Get rid of draft posts first
         allPosts = allPosts.filter((post) => {
-            // Get rid of draft posts first
             if (post.data.draft && post.data.draft === true) {
                 return false;
             }
@@ -23,8 +40,8 @@ export const getAllPosts = async (collection: Collection = "blog") => {
     }
 
     if (isProduction || showFuturePosts === false) {
+        // get rid of future posts
         allPosts = allPosts.filter((post) => {
-            // get rid of future posts
             return new Date(post.data.date).getTime() <= now.getTime();
         });
     }
@@ -43,10 +60,11 @@ export const getAllPosts = async (collection: Collection = "blog") => {
 };
 
 export const getSomePosts = async (
+    locale: "en" | "fr",
     collection: Collection = "blog",
     numberToReturn?: number,
 ) => {
-    return (await getAllPosts(collection)).slice(
+    return (await getAllPosts(collection, locale)).slice(
         0,
         numberToReturn ? numberToReturn : -1,
     );

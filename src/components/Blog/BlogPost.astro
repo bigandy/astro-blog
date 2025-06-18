@@ -1,4 +1,6 @@
 ---
+
+import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 
 import BlogContent from "@components/Blog/BlogContent.astro";
@@ -6,19 +8,47 @@ import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import BackArrow from "@components/Global/BackArrow.astro";
 import EditPostOnGithub from "@components/Global/EditPostOnGithub.astro";
 
+interface Props {
+    post: CollectionEntry<"blog" | "weeknotes" | "blog-fr">;
+    showBackLink?: boolean;
+    showDate?: boolean;
+    collection?: "blog" | "weeknotes";
+    postIndex?: number;
+    hasTranslation?: boolean;
+}
+
 const {
     post,
     showBackLink = true,
     showDate = true,
     collection = "blog",
     postIndex,
+    hasTranslation,
 } = Astro.props;
+
 const { Content } = await render(post);
+
+const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
+
+const backLinkText =
+    Astro.currentLocale === "fr"
+        ? `retour à tous les articles du ${collection}`
+        : `Back to all ${collection} posts`;
+
+const noTranslationText = Astro.currentLocale === 'fr' ? "Pas de traduction disponible." : "No translation available";
+
+const showTranslationText = collection !== 'weeknotes' && !hasTranslation;
 ---
 
 <article class="content post layout-inner">
+
+    {
+        showTranslationText && (
+            <p class="no-translation">{noTranslationText}</p>
+        )
+    }
     <BlogPostHeader
-        date={showDate && post.data.date}
+        date={showDate ? post.data.date : undefined}
         title={post.data.title}
         isPreview={false}
         slug={post.slug}
@@ -32,13 +62,19 @@ const { Content } = await render(post);
 
     {
         showBackLink && (
-            <BackArrow
-                url={`/${collection}`}
-                title={`Back to all ${collection} posts`}
-            />
+            <BackArrow url={`${prefix}/${collection}`} title={backLinkText} />
         )
     }
 </article>
 
 <EditPostOnGithub slug={post.slug} collection={collection} />
 
+<style>
+    .no-translation {
+        width: 100%;
+        padding: 1rem;
+        border: 0.25rem dotted red;
+        max-width: unset;
+        text-align: center;
+    }
+</style>

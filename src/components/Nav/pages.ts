@@ -1,62 +1,148 @@
 const pages: {
+    //     [key: string]: {
+    //         url: string;
+    //         title: { default: string; fr?: string };
+    //         location: "header" | "footer" | "both";
+    //         external?: boolean;
+    //     };
+    // } = {
+    //     "sites-i-like": {
+    //         url: "/sites-i-like",
+    //         title: "Sites I like",
+    //         location: "footer",
+    //     },
+
+    //     about: {
+    //         url: "/about",
+    //         title: "About",
+    //         location: "header",
+    //     },
+
+    //     tools: {
+    //         url: "/tools",
+    //         title: "Tools",
+    //         location: "footer",
+    //     },
+
+    //     archive: {
+    //         url: "/blog",
+    //         title: "Blog",
+    //         location: "header",
+    //     },
+    //     cv: {
+    //         url: "/cv",
+    //         title: "CV",
+    //         location: "header",
+    //     },
+
+    //     experiments: {
+    //         url: "/experiments",
+    //         title: "Experiments",
+    //         location: "footer",
+    //     },
+
+    //     weeknotes: {
+    //         url: "/weeknotes",
+    //         title: "Weeknotes",
+    //         location: "footer",
+    //     },
+
+    //     bookshelf: {
+    //         url: "/bookshelf",
+    //         title: "Bookshelf",
+    //         location: "footer",
+    //     },
+
+    //     now: {
+    //         url: "/now",
+    //         title: "Now",
+    //         location: "footer",
+    //     },
+    // =======
     [key: string]: {
         url: string;
-        title: string;
+        title: { default: string; fr?: string };
         location: "header" | "footer" | "both";
         external?: boolean;
     };
 } = {
-    "sites-i-like": {
-        url: "/sites-i-like",
-        title: "Sites I like",
-        location: "footer",
-    },
+    // "sites-i-like": {
+    //     url: "/sites-i-like",
+    //     title: {
+    //         default: "Sites I like",
+    //         fr: "Sites que j'aime",
+    //     },
+    //     location: "footer",
+    // },
 
     about: {
         url: "/about",
-        title: "About",
+        title: {
+            default: "About",
+            fr: "À propos",
+        },
         location: "header",
     },
 
-    tools: {
-        url: "/tools",
-        title: "Tools",
-        location: "footer",
-    },
-
-    archive: {
-        url: "/blog",
-        title: "Blog",
-        location: "header",
-    },
-    cv: {
-        url: "/cv",
-        title: "CV",
-        location: "header",
-    },
-
-    experiments: {
+    demos: {
         url: "/experiments",
-        title: "Experiments",
         location: "footer",
+        title: {
+            default: "Experiments",
+            fr: "Expériences",
+        },
+    },
+
+    // tools: {
+    //     url: "/tools",
+    //     title: {
+    //         default: "Tools",
+    //     },
+    //     location: "footer",
+    // },
+
+    blog: {
+        url: "/",
+        title: {
+            default: "Archive",
+            fr: "Les Archives",
+        },
+        location: "header",
     },
 
     weeknotes: {
         url: "/weeknotes",
-        title: "Weeknotes",
+        location: "header",
+        title: {
+            default: "Weeknotes",
+        },
+    },
+
+    now: {
+        url: "/now",
+        title: {
+            default: "Now",
+            fr: "Maintenant",
+        },
         location: "footer",
     },
 
     bookshelf: {
         url: "/bookshelf",
-        title: "Bookshelf",
-        location: "footer",
+        title: {
+            default: "Bookshelf",
+            fr: "Bibliothèque",
+        },
+        location: "header",
     },
 
-    now: {
-        url: "/now",
-        title: "Now",
-        location: "footer",
+    cv: {
+        url: "/cv",
+        location: "header",
+        title: {
+            default: "CV",
+            fr: "CV",
+        },
     },
 };
 

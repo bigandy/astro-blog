@@ -12,15 +12,16 @@ const title = 'Canvas 5 - some random circles'
 </FullScreenLayout>
 
 <script>
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas")! as HTMLCanvasElement;
+
+
   const { width, height } = canvas.getBoundingClientRect();
-  // @ts-ignore
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
 
   let x = 0;
   let y = 0;
 
-  const drawCircle = (x, y, size, color = "red") => {
+  const drawCircle = (x: number, y: number, size: number, color = "red") => {
     ctx.beginPath();
     ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fillStyle = color;
@@ -57,10 +58,12 @@ const title = 'Canvas 5 - some random circles'
 
   init();
 
-  const reloadButton = document.getElementById("reload");
+ const reloadButton = document.getElementById("reload");
 
-  reloadButton.addEventListener("click", function () {
-    ctx.clearRect(0, 0, width, height);
-    init();
-  });
+  if (reloadButton && ctx) {
+    reloadButton.addEventListener("click", function () {
+      ctx.clearRect(0, 0, width, height);
+      init();
+    });
+  }
 </script>

@@ -8,7 +8,6 @@ import icon from "astro-icon";
 
 import expressiveCode from "astro-expressive-code";
 
-// https://astro.build/config
 export default defineConfig({
     env: {
         schema: {
@@ -24,6 +23,10 @@ export default defineConfig({
                 startsWith: "secret_",
             }),
         },
+    },
+    i18n: {
+        locales: ["en", "fr"],
+        defaultLocale: "en",
     },
     integrations: [
         svelte(),

@@ -33,9 +33,9 @@ const title = 'Talk to Window Parent'
   const domain = protocol + "//" + host;
   const openButton = document.getElementById("open");
   const output = document.getElementById("output");
-  let windowObjectReference = null;
+  let windowObjectReference: WindowProxy | null = null;
 
-  openButton.addEventListener(
+  openButton?.addEventListener(
     "click",
     function () {
       showWindow();
@@ -44,7 +44,10 @@ const title = 'Talk to Window Parent'
   );
 
   const showWindow = () => {
-    output.innerHTML = ""; // clear the output
+    if (output) {
+      output.innerHTML = ""; // clear the output
+    }
+
     if (windowObjectReference) {
       windowObjectReference.focus();
       return;
@@ -62,6 +65,7 @@ const title = 'Talk to Window Parent'
     "message",
     function (event) {
       if (
+        !output ||
         event.origin !== domain ||
         typeof event.data.message === "string"
       ) {

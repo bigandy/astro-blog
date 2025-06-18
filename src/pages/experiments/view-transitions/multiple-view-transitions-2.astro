@@ -20,7 +20,6 @@ import FullScreenLayout from '@layouts/FullScreenLayout.astro'
 
 <script>
     const updateTheDOMSomehow = () => {
-        // console.log("must do some updating here?!");
         container?.classList.toggle('active');
     }
 async function handleClick() {
@@ -33,15 +32,13 @@ async function handleClick() {
   // With a View Transition:
   const transition = document.startViewTransition(() => updateTheDOMSomehow());
 
-  async function animateTransition(transition) {
+  async function animateTransition(transition: ViewTransition) {
     await transition.ready;
     console.time('anim')
 
     button?.setAttribute('disabled', 'disabled')
 
-    console.log("ready")
     await transition.finished
-    console.log("finished")
     button?.removeAttribute('disabled')
     console.timeEnd('anim')
     return await transition.finished;
@@ -49,7 +46,6 @@ async function handleClick() {
 
     animateTransition(transition);
 
-//   console.log({transition: await transition})
 }
 
 const button = document.getElementById('doSomething');

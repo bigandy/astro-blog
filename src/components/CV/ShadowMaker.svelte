@@ -25,8 +25,6 @@
             top: evt.clientY - center.top,
         };
 
-        // console.log({ evt, center, actual });
-
         // get the angle from the opposite/adjacent. Trigonometry!
         // let angle = getAngleFromOppositeAdjacent(actual.top, actual.left);
 

@@ -1,0 +1,154 @@
+---
+import ExternalLink from "@components/Global/ExternalLink.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+import dayjs from "dayjs";
+
+const lastUpdated = dayjs(`02/06/2025`);
+---
+
+<DefaultLayout title="maintenant" accent="#fa7e61">
+    <div class="container">
+        <p class="intro">
+            After upping our lives and moving country to live in Grenoble in
+            August we've now been here for five months. I am studying French and
+            looking for a new job. Marion started her new job and our children
+            started International school. It would be a lie to say that
+            everything is perfect but living here in the heart of the french
+            alps we have just to look at the horizon or take a short car journey
+            and be in the middle of nature.
+        </p>
+
+        <h2>Learning</h2>
+
+        <p>
+            Currently learning French. I am now having weekly French
+            conversation 1-2-1 lessons. Suplementing this is my continued
+            Duolingo use. I've just passed 270 days streak. To suppliment this
+            further I am also using some textbooks and working through the pages
+            and doing the exercises.
+        </p>
+
+        <p>
+            I have been learning how to make various bread-related products
+            including bagels and pitta bread. I am next going to start on making
+            sourdough bread.
+        </p>
+
+        <h2>Side project I am currently working on:</h2>
+
+        <p>
+            I am currently working on a couple of connected projects. First of
+            all is a next.js app that is powering the API for a React Native app
+            that allows me to control my home automation.
+        </p>
+
+        <p>
+            I am also getting back into the Chrome Extension development game
+            having updated a couple of my extensions and created another one for
+            my personal use.
+        </p>
+
+        <h2>Reading</h2>
+
+        <p>
+            I have just started reading "Foe" by Iain Reid. As well as this I
+            have just started listening to "Source Code" by Bill Gates on
+            Audible. In the car with the children we are working our way through
+            the fourth Harry Potter book "The Goblet of Fire" by J K Rowling.
+        </p>
+
+        <h2>Podcasts</h2>
+
+        <p>
+            I have just started listening to the "How I Built This with Guy Raz"
+            podcast. Further to this I am also listening to different episodes
+            of "Whiskey Web and Whatnot", "Syntax", and "Shop Talk". Sprinkled
+            between all of these are some random French podcasts that I have
+            subscribed to.
+        </p>
+
+        <h2>Fitness</h2>
+        <p>
+            Zwifting once or twice a week, running once or twice. Yesterday I
+            made excellent use of the fantastic weather to do an epic road ride
+            with 1500m+ d+ in 82km <ExternalLink
+                href="https://www.strava.com/activities/13030100828"
+                >"Deeper into the Vercors"</ExternalLink
+            >. I have also been doing plenty of walking and on Sunday we went to
+            Autrans in the Vercors for our weekly family hike.
+        </p>
+
+        <!-- <h2>Job<h2>
+
+    <p>
+      Heavily applying for jobs.
+    </p>
+
+    <h2>Family<h2>
+    <p>
+       Our children are in international school here which means they get 4 hours a week in English with the rest being in French. Emma is struggling a lot to settle in, especially to make friends and with the school work. Arthur is finding it easier. Emma does art once a week and Arthur plays hockey. We go hiking in the countryside as a family on Sundays.
+    </p> -->
+
+        <footer>
+            <p>
+                Last updated: {lastUpdated.format("DD.MM.YYYY")}.
+            </p>
+
+            <p>
+                Credit for now page: first seen on <ExternalLink
+                    href="https://sivers.org/now"
+                    >Derek Sivers now page</ExternalLink
+                >
+            </p>
+        </footer>
+    </div>
+
+    <style>
+        footer {
+            background: hsl(from black h s l / 0.05);
+            padding: 1rem;
+            margin-block: 3rem;
+            gap: 0.5rem;
+            display: grid;
+
+            p {
+                font-size: 90%;
+                margin: 0;
+            }
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        ul {
+            margin-block: 1rem;
+            padding-inline-start: 1.5rem;
+        }
+
+        .intro,
+        footer {
+            max-width: unset;
+        }
+
+        .intro {
+            font-size: 110%;
+            line-height: 1.5;
+            font-weight: 555;
+            margin-bottom: 2rem;
+            padding: 1em;
+            background: oklch(
+                from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25
+            );
+            border-left: 0.5em solid;
+            border-color: oklch(
+                from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25
+            );
+        }
+
+        h2 {
+            font-size: var(--font-size--1);
+        }
+    </style>
+</DefaultLayout>

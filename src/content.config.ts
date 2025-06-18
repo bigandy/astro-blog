@@ -31,4 +31,15 @@ export const collections = {
             template: z.enum(getValues(Template)).optional(),
         }),
     }),
+    "blog-fr": defineCollection({
+        schema: z.object({
+            title: z.string(),
+            author: z.string().optional(),
+            date: z.date().transform((str) => new Date(str)),
+            draft: z.boolean().default(false),
+            tags: z.array(z.string().optional()).optional(),
+            template: z.enum(getValues(Template)).optional(),
+            hasTranslation: z.boolean().default(false),
+        }),
+    }),
 };
