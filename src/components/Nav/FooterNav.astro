@@ -20,7 +20,7 @@ const locale = Astro.currentLocale ?? 'en';
         return (
           <li>
             <a class={className} href={prefix + entry.url}>
-              {entry.title?.[locale] ?? entry.title.default}
+              {(locale === 'fr' && entry.title?.[locale]) ?? entry.title.default}
             </a>
           </li>
         );

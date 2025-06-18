@@ -168,7 +168,7 @@ li {
                 updateTheDOMSomehow()
             );
 
-            async function animateTransition(transition) {
+            async function animateTransition(transition: ViewTransition) {
                 await transition.ready;
 
                 button?.setAttribute("disabled", "disabled");

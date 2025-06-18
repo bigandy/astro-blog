@@ -12,9 +12,13 @@ const title = 'Canvas 1 - Drawing Rectangles'
 </FullScreenLayout>
 
 <script>
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
   const { width, height } = canvas;
   const ctx = canvas.getContext("2d");
+
+  if (!ctx) {
+    return;
+  }
 
   ctx.fillStyle = "red";
   ctx.fillRect(0, 0, width, height / 2);

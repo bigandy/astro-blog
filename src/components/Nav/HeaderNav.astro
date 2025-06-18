@@ -8,8 +8,6 @@ const requestPathname = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en'; 
 
 const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : ""; 
-
-
 ---
 
 <nav class="layout">
@@ -24,7 +22,7 @@ const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : "";
               <ExternalLink href={entry.url} size="1rem">{entry.title}</ExternalLink>
             ) : (
             <a class={className} href={prefix + entry.url}>
-              {entry.title?.[locale] ?? entry.title.default}
+              {(locale === 'fr' && entry.title?.[locale]) ?? entry.title.default}
             </a>
             )}
           </li>

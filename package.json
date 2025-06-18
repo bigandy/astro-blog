@@ -8,9 +8,12 @@
         "preview": "astro preview",
         "update": "npx @astrojs/upgrade && npx npm-check-updates -u",
         "lint": "npx prettier --check .",
-        "lint:write": "npx prettier --check --write ."
+        "lint:write": "npx prettier --check --write .",
+        "check": "astro check",
+        "check:build": "npm run check && npm run build"
     },
     "dependencies": {
+        "@astrojs/check": "0.9.4",
         "@astrojs/mdx": "4.3.0",
         "@astrojs/react": "4.3.0",
         "@astrojs/svelte": "7.1.0",
@@ -25,6 +28,7 @@
         "react": "19.1.0",
         "react-dom": "19.1.0",
         "svelte": "5.34.4",
+        "typescript": "5.8.3",
         "webfontloader": "1.6.28"
     },
     "devDependencies": {

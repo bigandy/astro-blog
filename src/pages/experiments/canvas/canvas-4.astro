@@ -6,11 +6,19 @@ const title = 'Canvas 4 - some random squares'
 ---
 
 <script>
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+
   const { width, height } = canvas.getBoundingClientRect();
   const ctx = canvas.getContext("2d");
+  
+  if (!ctx) {
+    return;
+  }
 
-  const drawSquare = (x, y, size, color = "red") => {
+
+  const drawSquare = (x: number, y: number, size: number) => {
+    
+
     const opacity = Date.now() % 3 === 0 ? "0.75" : "0.24";
 
     ctx.fillStyle = `hsl(${Math.floor(
@@ -23,15 +31,12 @@ const title = 'Canvas 4 - some random squares'
   let y = Math.random() * Math.tan(Date.now());
 
   const init = () => {
-    console.info("run init please");
     for (let j = 0; j <= 10000; j++) {
       draw();
     }
   };
-  // @ts-ignore
 
   function draw() {
-    console.info("drawing");
     x =
       x <= width
         ? x + Math.cos(Math.random()) * (width / 10)
@@ -46,10 +51,13 @@ const title = 'Canvas 4 - some random squares'
 
   const reloadButton = document.getElementById("reload");
 
-  reloadButton.addEventListener("click", function () {
-    ctx.clearRect(0, 0, width, height);
-    init();
-  });
+  if (reloadButton) {
+    reloadButton.addEventListener("click", function () {
+      ctx.clearRect(0, 0, width, height);
+      init();
+    });
+  }
+  
 </script>
 
 <FullScreenLayout title={title}>

@@ -2,7 +2,7 @@ import { getCollection } from "astro:content";
 
 export const prerender = true;
 
-export const mungePosts = async (locale) => {
+export const mungePosts = async (locale: "en" | "fr") => {
     const collectionFrench = await getCollection("blog-fr");
     const collectionEnglish = await getCollection("blog");
 

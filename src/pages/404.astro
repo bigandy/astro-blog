@@ -12,7 +12,7 @@ const copy = {
 	},
 };
 
-const {title, message} = copy[Astro.currentLocale];
+const {title, message} = copy[Astro.currentLocale === 'fr' ? 'fr' : 'en'];
 ---
 
 <DefaultLayout title={title}>

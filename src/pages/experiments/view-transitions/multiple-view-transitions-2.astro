@@ -33,7 +33,7 @@ async function handleClick() {
   // With a View Transition:
   const transition = document.startViewTransition(() => updateTheDOMSomehow());
 
-  async function animateTransition(transition) {
+  async function animateTransition(transition: ViewTransition) {
     await transition.ready;
     console.time('anim')
 

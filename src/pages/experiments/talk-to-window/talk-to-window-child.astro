@@ -4,7 +4,7 @@ import FullScreenLayout from '@layouts/FullScreenLayout.astro'
 const title = 'Talk to Window Child'
 ---
 
-<FullScreenLayout title={title} backLink={false}>
+<FullScreenLayout title={title} backLink={''}>
   <form id="form">
     <label for="name">Enter your name</label>
     <input type="text" id="name" />
@@ -16,8 +16,8 @@ const title = 'Talk to Window Child'
 <script>
   const { host, protocol } = window.location;
   const domain = protocol + "//" + host;
-  const form = document.getElementById("form");
-  const name = document.getElementById("name");
+  const form = document.getElementById("form")!;
+  const name = document.getElementById("name")! as HTMLInputElement;
 
   // Listen to messages, looking out for ones from the parent window.
   window.addEventListener(

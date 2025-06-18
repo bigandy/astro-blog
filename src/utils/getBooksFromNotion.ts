@@ -1,11 +1,11 @@
+import { Client } from "@notionhq/client";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 dayjs.extend(customParseFormat);
-import { Client } from "@notionhq/client";
 
 import { AssetCache } from "@11ty/eleventy-fetch";
 
-import { NOTION_KEY, NOTION_DB } from "astro:env/server";
+import { NOTION_DB, NOTION_KEY } from "astro:env/server";
 
 const notion = new Client({
     auth: NOTION_KEY,
@@ -50,7 +50,6 @@ export const getBooks = async () => {
                 book.properties?.Author.rich_text[0]?.plain_text ??
                 "unknown author";
 
-            const createdDate = book.created_time;
             const finishedDate =
                 book.properties["Date Finished"]?.date?.start || "";
             const rating = book.properties["Rating (out of 10)"]?.select?.name;

@@ -12,14 +12,22 @@ const title = 'Canvas 9 - Zigzag Lines'
 </FullScreenLayout>
 
 <script>
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+  
   const { width, height } = canvas.getBoundingClientRect();
-  // @ts-ignore
+
   const ctx = canvas.getContext("2d");
   const zigZagHeight = 10;
   const diff = 30;
 
+  if (!ctx) {
+    return;
+  }
+
   function draw() {
+    if (!ctx) {
+      return;
+    }
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, width, height);
 
