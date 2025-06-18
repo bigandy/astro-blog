@@ -1,6 +1,5 @@
 ---
-import type { GetStaticPaths } from "astro";
-import type { CollectionEntry } from "astro:content";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 import BlogPostPreview from "@components/Blog/BlogPostPreview.astro";
 import ArchiveNav from "@components/Global/ArchiveNav.astro";
@@ -15,12 +14,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     return paginate(allPosts, { pageSize: 10 });
 }) satisfies GetStaticPaths;
 
-interface Props {
-    page: {
-        currentPage: number;
-        data: CollectionEntry<"weeknotes">;
-    };
-}
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props;
 ---
@@ -31,8 +25,8 @@ const { page } = Astro.props;
     </div>
 
     {
-        page.data.map((p, postIndex) => (
-            <BlogPostPreview post={p} postIndex={postIndex} />
+        page.data.map((post, postIndex: number) => (
+            <BlogPostPreview post={post} postIndex={postIndex} />
         ))
     }
 

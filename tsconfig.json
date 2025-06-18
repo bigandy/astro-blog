@@ -13,5 +13,6 @@
             "@layouts/*": ["src/layouts/*"],
             "@utils/*": ["src/utils/*"]
         }
-    }
+    },
+    "exclude": ["script.mjs", "dist"]
 }

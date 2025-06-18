@@ -1,6 +1,5 @@
 ---
-import type { GetStaticPaths } from "astro";
-import type { CollectionEntry } from "astro:content";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 import BlogPostPreview from "@components/Blog/BlogPostPreview.astro";
 import ArchiveNav from "@components/Global/ArchiveNav.astro";
@@ -15,13 +14,7 @@ export const getStaticPaths = (async ({ paginate }) => {
     return paginate(allPosts, { pageSize: 10 });
 }) satisfies GetStaticPaths;
 
-interface Props {
-    page: {
-        currentPage: number;
-        data: Array<CollectionEntry<"blog">>;
-    };
-}
-
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { page } = Astro.props;
 
 const prevText = "articles plus récents";

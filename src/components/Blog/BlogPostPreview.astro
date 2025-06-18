@@ -1,10 +1,10 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { type Item } from "@components/Blog/utils/getAllPosts";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import type { Collection } from "@components/Blog/utils/getAllPosts";
 
 interface Props {
-    post: CollectionEntry<"blog">;
+    post: Item;
     collection?: Collection;
     postIndex: number;
 }

@@ -40,7 +40,7 @@ class AstroPaintBg {
 registerPaint("astro", AstroPaintBg);
 
 class CheckerboardPainter {
-    paint(ctx, geom, properties) {
+    paint(ctx, geom) {
         // Use `ctx` as if it was a normal canvas
         const colors = ["red", "green", "blue"];
         const size = 32;

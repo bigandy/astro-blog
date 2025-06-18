@@ -5,7 +5,7 @@ export type Collection = "blog" | "weeknotes";
 
 import { isProduction } from "@utils/isProduction";
 
-type Item = CollectionEntry<Collection> & {
+export type Item = CollectionEntry<Collection> & {
     postIndex: number;
 };
 
