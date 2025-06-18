@@ -16,9 +16,10 @@ interface Props {
 	collection?: Collection
 }
 
+const locale = Astro.currentLocale === 'fr' ? 'fr' : 'en';
 const { number = 9, collection = 'blog' } = Astro.props
 
-const posts = await getSomePosts(collection, number);
+const posts = await getSomePosts(locale, collection, number);
 ---
 {
 	posts.map(

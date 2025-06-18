@@ -153,7 +153,6 @@ li {
 
     <script>
         const updateTheDOMSomehow = () => {
-            // console.log("must do some updating here?!");
             container?.classList.toggle("active");
         };
         async function handleClick() {
@@ -173,10 +172,8 @@ li {
 
                 button?.setAttribute("disabled", "disabled");
 
-                console.log("ready");
 
                 await transition.finished;
-                console.log("finished");
                 button?.removeAttribute("disabled");
                 return;
             }

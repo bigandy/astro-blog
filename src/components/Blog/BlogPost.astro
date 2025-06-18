@@ -1,10 +1,21 @@
 ---
+
+import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 
 import BlogContent from "@components/Blog/BlogContent.astro";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import BackArrow from "@components/Global/BackArrow.astro";
 import EditPostOnGithub from "@components/Global/EditPostOnGithub.astro";
+
+interface Props {
+    post: CollectionEntry<"blog" | "weeknotes" | "blog-fr">;
+    showBackLink?: boolean;
+    showDate?: boolean;
+    collection?: "blog" | "weeknotes";
+    postIndex?: number;
+    hasTranslation?: boolean;
+}
 
 const {
     post,
@@ -14,25 +25,30 @@ const {
     postIndex,
     hasTranslation,
 } = Astro.props;
+
 const { Content } = await render(post);
-// const backTitle = Astro.currentLocale ? "Retour au blog" : "Back to blog";
+
 const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
-const noTranslation = !hasTranslation && Astro.currentLocale === "fr";
 
 const backLinkText =
     Astro.currentLocale === "fr"
         ? `retour à tous les articles du ${collection}`
         : `Back to all ${collection} posts`;
+
+const noTranslationText = Astro.currentLocale === 'fr' ? "Pas de traduction disponible." : "No translation available";
+
+const showTranslationText = collection !== 'weeknotes' && !hasTranslation;
 ---
 
 <article class="content post layout-inner">
+
     {
-        noTranslation && (
-            <p class="no-translation">Pas de traduction disponible.</p>
+        showTranslationText && (
+            <p class="no-translation">{noTranslationText}</p>
         )
     }
     <BlogPostHeader
-        date={showDate && post.data.date}
+        date={showDate ? post.data.date : undefined}
         title={post.data.title}
         isPreview={false}
         slug={post.slug}

@@ -20,7 +20,6 @@ import FullScreenLayout from '@layouts/FullScreenLayout.astro'
 
 <script>
     const updateTheDOMSomehow = () => {
-        // console.log("must do some updating here?!");
         container?.classList.toggle('active');
     }
 
@@ -39,10 +38,8 @@ import FullScreenLayout from '@layouts/FullScreenLayout.astro'
 
     button?.setAttribute('disabled', 'disabled')
 
-    console.log("ready")
 
     await transition.finished
-    console.log("finished")
     button?.removeAttribute('disabled')
     return await transition.finished;
     }

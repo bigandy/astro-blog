@@ -12,7 +12,7 @@ import {
 export const prerender = true;
 
 export async function getStaticPaths() {
-    const posts = await getAllPosts();
+    const posts = await getAllPosts('blog', 'en');
 
     return posts.map((post) => {
         return {
@@ -22,6 +22,7 @@ export async function getStaticPaths() {
             props: {
                 postIndex: post.postIndex,
                 post,
+                hasTranslation: post.hasTranslation
             },
         };
     });
@@ -30,11 +31,14 @@ export async function getStaticPaths() {
 interface Props {
     post: CollectionEntry<"blog">;
     postIndex: number;
+    hasTranslation: boolean;
 }
 
-const { post, postIndex } = Astro.props;
+const { post, postIndex, hasTranslation } = Astro.props;
 const { template, title } = post.data;
 const slug = `blog/${post.slug}`;
+
+console.log({hasTranslation})
 ---
 
 {
@@ -44,13 +48,12 @@ const slug = `blog/${post.slug}`;
                 post={post}
                 showBackLink={false}
                 showDate={false}
-                permalink={post.slug}
                 postIndex={postIndex}
             />
         </FullPageLayout>
     ) : (
         <DefaultLayout title={post.data.title} hideTitle>
-            <BlogPost post={post} postIndex={postIndex} />
+            <BlogPost post={post} postIndex={postIndex} hasTranslation={hasTranslation} />
         </DefaultLayout>
     )
 }

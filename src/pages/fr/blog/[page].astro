@@ -8,7 +8,7 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 import { getAllPosts } from "@components/Blog/utils/getAllPosts";
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const allPosts = await getAllPosts();
+    const allPosts = await getAllPosts('blog', 'fr');
 
     // Return a paginated collection of paths for all posts
     return paginate(allPosts, { pageSize: 10 });
