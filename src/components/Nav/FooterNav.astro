@@ -17,14 +17,14 @@ const locale = Astro.currentLocale ?? 'en';
             footerPages.map((entry) => {
                 const className = getNavClassName(entry.url, requestPathname);
 
-        return (
-          <li>
-            <a class={className} href={prefix + entry.url}>
-              {entry.title?.[locale] ?? entry.title.default}
-            </a>
-          </li>
-        );
-      })
+                return (
+                  <li>
+                    <a class={className} href={prefix + entry.url}>
+                      {(locale === 'fr' && entry.title['fr']) || entry.title.default}
+                    </a>
+                  </li>
+                );
+          })
     }
   </ul>
 

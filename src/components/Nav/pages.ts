@@ -122,6 +122,7 @@ const pages: {
         url: "/now",
         title: {
             default: "Now",
+            fr: "Maintenant",
         },
         location: "footer",
     },

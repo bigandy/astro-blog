@@ -22,7 +22,7 @@ const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : "";
               <ExternalLink href={entry.url} size="1rem">{entry.title}</ExternalLink>
             ) : (
             <a class={className} href={prefix + entry.url}>
-              {entry.title?.[locale] ?? entry.title.default}
+              {(locale === 'fr' && entry.title['fr']) || entry.title.default}
             </a>
             )}
           </li>
