@@ -14,7 +14,7 @@ const notion = new Client({
 export type Book = {
     bookTitle: string;
     bookAuthor: string;
-    createdDate: string;
+    // createdDate: string;
     finishedDate: string;
     thumbnail: string;
     rating: number;
@@ -24,7 +24,7 @@ type Grouping = Record<string, Book[]>;
 
 export type GroupedBooks = Grouping[];
 
-export const getBooks = async () => {
+export const getBooks = async (): Promise<Array<Book>> => {
     try {
         // check if in cache here.
         // Pass in your unique custom cache key
@@ -70,7 +70,7 @@ export const getBooks = async () => {
             };
         });
 
-        const books = await Promise.all([...list]);
+        const books = await Promise.all(list);
 
         await asset.save(books, "json");
 

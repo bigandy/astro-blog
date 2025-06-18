@@ -14,19 +14,13 @@ const title = 'Canvas 6 - click on canvas'
 <script>
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
-  if (!canvas) {
-    return
-  }
 
   const { width, height } = canvas.getBoundingClientRect();
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
 
 
 
   const drawCircle = (x: number, y: number, size: number, color = "red") => {
-    if (!ctx) {
-      return;
-    }
     ctx.beginPath();
     ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fillStyle = color;

@@ -9,11 +9,9 @@ const title = 'Canvas 4 - some random squares'
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
 
   const { width, height } = canvas.getBoundingClientRect();
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
   
-  if (!ctx) {
-    return;
-  }
+  
 
 
   const drawSquare = (x: number, y: number, size: number) => {

@@ -16,7 +16,7 @@ const books = allBooks
     return finishedDate.isValid();
   })
   .sort((a, b) => {
-    return dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"));
+    return dayjs(b.finishedDate, "MM-YYYY").diff(dayjs(a.finishedDate, "MM-YYYY"));
   });
 
 const { title } = Astro.props;

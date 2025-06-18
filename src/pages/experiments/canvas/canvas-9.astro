@@ -16,18 +16,11 @@ const title = 'Canvas 9 - Zigzag Lines'
   
   const { width, height } = canvas.getBoundingClientRect();
 
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
   const zigZagHeight = 10;
   const diff = 30;
 
-  if (!ctx) {
-    return;
-  }
-
   function draw() {
-    if (!ctx) {
-      return;
-    }
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, width, height);
 

@@ -12,15 +12,11 @@ const title = 'Canvas 5 - some random circles'
 </FullScreenLayout>
 
 <script>
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("canvas")! as HTMLCanvasElement;
 
-  if (!canvas) {
-    return;
-  }
 
   const { width, height } = canvas.getBoundingClientRect();
-  // @ts-ignore
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
 
   let x = 0;
   let y = 0;

@@ -16,11 +16,9 @@ const title = 'Canvas 2 - drawing circles'
   
   const { width, height } = canvas;
 
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d")!;
 
-  if (!ctx) {
-    return;
-  }
+ 
 
   const drawCircle = (x: number, y: number, size: number, color = "red") => {
     ctx.beginPath();
