@@ -6,9 +6,9 @@
         "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "update": "npx @astrojs/upgrade && npx npm-check-updates",
-        "lint": "npx prettier --check ./src",
-        "lint:write": "npx prettier --check --write ./src"
+        "update": "npx @astrojs/upgrade && npx npm-check-updates -u",
+        "lint": "npx prettier --check .",
+        "lint:write": "npx prettier --check --write ."
     },
     "dependencies": {
         "@astrojs/mdx": "4.3.0",

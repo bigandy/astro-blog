@@ -22,6 +22,6 @@ const posts = await getSomePosts(collection, number);
 ---
 {
 	posts.map(
-		(p) => <BlogPostPreview postIndex={p.postIndex} post={p} collection={collection} />
+		(post) => <BlogPostPreview postIndex={post.postIndex} post={post} collection={collection} />
 	)
 }

@@ -9,7 +9,7 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import { getAllPosts } from '@components/Blog/utils/getAllPosts'
 
 
-export const getStaticPaths = (async ({ paginate}) => {
+export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getAllPosts();
 
   // Return a paginated collection of paths for all posts
@@ -19,7 +19,7 @@ export const getStaticPaths = (async ({ paginate}) => {
 interface Props {
 	page: {
 		currentPage: number
-		data: Array<CollectionEntry<'blog'>>
+		data: Axwrray<CollectionEntry<'blog'>>
 	}
 }
 

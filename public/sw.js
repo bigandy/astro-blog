@@ -12,46 +12,46 @@ let currentDate = `${day}-${month}-${year}`;
 
 var cacheName = `bigandy:${currentDate}`;
 var cacheFiles = [
-  "/",
-  "/about/",
-  "/now/",
-  "/blog/",
-  "/experiments/",
-  "/offline/",
+    "/",
+    "/about/",
+    "/now/",
+    "/blog/",
+    "/experiments/",
+    "/offline/",
 ];
 self.addEventListener("install", function (event) {
-  event.waitUntil(
-    caches.open(cacheName).then(function (cache) {
-      return cache.addAll(cacheFiles);
-    })
-  );
+    event.waitUntil(
+        caches.open(cacheName).then(function (cache) {
+            return cache.addAll(cacheFiles);
+        }),
+    );
 });
 self.addEventListener("fetch", function (event) {
-  event.respondWith(
-    caches
-      .match(event.request)
-      .then(function (response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      })
-      .catch(function () {
-        return caches.match("/offline/");
-      })
-  );
+    event.respondWith(
+        caches
+            .match(event.request)
+            .then(function (response) {
+                if (response) {
+                    return response;
+                }
+                return fetch(event.request);
+            })
+            .catch(function () {
+                return caches.match("/offline/");
+            }),
+    );
 });
 self.addEventListener("activate", function (event) {
-  var cacheWhitelist = [cacheName];
-  event.waitUntil(
-    caches.keys().then(function (cacheNames) {
-      return Promise.all(
-        cacheNames.map(function (cacheName) {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+    var cacheWhitelist = [cacheName];
+    event.waitUntil(
+        caches.keys().then(function (cacheNames) {
+            return Promise.all(
+                cacheNames.map(function (cacheName) {
+                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        return caches.delete(cacheName);
+                    }
+                }),
+            );
+        }),
+    );
 });
