@@ -278,7 +278,7 @@
         --font-size-5: clamp(2.1773rem, 1.077rem + 5.5014vw, 5.3406rem);
 
         color-scheme: light;
-        --theme-accent-blue: #3454d1;
+        --theme-accent-blue: oklch(0.49 0.31 263.23);
         --theme-accent: var(--color-purple);
         --theme-accent-rgb: var(--color-purple-rgb);
         --theme-accent-opacity: 0.1;
