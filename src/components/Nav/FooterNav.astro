@@ -28,7 +28,7 @@ const requestPathname = Astro.url.pathname;
         socialLinks.length > 0 && (
             <ul class="layout-inner nav nav-social">
                 {socialLinks.map(({ url, icon, title }) => {
-                    const className = getNavClassName(url, requestPathname);
+                    const className = getNavClassName(url, requestPathname, 'social-link');
 
                     return (
                         <li>
@@ -36,13 +36,13 @@ const requestPathname = Astro.url.pathname;
                                 class={className}
                                 href={url}
                                 target="_blank"
-                                
+                                data-attr-color={icon.color}
                             >
                                 {icon && (
                                     <Icon
+                                        class="social-icon"
                                         name={`fa6-brands:${icon.name}`}
                                         size="1em"
-                                        style={`color: ${icon.color}`}
                                     />
                                 )}
                                 {title}
@@ -56,24 +56,19 @@ const requestPathname = Astro.url.pathname;
 </nav>
 
 <style>
-    .footer-nav {
-        padding-block-start: 3rem;
+    nav {
+        padding-block: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
     }
-    li {
-        display: inline-grid;
-        margin-right: 1em;
+    ul {
+        display: flex;
+        gap: 1em;
     }
 
     a {
         border-block-end: 2px solid transparent;
-    }
-
-    :global(.nav) {
-        & a {
-            &:hover {
-                text-decoration: none;
-            }
-        }
     }
 
     a:hover,
@@ -81,44 +76,40 @@ const requestPathname = Astro.url.pathname;
         border-bottom-color: var(--theme-accent);
     }
 
-    ul {
-        padding-inline-start: 0;
-        margin-block-end: 2rem;
-        display: inline-block;
+    .social-link {
+        color: attr(data-attr-color type(<color>));
     }
 
-    .nav-social {
-        position: relative;
-        display: block;
-        
-        a:hover {
-            border-color: inherit;
-        }
-
-        svg {
-            vertical-align: -0.25em;
-        }
-    }
-
-    .nav-social::before {
-        display: block;
-        position: absolute;
-        top: 0.25em;
-        left: -0.75rem;
-        height: calc(100% - 0.5em);
-        width: 2px;
-        background: oklch(from var(--theme-accent) calc(l * 2) c calc(h + 180));
-    }
-
-    .footer-nav {
-    }
-
-    @container (min-width: 700px) {
-        .nav-social {
-            display: inline-block;
-        }
-        .nav-social::before {
-            content: "";
-        }
+    .social-icon {
+        vertical-align: -0.25em;
     }
 </style>
+
+<script>
+    const runDataAttrCheck = () => {
+        // Check for browser support of css attr
+        const supportsNewAttr = CSS.supports('color: attr(data-attr-color, type(<color>)');
+       
+        if (supportsNewAttr) {
+            return;
+        }
+
+        // Now check if there are any elements with data-attr-* on them
+        const nodesSnapshot: XPathResult = document.evaluate('//*/attribute::*[starts-with(name(), "data-attr-")]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+        for (let i = 0; i < nodesSnapshot.snapshotLength; i++) {
+            const attr = nodesSnapshot.snapshotItem(i);
+            if (!attr) {
+                return
+            }
+            const type = attr.nodeName.replace('data-attr-', '');
+            const value = attr.nodeValue;
+
+            // @ts-expect-error
+            attr.ownerElement.style[type] = value;
+        };
+
+    }
+    runDataAttrCheck();
+    
+</script>

@@ -66,12 +66,8 @@
     }
 
     ::selection {
-        color: hsl(
-            from var(--theme-accent, black) calc(h + 100) 100% calc(l - 50)
-        );
-        background-color: hsl(
-            from var(--theme-accent, black) calc(h + 60) calc(s + 100) l / 0.25
-        );
+        color: white;
+        background-color: var(--theme-accent, black);
     }
 
     * {
@@ -358,6 +354,11 @@
 .list--plain {
     padding-left: 0;
     list-style: "";
+}
+
+.nav a:hover {
+    /* This is because we're using border for the underline effect */
+    text-decoration: none;
 }
 
 .debug {
