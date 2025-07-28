@@ -18,8 +18,8 @@ author: "andrew"
 
 ### How to download this show
 
-- <pre><code>get_iplayer --pid=m000t5dn --radiomode=best</code></pre> 320k quality -- this would be a massive 458MB so not going with this.
-- <pre><code>get_iplayer --pid=m000t5dn --radiomode=good</code></pre> is a lower quality 96k - much more reasonable at 130.31MB
+- <pre><code>get_iplayer --pid=m000t5dn</code></pre> ecord a radio programme using the PID (m000t5dn) from its Sounds URL in high quality (320k), with fallback to lower quality if not available (default setting):.
+- <pre><code>get_iplayer --pid=m000t5dn --radio-quality=med</code></pre> is a lower quality 96k - much more reasonable at 130.31MB
 
 <div class="notes">
 
