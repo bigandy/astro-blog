@@ -1,21 +1,18 @@
 import { defineEcConfig } from "astro-expressive-code";
 
 export default defineEcConfig({
-    themes: ["github-dark", "github-light"],
-    themeCssSelector: (theme) => `[data-color-mode='${theme.type}']`,
+    themes: ["github-dark"],
+    // themeCssSelector: (theme) => `[data-color-mode='${theme.type}']`,
     styleOverrides: {
-        uiFontFamily: "var(--font-atkinson)",
-        uiFontSize: "var(--font-sizes-xs)",
-        codeFontSize: "var(--font-sizes-xs)",
+        // uiFontFamily: "var(--font-atkinson)",
+        // uiFontSize: "1rem",
+        codeFontSize: "1rem",
         // codeFontFamily: 'var(--font-monaspace-neon)',
-        codePaddingBlock: "var(--spacing-3, 1rem)",
-        codePaddingInline: "var(--spacing-8, 3rem)",
-        borderRadius: "calc(1rem / 2)",
-        borderWidth: "1px",
-        borderColor: ({ theme }) =>
-            theme.type === "dark"
-                ? "var(--colors-neutral-775, red)"
-                : "var(--colors-neutral-275, green)",
+        codePaddingBlock: "1rem",
+        codePaddingInline: "1rem",
+        borderRadius: "calc(1rem / 4)",
+        borderWidth: "5px",
+        borderColor: () => "orange",
         // codeBackground: ({ theme }) =>
         //     theme.type === "dark"
         //         ? "var(--colors-neutral-875, red)"

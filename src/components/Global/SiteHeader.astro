@@ -2,6 +2,9 @@
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
 import { themeColorKey } from "@pages/cv/content";
+
+
+const { hidePhoto = false } = Astro.props;
 ---
 
 <header class="layout">
@@ -12,11 +15,13 @@ import { themeColorKey } from "@pages/cv/content";
         <HeaderNav />
     </div>
 
-    <SettingsToggler
-        src="/images/cv/andrew-profile.jpg"
-        alt="Photo of Andrew JD Hudson"
-        themeColorKey={themeColorKey}
-    />
+    {!hidePhoto && (
+        <SettingsToggler
+            src="/images/cv/andrew-profile.jpg"
+            alt="Photo of Andrew JD Hudson"
+            themeColorKey={themeColorKey}
+        />
+    )}
 </header>
 
 <style>

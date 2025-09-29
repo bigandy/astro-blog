@@ -1,6 +1,8 @@
 ---
 import BaseHead from "@components/Global/BaseHead.astro";
 
+import SiteHeader from "@components/Global/SiteHeader.astro";
+
 const { title, head, permalink } = Astro.props;
 ---
 
@@ -24,30 +26,90 @@ const { title, head, permalink } = Astro.props;
                 font-style: normal;
 
                 --header-font-family: "Libre Baskerville", serif;
-            }
 
-            .full-page-layout :global(*) {
-                max-width: unset;
-            }
-
-            .full-page-layout :global(li, p, h3) {
-                max-width: 60ch;
-                max-width: 80rch;
-            }
-
-            .full-page-layout :global(a) {
-                text-decoration-thickness: 2px;
-                text-decoration-color: cadetblue;
-                text-decoration-line: underline;
-                text-underline-offset: 0.25em;
-
-                &:active,
-                &:focus {
-                    text-decoration: unset;
+                :where(li, p, h1, h2, h3, h4) {
+                    max-width: 100rch;
+                    margin-inline: auto;
                 }
 
-                &:hover {
-                    text-decoration-thickness: 1px;
+                .expressive-code .frame {
+                    box-shadow: none;
+                }
+
+                :where(.expressive-code) {
+                    ::selection {
+                        background: orange;
+                        color: color-mix(white, currentColor);
+                    }
+                    /*overflow-x: scroll;*/
+                    @media (width > 800px) {
+                        /*max-width: 100%;*/
+
+
+                        /*How to make sure this lines up?*/
+
+                        margin-inline-start: calc(50vw - 50rch - 20px);
+
+                        /*&:hover {
+                            max-width: max-content;
+                        }*/
+                    }
+                }
+
+                :where(article > a) {
+                    @media (width > 800px) {
+                        margin-inline-start: calc(50vw - 50rch - 25px);
+                    }
+                }
+
+                :where(h1,h2,h3) {
+                    text-wrap: pretty;
+                }
+
+                .post-number {
+                    display: none;
+                    /* AHTODO: is it better to use a prop instead? */
+                }
+
+                &:where(a) {
+                    text-decoration-thickness: 2px;
+                    text-decoration-color: cadetblue;
+                    text-decoration-line: underline;
+                    text-underline-offset: 0.25em;
+
+                    &:active,
+                    &:focus {
+                        text-decoration: unset;
+                    }
+
+                    &:hover {
+                        text-decoration-thickness: 1px;
+                    }
+                }
+
+                /*> header {
+                    width: 80rch;
+                    margin-inline: auto;
+                }*/
+
+                nav, > header h1 {
+                    /*display: inline-block;
+                    tac*/
+                    text-align: center;
+                    max-width: unset;
+                }
+
+                article h1 {
+                    max-width: unset;
+                    text-align: center;
+                }
+
+                nav {
+                    margin-inline-start: 1rem;
+                }
+
+                nav li {
+                    margin-right: 1rem;
                 }
             }
 
@@ -67,10 +129,6 @@ const { title, head, permalink } = Astro.props;
                 }
             }
 
-            .full-page-layout :global(h1) {
-                font-size: var(--font-size-2);
-            }
-
             .full-page-layout :global(h2) {
                 font-size: var(--font-size-1);
             }
@@ -80,10 +138,21 @@ const { title, head, permalink } = Astro.props;
                     text-decoration: line-through;
                 }
             }
+
+            .full-page-layout :global(time) {
+                display: inline-grid;
+                width: min(100rch, 100%);
+            }
+
+            .full-page-layout :global(article > header) {
+                text-align: center;
+                margin-block: 1rem 4rem;
+            }
         </style>
     </head>
 
     <body class="full-page-layout">
+        <SiteHeader hidePhoto />
         <main class="layout">
             <slot />
         </main>

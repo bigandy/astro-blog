@@ -50,6 +50,10 @@
         font-size: var(--font-size-3);
     }
 
+    h4 {
+        font-size: var(--font-size--1);
+    }
+
     small,
     .text-small {
         font-size: var(--font-size--1);
@@ -60,7 +64,7 @@
         line-height: 24px;
     }
 
-    :where(h1, h2, h3) {
+    :where(h1, h2, h3, h4) {
         font-weight: var(--f-body-weight);
         font-family: var(--settings-heading-font, var(--header-font-family));
     }
@@ -107,7 +111,7 @@
         gap: 0.5rem;
     }
 
-    a > code:not([class*="language"]) {
+    /*a > code:not([class*="language"]) {
         position: relative;
         color: var(--theme-accent);
         background: transparent;
@@ -125,7 +129,7 @@
         background: var(--theme-accent);
         opacity: var(--theme-accent-opacity);
         border-radius: var(--border-radius);
-    }
+    }*/
 
     a:hover,
     a:focus {
@@ -367,9 +371,20 @@
     }
 }
 
-@layer unsets {
+/*@layer unsets {
     li:has(.expressive-code) {
         max-width: unset;
+    }
+}*/
+
+@layer expressiveCode {
+    .expressive-code {
+        max-width: 80ch;
+        margin-block: 1rem;
+
+        &:hover {
+            scrollbar-color: deepPink transparent;
+        }
     }
 }
 

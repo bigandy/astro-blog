@@ -3,6 +3,7 @@ title: "weeknote summer"
 date: 2025-07-09
 draft: true
 tags: [""]
+template: "full-page"
 ---
 
 Been in Grenoble almost 10 months now and have experienced our first canicule which was ok for the first two weeks until it wasn't as the weather got hotter and hotter and sleeping became more difficult and then you get the cumulative lack of sleep and tiredness from that.

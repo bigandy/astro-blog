@@ -10,7 +10,7 @@ const { number, isPost } = Astro.props;
 {
     number && (
         <div
-            class={`wrapper ${isPost ? "is-post" : ""}`}
+            class={`post-number wrapper ${isPost ? "is-post" : ""}`}
             style={`--vt-index: num-${number};`}
         >
             <span>{number}</span>
