@@ -36,21 +36,24 @@ export const getBooks = async () => {
             return asset.getCachedValue();
         }
 
-        const query = await notion.databases.query({
+        const database = await notion.databases.retrieve({
             database_id: NOTION_DB,
         });
 
-        const queryResults = query?.results || null;
+
+        const { results } = await notion.dataSources.query({
+            // @ts-expect-error
+            data_source_id: database.data_sources[0].id,
+        })
 
         // Go through the list and get the thumbnail for each image;
-        const list = queryResults.map(async (book: any) => {
+        const list = results.map(async (book: any) => {
             const bookTitle =
                 book.properties.Name.title[0]?.plain_text ?? "unknown title";
             const bookAuthor =
                 book.properties?.Author.rich_text[0]?.plain_text ??
                 "unknown author";
 
-            const createdDate = book.created_time;
             const finishedDate =
                 book.properties["Date Finished"]?.date?.start || "";
             const rating = book.properties["Rating (out of 10)"]?.select?.name;
@@ -64,7 +67,6 @@ export const getBooks = async () => {
             return {
                 bookTitle,
                 bookAuthor,
-                // createdDate,
                 finishedDate,
                 thumbnail: thumbnail?.replaceAll("http:", "https:"),
                 rating: Number(rating),
