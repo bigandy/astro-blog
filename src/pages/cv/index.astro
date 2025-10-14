@@ -6,22 +6,21 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 import EducationList from "@components/CV/EducationList.astro";
 import PorfolioList from "@components/CV/PorfolioList.astro";
 import RolesList from "@components/CV/RolesList.astro";
+import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
-
-import SettingsToggler from "@components/CV/SettingsToggler.astro";
 
 import "src/css/cv.css";
 
 import {
-    education,
-    personalInformation,
-    portfolioLinks,
-    roles,
-    skills,
-    socialLinks,
-    summary,
-    themeColorKey,
+	education,
+	personalInformation,
+	portfolioLinks,
+	roles,
+	skills,
+	socialLinks,
+	summary,
+	themeColorKey,
 } from "./content";
 
 const overrideFullDates = false;
@@ -46,6 +45,15 @@ const overrideFullDates = false;
                     <a href={`mailto:${personalInformation.email}`}
                         >{personalInformation.email}</a
                     >
+                    <!-- <a href={personalInformation.website}
+                        >{
+                            personalInformation.website.replace("https://", "")
+                        }</a
+                    > -->
+                    <a href={`tel:${personalInformation.phone}`} class="tel"
+                        >{personalInformation.phone}</a
+                    >
+                    <p class="p-locality">{personalInformation.location}</p>
                 </div>
             </div>
 

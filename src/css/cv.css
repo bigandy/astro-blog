@@ -455,6 +455,12 @@
             margin-block-end: 0.2rem;
         }
 
+        .meta {
+            a, p {
+                margin-right: 1rem;
+            }
+        }
+
         .cv-social a {
             display: grid;
             grid-template-columns: 1fr auto;

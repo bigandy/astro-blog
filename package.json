@@ -10,10 +10,10 @@
         "lint-format": "biome check --write"
     },
     "dependencies": {
-        "@astrojs/mdx": "4.3.6",
+        "@astrojs/mdx": "4.3.7",
         "@astrojs/react": "4.4.0",
         "@astrojs/svelte": "7.2.0",
-        "astro": "5.14.1",
+        "astro": "5.14.5",
         "astro-expressive-code": "0.41.3",
         "astro-icon": "1.1.5",
         "dayjs": "1.11.18",
@@ -21,16 +21,16 @@
         "google-fonts-complete": "2.2.3",
         "linkedom": "0.18.12",
         "lodash.groupby": "4.6.0",
-        "react": "19.1.1",
-        "react-dom": "19.1.1",
-        "svelte": "5.39.6",
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
+        "svelte": "5.39.13",
         "webfontloader": "1.6.28"
     },
     "devDependencies": {
         "@11ty/eleventy-fetch": "5.1.0",
         "@biomejs/biome": "2.2.6",
         "@iconify-json/fa6-brands": "1.2.6",
-        "@notionhq/client": "5.1.0",
+        "@notionhq/client": "5.2.0",
         "@types/lodash": "4.17.20",
         "@types/lodash.groupby": "4.6.9"
     }
