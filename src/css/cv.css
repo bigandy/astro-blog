@@ -70,10 +70,10 @@
         order: -1;
     }
 
-    .entry__organization,
+    /* .entry__organization,
     .entry__time {
         font-size: 0.9rem;
-    }
+    } */
 
     .entry__title {
         margin-block: 0.5rem;
@@ -232,7 +232,7 @@
 
         .meta a,
         .meta p {
-            font-size: 12px;
+            font-size: 14px;
             margin-right: 0;
             line-height: 19px;
         }
@@ -433,7 +433,7 @@
         }
 
         .entry__time {
-            margin-left: 1rem;
+            margin-left: 0.5rem;
         }
 
     }
@@ -502,6 +502,22 @@
                 border-bottom: none;
             }
         }
+
+        .cv-education-list {
+            padding-left: 1rem;
+            list-style: disc;
+
+            li>* {
+                margin-right: 1rem;
+            }
+
+            .name {
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
     }
 }
 
