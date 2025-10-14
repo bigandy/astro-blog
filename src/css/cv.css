@@ -24,7 +24,7 @@
         display: inline-block;
     }
 
-    h1 + h2 {
+    h1+h2 {
         margin-block-start: 0;
     }
 
@@ -55,7 +55,7 @@
             }
         }
 
-        + h2 {
+        +h2 {
             margin-block-start: 0;
         }
     }
@@ -102,11 +102,11 @@
         top: 10px;
     }
 
-    .entrylist > li {
+    .entrylist>li {
         position: relative;
     }
 
-    .entrylist > li::after {
+    .entrylist>li::after {
         --dimension: 20px;
 
         content: "";
@@ -162,10 +162,6 @@
     .cv-portfolio-list {
         padding-inline-start: 1.2rem;
     }
-
-    /* .cv-social li {
-        display: grid;
-    } */
 }
 
 .switch-portfolio-link {
@@ -195,6 +191,7 @@
 }
 
 @container style(--print: true) {
+
     .cv-no-sidebar,
     .cv {
         /* This is body padding */
@@ -219,7 +216,7 @@
             font-weight: bold;
         }
 
-        aside > section {
+        aside>section {
             break-inside: avoid;
             page-break-inside: avoid;
 
@@ -228,7 +225,7 @@
             }
         }
 
-        .main-column > section li {
+        .main-column>section li {
             break-inside: avoid;
             page-break-inside: avoid;
         }
@@ -309,8 +306,9 @@
 
         /* Hiding for now. */
         #key-achievements {
+
             &,
-            & + ul {
+            &+ul {
                 display: none;
             }
         }
@@ -342,7 +340,7 @@
         .entry__time {
             margin-top: 0;
 
-            time:nth-child(1) + span {
+            time:nth-child(1)+span {
                 margin-inline-start: 0;
             }
         }
@@ -374,7 +372,7 @@
             grid-column: 1 / -1;
         }
 
-        > .layout {
+        >.layout {
             width: auto;
         }
 
@@ -433,6 +431,11 @@
         .contact-title {
             display: block;
         }
+
+        .entry__time {
+            margin-left: 1rem;
+        }
+
     }
 
     @container (min-width: 768px) {
@@ -451,10 +454,6 @@
         .contact-name {
             margin-block-end: 0.2rem;
         }
-
-        /* .cv-social li {
-            display: block;
-        } */
 
         .cv-social a {
             display: grid;
@@ -532,10 +531,20 @@
     .cv-no-sidebar main {
         --theme-accent: black;
         max-width: 800px;
+        margin-inline: auto;
     }
+
     .content h3::after {
         content: "-";
         padding-inline: 0.2rem;
+    }
+
+    .content .list--languages h3::after {
+        display: none;
+    }
+
+    .list--languages h4 {
+        color: var(--lightgrey);
     }
 
     .content h3,
@@ -562,6 +571,12 @@
             display: list-item;
             margin-bottom: 0;
             padding-bottom: 0.25rem;
+        }
+    }
+
+    .cv {
+        .cv-social {
+            padding-inline-start: 0;
         }
     }
 }
