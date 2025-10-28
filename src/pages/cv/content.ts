@@ -268,7 +268,15 @@ export const education = [
 	},
 ];
 
-export const languages = [
+export type Level = 1 | 2 | 3 | 4 | 5;
+
+export type Language = {
+	language: string;
+	level: Level;
+	levelText: string;
+};
+
+export const languages: Array<Language> = [
 	{
 		language: "English",
 		level: 5,
@@ -277,6 +285,6 @@ export const languages = [
 	{
 		language: "French",
 		level: 2,
-		levelText: "Intermediate",
+		levelText: "A2",
 	},
 ];

@@ -1,8 +1,10 @@
 ---
 import LanguageGauge from "@components/CV/LanguageGauge.astro";
 
+import type { Language } from '@pages/cv/content';
+
 interface Props {
-    languages: any[];
+    languages: Array<Language>;
 }
 const { languages } = Astro.props;
 ---
