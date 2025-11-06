@@ -1,17 +1,41 @@
 import { isCancel, note, outro, select, text } from "@clack/prompts";
 
-import fs from "fs-extra";
+import { $ } from "execa";
 
-// import { setTimeout } from "node:timers/promises";
-// import color from "picocolors";
-//
-//
-//
+import fs from "fs-extra";
 
 // Add a leading zero if below 10 e.g. 5 => 05
 const addLeadingZero = (number) => {
     return `0${number}`.slice(-2);
 };
+
+const openCodeInCodeEditor = async (newFile) => {
+    const editor = "zed"; // could also be vscode
+
+    await $`${editor} ${newFile}`;
+
+    // await $`${editor} ${newDirectory}/index.html:2:5 -g`;
+    // -g does not work with zed
+    // 8th line. first character 8:1
+    await $`${editor} ${newFile}:8:1`;
+    return;
+};
+
+const showSuccessMessage = () => {
+    note(
+        `opening Code Editor to edit the code
+opening default browser on http://localhost:8888
+`,
+        "Success",
+    );
+};
+
+const runDevServer = async (url) => {
+    console.log("need to open browser at url ", url)
+    await $`npm run dev -- --open`;
+};
+
+
 
 async function main() {
     console.clear();
@@ -30,18 +54,14 @@ async function main() {
                 label: "Create",
             },
             // {
-            //     value: "develop",
-            //     label: "Develop",
-            // },
-            // {
-            //     value: "build",
-            //     label: "Build",
+            //     value: "edit",
+            //     label: "Edit",
             // },
         ],
     });
 
-    // if (selection === "develop") {
-    //     const files = await fs.readdir("./src/demos");
+    // if (selection === "edit") {
+    //     const files = await fs.readdir("./src/blog");
 
     //     const projectFolder = await autocomplete({
     //         message: "Select the demo you want to develop",
@@ -118,16 +138,21 @@ async function main() {
         if (!isCancel(postTitle)) {
             note(`Valid title: ${postTitle}`, "Success");
         }
-
-        const newFile = `src/content/blog/${postTitle.trim().replaceAll(" ", "-")}.md`;
+        const trimmedTitle = postTitle.trim().replaceAll(" ", "-");
+        const newFile = `src/content/blog/${trimmedTitle}.md`;
         await createPostFile(newFile, postTitle);
 
-        // try {
-        //     // AHTODO: can this be done in serial?
-        //     // await Promise.all([runDevServer(newDirectory), openCodeInCodeEditor(newDirectory), showSuccessMessage()]);
-        // } catch (error) {
-        //     console.error(error);
-        // }
+        try {
+
+            // AHTODO: can this be done in serial?
+            await Promise.all([
+                runDevServer(trimmedTitle),
+                openCodeInCodeEditor(newFile),
+                showSuccessMessage()
+            ]);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     outro("all done");
@@ -150,7 +175,9 @@ title: "${title}"
 date: ${pubDate}
 draft: false
 tags: [""]
----`;
+---
+
+`;
 
             await fs.writeFile(newFile, content);
             note("success! New Post created");
