@@ -12,8 +12,15 @@ const { title, head, permalink } = Astro.props;
 
         {head}
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
         <link
             href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap"
             rel="stylesheet"
@@ -25,7 +32,8 @@ const { title, head, permalink } = Astro.props;
                 font-weight: 400;
                 font-style: normal;
 
-                --header-font-family: "Libre Baskerville", serif;
+                --header-font-family:
+                    "Libre Baskerville", serif;
 
                 :where(li, p, h1, h2, h3, h4) {
                     max-width: 100rch;
@@ -41,28 +49,23 @@ const { title, head, permalink } = Astro.props;
                         background: orange;
                         color: color-mix(white, currentColor);
                     }
-                    /*overflow-x: scroll;*/
+
                     @media (width > 800px) {
-                        /*max-width: 100%;*/
-
-
-                        /*How to make sure this lines up?*/
-
-                        margin-inline-start: calc(50vw - 50rch - 20px);
-
-                        /*&:hover {
-                            max-width: max-content;
-                        }*/
+                        margin-inline-start: calc(
+                            50vw - 50rch - 20px
+                        );
                     }
                 }
 
                 :where(article > a) {
                     @media (width > 800px) {
-                        margin-inline-start: calc(50vw - 50rch - 25px);
+                        margin-inline-start: calc(
+                            50vw - 50rch - 25px
+                        );
                     }
                 }
 
-                :where(h1,h2,h3) {
+                :where(h1, h2, h3) {
                     text-wrap: pretty;
                 }
 
@@ -87,14 +90,8 @@ const { title, head, permalink } = Astro.props;
                     }
                 }
 
-                /*> header {
-                    width: 80rch;
-                    margin-inline: auto;
-                }*/
-
-                nav, > header h1 {
-                    /*display: inline-block;
-                    tac*/
+                nav,
+                > header h1 {
                     text-align: center;
                     max-width: unset;
                 }

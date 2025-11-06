@@ -11,17 +11,14 @@ interface Props extends HTMLAttributes<"h3"> {
 }
 ---
 
-<time class={`${showLine ? "show-line" : ""} ${attrs.class}`} {...attrs}>
+<time
+    class={`${showLine ? "show-line" : ""} ${attrs.class}`}
+    {...attrs}
+>
     {dayjs(date).format("dddd, DD MMMM YYYY")}
 </time>
 
 <style>
-    /*div {
-        margin-inline: auto;
-        width: auto;
-        display: inline-block;
-    }*/
-
     .publish-date {
         color: var(--theme-text-lighter);
         font-size: var(--font-size--2);
