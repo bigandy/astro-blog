@@ -7,7 +7,8 @@
         "build": "astro build",
         "preview": "astro preview",
         "update": "npx @astrojs/upgrade && npx npm-check-updates -u",
-        "lint-format": "biome check --write"
+        "lint-format": "biome check --write",
+        "create-post": "node ./script.mjs"
     },
     "dependencies": {
         "@astrojs/mdx": "4.3.9",
