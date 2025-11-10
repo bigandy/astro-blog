@@ -1,13 +1,16 @@
-import { isCancel, note, outro, select, text } from "@clack/prompts";
+import {
+    isCancel,
+    note,
+    outro,
+    select,
+    text,
+} from "@clack/prompts";
+
+import { Temporal } from "@js-temporal/polyfill";
 
 import { $ } from "execa";
 
 import fs from "fs-extra";
-
-// Add a leading zero if below 10 e.g. 5 => 05
-const addLeadingZero = (number) => {
-    return `0${number}`.slice(-2);
-};
 
 const openCodeInCodeEditor = async (newFile) => {
     const editor = "zed"; // could also be vscode
@@ -17,7 +20,7 @@ const openCodeInCodeEditor = async (newFile) => {
     // await $`${editor} ${newDirectory}/index.html:2:5 -g`;
     // -g does not work with zed
     // 8th line. first character 8:1
-    await $`${editor} ${newFile}:8:1`;
+    await $`${editor} ${newFile}:8:8`;
     return;
 };
 
@@ -31,11 +34,9 @@ opening default browser on http://localhost:8888
 };
 
 const runDevServer = async (url) => {
-    console.log("need to open browser at url ", url)
+    console.log("need to open browser at url ", url);
     await $`npm run dev -- --open`;
 };
-
-
 
 async function main() {
     console.clear();
@@ -113,8 +114,10 @@ async function main() {
 
     if (selection === "create") {
         const postTitle = await text({
-            message: "Enter your post title (letters and spaces only)",
-            initialValue: "a new post",
+            message:
+                "Enter your post title (letters and spaces only)",
+            placeholder: "a new post",
+            // initialValue: "a new post",
             validate: (value) => {
                 if (!value) {
                     return "Please enter a Post title.";
@@ -130,7 +133,7 @@ async function main() {
                     return "file exists already, edit the title and try again";
                 }
 
-                // TODO: validate that there is a minimum of 3 letters, a hyphen and a number e.g. pen-1
+                // TODO: validate that there is a minimum of 3 letters
                 return undefined;
             },
         });
@@ -138,17 +141,18 @@ async function main() {
         if (!isCancel(postTitle)) {
             note(`Valid title: ${postTitle}`, "Success");
         }
-        const trimmedTitle = postTitle.trim().replaceAll(" ", "-");
+        const trimmedTitle = postTitle
+            .trim()
+            .replaceAll(" ", "-");
         const newFile = `src/content/blog/${trimmedTitle}.md`;
         await createPostFile(newFile, postTitle);
 
         try {
-
             // AHTODO: can this be done in serial?
             await Promise.all([
                 runDevServer(trimmedTitle),
                 openCodeInCodeEditor(newFile),
-                showSuccessMessage()
+                showSuccessMessage(),
             ]);
         } catch (error) {
             console.error(error);
@@ -161,12 +165,10 @@ async function main() {
 const createPostFile = async (newFile, title) => {
     try {
         if (!fs.existsSync(newFile)) {
-            const today = new Date();
+            const date = Temporal.Now.plainDateISO();
 
-            const year = today.getFullYear();
-
-            const day = addLeadingZero(today.getDate());
-            const month = addLeadingZero(today.getMonth() + 1);
+            const { day, month, year } =
+                Temporal.PlainDate.from(date);
 
             const pubDate = `${year}-${month}-${day}`;
 
