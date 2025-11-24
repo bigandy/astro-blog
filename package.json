@@ -11,10 +11,10 @@
         "create-post": "node ./script.mjs"
     },
     "dependencies": {
-        "@astrojs/mdx": "4.3.9",
-        "@astrojs/react": "4.4.1",
-        "@astrojs/svelte": "7.2.1",
-        "astro": "5.15.3",
+        "@astrojs/mdx": "4.3.12",
+        "@astrojs/react": "4.4.2",
+        "@astrojs/svelte": "7.2.2",
+        "astro": "5.16.0",
         "astro-expressive-code": "0.41.3",
         "astro-icon": "1.1.5",
         "dayjs": "1.11.19",
@@ -24,17 +24,17 @@
         "lodash.groupby": "4.6.0",
         "react": "19.2.0",
         "react-dom": "19.2.0",
-        "svelte": "5.43.4",
+        "svelte": "5.43.14",
         "webfontloader": "1.6.28"
     },
     "devDependencies": {
         "@11ty/eleventy-fetch": "5.1.0",
-        "@biomejs/biome": "2.3.4",
+        "@biomejs/biome": "2.3.7",
         "@clack/prompts": "1.0.0-alpha.6",
         "@iconify-json/fa6-brands": "1.2.6",
         "@js-temporal/polyfill": "0.5.1",
-        "@notionhq/client": "5.3.0",
-        "@types/lodash": "4.17.20",
+        "@notionhq/client": "5.4.0",
+        "@types/lodash": "4.17.21",
         "@types/lodash.groupby": "4.6.9",
         "execa": "9.6.0",
         "fs-extra": "11.3.2"
