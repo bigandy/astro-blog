@@ -1,4 +1,5 @@
 import {
+    autocomplete,
     isCancel,
     note,
     outro,
@@ -33,9 +34,20 @@ opening default browser on http://localhost:8888
     );
 };
 
-const runDevServer = async (url) => {
-    console.log("need to open browser at url ", url);
+const runDevServer = async () => {
     await $`npm run dev -- --open`;
+};
+
+const runDevServerWithUrl = async (url) => {
+    console.log("need to open browser at url ", url);
+    await openSiteInBrowser(url);
+    await $`npm run dev`;
+};
+
+const openSiteInBrowser = async (url) => {
+    return await $({
+        shell: true,
+    })`open -a "Google Chrome Canary" "${url}"`;
 };
 
 async function main() {
@@ -54,39 +66,44 @@ async function main() {
                 value: "create",
                 label: "Create",
             },
-            // {
-            //     value: "edit",
-            //     label: "Edit",
-            // },
+            {
+                value: "edit",
+                label: "Edit",
+            },
         ],
     });
 
-    // if (selection === "edit") {
-    //     const files = await fs.readdir("./src/blog");
+    if (selection === "edit") {
+        const files = await fs.readdir("./src/content/blog");
+        const filteredFiles = files.filter((file) =>
+            file.includes(".md"),
+        );
 
-    //     const projectFolder = await autocomplete({
-    //         message: "Select the demo you want to develop",
-    //         initialValue: "",
-    //         maxItems: 1,
-    //         options: files.map((demo) => ({
-    //             value: demo,
-    //             label: demo,
-    //         })),
-    //     });
+        const postToEdit = await autocomplete({
+            message: "Select the demo you want to develop",
+            initialValue: "",
+            maxItems: 1,
+            options: filteredFiles.map((post) => ({
+                value: post,
+                label: post,
+            })),
+        });
 
-    //     const newDirectory = `src/demos/${projectFolder}`;
+        const postFile = `src/content/blog/${postToEdit}`;
 
-    //     try {
-    //         // AHTODO: can this be done in serial?
-    //         await Promise.all([
-    //             runDevServer(newDirectory),
-    //             openCodeInCodeEditor(newDirectory),
-    //             showSuccessMessage(),
-    //         ]);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
+        const url = `http://localhost:8888/blog/${postToEdit.replace(".md", "")}`;
+
+        try {
+            // AHTODO: can this be done in serial?
+            await Promise.all([
+                runDevServerWithUrl(url),
+                openCodeInCodeEditor(postFile),
+                showSuccessMessage(),
+            ]);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     // if (selection === "build") {
     //     const files = await fs.readdir("./src/demos");
