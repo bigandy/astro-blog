@@ -1,6 +1,5 @@
 ---
 import PublishDate from "./PublishDate.astro";
-import PostIndex from "./PostIndex.astro";
 
 interface Props {
     date?: Date;
@@ -8,7 +7,6 @@ interface Props {
     isPreview?: boolean;
     slug: string;
     viewTransitionName: string;
-    postIndex?: number;
 }
 
 const {
@@ -17,7 +15,6 @@ const {
     isPreview = false,
     slug,
     viewTransitionName,
-    postIndex,
 } = Astro.props;
 ---
 
@@ -30,19 +27,26 @@ const {
             <a href={`/${slug}`}>
                 <h2 class="title">{title}</h2>
 
-                {date && <PublishDate date={date} class="publish-date" />}
+                {date && (
+                    <PublishDate
+                        date={date}
+                        class="publish-date"
+                    />
+                )}
             </a>
         ) : (
             <Fragment>
                 <h1 class="title">{title}</h1>
                 {date && (
-                    <PublishDate date={date} class="publish-date" showLine />
+                    <PublishDate
+                        date={date}
+                        class="publish-date"
+                        showLine
+                    />
                 )}
             </Fragment>
         )
     }
-
-    <PostIndex number={postIndex} isPost={!isPreview} />
 </header>
 
 <style>
@@ -87,7 +91,7 @@ const {
     }
 
     /* BlogPost */
-    .post {
+    /*.post {
         padding-block: 2rem;
 
         & p,
@@ -102,13 +106,6 @@ const {
         .title {
             line-height: 1;
             text-wrap: pretty;
-        }
-    }
-
-    @container (inline-size > 1000px) {
-        header {
-            position: relative;
-            view-transition-name: var(--vt-header);
         }
     }*/
 </style>

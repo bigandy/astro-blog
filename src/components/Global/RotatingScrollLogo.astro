@@ -8,16 +8,18 @@ const charCount = length * 2;
 <div class="ring-wrapper">
     <div class="ring" aria-hidden="true">
         {
-            [...characters, ...characters].map((char, charIndex) => {
-                return (
-                    <span
-                        class="char"
-                        style={`--sibling-index: ${charIndex}; --sibling-count: ${charCount};`}
-                    >
-                        {char}
-                    </span>
-                );
-            })
+            [...characters, ...characters].map(
+                (char, charIndex) => {
+                    return (
+                        <span
+                            class="char"
+                            style={`--sibling-index: ${charIndex}; --sibling-count: ${charCount};`}
+                        >
+                            {char}
+                        </span>
+                    );
+                },
+            )
         }
 
         <span class="sr-only">{string}</span>
@@ -42,7 +44,8 @@ const charCount = length * 2;
             --font-size: 0.5;
 
             height: calc(
-                var(--radius) * calc(var(--parent-ring-font-size) * -2.1)
+                var(--radius) *
+                    calc(var(--parent-ring-font-size) * -2.1)
             );
             border-radius: 50%;
             aspect-ratio: 1;
@@ -60,9 +63,13 @@ const charCount = length * 2;
         .ring-wrapper {
             display: none;
             position: fixed;
-            top: calc(var(--radius) * calc(var(--parent-ring-font-size) * -2));
+            top: calc(
+                var(--radius) *
+                    calc(var(--parent-ring-font-size) * -2)
+            );
             right: calc(
-                var(--radius) * calc(var(--parent-ring-font-size) * -2)
+                var(--radius) *
+                    calc(var(--parent-ring-font-size) * -2)
             );
             opacity: 0;
             pointer-events: none;
@@ -83,7 +90,9 @@ const charCount = length * 2;
                 .ring::after {
                     transition: all 0.3s;
                     color: white;
-                    transform: rotate(calc(360deg - var(--degrees)));
+                    transform: rotate(
+                        calc(360deg - var(--degrees))
+                    );
                 }
             }
         }
@@ -96,14 +105,18 @@ const charCount = length * 2;
                         display: block;
                         animation-range:
                             var(--header-height)
-                                calc(var(--header-height) + 50px),
+                                calc(
+                                    var(--header-height) + 50px
+                                ),
                             calc(var(--header-height)) 100%;
                         animation-name: fadeIn, rotation;
                         animation-fill-mode: both;
                         animation-timeline: scroll();
 
                         .ring {
-                            --font-size: var(--parent-ring-font-size);
+                            --font-size: var(
+                                --parent-ring-font-size
+                            );
                         }
                     }
                 }
@@ -137,18 +150,24 @@ const charCount = length * 2;
         }
 
         .char {
-            --inner-angle: calc((360 / var(--sibling-count)) * 1deg);
+            --inner-angle: calc(
+                (360 / var(--sibling-count)) * 1deg
+            );
             display: inline-block;
             position: absolute;
             top: 50%;
             left: 50%;
-            /* color: hsl(calc(var(--char-index) * 10deg) 100% 50%); */
             transform: translate(-50%, -50%)
-                rotate(calc(var(--inner-angle) * var(--sibling-index)))
+                rotate(
+                    calc(
+                        var(--inner-angle) *
+                            var(--sibling-index)
+                    )
+                )
                 translateY(var(--radius));
 
             &:nth-child(odd) {
-                color: var(--theme-accent);
+                color: var(--theme-accent, red);
             }
         }
     }
