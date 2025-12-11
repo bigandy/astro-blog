@@ -1,51 +1,62 @@
 ---
-import { headerPages } from './pages'
-import { getNavClassName } from './utils'
-import ExternalLink from '@components/Global/ExternalLink.astro'
+import { headerPages } from "./pages";
+import { getNavClassName } from "./utils";
+import ExternalLink from "@components/Global/ExternalLink.astro";
 
-const requestPathname = Astro.url.pathname
+const requestPathname = Astro.url.pathname;
 ---
 
-<nav class="layout">
-  <ul class="layout-inner nav">
-    {
-      headerPages.map((entry) => {
-        const className = getNavClassName(entry.url, requestPathname);
+<nav class="header-nav">
+    <ul class="nav">
+        {
+            headerPages.map((entry) => {
+                const className = getNavClassName(
+                    entry.url,
+                    requestPathname,
+                );
 
-        return (
-          <li>
-            {entry.external ? (
-              <ExternalLink href={entry.url} size="1rem">{entry.title}</ExternalLink>
-            ) : (
-            <a class={className} href={entry.url}>
-              {entry.title}
-            </a>
-            )}
-          </li>
-        );
-      })
-    }
-  </ul>
+                return (
+                    <li>
+                        {entry.external ? (
+                            <ExternalLink
+                                href={entry.url}
+                                size="1rem"
+                            >
+                                {entry.title}
+                            </ExternalLink>
+                        ) : (
+                            <a
+                                class={className}
+                                href={entry.url}
+                            >
+                                {entry.title}
+                            </a>
+                        )}
+                    </li>
+                );
+            })
+        }
+    </ul>
 </nav>
 
-<style>
-  li {
-    display: inline-grid;
-    margin-right: 1em;
-  }
+<style is:global>
+    @scope (.header-nav) {
+        li {
+            display: inline-grid;
+            margin-right: 1em;
+        }
 
-  a {
-    border-block-end: 2px solid transparent;
-  }
+        a {
+            border-block-end: 2px solid transparent;
+        }
 
- 
+        a:hover,
+        .active {
+            border-bottom-color: var(--theme-accent);
+        }
 
-  a:hover,
-  .active {
-    border-bottom-color: var(--theme-accent);
-  }
-
-  ul {
-    padding-inline-start: 0;
-  }
+        ul {
+            padding-inline-start: 0;
+        }
+    }
 </style>

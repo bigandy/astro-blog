@@ -6,13 +6,11 @@ import type { Collection } from "@components/Blog/utils/getAllPosts";
 interface Props {
     post: CollectionEntry<"blog">;
     collection?: Collection;
-    postIndex: number;
 }
 
 const {
     post: { slug, data },
     collection = "blog",
-    postIndex,
 } = Astro.props;
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
@@ -20,7 +18,7 @@ const showPostNumber = !draft;
 ---
 
 <article
-    class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}
+    class={`post-preview ${draft && "draft"} ${future && "future"}`}
 >
     <BlogPostHeader
         date={date}
@@ -28,7 +26,6 @@ const showPostNumber = !draft;
         slug={`${collection}/${slug}`}
         viewTransitionName={slug}
         isPreview
-        postIndex={showPostNumber ? postIndex : undefined}
     />
 </article>
 
