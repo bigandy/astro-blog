@@ -1,4 +1,4 @@
-@layer base, theme;
+/*@layer base, theme;
 
 @view-transition {
     navigation: auto;
@@ -7,8 +7,9 @@
 @layer base {
     :root {
         --system-ui:
-            system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+            sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+            "Segoe UI Symbol";
         --body-font: var(--system-ui);
         --header-font-family: var(--body-font);
     }
@@ -66,7 +67,10 @@
 
     :where(h1, h2, h3, h4) {
         font-weight: var(--f-body-weight);
-        font-family: var(--settings-heading-font, var(--header-font-family));
+        font-family: var(
+            --settings-heading-font,
+            var(--header-font-family)
+        );
     }
 
     ::selection {
@@ -221,7 +225,8 @@
         margin-right: calc(var(--padding-inline) * -1);
 
         background: transparent;
-        border-inline-start: calc(var(--padding-inline) / 2) solid var(--color);
+        border-inline-start: calc(var(--padding-inline) / 2)
+            solid var(--color);
         border-radius: 0;
     }
 
@@ -238,75 +243,65 @@
 
 @layer theme {
     :root {
+        color-scheme: light dark;
         --font-fallback:
-            -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-            sans-serif, Apple Color Emoji, Segoe UI Emoji;
+            -apple-system, BlinkMacSystemFont, Segoe UI,
+            Helvetica, Arial, sans-serif, Apple Color Emoji,
+            Segoe UI Emoji;
         --font-mono:
-            "IBM Plex Mono", Consolas, "Andale Mono WT", "Andale Mono",
-            "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
-            "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
-            Monaco, "Courier New", Courier, monospace;
-
-        --color-white: #fff;
-        --color-black: #000014;
-
-        --color-gray-50: #f9fafb;
-        --color-gray-100: #f3f4f6;
-        --color-gray-200: #e5e7eb;
-        --color-gray-300: #d1d5db;
-        --color-gray-400: #9ca3af;
-        --color-gray-500: #6b7280;
-        --color-gray-600: #4b5563;
-        --color-gray-700: #374151;
-        --color-gray-800: #1f2937;
-        --color-gray-900: #111827;
-
-        --color-purple: #882de7;
-        --color-purple-rgb: 136, 45, 231;
+            "IBM Plex Mono", Consolas, "Andale Mono WT",
+            "Andale Mono", "Lucida Console",
+            "Lucida Sans Typewriter", "DejaVu Sans Mono",
+            "Bitstream Vera Sans Mono", "Liberation Mono",
+            "Nimbus Mono L", Monaco, "Courier New", Courier,
+            monospace;
 
         --f-body-weight: 900;
 
         /* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,28,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-        --font-size--2: clamp(0.6076rem, 0.4294rem + 0.8911vw, 1.12rem);
-        --font-size--1: clamp(0.7292rem, 0.4958rem + 1.1667vw, 1.4rem);
-        --font-size-0: clamp(0.875rem, 0.5707rem + 1.5217vw, 1.75rem);
-        --font-size-1: clamp(1.05rem, 0.6543rem + 1.9783vw, 2.1875rem);
-        --font-size-2: clamp(1.26rem, 0.7472rem + 2.5641vw, 2.7344rem);
-        --font-size-3: clamp(1.512rem, 0.8491rem + 3.3147vw, 3.418rem);
-        --font-size-4: clamp(1.8144rem, 0.9594rem + 4.2749vw, 4.2725rem);
-        --font-size-5: clamp(2.1773rem, 1.077rem + 5.5014vw, 5.3406rem);
+        --font-size--2: clamp(
+            0.6076rem,
+            0.4294rem + 0.8911vw,
+            1.12rem
+        );
+        --font-size--1: clamp(
+            0.7292rem,
+            0.4958rem + 1.1667vw,
+            1.4rem
+        );
+        --font-size-0: clamp(
+            0.875rem,
+            0.5707rem + 1.5217vw,
+            1.75rem
+        );
+        --font-size-1: clamp(
+            1.05rem,
+            0.6543rem + 1.9783vw,
+            2.1875rem
+        );
+        --font-size-2: clamp(
+            1.26rem,
+            0.7472rem + 2.5641vw,
+            2.7344rem
+        );
+        --font-size-3: clamp(
+            1.512rem,
+            0.8491rem + 3.3147vw,
+            3.418rem
+        );
+        --font-size-4: clamp(
+            1.8144rem,
+            0.9594rem + 4.2749vw,
+            4.2725rem
+        );
+        --font-size-5: clamp(
+            2.1773rem,
+            1.077rem + 5.5014vw,
+            5.3406rem
+        );
 
-        color-scheme: light;
-        --theme-accent-blue: oklch(0.49 0.31 263.23);
-        --theme-accent: var(--color-purple);
-        --theme-accent-rgb: var(--color-purple-rgb);
-        --theme-accent-opacity: 0.1;
-        --theme-divider: var(--color-gray-100);
-        --theme-text: var(--color-gray-800);
-        --theme-text-light: var(--color-gray-600);
-        --theme-text-lighter: var(--color-gray-500);
-        --theme-bg: var(--color-white);
-        --theme-code-inline-bg: var(--color-gray-100);
-        --theme-code-text: var(--color-gray-100);
-        --theme-code-bg: var(--color-gray-700);
         --border-radius-medium: 8px;
-    }
-
-    :root {
-        @media (prefers-color-scheme: dark) {
-            color-scheme: dark;
-            --theme-accent-blue: #90a6ff;
-            --theme-accent-opacity: 0.3;
-            --theme-divider: var(--color-gray-200);
-            --theme-text: var(--color-gray-200);
-            --theme-text-light: var(--color-gray-300);
-            --theme-text-lighter: var(--color-gray-300);
-            --theme-bg: var(--color-black);
-            --theme-code-inline-bg: var(--color-gray-800);
-            --theme-code-text: var(--color-gray-200);
-            --theme-code-bg: var(--color-gray-900);
-        }
     }
 
     /* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
@@ -332,7 +327,9 @@
 
 .list--dashed {
     > li {
-        --border-color: rgb(from var(--theme-accent) r g b / 0.5);
+        --border-color: rgb(
+            from var(--theme-accent) r g b / 0.5
+        );
         margin-block-end: 1.5rem;
         padding-bottom: 1rem;
 
@@ -371,12 +368,6 @@
     }
 }
 
-/*@layer unsets {
-    li:has(.expressive-code) {
-        max-width: unset;
-    }
-}*/
-
 @layer expressiveCode {
     .expressive-code {
         max-width: 80ch;
@@ -391,3 +382,13 @@
 a {
     word-wrap: break-word;
 }
+/*
+[data-mark] {
+    a {
+        color: inherit;
+    }
+}
+
+[data-mark]:target {
+    background: yellowgreen;
+}*/
