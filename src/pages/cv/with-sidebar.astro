@@ -43,20 +43,30 @@ const overrideFullDates = false;
                 </h1>
                 <div class="meta">
                     <p class="contact-title">
-                        <strong>{personalInformation.title}</strong>
+                        <strong
+                            >{personalInformation.title}</strong
+                        >
                     </p>
-                    <a href={`mailto:${personalInformation.email}`}
+                    <a
+                        href={`mailto:${personalInformation.email}`}
                         >{personalInformation.email}</a
                     >
                     <a href={personalInformation.website}
                         >{
-                            personalInformation.website.replace("https://", "")
+                            personalInformation.website.replace(
+                                "https://",
+                                "",
+                            )
                         }</a
                     >
-                    <a href={`tel:${personalInformation.phone}`} class="tel"
+                    <a
+                        href={`tel:${personalInformation.phone}`}
+                        class="tel"
                         >{personalInformation.phone}</a
                     >
-                    <p class="p-locality">{personalInformation.location}</p>
+                    <p class="p-locality">
+                        {personalInformation.location}
+                    </p>
                 </div>
             </div>
 
@@ -73,7 +83,10 @@ const overrideFullDates = false;
             <h2 id="experience">Experience</h2>
 
             <ol class="entrylist list--dashed" reversed>
-                <RolesList roles={roles} overrideFullDates={overrideFullDates} />
+                <RolesList
+                    roles={roles}
+                    overrideFullDates={overrideFullDates}
+                />
             </ol>
         </section>
 
@@ -110,14 +123,18 @@ const overrideFullDates = false;
         <section>
             <h2 id="online-links">Online Links</h2>
 
-            <ul class="cv-social list--plain list--dashed list--compact">
+            <ul
+                class="cv-social list--plain list--dashed list--compact"
+            >
                 <SocialLinksList links={socialLinks} />
             </ul>
         </section>
 
         <section>
             <h2 id="education">Education</h2>
-            <ul class="list--dashed list--plain list--compact cv-education-list">
+            <ul
+                class="list--dashed list--plain list--compact cv-education-list"
+            >
                 <EducationList education={education} />
             </ul>
         </section>
@@ -125,12 +142,15 @@ const overrideFullDates = false;
         <section>
             <h2 id="Languages">Languages</h2>
 
-            <ul class="list--plain list--dashed list--compact list--languages">
+            <ul
+                class="list--plain list--dashed list--compact list--languages"
+            >
                 <LanguagesList languages={languages} />
             </ul>
         </section>
     </aside>
     <div class="hide-print switch-portfolio-link">
-        <a href="/cv">Switch to version of CV with no sidebar</a>
+        <a href="/cv">Switch to version of CV with no sidebar</a
+        >
     </div>
 </DefaultLayout>

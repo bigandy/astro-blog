@@ -16,25 +16,53 @@ const pages: Pages = {
     "sibling-count": {
         parent: "Sibling Count",
         children: [
-            { title: "Sibling Count Astro", url: "sibling-count-astro" },
+            {
+                title: "Sibling Count Astro",
+                url: "sibling-count-astro",
+            },
         ],
     },
     canvas: {
         parent: "Canvas Experiments",
         children: [
-            { title: "Canvas 1 - Drawing Rectangles", url: "canvas-1" },
-            { title: "Canvas 2 - drawing circles", url: "canvas-2" },
+            {
+                title: "Canvas 1 - Drawing Rectangles",
+                url: "canvas-1",
+            },
+            {
+                title: "Canvas 2 - drawing circles",
+                url: "canvas-2",
+            },
             {
                 title: "Canvas 3 - animating circle around other circle",
                 url: "canvas-3",
             },
-            { title: "Canvas 4 - some random squares", url: "canvas-4" },
-            { title: "Canvas 5 - some random circles", url: "canvas-5" },
-            { title: "Canvas 6 - click on canvas", url: "canvas-6" },
-            { title: "Canvas 7 - Spirograph pt.1", url: "canvas-7" },
-            { title: "Canvas 8 - Spirograph pt.2", url: "canvas-8" },
+            {
+                title: "Canvas 4 - some random squares",
+                url: "canvas-4",
+            },
+            {
+                title: "Canvas 5 - some random circles",
+                url: "canvas-5",
+            },
+            {
+                title: "Canvas 6 - click on canvas",
+                url: "canvas-6",
+            },
+            {
+                title: "Canvas 7 - Spirograph pt.1",
+                url: "canvas-7",
+            },
+            {
+                title: "Canvas 8 - Spirograph pt.2",
+                url: "canvas-8",
+            },
             { title: "Canvas 9 - Zigzag", url: "canvas-9" },
-            { title: "Canvas 10 - Radar", url: "canvas-10", active: false },
+            {
+                title: "Canvas 10 - Radar",
+                url: "canvas-10",
+                active: false,
+            },
         ],
     },
     houdini: {
@@ -52,7 +80,12 @@ const pages: Pages = {
     },
     "talk-to-window": {
         parent: "Window Postmessaging",
-        children: [{ title: "Talk to Window", url: "talk-to-window-parent" }],
+        children: [
+            {
+                title: "Talk to Window",
+                url: "talk-to-window-parent",
+            },
+        ],
     },
     "css-has": {
         parent: ":has() (Chrome / Safari / Edge support)",
@@ -152,15 +185,6 @@ const pages: Pages = {
             },
         ],
     },
-    svelte: {
-        parent: "Svelte",
-        children: [
-            {
-                title: "Shadow Maker",
-                url: "shadow-maker",
-            },
-        ],
-    },
     carousels: {
         parent: "Carousels CSS-only (Chrome 135+)",
         children: [
@@ -197,7 +221,10 @@ const pages: Pages = {
 
                         <ol>
                             {pages[group].children
-                                .filter(({ active }) => active !== false)
+                                .filter(
+                                    ({ active }) =>
+                                        active !== false,
+                                )
                                 .map(({ title, url }) => {
                                     return (
                                         <li>
