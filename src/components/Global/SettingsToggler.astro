@@ -15,5 +15,11 @@ const { src, alt } = Astro.props;
     img {
         display: block;
         border-radius: 50%;
+        transition: corner-shape 300ms ease-in-out;
+        corner-shape: superellipse(0.5);
+
+        &:hover {
+            corner-shape: round;
+        }
     }
 </style>
