@@ -18,7 +18,10 @@ const showPostNumber = !draft;
 ---
 
 <article
-    class={`post-preview ${draft && "draft"} ${future && "future"}`}
+    class:list={[
+        "post-preview",
+        { draft: draft, future: future },
+    ]}
 >
     <BlogPostHeader
         date={date}
@@ -29,45 +32,39 @@ const showPostNumber = !draft;
     />
 </article>
 
-<style>
-    /*.post-preview {
-        margin-block-end: 1rem;
-        padding-block-end: 1rem;
-        border-block-end: 4px solid var(--theme-divider);
-        position: relative;
-
-        a:not(:focus-visible) {
-            outline: none;
-        }
-    }
-
-    .future,
-    .draft {
-        border-inline-start: 10px solid var(--border-color);
-        padding-inline-start: 2rem;
-        position: relative;
-        transition: all 0.3s;
-
-        &::before {
-            transition: all 0.3s;
-            text-transform: uppercase;
-            position: absolute;
-            font-size: 10px;
-            left: 5px;
-            top: 50%;
-            content: var(--content);
-            display: block;
-            transform: translate(-50%, 0%) rotate(-90deg);
-            transform-origin: center top;
+<style is:global>
+    @scope (.post-preview) {
+        :scope {
+            anchor-name: --parent;
+            anchor-scope: --parent;
         }
 
-        &:hover {
-            padding-inline-start: 0;
-            border-inline-start: 0;
-
-            &::before {
-                opacity: 0;
+        &.draft,
+        &.future {
+            &::after {
+                content: var(--content);
+                text-align: center;
+                color: white;
+                writing-mode: vertical-rl;
+                height: 30px;
+                width: 30px;
+                display: block;
+                background: red;
+                position-anchor: --parent;
+                position: fixed;
+                top: anchor(top);
+                right: anchor(left);
+                translate: -50%;
+                height: anchor-size();
             }
         }
-    }*/
+
+        &.draft {
+            --content: "draft";
+        }
+
+        &.future {
+            --content: "future";
+        }
+    }
 </style>

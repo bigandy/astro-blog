@@ -53,6 +53,12 @@ const pages: {
         location: "header",
     },
 
+    styleguide: {
+        url: "/style-guide",
+        title: "Style Guide",
+        location: "header",
+    },
+
     // now: {
     //     url: "/now",
     //     title: "Now",

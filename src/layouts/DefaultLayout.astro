@@ -5,18 +5,12 @@ import SiteHeader from "@components/Global/SiteHeader.astro";
 import FooterNav from "@components/Nav/FooterNav.astro";
 
 interface Props {
-    accent?: string;
     title: string;
     bodyClass?: string;
     hideTitle?: boolean;
 }
 
-const {
-    title,
-    accent = "var(--theme-accent-blue)",
-    bodyClass = "",
-    hideTitle,
-}: Props = Astro.props;
+const { title, bodyClass = "", hideTitle }: Props = Astro.props;
 ---
 
 <html lang="en">
@@ -27,7 +21,7 @@ const {
     <body class={bodyClass}>
         <SiteHeader />
 
-        <main class="content layout">
+        <main>
             {
                 !hideTitle && title !== "" && (
                     <div class="intro">

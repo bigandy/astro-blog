@@ -1,3 +1,7 @@
+/*@view-transition {
+    navigation: auto;
+}*/
+
 :root {
     --system-ui:
         system-ui, "Segoe UI", Roboto, Helvetica, Arial,
@@ -20,19 +24,71 @@
     --color-white: #fff;
     --color-black: #000014;
 
-    --color-gray-50: #f9fafb;
-    --color-gray-100: #f3f4f6;
-    --color-gray-200: #e5e7eb;
-    --color-gray-300: #d1d5db;
-    --color-gray-400: #9ca3af;
-    --color-gray-500: #6b7280;
-    --color-gray-600: #4b5563;
-    --color-gray-700: #374151;
-    --color-gray-800: #1f2937;
-    --color-gray-900: #111827;
+    --mix-method: srgb-linear;
+
+    --color-gray-0: color-mix(
+        in var(--mix-method),
+        white,
+        black 0%
+    );
+
+    --color-gray-50: color-mix(
+        in var(--mix-method),
+        white,
+        black 5%
+    );
+    --color-gray-100: color-mix(
+        in var(--mix-method),
+        white,
+        black 10%
+    );
+    --color-gray-200: color-mix(
+        in var(--mix-method),
+        white,
+        black 20%
+    );
+    --color-gray-300: color-mix(
+        in var(--mix-method),
+        white,
+        black 30%
+    );
+    --color-gray-400: color-mix(
+        in var(--mix-method),
+        white,
+        black 40%
+    );
+    --color-gray-500: color-mix(
+        in var(--mix-method),
+        white,
+        black 50%
+    );
+    --color-gray-600: color-mix(
+        in var(--mix-method),
+        white,
+        black 60%
+    );
+    --color-gray-700: color-mix(
+        in var(--mix-method),
+        white,
+        black 70%
+    );
+    --color-gray-800: color-mix(
+        in var(--mix-method),
+        white,
+        black 80%
+    );
+    --color-gray-900: color-mix(
+        in var(--mix-method),
+        white,
+        black 90%
+    );
+    --color-gray-1000: color-mix(
+        in var(--mix-method),
+        white,
+        black 100%
+    );
 
     --color-purple: #882de7;
-    --color-purple-rgb: 136, 45, 231;
 
     --f-body-weight: 900;
 
@@ -80,10 +136,9 @@
     );
 
     color-scheme: light dark;
-
     --theme-accent: var(--color-purple);
     --theme-divider: var(--color-gray-100);
-    --theme-text: var(--color-gray-800);
+    --theme-text: light-dark(var(--color-gray-900), white);
     --theme-code-inline-bg: var(--color-gray-100);
     --theme-code-text: var(--color-gray-100);
     --theme-code-bg: var(--color-gray-700);
@@ -95,8 +150,12 @@
 html {
     /* adding this here so we can use @container queries with the name of 'root' or 'layout' and it applies here.  */
     container: root layout / inline-size;
-    min-height: 100%;
     scrollbar-gutter: stable;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 body {
@@ -105,10 +164,15 @@ body {
     color: var(--theme-text);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     font-size: 18px;
     line-height: 1.625;
     padding-inline: 1rem;
+    margin: 0;
+}
+
+li,
+p {
+    font-size: var(--font-size--1);
 }
 
 input,
@@ -121,7 +185,7 @@ h1 {
 }
 
 h2 {
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-4);
 }
 
 h3 {
@@ -129,7 +193,15 @@ h3 {
 }
 
 h4 {
-    font-size: var(--font-size--1);
+    font-size: var(--font-size-2);
+}
+
+h5 {
+    font-size: var(--font-size-1);
+}
+
+h6 {
+    font-size: var(--font-size-0);
 }
 
 small,
@@ -139,12 +211,12 @@ small,
 }
 
 :where(p, li) {
-    line-height: 24px;
+    line-height: 1.5;
 }
 
-:where(h1, h2, h3, h4) {
+:where(h1, h2, h3, h4, h5, h6) {
     font-weight: var(--f-body-weight);
-    font-family: var(var(--header-font-family));
+    font-family: var(--header-font-family);
 }
 
 ::selection {
@@ -156,187 +228,155 @@ small,
     box-sizing: border-box;
 }
 
-@view-transition {
-    navigation: auto;
+nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-@layer base {
-    nav ul {
-        list-style: none;
-        padding: 0;
+/* Typography */
+:where(h1, h2, h3, h4, h5, h6) {
+    margin-block-end: 1.38rem;
+    line-height: 1;
+}
+
+:where(h1, h2) {
+    max-width: 40ch;
+}
+
+:where(h1, h2, h3, h4, h5, h6):not(:first-child) {
+    margin-block-start: 3rem;
+}
+
+:where(li, p, h3) {
+    max-width: 80rch;
+}
+
+p + p {
+    margin-block-start: 1rem;
+}
+
+a {
+    color: var(--theme-accent);
+    font-weight: 400;
+    text-underline-offset: 0.08em;
+    text-decoration: none;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 0.25em;
+}
+
+strong {
+    font-weight: 600;
+    /*color: inherit;*/
+}
+
+/* Supporting Content */
+code:not([class*="language"]) {
+    --padding-block: 0.2rem;
+    --padding-inline: 0.33rem;
+
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: inherit;
+    background-color: var(--theme-code-inline-bg);
+    padding: var(--padding-block) var(--padding-inline);
+    margin: calc(var(--padding-block) * -1) -0.125em;
+    border-radius: var(--border-radius-small);
+}
+
+pre > code:not([class*="language"]) {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    color: inherit;
+}
+
+pre {
+    position: relative;
+    background-color: var(--theme-code-bg);
+    color: var(--theme-code-text);
+    --padding-block: 1rem;
+    --padding-inline: 2rem;
+    padding: var(--padding-block) var(--padding-inline);
+    padding-inline-end: calc(var(--padding-inline) * 2);
+    line-height: 1.414;
+    max-width: calc(100% + (var(--padding-inline) * 2));
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin-block: 1rem;
+
+    ::selection {
+        background: white;
+        color: black;
     }
+}
 
-    /* Typography */
-    :is(h1, h2, h3) {
-        margin-block-end: 1.38rem;
-        line-height: 1;
-    }
-
-    :is(h1, h2) {
-        max-width: 40ch;
-    }
-
-    :is(h2, h3):not(:first-child) {
-        margin-block-start: 3rem;
-    }
-
-    p + p {
-        margin-block-start: 1rem;
-    }
-
-    a {
-        color: var(--theme-accent);
-        font-weight: 400;
-        text-underline-offset: 0.08em;
-        text-decoration: none;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    /*a > code:not([class*="language"]) {
-        position: relative;
-        color: var(--theme-accent);
-        background: transparent;
-        text-underline-offset: var(--padding-block);
-    }
-
-    a > code:not([class*="language"])::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: block;
-        background: var(--theme-accent);
-        opacity: var(--theme-accent-opacity);
-        border-radius: var(--border-radius);
-    }*/
-
-    a:hover,
-    a:focus {
-        text-decoration: underline;
-    }
-
-    a:focus-visible {
-        outline: 2px solid currentColor;
-        outline-offset: 0.25em;
-    }
-
-    strong {
-        font-weight: 600;
-        color: inherit;
-    }
-
-    /* Supporting Content */
-    code:not([class*="language"]) {
-        --padding-block: 0.2rem;
-        --padding-inline: 0.33rem;
-
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        color: inherit;
-        background-color: var(--theme-code-inline-bg);
-        padding: var(--padding-block) var(--padding-inline);
-        margin: calc(var(--padding-block) * -1) -0.125em;
-        border-radius: var(--border-radius-small);
-    }
-
-    pre > code:not([class*="language"]) {
-        background-color: transparent;
-        padding: 0;
-        margin: 0;
-        border-radius: 0;
-        color: inherit;
-    }
-
+@container root (min-width: 37.75em) {
     pre {
-        position: relative;
-        background-color: var(--theme-code-bg);
-        color: var(--theme-code-text);
-        --padding-block: 1rem;
-        --padding-inline: 2rem;
-        padding: var(--padding-block) var(--padding-inline);
-        padding-inline-end: calc(var(--padding-inline) * 2);
-        line-height: 1.414;
-        max-width: calc(100% + (var(--padding-inline) * 2));
-        overflow-y: hidden;
-        overflow-x: auto;
-        margin-block: 1rem;
-
-        ::selection {
-            background: white;
-            color: black;
-        }
-    }
-
-    @container root (min-width: 37.75em) {
-        pre {
-            --padding-inline: 1.25rem;
-            border-radius: var(--border-radius-medium);
-        }
-    }
-
-    .flex {
-        display: flex;
-        align-items: center;
-    }
-
-    img.cover {
-        width: 100%;
-        max-height: 50vh;
-        object-fit: cover;
-    }
-
-    blockquote {
-        font-size: 1.5rem;
-        --padding-block: 1rem;
         --padding-inline: 1.25rem;
-        --color: var(--theme-divider);
-
-        display: flex;
-        flex-direction: column;
-
-        padding: var(--padding-block) var(--padding-inline);
-        margin-inline-start: calc(var(--padding-inline) * -1);
-        margin-right: calc(var(--padding-inline) * -1);
-
-        background: transparent;
-        border-inline-start: calc(var(--padding-inline) / 2)
-            solid var(--color);
-        border-radius: 0;
-    }
-
-    blockquote .source {
-        font-weight: 500;
-        color: var(--color);
-        font-size: 1rem;
-    }
-
-    li ul li {
-        list-style-type: disc;
+        border-radius: var(--border-radius-medium);
     }
 }
 
-@layer theme {
-    /* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
-    .post img {
-        max-width: 100%;
-        height: auto;
-        vertical-align: middle;
-        font-style: italic;
-        background-repeat: no-repeat;
-        background-size: cover;
-        shape-margin: 0.75rem;
-    }
-
-    :is(li, p, h3) {
-        max-width: 80rch;
-    }
+.flex {
+    display: flex;
+    align-items: center;
 }
 
-:root {
-    --is-styling: 1;
+img.cover {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+}
+
+blockquote {
+    font-size: 1.5rem;
+    --padding-block: 1rem;
+    --padding-inline: 1.25rem;
+    --color: var(--theme-divider);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--padding-block) var(--padding-inline);
+    margin-inline-start: calc(var(--padding-inline) * -1);
+    margin-right: calc(var(--padding-inline) * -1);
+
+    background: transparent;
+    border-inline-start: calc(var(--padding-inline) / 2) solid
+        var(--color);
+    border-radius: 0;
+}
+
+blockquote .source {
+    font-weight: 500;
+    color: var(--color);
+    font-size: 1rem;
+}
+
+li ul li {
+    list-style-type: disc;
+}
+
+/* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
+.post img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 0.75rem;
 }
 
 .list--dashed {
@@ -372,18 +412,15 @@ small,
 }
 
 .nav a:hover {
-    /* This is because we're using border for the underline effect */
     text-decoration: none;
 }
 
-@layer expressiveCode {
-    .expressive-code {
-        max-width: 80ch;
-        margin-block: 1rem;
+.expressive-code {
+    max-width: 80ch;
+    margin-block: 1rem;
 
-        &:hover {
-            scrollbar-color: deepPink transparent;
-        }
+    &:hover {
+        scrollbar-color: deepPink transparent;
     }
 }
 
@@ -393,4 +430,16 @@ a {
 
 body {
     padding: 4rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
