@@ -11,19 +11,17 @@ const {
     showBackLink = true,
     showDate = true,
     collection = "blog",
-    postIndex,
 } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<article class="content post layout-inner">
+<article class="post">
     <BlogPostHeader
         date={showDate && post.data.date}
         title={post.data.title}
         isPreview={false}
         slug={post.slug}
         viewTransitionName={post.slug}
-        postIndex={postIndex}
     />
 
     <BlogContent>
@@ -41,4 +39,3 @@ const { Content } = await render(post);
 </article>
 
 <EditPostOnGithub slug={post.slug} collection={collection} />
-

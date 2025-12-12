@@ -3,20 +3,15 @@ const string = "andrew jd hudson :) • ";
 const characters = string.split("");
 const length = characters.length;
 const charCount = length * 2;
+
+const { noScroll } = Astro.props;
 ---
 
-<div class="ring-wrapper">
+<div class:list={["ring-wrapper", { "no-scroll": noScroll }]}>
     <div class="ring" aria-hidden="true">
         {
-            [...characters, ...characters].map((char, charIndex) => {
-                return (
-                    <span
-                        class="char"
-                        style={`--sibling-index: ${charIndex}; --sibling-count: ${charCount};`}
-                    >
-                        {char}
-                    </span>
-                );
+            [...characters, ...characters].map((char) => {
+                return <span>{char}</span>;
             })
         }
 
@@ -25,155 +20,149 @@ const charCount = length * 2;
 </div>
 
 <style>
-    @layer base, ring, scroll;
+    body {
+        view-timeline: --header-vtl;
+    }
 
-    @layer scroll {
-        body {
-            view-timeline: --header-vtl;
+    @keyframes rotation {
+        to {
+            --degrees: calc(360 * 13deg);
+        }
+    }
+
+    .ring {
+        --font-size: 0.5;
+
+        height: calc(
+            var(--radius) *
+                calc(var(--parent-ring-font-size) * -2.1)
+        );
+        border-radius: 50%;
+        aspect-ratio: 1;
+        display: grid;
+        place-content: center;
+        font-family: monospace;
+        text-transform: uppercase;
+        font-size: calc(var(--font-size, 1) * 2rem);
+        position: relative;
+
+        &::after {
+            transform: rotate(calc(14deg * var(--degrees)));
+            content: "☝️ Top";
+            font-size: 0.8em;
+            color: var(--theme-accent);
+        }
+    }
+
+    .ring-wrapper:not(.no-scroll) {
+        pointer-events: none;
+        display: none;
+        position: fixed;
+        top: calc(
+            var(--radius) *
+                calc(var(--parent-ring-font-size) * -2)
+        );
+        right: calc(
+            var(--radius) *
+                calc(var(--parent-ring-font-size) * -2)
+        );
+        opacity: 0;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+    }
+
+    .ring-wrapper {
+        transition:
+            opacity 300ms,
+            scale 300ms;
+        --radius: calc((1 / 0.2) * -2ch);
+
+        rotate: var(--degrees);
+        top: 150px;
+        right: 150px;
+        aspect-ratio: 1;
+        width: max-content;
+        translate: 0% 0%;
+        z-index: 10;
+        border-radius: 50%;
+        font-weight: bold;
+
+        a {
+            scroll-behavior: smooth;
         }
 
-        @keyframes rotation {
-            to {
-                --degrees: calc(360 * 13deg);
+        &:hover {
+            scale: 1.1;
+            cursor: pointer;
+            background-color: var(--theme-accent);
+
+            .ring::after {
+                transition: all 0.3s;
+                color: white;
+                transform: rotate(
+                    calc(360deg - var(--degrees))
+                );
             }
         }
+    }
 
-        .ring {
-            --font-size: 0.5;
+    span {
+        --inner-angle: calc(calc(360 / sibling-count()) * 1deg);
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+            rotate(calc(var(--inner-angle) * sibling-index()))
+            translateY(var(--radius));
 
-            height: calc(
-                var(--radius) * calc(var(--parent-ring-font-size) * -2.1)
-            );
-            border-radius: 50%;
-            aspect-ratio: 1;
-            display: grid;
-            place-content: center;
-
-            &::after {
-                transform: rotate(calc(14deg * var(--degrees)));
-                content: "☝️ Top";
-                font-size: 0.8em;
-                color: var(--theme-accent);
-            }
+        &:nth-child(odd) {
+            color: var(--theme-accent, red);
         }
+    }
 
-        .ring-wrapper {
-            display: none;
-            position: fixed;
-            top: calc(var(--radius) * calc(var(--parent-ring-font-size) * -2));
-            right: calc(
-                var(--radius) * calc(var(--parent-ring-font-size) * -2)
-            );
-            opacity: 0;
-            pointer-events: none;
-            transition:
-                opacity 300ms,
-                scale 300ms;
+    /* Check for animation-timeline and sibling-index() support */
+    @supports (animation-timeline: scroll()) {
+        @container (min-width: 1300px) {
+            @media (prefers-reduced-motion: no-preference) {
+                .ring-wrapper {
+                    --header-height: 53px;
+                    display: block;
 
-            a {
-                scroll-behavior: smooth;
-            }
+                    animation-fill-mode: both;
+                    animation-timeline: scroll();
 
-            &:hover {
-                scale: 1.1;
-                cursor: pointer;
-
-                background-color: var(--theme-accent);
-
-                .ring::after {
-                    transition: all 0.3s;
-                    color: white;
-                    transform: rotate(calc(360deg - var(--degrees)));
-                }
-            }
-        }
-        @supports (animation-timeline: scroll()) {
-            @container (min-width: 1300px) {
-                @media (prefers-reduced-motion: no-preference) {
-                    .ring-wrapper {
-                        --header-height: 53px;
-
-                        display: block;
-                        animation-range:
-                            var(--header-height)
-                                calc(var(--header-height) + 50px),
-                            calc(var(--header-height)) 100%;
-                        animation-name: fadeIn, rotation;
-                        animation-fill-mode: both;
-                        animation-timeline: scroll();
-
-                        .ring {
-                            --font-size: var(--parent-ring-font-size);
-                        }
+                    .ring {
+                        --font-size: var(
+                            --parent-ring-font-size
+                        );
                     }
                 }
+
+                .ring-wrapper {
+                    animation-name: fadeIn, rotation;
+                    animation-range:
+                        var(--header-height)
+                            calc(var(--header-height) + 50px),
+                        var(--header-height) 100%;
+                }
+
+                .no-scroll {
+                    animation-name: rotation;
+                    animation-range: 0 100%;
+                }
             }
         }
     }
 
-    @layer ring {
+    @supports not (margin: calc(sibling-index() * 1px)) {
         .ring-wrapper {
-            --radius: calc((1 / 0.2) * -2ch);
+            /*pointer-events: auto;*/
 
-            rotate: var(--degrees);
-            position: fixed;
-            top: 150px;
-            right: 150px;
-            aspect-ratio: 1;
-            translate: 0% 0%;
-            display: grid;
-            place-items: center;
-            z-index: 10;
-            border-radius: 50%;
-            font-weight: bold;
-            display: none;
-        }
-
-        .ring {
-            font-family: monospace;
-            text-transform: uppercase;
-            font-size: calc(var(--font-size, 1) * 2rem);
-            position: relative;
-        }
-
-        .char {
-            --inner-angle: calc((360 / var(--sibling-count)) * 1deg);
-            display: inline-block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            /* color: hsl(calc(var(--char-index) * 10deg) 100% 50%); */
-            transform: translate(-50%, -50%)
-                rotate(calc(var(--inner-angle) * var(--sibling-index)))
-                translateY(var(--radius));
-
-            &:nth-child(odd) {
-                color: var(--theme-accent);
+            span {
+                display: none;
             }
-        }
-    }
-
-    @layer base {
-        @property --degrees {
-            syntax: "<angle>";
-            initial-value: 0deg;
-            inherits: true;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        * {
-            box-sizing: border-box;
         }
     }
 
@@ -190,9 +179,16 @@ const charCount = length * 2;
         initial-value: 0.5;
         syntax: "<number>";
     }
+
+    @property --degrees {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: true;
+    }
 </style>
 
 <script>
+    // AHTODO: do we want to show something if browser does not support sibling-index() or animation-timeline: scroll()
     const rotator = document.querySelector(".ring-wrapper");
 
     rotator?.addEventListener("click", () => {

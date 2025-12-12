@@ -5,30 +5,32 @@ interface Props {
 const { skills } = Astro.props;
 ---
 
-<ul>
+<ul class="skills-list">
     {skills?.map((skill) => <li>{skill}</li>)}
 </ul>
 
-<style>
-    ul {
-        padding-left: 0;
-    }
-
-    li {
-        display: inline-block;
-        padding-right: 0.25rem;
-        font-size: 10px;
-        margin-bottom: 0;
-        padding-bottom: 0;
-
-        &:not(:last-child)::after {
-            content: "/";
-            padding-left: 0.25rem;
-            color: var(--theme-accent);
+<style is:global>
+    @scope (.skills-list) {
+        ul {
+            padding-left: 0;
         }
-    }
 
-    ul {
-        line-height: 1 !important;
+        li {
+            display: inline-block;
+            padding-right: 0.25rem;
+            font-size: 10px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+
+            &:not(:last-child)::after {
+                content: "/";
+                padding-left: 0.25rem;
+                color: var(--theme-accent);
+            }
+        }
+
+        ul {
+            line-height: 1 !important;
+        }
     }
 </style>

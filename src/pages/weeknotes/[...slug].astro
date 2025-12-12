@@ -4,19 +4,16 @@ import { type CollectionEntry } from "astro:content";
 import BlogPost from "@components/Blog/BlogPost.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import FullPageLayout from "@layouts/FullPageLayout.astro";
-import {
-	getAllPosts,
-} from '@components/Blog/utils/getAllPosts'
+import { getAllPosts } from "@components/Blog/utils/getAllPosts";
 export const prerender = true;
 
 const collection = "weeknotes";
 
 interface Props {
     post: CollectionEntry<"weeknotes">;
-    postIndex: number;
 }
 
-const { post, postIndex } = Astro.props;
+const { post } = Astro.props;
 const { template, title } = post.data;
 
 const slug = `weeknotes/${post.slug}`;
@@ -31,7 +28,6 @@ export async function getStaticPaths() {
             },
             props: {
                 post,
-                postIndex: post.postIndex
             },
         };
     });
@@ -50,7 +46,7 @@ export async function getStaticPaths() {
         </FullPageLayout>
     ) : (
         <DefaultLayout title={post.data.title} hideTitle>
-            <BlogPost post={post} collection={collection} postIndex={postIndex} />
+            <BlogPost post={post} collection={collection} />
         </DefaultLayout>
     )
 }
