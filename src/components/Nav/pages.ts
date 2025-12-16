@@ -12,11 +12,11 @@ const pages: {
     //     location: "footer",
     // },
 
-    about: {
-        url: "/about",
-        title: "About",
-        location: "header",
-    },
+    // about: {
+    //     url: "/about",
+    //     title: "About",
+    //     location: "footer",
+    // },
 
     // tools: {
     //     url: "/tools",
@@ -24,11 +24,11 @@ const pages: {
     //     location: "footer",
     // },
 
-    archive: {
-        url: "/blog",
-        title: "Blog",
-        location: "header",
-    },
+    // archive: {
+    //     url: "/blog",
+    //     title: "Blog",
+    //     location: "footer",
+    // },
     cv: {
         url: "/cv",
         title: "CV",

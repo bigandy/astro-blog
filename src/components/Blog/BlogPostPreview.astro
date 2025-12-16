@@ -14,7 +14,6 @@ const {
 } = Astro.props;
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
-const showPostNumber = !draft;
 ---
 
 <article
@@ -37,6 +36,9 @@ const showPostNumber = !draft;
         :scope {
             anchor-name: --parent;
             anchor-scope: --parent;
+
+            content-visibility: auto;
+            contain-intrinsic-size: 200px; /* Explained in the next section. */
         }
 
         &.draft,

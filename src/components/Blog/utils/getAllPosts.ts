@@ -34,15 +34,11 @@ export const getAllPosts = async (
         });
     }
 
-    const allPostCount = allPosts.length;
-
-    allPosts = allPosts.sort(
+    return allPosts.sort(
         (a, b) =>
             new Date(b.data.date).valueOf() -
             new Date(a.data.date).valueOf(),
     );
-
-    return allPosts;
 };
 
 export const getSomePosts = async (
@@ -54,3 +50,11 @@ export const getSomePosts = async (
         numberToReturn ? numberToReturn : -1,
     );
 };
+
+export const getGroupedPosts = async (collection: Collection = "blog", numberToReturn?: number) => {
+    const posts = await getSomePosts(collection, numberToReturn);
+    return Object.entries(Object.groupBy(posts, ({ data }) => new Date(data.date).getFullYear())).toReversed();
+}
+
+
+

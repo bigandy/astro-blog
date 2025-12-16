@@ -1,6 +1,5 @@
 ---
-import BlogPostList from "@components/Blog/utils/blogPostList.astro";
-import ForwardArrow from "@components/Global/ForwardArrow.astro";
+import GroupedBlogPostList from "@components/Blog/utils/groupedBlogPostList.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 ---
 
@@ -22,18 +21,18 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 
     <div class="blog-post-list">
         <h1>Latest Blog Posts</h1>
-        <BlogPostList number={9} />
+        <GroupedBlogPostList />
 
-        <ForwardArrow url="/blog/2" title="See more posts" />
     </div>
 </DefaultLayout>
 
-<style>
-    .blog-post-list {
-        margin-block-start: 3rem;
-    }
-
-    .intro {
-        max-width: 80ch;
+<style is:global>
+    @scope (.blog-post-list) {
+        > h2 {
+            position: sticky;
+            z-index: 1;
+            background: var(--theme-background);
+            top: 0;
+        }
     }
 </style>

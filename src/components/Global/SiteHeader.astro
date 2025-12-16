@@ -1,9 +1,5 @@
 ---
-import SettingsToggler from "@components/Global/SettingsToggler.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
-import { themeColorKey } from "@pages/cv/content";
-
-const { hidePhoto = false } = Astro.props;
 ---
 
 <header class="site-header">
@@ -13,16 +9,6 @@ const { hidePhoto = false } = Astro.props;
         </h1>
         <HeaderNav />
     </div>
-
-    {
-        !hidePhoto && (
-            <SettingsToggler
-                src="/images/cv/andrew-profile.jpg"
-                alt="Photo of Andrew JD Hudson"
-                themeColorKey={themeColorKey}
-            />
-        )
-    }
 </header>
 
 <style>

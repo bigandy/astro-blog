@@ -19,7 +19,13 @@ const {
 ---
 
 <header
-    class={`${isPreview ? "preview" : "post"}`}
+    class:list={[
+        "blog-post-header",
+        {
+            preview: isPreview,
+            post: !isPreview,
+        },
+    ]}
     style={`--vt-header: vt-${viewTransitionName.replaceAll("/", "")}`}
 >
     {
@@ -50,6 +56,15 @@ const {
 </header>
 
 <style>
+    @scope (.blog-post-header) {
+        h1 {
+            font-size: var(--font-size-3);
+            text-transform: capitalize;
+            margin-top: 0;
+            max-width: 1000px;
+            text-wrap: pretty;
+        }
+    }
     /*.preview {
         display: grid;
 

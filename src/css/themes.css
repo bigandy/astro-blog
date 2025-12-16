@@ -1,0 +1,42 @@
+[data-theme="orange"] {
+	color-scheme: light;
+
+	--theme-background: orange;
+	--accent-color: purple;
+
+	--scrollbar-color: orange;
+	--scrollbar-background: black;
+}
+
+[data-theme="light"] {
+	color-scheme: light;
+	--accent-color: purple;
+}
+
+[data-theme="dark"] {
+	color-scheme: dark;
+
+	--theme-background: black;
+	--accent-color: white;
+}
+
+[data-theme="neon"] {
+	color-scheme: dark;
+
+	--color-1: oklch(55% 0.45 350);
+	--color-2: oklch(95% 0.4 95);
+
+	--hdr-gradient: linear-gradient(
+		to bottom left in oklab,
+		var(--color-1),
+		var(--color-2)
+	);
+	--sdr-gradient: linear-gradient(to bottom left, #ff0094, #ffda00);
+
+	background: var(--hdr-gradient);
+
+	--theme-background: var(--hdr-gradient);
+	--accent-color: var(--color-1);
+	--scrollbar-color: var(--color-1);
+	--scrollbar-background: var(--color-2);
+}

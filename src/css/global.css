@@ -3,443 +3,360 @@
 }*/
 
 :root {
-    --system-ui:
-        system-ui, "Segoe UI", Roboto, Helvetica, Arial,
-        sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-        "Segoe UI Symbol";
-    --body-font: var(--system-ui);
-    --header-font-family: var(--body-font);
+	--system-ui:
+		system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--body-font: var(--system-ui);
+	--header-font-family: var(--body-font);
 
-    --font-fallback:
-        -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
-        Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-    --font-mono:
-        "IBM Plex Mono", Consolas, "Andale Mono WT",
-        "Andale Mono", "Lucida Console",
-        "Lucida Sans Typewriter", "DejaVu Sans Mono",
-        "Bitstream Vera Sans Mono", "Liberation Mono",
-        "Nimbus Mono L", Monaco, "Courier New", Courier,
-        monospace;
+	--font-fallback:
+		-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
+		Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
 
-    --color-white: #fff;
-    --color-black: #000014;
+	--font-mono:
+		"IBM Plex Mono", Consolas, "Andale Mono WT",
+		"Andale Mono", "Lucida Console",
+		"Lucida Sans Typewriter", "DejaVu Sans Mono",
+		"Bitstream Vera Sans Mono", "Liberation Mono",
+		"Nimbus Mono L", Monaco, "Courier New", Courier,
+		monospace;
 
-    --mix-method: srgb-linear;
+	--color-white: #fff;
+	--color-black: #000014;
 
-    --color-gray-0: color-mix(
-        in var(--mix-method),
-        white,
-        black 0%
-    );
+	--mix-method: srgb-linear;
 
-    --color-gray-50: color-mix(
-        in var(--mix-method),
-        white,
-        black 5%
-    );
-    --color-gray-100: color-mix(
-        in var(--mix-method),
-        white,
-        black 10%
-    );
-    --color-gray-200: color-mix(
-        in var(--mix-method),
-        white,
-        black 20%
-    );
-    --color-gray-300: color-mix(
-        in var(--mix-method),
-        white,
-        black 30%
-    );
-    --color-gray-400: color-mix(
-        in var(--mix-method),
-        white,
-        black 40%
-    );
-    --color-gray-500: color-mix(
-        in var(--mix-method),
-        white,
-        black 50%
-    );
-    --color-gray-600: color-mix(
-        in var(--mix-method),
-        white,
-        black 60%
-    );
-    --color-gray-700: color-mix(
-        in var(--mix-method),
-        white,
-        black 70%
-    );
-    --color-gray-800: color-mix(
-        in var(--mix-method),
-        white,
-        black 80%
-    );
-    --color-gray-900: color-mix(
-        in var(--mix-method),
-        white,
-        black 90%
-    );
-    --color-gray-1000: color-mix(
-        in var(--mix-method),
-        white,
-        black 100%
-    );
+	--color-gray-0: color-mix(in var(--mix-method), white, black 0%);
 
-    --color-purple: #882de7;
+	--color-gray-50: color-mix(in var(--mix-method), white, black 5%);
+	--color-gray-100: color-mix(in var(--mix-method), white, black 10%);
+	--color-gray-200: color-mix(in var(--mix-method), white, black 20%);
+	--color-gray-300: color-mix(in var(--mix-method), white, black 30%);
+	--color-gray-400: color-mix(in var(--mix-method), white, black 40%);
+	--color-gray-500: color-mix(in var(--mix-method), white, black 50%);
+	--color-gray-600: color-mix(in var(--mix-method), white, black 60%);
+	--color-gray-700: color-mix(in var(--mix-method), white, black 70%);
+	--color-gray-800: color-mix(in var(--mix-method), white, black 80%);
+	--color-gray-900: color-mix(in var(--mix-method), white, black 90%);
+	--color-gray-1000: color-mix(in var(--mix-method), white, black 100%);
 
-    --f-body-weight: 900;
+	--color-purple: #882de7;
 
-    /* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,28,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--f-body-weight: 900;
 
-    --font-size--2: clamp(
-        0.6076rem,
-        0.4294rem + 0.8911vw,
-        1.12rem
-    );
-    --font-size--1: clamp(
-        0.7292rem,
-        0.4958rem + 1.1667vw,
-        1.4rem
-    );
-    --font-size-0: clamp(
-        0.875rem,
-        0.5707rem + 1.5217vw,
-        1.75rem
-    );
-    --font-size-1: clamp(
-        1.05rem,
-        0.6543rem + 1.9783vw,
-        2.1875rem
-    );
-    --font-size-2: clamp(
-        1.26rem,
-        0.7472rem + 2.5641vw,
-        2.7344rem
-    );
-    --font-size-3: clamp(
-        1.512rem,
-        0.8491rem + 3.3147vw,
-        3.418rem
-    );
-    --font-size-4: clamp(
-        1.8144rem,
-        0.9594rem + 4.2749vw,
-        4.2725rem
-    );
-    --font-size-5: clamp(
-        2.1773rem,
-        1.077rem + 5.5014vw,
-        5.3406rem
-    );
+	/* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,28,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-    color-scheme: light dark;
-    --theme-accent: var(--color-purple);
-    --theme-divider: var(--color-gray-100);
-    --theme-text: light-dark(var(--color-gray-900), white);
-    --theme-code-inline-bg: var(--color-gray-100);
-    --theme-code-text: var(--color-gray-100);
-    --theme-code-bg: var(--color-gray-700);
+	--font-size--2: clamp(0.6076rem, 0.4294rem + 0.8911vw, 1.12rem);
+	--font-size--1: clamp(0.7292rem, 0.4958rem + 1.1667vw, 1.4rem);
+	--font-size-0: clamp(0.875rem, 0.5707rem + 1.5217vw, 1.75rem);
+	--font-size-1: clamp(1.05rem, 0.6543rem + 1.9783vw, 2.1875rem);
+	--font-size-2: clamp(1.26rem, 0.7472rem + 2.5641vw, 2.7344rem);
+	--font-size-3: clamp(1.512rem, 0.8491rem + 3.3147vw, 3.418rem);
+	--font-size-4: clamp(1.8144rem, 0.9594rem + 4.2749vw, 4.2725rem);
+	--font-size-5: clamp(2.1773rem, 1.077rem + 5.5014vw, 5.3406rem);
 
-    --border-radius-small: 3px;
-    --border-radius-medium: 8px;
+	/* color-scheme: light dark; */
+	--theme-accent: var(--color-purple);
+	--theme-divider: var(--color-gray-100);
+	--theme-text: light-dark(var(--color-gray-900), white);
+	--theme-code-inline-bg: var(--color-gray-100);
+	--theme-code-text: var(--color-gray-100);
+	--theme-code-bg: var(--color-gray-700);
+
+	--border-radius-small: 3px;
+	--border-radius-medium: 8px;
 }
 
 html {
-    /* adding this here so we can use @container queries with the name of 'root' or 'layout' and it applies here.  */
-    container: root layout / inline-size;
-    scrollbar-gutter: stable;
-}
-
-html,
-body {
-    height: 100%;
+	/* adding this here so we can use @container queries with the name of 'root' or 'layout' and it applies here.  */
+	container: root layout / inline-size;
+	scrollbar-gutter: stable;
+	scrollbar-color: var(--scrollbar-color, canvasText)
+		var(--scrollbar-background, canvas);
+	height: 100%;
 }
 
 body {
-    font-family: var(--body-font);
-    accent-color: var(--theme-accent);
-    color: var(--theme-text);
-    display: flex;
-    flex-direction: column;
-    font-size: 18px;
-    line-height: 1.625;
-    padding-inline: 1rem;
-    margin: 0;
+	min-height: 100%;
+	font-family: var(--body-font);
+	accent-color: var(--theme-accent);
+	color: var(--theme-text);
+	background: var(--theme-background);
+	display: flex;
+	flex-direction: column;
+	font-size: 18px;
+	line-height: 1.625;
+	padding-inline: 1rem;
+	margin: 0;
 }
 
 li,
 p {
-    font-size: var(--font-size--1);
+	font-size: var(--font-size--1);
 }
 
 input,
 label {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 h1 {
-    font-size: var(--font-size-5);
+	font-size: var(--font-size-5);
 }
 
 h2 {
-    font-size: var(--font-size-4);
+	font-size: var(--font-size-4);
 }
 
 h3 {
-    font-size: var(--font-size-3);
+	font-size: var(--font-size-3);
 }
 
 h4 {
-    font-size: var(--font-size-2);
+	font-size: var(--font-size-2);
 }
 
 h5 {
-    font-size: var(--font-size-1);
+	font-size: var(--font-size-1);
 }
 
 h6 {
-    font-size: var(--font-size-0);
+	font-size: var(--font-size-0);
 }
 
 small,
 .text-small {
-    font-size: var(--font-size--1);
-    line-height: calc(var(--f-small-lh) * 1px);
+	font-size: var(--font-size--1);
+	line-height: calc(var(--f-small-lh) * 1px);
 }
 
 :where(p, li) {
-    line-height: 1.5;
+	line-height: 1.5;
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-    font-weight: var(--f-body-weight);
-    font-family: var(--header-font-family);
+	font-weight: var(--f-body-weight);
+	font-family: var(--header-font-family);
 }
 
 ::selection {
-    color: white;
-    background-color: var(--theme-accent, black);
+	color: white;
+	background-color: var(--theme-accent, black);
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 /* Typography */
 :where(h1, h2, h3, h4, h5, h6) {
-    margin-block-end: 1.38rem;
-    line-height: 1;
+	margin-block-end: 1.38rem;
+	line-height: 1;
 }
 
 :where(h1, h2) {
-    max-width: 40ch;
+	max-width: 40ch;
 }
 
 :where(h1, h2, h3, h4, h5, h6):not(:first-child) {
-    margin-block-start: 3rem;
+	margin-block-start: 3rem;
 }
 
 :where(li, p, h3) {
-    max-width: 80rch;
+	max-width: 80rch;
 }
 
 p + p {
-    margin-block-start: 1rem;
+	margin-block-start: 1rem;
 }
 
 a {
-    color: var(--theme-accent);
-    font-weight: 400;
-    text-underline-offset: 0.08em;
-    text-decoration: none;
-    align-items: center;
-    gap: 0.5rem;
+	color: var(--theme-accent);
+	font-weight: 400;
+	text-underline-offset: 0.08em;
+	text-decoration: none;
+	align-items: center;
+	gap: 0.5rem;
 }
 
 a:hover,
 a:focus {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 a:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 0.25em;
+	outline: 2px solid currentColor;
+	outline-offset: 0.25em;
 }
 
 strong {
-    font-weight: 600;
-    /*color: inherit;*/
+	font-weight: 600;
+	/*color: inherit;*/
 }
 
 /* Supporting Content */
 code:not([class*="language"]) {
-    --padding-block: 0.2rem;
-    --padding-inline: 0.33rem;
+	--padding-block: 0.2rem;
+	--padding-inline: 0.33rem;
 
-    font-family: var(--font-mono);
-    font-size: 0.85em;
-    color: inherit;
-    background-color: var(--theme-code-inline-bg);
-    padding: var(--padding-block) var(--padding-inline);
-    margin: calc(var(--padding-block) * -1) -0.125em;
-    border-radius: var(--border-radius-small);
+	font-family: var(--font-mono);
+	font-size: 0.85em;
+	color: inherit;
+	background-color: var(--theme-code-inline-bg);
+	padding: var(--padding-block) var(--padding-inline);
+	margin: calc(var(--padding-block) * -1) -0.125em;
+	border-radius: var(--border-radius-small);
 }
 
 pre > code:not([class*="language"]) {
-    background-color: transparent;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-    color: inherit;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	color: inherit;
 }
 
 pre {
-    position: relative;
-    background-color: var(--theme-code-bg);
-    color: var(--theme-code-text);
-    --padding-block: 1rem;
-    --padding-inline: 2rem;
-    padding: var(--padding-block) var(--padding-inline);
-    padding-inline-end: calc(var(--padding-inline) * 2);
-    line-height: 1.414;
-    max-width: calc(100% + (var(--padding-inline) * 2));
-    overflow-y: hidden;
-    overflow-x: auto;
-    margin-block: 1rem;
+	position: relative;
+	background-color: var(--theme-code-bg);
+	color: var(--theme-code-text);
+	--padding-block: 1rem;
+	--padding-inline: 2rem;
+	padding: var(--padding-block) var(--padding-inline);
+	padding-inline-end: calc(var(--padding-inline) * 2);
+	line-height: 1.414;
+	max-width: calc(100% + (var(--padding-inline) * 2));
+	overflow-y: hidden;
+	overflow-x: auto;
+	margin-block: 1rem;
 
-    ::selection {
-        background: white;
-        color: black;
-    }
+	::selection {
+		background: white;
+		color: black;
+	}
 }
 
 @container root (min-width: 37.75em) {
-    pre {
-        --padding-inline: 1.25rem;
-        border-radius: var(--border-radius-medium);
-    }
+	pre {
+		--padding-inline: 1.25rem;
+		border-radius: var(--border-radius-medium);
+	}
 }
 
 .flex {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 img.cover {
-    width: 100%;
-    max-height: 50vh;
-    object-fit: cover;
+	width: 100%;
+	max-height: 50vh;
+	object-fit: cover;
 }
 
 blockquote {
-    font-size: 1.5rem;
-    --padding-block: 1rem;
-    --padding-inline: 1.25rem;
-    --color: var(--theme-divider);
+	font-size: 1.5rem;
+	--padding-block: 1rem;
+	--padding-inline: 1.25rem;
+	--color: var(--theme-divider);
 
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    padding: var(--padding-block) var(--padding-inline);
-    margin-inline-start: calc(var(--padding-inline) * -1);
-    margin-right: calc(var(--padding-inline) * -1);
+	padding: var(--padding-block) var(--padding-inline);
+	margin-inline-start: calc(var(--padding-inline) * -1);
+	margin-right: calc(var(--padding-inline) * -1);
 
-    background: transparent;
-    border-inline-start: calc(var(--padding-inline) / 2) solid
-        var(--color);
-    border-radius: 0;
+	background: transparent;
+	border-inline-start: calc(var(--padding-inline) / 2) solid var(--color);
+	border-radius: 0;
 }
 
 blockquote .source {
-    font-weight: 500;
-    color: var(--color);
-    font-size: 1rem;
+	font-weight: 500;
+	color: var(--color);
+	font-size: 1rem;
 }
 
 li ul li {
-    list-style-type: disc;
+	list-style-type: disc;
 }
 
 /* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
 .post img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    font-style: italic;
-    background-repeat: no-repeat;
-    background-size: cover;
-    shape-margin: 0.75rem;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	font-style: italic;
+	background-repeat: no-repeat;
+	background-size: cover;
+	shape-margin: 0.75rem;
 }
 
 .list--dashed {
-    > li {
-        --border-color: rgb(
-            from var(--theme-accent) r g b / 0.5
-        );
-        margin-block-end: 1.5rem;
-        padding-bottom: 1rem;
+	> li {
+		--border-color: rgb(from var(--theme-accent) r g b / 0.5);
+		margin-block-end: 1.5rem;
+		padding-bottom: 1rem;
 
-        &:not(:last-of-type) {
-            border-bottom: 1px dashed;
-            border-bottom-color: var(--border-color);
-        }
+		&:not(:last-of-type) {
+			border-bottom: 1px dashed;
+			border-bottom-color: var(--border-color);
+		}
 
-        @container style(--is-styling: 1) {
-            --border-color: transparent;
-            margin-block-end: 0;
-        }
-    }
+		@container style(--is-styling: 1) {
+			--border-color: transparent;
+			margin-block-end: 0;
+		}
+	}
 
-    &.list--compact {
-        > li {
-            margin-block-end: 0.5rem;
-            padding-block-end: 0.5rem;
-        }
-    }
+	&.list--compact {
+		> li {
+			margin-block-end: 0.5rem;
+			padding-block-end: 0.5rem;
+		}
+	}
 }
 
 .list--plain {
-    padding-left: 0;
-    list-style: "";
+	padding-left: 0;
+	list-style: "";
 }
 
 .nav a:hover {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .expressive-code {
-    max-width: 80ch;
-    margin-block: 1rem;
+	max-width: 80ch;
+	margin-block: 1rem;
 
-    &:hover {
-        scrollbar-color: deepPink transparent;
-    }
+	&:hover {
+		scrollbar-color: deepPink transparent;
+	}
 }
 
 a {
-    word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 body {
-    padding: 4rem;
+	padding: 4rem;
 }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
