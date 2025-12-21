@@ -31,9 +31,6 @@
 		var(--color-1),
 		var(--color-2)
 	);
-	--sdr-gradient: linear-gradient(to bottom left, #ff0094, #ffda00);
-
-	background: var(--hdr-gradient);
 
 	--theme-background: var(--hdr-gradient);
 	--accent-color: var(--color-1);

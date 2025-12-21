@@ -34,8 +34,7 @@ const future = new Date(date) > new Date();
 <style is:global>
     @scope (.post-preview) {
         :scope {
-            anchor-name: --parent;
-            anchor-scope: --parent;
+            position: relative;
 
             content-visibility: auto;
             contain-intrinsic-size: 200px; /* Explained in the next section. */
@@ -48,16 +47,14 @@ const future = new Date(date) > new Date();
                 text-align: center;
                 color: white;
                 writing-mode: vertical-rl;
-                height: 30px;
                 width: 30px;
                 display: block;
                 background: red;
-                position-anchor: --parent;
-                position: fixed;
-                top: anchor(top);
-                right: anchor(left);
-                translate: -50%;
-                height: anchor-size();
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+
             }
         }
 
