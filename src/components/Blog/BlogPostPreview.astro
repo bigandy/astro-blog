@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {
-    post: { slug, data },
+    post: { data, id: slug },
     collection = "blog",
     postIndex,
 } = Astro.props;
@@ -25,7 +25,7 @@ const showPostNumber = !draft;
     <BlogPostHeader
         date={date}
         title={title}
-        slug={`${collection}/${slug}`}
+        slug={`${collection}/${slug}/`}
         viewTransitionName={slug}
         isPreview
         postIndex={showPostNumber ? postIndex : undefined}

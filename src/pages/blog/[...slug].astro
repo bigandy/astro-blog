@@ -2,39 +2,34 @@
 import { type CollectionEntry } from "astro:content";
 
 import BlogPost from "@components/Blog/BlogPost.astro";
+import { getAllPosts } from "@components/Blog/utils/getAllPosts";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import FullPageLayout from "@layouts/FullPageLayout.astro";
-
-import {
-    getAllPosts,
-} from '@components/Blog/utils/getAllPosts';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-    const posts = await getAllPosts();
+	const posts = await getAllPosts();
 
-    return posts.map((post) => {
+	return posts.map((post) => {
         return {
-            params: {
-                slug: post.slug,
-            },
-            props: {
+            params: { slug: post.id },
+			props: {
                 postIndex: post.postIndex,
-                post,
-            },
-        };
-    });
+				post,
+			},
+		};
+	});
 }
 
 interface Props {
-    post: CollectionEntry<"blog">;
-    postIndex: number;
+	post: CollectionEntry<"blog">;
+	postIndex: number;
 }
 
 const { post, postIndex } = Astro.props;
 const { template, title } = post.data;
-const slug = `blog/${post.slug}`;
+const slug = `blog/${post.id}/`;
 ---
 
 {
@@ -43,7 +38,7 @@ const slug = `blog/${post.slug}`;
             <BlogPost
                 post={post}
                 showBackLink={true}
-                permalink={post.slug}
+                permalink={post.id}
                 postIndex={postIndex}
             />
         </FullPageLayout>

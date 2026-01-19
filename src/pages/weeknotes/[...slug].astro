@@ -2,39 +2,37 @@
 import { type CollectionEntry } from "astro:content";
 
 import BlogPost from "@components/Blog/BlogPost.astro";
+import { getAllPosts } from "@components/Blog/utils/getAllPosts";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import FullPageLayout from "@layouts/FullPageLayout.astro";
-import {
-	getAllPosts,
-} from '@components/Blog/utils/getAllPosts'
 export const prerender = true;
 
 const collection = "weeknotes";
 
 interface Props {
-    post: CollectionEntry<"weeknotes">;
-    postIndex: number;
+	post: CollectionEntry<"weeknotes">;
+	postIndex: number;
 }
 
 const { post, postIndex } = Astro.props;
 const { template, title } = post.data;
 
-const slug = `weeknotes/${post.slug}`;
+const slug = `weeknotes/${post.id}`;
 
 export async function getStaticPaths() {
-    const posts = await getAllPosts("weeknotes");
+	const posts = await getAllPosts("weeknotes");
 
-    return posts.map((post) => {
-        return {
-            params: {
-                slug: post.slug,
-            },
-            props: {
-                post,
-                postIndex: post.postIndex
-            },
-        };
-    });
+	return posts.map((post) => {
+		return {
+			params: {
+				slug: post.id,
+			},
+			props: {
+				post,
+				postIndex: post.postIndex,
+			},
+		};
+	});
 }
 ---
 

@@ -1,23 +1,23 @@
 ---
-import PublishDate from "./PublishDate.astro";
 import PostIndex from "./PostIndex.astro";
+import PublishDate from "./PublishDate.astro";
 
 interface Props {
-    date?: Date;
-    title: string;
-    isPreview?: boolean;
-    slug: string;
-    viewTransitionName: string;
-    postIndex?: number;
+	date?: Date;
+	title: string;
+	isPreview?: boolean;
+	slug: string;
+	viewTransitionName: string;
+	postIndex?: number;
 }
 
 const {
-    date,
-    title,
-    isPreview = false,
-    slug,
-    viewTransitionName,
-    postIndex,
+	date,
+	title,
+	isPreview = false,
+	slug,
+	viewTransitionName,
+	postIndex,
 } = Astro.props;
 ---
 
