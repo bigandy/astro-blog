@@ -1,71 +1,69 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+import { onMount } from "svelte";
 
-    import FontsList from "./FontsList.svelte";
+import FontsList from "./FontsList.svelte";
 
-    interface Props {
-        themeColorKey: string;
-    }
+interface Props {
+	themeColorKey: string;
+}
 
-    let { themeColorKey }: Props = $props();
+let { themeColorKey }: Props = $props();
 
-    let themeColor = $state("");
-    let debug = $state(false);
+let themeColor = $state("");
+let debug = $state(false);
 
-    const handleColor = (e: any) => {
-        const body = document.body;
-        themeColor = e.target.value;
+const handleColor = (e: any) => {
+	const body = document.body;
+	themeColor = e.target.value;
 
-        body.style.setProperty("--accent", themeColor);
+	body.style.setProperty("--accent", themeColor);
 
-        // save to localStorage
-        localStorage.setItem(themeColorKey, themeColor);
-    };
+	// save to localStorage
+	localStorage.setItem(themeColorKey, themeColor);
+};
 
-    const closePopover = () => {
-        const popover = document.querySelector("[popover]");
-        if (popover) {
-            // @ts-expect-error
-            popover.hidePopover();
-        }
-        debug = false;
-    };
+const closePopover = () => {
+	const popover = document.querySelector("[popover]");
+	if (popover) {
+		// @ts-expect-error
+		popover.hidePopover();
+	}
+	debug = false;
+};
 
-    const resetTheme = () => {
-        const rootThemeColor = document
-            .querySelector("html")
-            ?.style.getPropertyValue("--accent");
-        const body = document.body;
+const resetTheme = () => {
+	const rootThemeColor = document
+		.querySelector("html")
+		?.style.getPropertyValue("--accent");
+	const body = document.body;
 
-        if (rootThemeColor) {
-            themeColor = rootThemeColor;
+	if (rootThemeColor) {
+		themeColor = rootThemeColor;
 
-            body.style.setProperty("--accent", rootThemeColor);
+		body.style.setProperty("--accent", rootThemeColor);
 
-            // save to localStorage
-            localStorage.setItem(themeColorKey, rootThemeColor);
-        }
-    };
+		// save to localStorage
+		localStorage.setItem(themeColorKey, rootThemeColor);
+	}
+};
 
-    onMount(() => {
-        const storageTheme = localStorage.getItem(themeColorKey);
+onMount(() => {
+	const storageTheme = localStorage.getItem(themeColorKey);
 
-        if (storageTheme && storageTheme !== "") {
-            themeColor = storageTheme;
-        } else {
-            themeColor = getComputedStyle(document.body).getPropertyValue(
-                "--accent",
-            );
-        }
-    });
+	if (storageTheme && storageTheme !== "") {
+		themeColor = storageTheme;
+	} else {
+		themeColor = getComputedStyle(document.body).getPropertyValue("--accent");
+	}
+});
 
-    $effect(() => {
-        if (debug) {
-            document.body.classList.add("debug");
-        } else {
-            document.body.classList.remove("debug");
-        }
-    });
+$effect(() => {
+	if (debug) {
+		document.body.classList.add("debug");
+	} else {
+		document.body.classList.remove("debug");
+	}
+});
 </script>
 
 <div class="settings-menu" popover="auto" id="settings-menu">

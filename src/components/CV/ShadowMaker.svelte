@@ -1,46 +1,46 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+import { onMount } from "svelte";
 
-    const container = document.querySelector(".container") as HTMLElement;
+const container = document.querySelector(".container") as HTMLElement;
 
-    const handleMouseMove = (evt) => {
-        if (!container) {
-            return;
-        }
-        const { height: containerHeight, width: containerWidth } =
-            container.getBoundingClientRect();
+const handleMouseMove = (evt) => {
+	if (!container) {
+		return;
+	}
+	const { height: containerHeight, width: containerWidth } =
+		container.getBoundingClientRect();
 
-        // let x = evt.clientX / containerWidth;
-        // let y = evt.clientY / containerHeight;
+	// let x = evt.clientX / containerWidth;
+	// let y = evt.clientY / containerHeight;
 
-        // Center of the container
-        const center = {
-            top: containerHeight / 2,
-            left: containerWidth / 2,
-        };
+	// Center of the container
+	const center = {
+		top: containerHeight / 2,
+		left: containerWidth / 2,
+	};
 
-        // distance from the center to the mouse cursor
-        const actual = {
-            left: evt.clientX - center.left,
-            top: evt.clientY - center.top,
-        };
+	// distance from the center to the mouse cursor
+	const actual = {
+		left: evt.clientX - center.left,
+		top: evt.clientY - center.top,
+	};
 
-        // console.log({ evt, center, actual });
+	// console.log({ evt, center, actual });
 
-        // get the angle from the opposite/adjacent. Trigonometry!
-        // let angle = getAngleFromOppositeAdjacent(actual.top, actual.left);
+	// get the angle from the opposite/adjacent. Trigonometry!
+	// let angle = getAngleFromOppositeAdjacent(actual.top, actual.left);
 
-        // angle += actual.left >= 0 ? 90 : 270;
+	// angle += actual.left >= 0 ? 90 : 270;
 
-        container.style.setProperty("--top", (actual.top *= -1).toString());
-        container.style.setProperty("--left", (actual.left *= -1).toString());
-    };
+	container.style.setProperty("--top", (actual.top *= -1).toString());
+	container.style.setProperty("--left", (actual.left *= -1).toString());
+};
 
-    const { children } = $props();
+const { children } = $props();
 
-    const getAngleFromOppositeAdjacent = (top, left) => {
-        return (Math.atan(top / left) * 180) / Math.PI;
-    };
+const getAngleFromOppositeAdjacent = (top, left) => {
+	return (Math.atan(top / left) * 180) / Math.PI;
+};
 </script>
 
 <div role="application" class="container" onmousemove={handleMouseMove}>

@@ -1,5 +1,5 @@
 <script>
-  let { classname, children } = $props();
+let { classname, children } = $props();
 </script>
 
 <div class={`warning ${classname}`}>

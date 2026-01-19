@@ -1,24 +1,23 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro'
-import Bookcase from 'src/components/Svelte/Bookcase.svelte'
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import Bookcase from "src/components/Svelte/Bookcase.svelte";
+import { getBooks } from "src/utils/getBooksFromNotion";
 
-import { getBooks } from 'src/utils/getBooksFromNotion'
+dayjs.extend(customParseFormat);
 
-import dayjs from 'dayjs'
-import customParseFormat from 'dayjs/plugin/customParseFormat'
-dayjs.extend(customParseFormat)
+const title = "Bookshelf";
 
-const title = 'Bookshelf'
-
-const allBooks = await getBooks()
+const allBooks = await getBooks();
 const books = allBooks
 	.filter(({ finishedDate }: { finishedDate: Date }) => {
-		const date = dayjs(finishedDate)
-		return date.isValid()
+		const date = dayjs(finishedDate);
+		return date.isValid();
 	})
 	.sort((a: Date, b: Date) => {
-		return dayjs(b, 'MM-YYYY').diff(dayjs(a, 'MM-YYYY'))
-	})
+		return dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"));
+	});
 ---
 
 <DefaultLayout title={title} accent="oklch(0.52 0.12 189.58)">

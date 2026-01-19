@@ -3,27 +3,26 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 
 // CV Specific Components
 
-import SkillsList from "@components/CV/SkillsList.astro";
-import SocialLinksList from "@components/CV/SocialLinksList.astro";
-import PorfolioList from "@components/CV/PorfolioList.astro";
 import EducationList from "@components/CV/EducationList.astro";
 import LanguagesList from "@components/CV/LanguagesList.astro";
+import PorfolioList from "@components/CV/PorfolioList.astro";
 import RolesList from "@components/CV/RolesList.astro";
-
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
+import SkillsList from "@components/CV/SkillsList.astro";
+import SocialLinksList from "@components/CV/SocialLinksList.astro";
 
 import "src/css/cv.css";
 
 import {
-    themeColorKey,
-    summary,
-    roles,
-    skills,
-    socialLinks,
-    personalInformation,
-    portfolioLinks,
-    education,
-    languages,
+	education,
+	languages,
+	personalInformation,
+	portfolioLinks,
+	roles,
+	skills,
+	socialLinks,
+	summary,
+	themeColorKey,
 } from "./content";
 
 const overrideFullDates = false;

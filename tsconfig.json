@@ -1,17 +1,17 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "module": "ESNext",
-        "target": "ES2022",
-        "moduleResolution": "node",
-        "jsx": "react-jsx",
-        "baseUrl": ".",
-        "paths": {
-            "@components/*": ["src/components/*"],
-            "@pages/*": ["src/pages/*"],
-            "@layouts/*": ["src/layouts/*"],
-            "@utils/*": ["src/utils/*"]
-        }
-    }
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"module": "ESNext",
+		"target": "ES2022",
+		"moduleResolution": "node",
+		"jsx": "react-jsx",
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": ["src/components/*"],
+			"@pages/*": ["src/pages/*"],
+			"@layouts/*": ["src/layouts/*"],
+			"@utils/*": ["src/utils/*"]
+		}
+	}
 }

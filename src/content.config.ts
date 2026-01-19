@@ -12,7 +12,7 @@ const Template = {
 } as const;
 
 const blog = defineCollection({
-	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+	loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
 	schema: z.object({
 		title: z.string(),
 		author: z.string().optional(),
@@ -23,7 +23,7 @@ const blog = defineCollection({
 	}),
 });
 const weeknotes = defineCollection({
-	loader: glob({ base: './src/content/weeknotes', pattern: '**/*.{md,mdx}' }),
+	loader: glob({ base: "./src/content/weeknotes", pattern: "**/*.{md,mdx}" }),
 	schema: z.object({
 		title: z.string(),
 		author: z.string().optional(),
@@ -36,5 +36,5 @@ const weeknotes = defineCollection({
 
 export const collections = {
 	blog,
-	weeknotes
+	weeknotes,
 };

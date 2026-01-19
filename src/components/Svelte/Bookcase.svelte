@@ -1,72 +1,70 @@
 <script lang="ts">
-    type Option = "month" | "year";
-    import type { Book } from "src/utils/getBooksFromNotion";
-    import dayjs from "dayjs";
-    import customParseFormat from "dayjs/plugin/customParseFormat";
-    dayjs.extend(customParseFormat);
+type Option = "month" | "year";
 
-    import groupBy from "lodash.groupby";
-    import Toggle from "./Toggle.svelte";
-    import Warning from "./Warning.svelte";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import type { Book } from "src/utils/getBooksFromNotion";
 
-    interface Props {
-        books: Book[];
-    }
+dayjs.extend(customParseFormat);
 
-    let { books }: Props = $props();
+import groupBy from "lodash.groupby";
+import Toggle from "./Toggle.svelte";
+import Warning from "./Warning.svelte";
 
-    const groupedBooks = (books: Book[], format: Option) => {
-        let formatString = "";
+interface Props {
+	books: Book[];
+}
 
-        switch (format) {
-            case "month":
-                formatString = "MM-YYYY";
-                break;
-            case "year":
-                formatString = "YYYY";
-                break;
-            default:
-                formatString = "MM-YYYY";
-                break;
-        }
-        const group = groupBy(books, (book) => {
-            return dayjs(book.finishedDate).format(formatString);
-        });
+let { books }: Props = $props();
 
-        const groups = Object.entries(group);
+const groupedBooks = (books: Book[], format: Option) => {
+	let formatString = "";
 
-        const sortedGroups = groups
-            .sort(([a], [b]) => {
-                return format === "month"
-                    ? dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"))
-                    : Number(b) - Number(a);
-            })
-            .map(([key, value]) => {
-                return [
-                    key,
-                    value.sort((a, b) =>
-                        dayjs(b.finishedDate).diff(a.finishedDate),
-                    ),
-                ] as [string, Book[]];
-            });
+	switch (format) {
+		case "month":
+			formatString = "MM-YYYY";
+			break;
+		case "year":
+			formatString = "YYYY";
+			break;
+		default:
+			formatString = "MM-YYYY";
+			break;
+	}
+	const group = groupBy(books, (book) => {
+		return dayjs(book.finishedDate).format(formatString);
+	});
 
-        return sortedGroups;
-    };
+	const groups = Object.entries(group);
 
-    let monthsActive = $state(true);
+	const sortedGroups = groups
+		.sort(([a], [b]) => {
+			return format === "month"
+				? dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"))
+				: Number(b) - Number(a);
+		})
+		.map(([key, value]) => {
+			return [
+				key,
+				value.sort((a, b) => dayjs(b.finishedDate).diff(a.finishedDate)),
+			] as [string, Book[]];
+		});
 
-    let filterStart = $derived(monthsActive ? "MM-YYYY" : "YYYY");
-    let filterEnd = $derived(monthsActive ? "MMMM YYYY" : "YYYY");
+	return sortedGroups;
+};
 
-    let groups = $derived(
-        monthsActive
-            ? groupedBooks(books, "month")
-            : groupedBooks(books, "year"),
-    );
+let monthsActive = $state(true);
 
-    function toggle(option: Option) {
-        monthsActive = option === "month";
-    }
+let filterStart = $derived(monthsActive ? "MM-YYYY" : "YYYY");
+let filterEnd = $derived(monthsActive ? "MMMM YYYY" : "YYYY");
+
+let groups = $derived(
+	monthsActive ? groupedBooks(books, "month") : groupedBooks(books, "year"),
+);
+
+function toggle(option: Option) {
+	monthsActive = option === "month";
+}
 </script>
 
 <div class="bookcase">

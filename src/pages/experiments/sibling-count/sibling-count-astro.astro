@@ -1,12 +1,9 @@
 ---
-import { Code } from 'astro-expressive-code/components'
-
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
-
+import Notes from "@components/Global/Notes.astro";
 import AstroSiblingCount from "@components/Global/SiblingCount.astro";
-
-import importedCode from '/src/components/Global/SiblingCount.astro?raw';
-import Notes from '@components/Global/Notes.astro'; 
+import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import { Code } from "astro-expressive-code/components";
+import importedCode from "/src/components/Global/SiblingCount.astro?raw";
 ---
  
 <FullScreenLayout>

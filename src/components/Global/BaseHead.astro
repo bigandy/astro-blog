@@ -4,18 +4,18 @@ import SpeculationRules from "./SpeculationRules.astro";
 import "src/css/global.css";
 
 interface Props {
-    title: string;
-    description?: string;
-    permalink?: string;
+	title: string;
+	description?: string;
+	permalink?: string;
 }
 
 const descriptionFallback = "Senior Software Engineer looking for answers.";
 const permalinkFallback = "https://andrewhudson.dev/";
 
 const {
-    title,
-    description = descriptionFallback,
-    permalink = permalinkFallback,
+	title,
+	description = descriptionFallback,
+	permalink = permalinkFallback,
 } = Astro.props;
 
 const permalinkUrl = new URL(permalink ?? "", Astro.url.origin).href;

@@ -1,41 +1,38 @@
 <script lang="ts">
-    import fonts from "google-fonts-complete";
+import fonts from "google-fonts-complete";
 
-    // @ts-expect-error
-    import WebFont from "webfontloader";
+// @ts-expect-error
+import WebFont from "webfontloader";
 
-    let font = $state("");
+let font = $state("");
 
-    const setFont = (font: string) => {
-        WebFont.load({
-            events: true,
-            classes: false,
-            google: {
-                families: [font],
-            },
-            fontactive: () => {
-                document.body.style.setProperty(
-                    "--settings-heading-font",
-                    font,
-                );
-                font = font;
-            },
-        });
-    };
+const setFont = (font: string) => {
+	WebFont.load({
+		events: true,
+		classes: false,
+		google: {
+			families: [font],
+		},
+		fontactive: () => {
+			document.body.style.setProperty("--settings-heading-font", font);
+			font = font;
+		},
+	});
+};
 
-    const fontsList = Object.entries(fonts)
-        .map(([key, value]) => {
-            return { fontName: key, details: value };
-        })
-        .filter((font: any) => {
-            return font.details.category === "serif";
-        });
+const fontsList = Object.entries(fonts)
+	.map(([key, value]) => {
+		return { fontName: key, details: value };
+	})
+	.filter((font: any) => {
+		return font.details.category === "serif";
+	});
 
-    const resetFont = () => {
-        font = "";
+const resetFont = () => {
+	font = "";
 
-        document.body.style.setProperty("--cv-heading-font", "");
-    };
+	document.body.style.setProperty("--cv-heading-font", "");
+};
 </script>
 
 <div class="wrapper">

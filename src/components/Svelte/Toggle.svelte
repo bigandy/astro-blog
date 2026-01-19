@@ -1,11 +1,11 @@
 <script lang="ts">
-  interface Props {
-    handleClick: (option: any) => void;
-    options: string[];
-    active: string;
-  }
+interface Props {
+	handleClick: (option: any) => void;
+	options: string[];
+	active: string;
+}
 
-  let { handleClick, options, active }: Props = $props();
+let { handleClick, options, active }: Props = $props();
 </script>
 
 {#each options as option}

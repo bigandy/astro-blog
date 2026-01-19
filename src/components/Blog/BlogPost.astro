@@ -7,11 +7,11 @@ import BackArrow from "@components/Global/BackArrow.astro";
 import EditPostOnGithub from "@components/Global/EditPostOnGithub.astro";
 
 const {
-    post,
-    showBackLink = true,
-    showDate = true,
-    collection = "blog",
-    postIndex,
+	post,
+	showBackLink = true,
+	showDate = true,
+	collection = "blog",
+	postIndex,
 } = Astro.props;
 const { Content } = await render(post);
 ---

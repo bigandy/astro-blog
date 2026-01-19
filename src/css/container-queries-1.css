@@ -1,35 +1,35 @@
 .block-wrapper {
-    container-type: inline-size;
-    container-name: blockwrapper;
-    /* container: inline-size / blockwrapper; */
+	container-type: inline-size;
+	container-name: blockwrapper;
+	/* container: inline-size / blockwrapper; */
 }
 
 @container blockwrapper (inline-size <= 200px) {
-    .block {
-        padding: 0 1em;
-    }
+	.block {
+		padding: 0 1em;
+	}
 
-    .block__title {
-        font-size: 1rem;
-        margin-block-end: 0.5rem;
-    }
+	.block__title {
+		font-size: 1rem;
+		margin-block-end: 0.5rem;
+	}
 
-    .block__content {
-        font-size: 0.9rem;
-        line-height: 1.2;
-    }
+	.block__content {
+		font-size: 0.9rem;
+		line-height: 1.2;
+	}
 }
 
 @container blockwrapper (inline-size > 480px) {
-    .block {
-        padding: 2em;
-        background: red;
-    }
+	.block {
+		padding: 2em;
+		background: red;
+	}
 }
 
 /* Doesn't work unless you use container-type: size on .block-wrapper */
 @container blockwrapper (block-size > 100px) {
-    .block {
-        color: orange;
-    }
+	.block {
+		color: orange;
+	}
 }

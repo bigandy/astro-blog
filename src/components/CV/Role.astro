@@ -1,25 +1,25 @@
 ---
-import dayjs, { type Dayjs } from "dayjs";
 import { type Role } from "@pages/cv/content";
+import dayjs, { type Dayjs } from "dayjs";
 
 interface Props {
-    role: Role;
-    company: string;
-    overrideFullDates?: boolean;
+	role: Role;
+	company: string;
+	overrideFullDates?: boolean;
 }
 
 const { role, company, overrideFullDates = false } = Astro.props;
 
 const getDateOutput = (
-    date: Dayjs,
-    overrideFullDates: boolean,
-    showFulldate: boolean
+	date: Dayjs,
+	overrideFullDates: boolean,
+	showFulldate: boolean,
 ) => {
-    if (overrideFullDates || showFulldate === false) {
-        return dayjs(date).format("YYYY");
-    }
+	if (overrideFullDates || showFulldate === false) {
+		return dayjs(date).format("YYYY");
+	}
 
-    return dayjs(date).format("MM/YYYY");
+	return dayjs(date).format("MM/YYYY");
 };
 ---
 

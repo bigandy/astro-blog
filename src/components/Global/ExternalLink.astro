@@ -4,8 +4,8 @@ import type { HTMLAttributes } from "astro/types";
 import { Icon } from "astro-icon/components";
 
 interface Props extends HTMLAttributes<"a"> {
-    href: string;
-    size?: string;
+	href: string;
+	size?: string;
 }
 
 const { href, size = "1rem", ...attrs } = Astro.props;
