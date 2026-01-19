@@ -6,21 +6,21 @@ import type { Collection } from "@components/Blog/utils/getAllPosts";
 interface Props {
     post: CollectionEntry<"blog">;
     collection?: Collection;
-    postIndex: number;
 }
 
 const {
     post: { slug, data },
     collection = "blog",
-    postIndex,
 } = Astro.props;
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
-const showPostNumber = !draft;
 ---
 
 <article
-    class={`post-preview layout-inner ${draft && "draft"} ${future && "future"}`}
+    class:list={[
+        "post-preview",
+        { draft: draft, future: future },
+    ]}
 >
     <BlogPostHeader
         date={date}
@@ -28,63 +28,42 @@ const showPostNumber = !draft;
         slug={`${collection}/${slug}`}
         viewTransitionName={slug}
         isPreview
-        postIndex={showPostNumber ? postIndex : undefined}
     />
 </article>
 
-<style>
-    .post-preview {
-        margin-block-end: 1rem;
-        padding-block-end: 1rem;
-        border-block-end: 4px solid var(--theme-divider);
-        position: relative;
+<style is:global>
+    @scope (.post-preview) {
+        :scope {
+            position: relative;
 
-        a:not(:focus-visible) {
-            outline: none;
-        }
-    }
-
-    .future,
-    .draft {
-        border-inline-start: 10px solid var(--border-color);
-        padding-inline-start: 2rem;
-        position: relative;
-        transition: all 0.3s;
-
-        &::before {
-            transition: all 0.3s;
-            text-transform: uppercase;
-            position: absolute;
-            font-size: 10px;
-            left: 5px;
-            top: 50%;
-            content: var(--content);
-            display: block;
-            transform: translate(-50%, 0%) rotate(-90deg);
-            transform-origin: center top;
+            content-visibility: auto;
+            contain-intrinsic-size: 200px; /* Explained in the next section. */
         }
 
-        &:hover {
-            padding-inline-start: 0;
-            border-inline-start: 0;
+        &.draft,
+        &.future {
+            &::after {
+                content: var(--content);
+                text-align: center;
+                color: white;
+                writing-mode: vertical-rl;
+                width: 30px;
+                display: block;
+                background: red;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
 
-            &::before {
-                opacity: 0;
             }
         }
-    }
 
-    .draft {
-        --border-color: color-mix(
-            in lch,
-            var(--theme-accent),
-            var(--theme-divider) 50%
-        );
-        --content: "draft";
-    }
+        &.draft {
+            --content: "draft";
+        }
 
-    .future {
-        --border-color: color-mix(in lch, var(--theme-accent), red);
-        --content: "future";
+        &.future {
+            --content: "future";
+        }
     }
 </style>

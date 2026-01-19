@@ -1,6 +1,5 @@
 ---
 import PublishDate from "./PublishDate.astro";
-import PostIndex from "./PostIndex.astro";
 
 interface Props {
     date?: Date;
@@ -8,7 +7,6 @@ interface Props {
     isPreview?: boolean;
     slug: string;
     viewTransitionName: string;
-    postIndex?: number;
 }
 
 const {
@@ -17,12 +15,17 @@ const {
     isPreview = false,
     slug,
     viewTransitionName,
-    postIndex,
 } = Astro.props;
 ---
 
 <header
-    class={`${isPreview ? "preview" : "post"}`}
+    class:list={[
+        "blog-post-header",
+        {
+            preview: isPreview,
+            post: !isPreview,
+        },
+    ]}
     style={`--vt-header: vt-${viewTransitionName.replaceAll("/", "")}`}
 >
     {
@@ -30,23 +33,42 @@ const {
             <a href={`/${slug}`}>
                 <h2 class="title">{title}</h2>
 
-                {date && <PublishDate date={date} class="publish-date" />}
+                {date && (
+                    <PublishDate
+                        date={date}
+                        class="publish-date"
+                    />
+                )}
             </a>
         ) : (
             <Fragment>
                 <h1 class="title">{title}</h1>
                 {date && (
-                    <PublishDate date={date} class="publish-date" showLine />
+                    <PublishDate
+                        date={date}
+                        class="publish-date"
+                        showLine
+                    />
                 )}
             </Fragment>
         )
     }
-
-    <PostIndex number={postIndex} isPost={!isPreview} />
 </header>
 
 <style>
-    .preview {
+    @scope (.blog-post-header) {
+        .title {
+            font-size: var(--font-size-3);
+            margin-top: 0;
+            max-width: 1000px;
+            text-wrap: pretty;
+        }
+
+        a {
+            width: 100%;
+        }
+    }
+    /*.preview {
         display: grid;
 
         &.header {
@@ -87,7 +109,7 @@ const {
     }
 
     /* BlogPost */
-    .post {
+    /*.post {
         padding-block: 2rem;
 
         & p,
@@ -103,12 +125,5 @@ const {
             line-height: 1;
             text-wrap: pretty;
         }
-    }
-
-    @container (inline-size > 1000px) {
-        header {
-            position: relative;
-            view-transition-name: var(--vt-header);
-        }
-    }
+    }*/
 </style>

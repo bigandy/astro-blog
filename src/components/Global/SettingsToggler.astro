@@ -1,0 +1,164 @@
+---
+interface Props {
+    src: string;
+    alt: string;
+    hidePhoto?: boolean;
+}
+const { src, alt } = Astro.props;
+
+const possibleThemes = [
+    'dark',
+    'light',
+    'orange',
+    'neon'
+]
+---
+
+<div class="settings-toggler">
+    <button popovertarget="color-selector-popover" popovertargetaction="open"><img {src} {alt} height="100" width="100" /></button>
+
+<dialog popover id="color-selector-popover">
+	<h2>Theme Selector</h2>
+
+    {possibleThemes.map(theme => {
+        return (
+<label for={theme}>{theme}</label><input type="radio" id={theme} name="theme" />
+        )
+    })}
+
+	<button popovertarget="color-selector-popover" popovertargetaction="hide">Close</button>
+</dialog>
+
+</div>
+
+<script lang="ts">
+    const dialog = document.querySelector('#color-selector-popover');
+
+    // When the component first loads, run this:
+    const run = () => {
+        const theme = localStorage.getItem('theme');
+        document.documentElement.setAttribute('data-theme', theme);
+        const input = document.getElementById(theme);
+            input.checked = true;
+    }
+    run();
+
+    dialog.addEventListener('click', (e) => {
+        if (!["INPUT"].includes(e.target.nodeName)) {
+            return;
+        }
+        const theme = e.target.id;
+
+        // console.log({theme});
+
+        localStorage.setItem('theme', theme);
+        document.documentElement.setAttribute('data-theme', theme);
+    });
+</script>
+
+<style is:global>
+    @scope (.settings-toggler) {
+        button {
+            all: unset;
+            anchor-name: --button;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: var(--font-size-1);
+            margin-bottom: 1rem;
+        }
+
+        dialog {
+            padding: 2rem;
+            position-anchor: --button;
+            position: absolute;
+            top: anchor(bottom);
+            left: anchor(left);
+            margin: unset;
+            border-radius: 0 2rem;
+            corner-shape: bevel;
+            gap: 1rem;
+            box-sizing: border-box;
+            background: var(--theme-background, Canvas);
+            accent-color: var(--accent-color);
+
+            button {
+                border: 1px solid;
+                display: block;
+                padding: 1rem;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+        }
+
+        ::backdrop,
+        [popover] {
+            --time: 1000ms;
+            --timing-function: ease-in-out;
+            transition-timing-function: var(--timing-function);
+        }
+
+        ::backdrop {
+            background: hsl(from black h s l / 0.74);
+        }
+
+
+        [popover] {
+            transition: opacity var(--time), translate var(--time),
+                overlay var(--time) allow-discrete, display var(--time) allow-discrete;
+
+            /* 2. EXIT STATE   */
+            translate: -100vh 0;
+        }
+
+        /* 0. IS-OPEN STATE   */
+        :popover-open {
+            translate: 0 0;
+
+            /* 1. BEFORE-OPEN STATE   */
+            @starting-style {
+                translate: 100vh 0;
+            }
+        }
+
+        /* Backdrop fade in and fade-out */
+        ::backdrop {
+            transition: background-color 300ms, opacity var(--time),
+                overlay var(--time) allow-discrete;
+        }
+
+        ::backdrop,
+        [popover] {
+            opacity: 0;
+        }
+
+        :popover-open::backdrop,
+        :popover-open {
+            opacity: 1;
+
+            @starting-style {
+                opacity: 0;
+            }
+        }
+        /* ends backdrop */
+
+        :scope {
+            /* position: sticky; */
+            /* top: 0; */
+            /* right: 3rem; */
+            /* z-index: 2; */
+        }
+        img {
+            display: block;
+            border-radius: 50%;
+            transition: corner-shape 300ms ease-in-out;
+            corner-shape: superellipse(0.5);
+
+            &:hover {
+                corner-shape: round;
+            }
+        }
+    }
+</style>

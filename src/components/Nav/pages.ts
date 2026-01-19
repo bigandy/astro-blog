@@ -6,64 +6,70 @@ const pages: {
         external?: boolean;
     };
 } = {
-    "sites-i-like": {
-        url: "/sites-i-like",
-        title: "Sites I like",
-        location: "footer",
-    },
+    // "sites-i-like": {
+    //     url: "/sites-i-like",
+    //     title: "Sites I like",
+    //     location: "footer",
+    // },
 
-    about: {
-        url: "/about",
-        title: "About",
-        location: "header",
-    },
+    // about: {
+    //     url: "/about",
+    //     title: "About",
+    //     location: "footer",
+    // },
 
-    tools: {
-        url: "/tools",
-        title: "Tools",
-        location: "footer",
-    },
+    // tools: {
+    //     url: "/tools",
+    //     title: "Tools",
+    //     location: "footer",
+    // },
 
-    archive: {
-        url: "/blog",
-        title: "Blog",
-        location: "header",
-    },
+    // archive: {
+    //     url: "/blog",
+    //     title: "Blog",
+    //     location: "footer",
+    // },
     cv: {
         url: "/cv",
         title: "CV",
         location: "header",
     },
 
-    experiments: {
-        url: "/experiments",
-        title: "Experiments",
-        location: "footer",
-    },
+    // experiments: {
+    //     url: "/experiments",
+    //     title: "Experiments",
+    //     location: "footer",
+    // },
 
-    weeknotes: {
-        url: "/weeknotes",
-        title: "Weeknotes",
-        location: "footer",
-    },
+    // weeknotes: {
+    //     url: "/weeknotes",
+    //     title: "Weeknotes",
+    //     location: "footer",
+    // },
 
     bookshelf: {
         url: "/bookshelf",
         title: "Bookshelf",
-        location: "footer",
+        location: "header",
     },
 
-    now: {
-        url: "/now",
-        title: "Now",
-        location: "footer",
+    styleguide: {
+        url: "/style-guide",
+        title: "Style Guide",
+        location: "header",
     },
+
+    // now: {
+    //     url: "/now",
+    //     title: "Now",
+    //     location: "footer",
+    // },
 };
 
-export const headerPages = Object.values(pages).filter(({ location }) =>
-    ["header", "both"].includes(location),
+export const headerPages = Object.values(pages).filter(
+    ({ location }) => ["header", "both"].includes(location),
 );
 
-export const footerPages = Object.values(pages).filter(({ location }) =>
-    ["footer", "both"].includes(location),
+export const footerPages = Object.values(pages).filter(
+    ({ location }) => ["footer", "both"].includes(location),
 );

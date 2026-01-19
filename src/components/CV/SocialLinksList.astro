@@ -9,18 +9,20 @@ const { links } = Astro.props;
 
 {
     links.map((link) => (
-        <li>
+        <li class="social-link">
             <a href={link.href} data-url={link.shortLink}>
                 <span>{link.name}</span>
-                <span class="short-link">{link.shortLink}</span>
+                <span>{link.shortLink}</span>
             </a>
         </li>
     ))
 }
 
-<style>
-    .short-link {
-        font-size: 90%;
-        color: var(--lightgrey);
+<style is:global>
+    @scope (.social-link) {
+        span:nth-child(2) {
+            font-size: 90%;
+            color: var(--lightgrey);
+        }
     }
 </style>

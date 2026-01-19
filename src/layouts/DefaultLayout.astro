@@ -1,39 +1,33 @@
 ---
 import BaseHead from "@components/Global/BaseHead.astro";
+// import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
+import SettingsToggler from "@components/Global/SettingsToggler.astro";
 import SiteHeader from "@components/Global/SiteHeader.astro";
 import FooterNav from "@components/Nav/FooterNav.astro";
 
-import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
 interface Props {
-    accent?: string;
     title: string;
     bodyClass?: string;
     hideTitle?: boolean;
 }
 
-const {
-    title,
-    accent = "var(--theme-accent-blue)",
-    bodyClass = "",
-    hideTitle,
-}: Props = Astro.props;
+const { title, bodyClass = "", hideTitle }: Props = Astro.props;
 ---
 
 <html lang="en">
     <head>
         <BaseHead title={title} />
-
-        <style define:vars={{ accent }}>
-            body {
-                --theme-accent: var(--accent);
-            }
-        </style>
     </head>
 
     <body class={bodyClass}>
         <SiteHeader />
 
-        <main class="content layout">
+        <SettingsToggler
+            src="/images/cv/andrew-profile.jpg"
+            alt="Photo of Andrew JD Hudson"
+        />
+
+        <main>
             {
                 !hideTitle && title !== "" && (
                     <div class="intro">
@@ -46,6 +40,6 @@ const {
         </main>
         <FooterNav />
 
-        <RotatingScrollLogo />
+        <!-- <RotatingScrollLogo /> -->
     </body>
 </html>

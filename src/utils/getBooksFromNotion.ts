@@ -1,11 +1,12 @@
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+
 dayjs.extend(customParseFormat);
-import { Client } from "@notionhq/client";
+
+import { NOTION_DB, NOTION_KEY } from "astro:env/server";
 
 import { AssetCache } from "@11ty/eleventy-fetch";
-
-import { NOTION_KEY, NOTION_DB } from "astro:env/server";
+import { Client } from "@notionhq/client";
 
 const notion = new Client({
     auth: NOTION_KEY,
@@ -40,29 +41,21 @@ export const getBooks = async () => {
             database_id: NOTION_DB,
         });
 
-
         const { results } = await notion.dataSources.query({
             // @ts-expect-error
             data_source_id: database.data_sources[0].id,
-        })
+        });
 
         // Go through the list and get the thumbnail for each image;
         const list = results.map(async (book: any) => {
             const bookTitle =
                 book.properties.Name.title[0]?.plain_text ?? "unknown title";
             const bookAuthor =
-                book.properties?.Author.rich_text[0]?.plain_text ??
-                "unknown author";
+                book.properties?.Author.rich_text[0]?.plain_text ?? "unknown author";
 
-            const finishedDate =
-                book.properties["Date Finished"]?.date?.start || "";
+            const finishedDate = book.properties["Date Finished"]?.date?.start || "";
             const rating = book.properties["Rating (out of 10)"]?.select?.name;
-            let thumbnail = book.properties?.Image?.url ?? null;
-
-            // if we don't have the thumbnail, call googleBookSearch to get from API
-            if (!thumbnail) {
-                thumbnail = await googleBookSearch(bookTitle, bookAuthor);
-            }
+            const thumbnail = book.properties?.Image?.url ?? null;
 
             return {
                 bookTitle,
@@ -82,24 +75,5 @@ export const getBooks = async () => {
         console.error("error in getting books", error);
 
         return [];
-    }
-};
-
-const googleBookSearch = async (title: string, author: string) => {
-    try {
-        const results = await fetch(
-            `https://www.googleapis.com/books/v1/volumes?q=${encodeURI(
-                title + author,
-            )}`,
-        );
-        const json = await results.json();
-
-        // take the first, assume that it is the correct one.
-        const thumbnail =
-            json?.items[0].volumeInfo?.imageLinks?.thumbnail ?? null;
-        return thumbnail;
-    } catch (error) {
-        console.error(error);
-        return "";
     }
 };

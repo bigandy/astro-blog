@@ -6,21 +6,21 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 import EducationList from "@components/CV/EducationList.astro";
 import PorfolioList from "@components/CV/PorfolioList.astro";
 import RolesList from "@components/CV/RolesList.astro";
-import SettingsToggler from "@components/CV/SettingsToggler.astro";
+import SettingsToggler from "@components/Global/SettingsToggler.astro";
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
 
 import "src/css/cv.css";
 
 import {
-	education,
-	personalInformation,
-	portfolioLinks,
-	roles,
-	skills,
-	socialLinks,
-	summary,
-	themeColorKey,
+    education,
+    personalInformation,
+    portfolioLinks,
+    roles,
+    skills,
+    socialLinks,
+    summary,
+    themeColorKey,
 } from "./content";
 
 const overrideFullDates = false;
@@ -40,9 +40,12 @@ const overrideFullDates = false;
                 </h1>
                 <div class="meta">
                     <p class="contact-title">
-                        <strong>{personalInformation.title}</strong>
+                        <strong
+                            >{personalInformation.title}</strong
+                        >
                     </p>
-                    <a href={`mailto:${personalInformation.email}`}
+                    <a
+                        href={`mailto:${personalInformation.email}`}
                         >{personalInformation.email}</a
                     >
                     <!-- <a href={personalInformation.website}
@@ -50,18 +53,22 @@ const overrideFullDates = false;
                             personalInformation.website.replace("https://", "")
                         }</a
                     > -->
-                    <a href={`tel:${personalInformation.phone}`} class="tel"
+                    <a
+                        href={`tel:${personalInformation.phone}`}
+                        class="tel"
                         >{personalInformation.phone}</a
                     >
-                    <p class="p-locality">{personalInformation.location}</p>
+                    <p class="p-locality">
+                        {personalInformation.location}
+                    </p>
                 </div>
             </div>
 
-            <SettingsToggler
+            <!-- <SettingsToggler
                 src="/images/cv/andrew-profile.jpg"
                 alt="Photo of Andrew JD Hudson"
                 themeColorKey={themeColorKey}
-            />
+            /> -->
         </div>
     </header>
 
@@ -117,13 +124,17 @@ const overrideFullDates = false;
 
         <section>
             <h2 id="education">Education</h2>
-            <ul class="list--dashed list--plain list--compact cv-education-list">
+            <ul
+                class="list--dashed list--plain list--compact cv-education-list"
+            >
                 <EducationList education={education} />
             </ul>
         </section>
     </aside>
 
     <div class="hide-print switch-portfolio-link">
-        <a href="/cv/with-sidebar">Switch to version of CV with sidebar</a>
+        <a href="/cv/with-sidebar"
+            >Switch to version of CV with sidebar</a
+        >
     </div>
 </DefaultLayout>

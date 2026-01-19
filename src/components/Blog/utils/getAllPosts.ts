@@ -4,7 +4,9 @@ export type Collection = "blog" | "weeknotes";
 
 import { isProduction } from "@utils/isProduction";
 
-export const getAllPosts = async (collection: Collection = "blog") => {
+export const getAllPosts = async (
+    collection: Collection = "blog",
+) => {
     const showFuturePosts = false;
     // Data Fetching: List all Markdown posts in the repo.
     let allPosts = [];
@@ -25,21 +27,18 @@ export const getAllPosts = async (collection: Collection = "blog") => {
     if (isProduction || showFuturePosts === false) {
         allPosts = allPosts.filter((post) => {
             // get rid of future posts
-            return new Date(post.data.date).getTime() <= now.getTime();
+            return (
+                new Date(post.data.date).getTime() <=
+                now.getTime()
+            );
         });
     }
 
-    const allPostCount = allPosts.length;
-
-    allPosts = allPosts.sort(
+    return allPosts.sort(
         (a, b) =>
-            new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+            new Date(b.data.date).valueOf() -
+            new Date(a.data.date).valueOf(),
     );
-
-    return allPosts.map((post, postIndex) => ({
-        ...post,
-        postIndex: allPostCount - postIndex,
-    }));
 };
 
 export const getSomePosts = async (
@@ -51,3 +50,11 @@ export const getSomePosts = async (
         numberToReturn ? numberToReturn : -1,
     );
 };
+
+export const getGroupedPosts = async (collection: Collection = "blog", numberToReturn?: number) => {
+    const posts = await getSomePosts(collection, numberToReturn);
+    return Object.entries(Object.groupBy(posts, ({ data }) => new Date(data.date).getFullYear())).toReversed();
+}
+
+
+

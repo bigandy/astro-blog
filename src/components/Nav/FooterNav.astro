@@ -7,28 +7,40 @@ import { Icon } from "astro-icon/components";
 const requestPathname = Astro.url.pathname;
 ---
 
-<nav class="layout footer-nav">
-    <ul class="layout-inner nav">
-        {
-            footerPages.map((entry) => {
-                const className = getNavClassName(entry.url, requestPathname);
+<nav class="footer-nav">
+    {
+        footerPages.length > 0 && (
+            <ul class="layout-inner nav">
+                {footerPages.map((entry) => {
+                    const className = getNavClassName(
+                        entry.url,
+                        requestPathname,
+                    );
 
-                return (
-                    <li>
-                        <a class={className} href={entry.url}>
-                            {entry.title}
-                        </a>
-                    </li>
-                );
-            })
-        }
-    </ul>
+                    return (
+                        <li>
+                            <a
+                                class={className}
+                                href={entry.url}
+                            >
+                                {entry.title}
+                            </a>
+                        </li>
+                    );
+                })}
+            </ul>
+        )
+    }
 
     {
         socialLinks.length > 0 && (
             <ul class="layout-inner nav nav-social">
                 {socialLinks.map(({ url, icon, title }) => {
-                    const className = getNavClassName(url, requestPathname, 'social-link');
+                    const className = getNavClassName(
+                        url,
+                        requestPathname,
+                        "social-link",
+                    );
 
                     return (
                         <li>
@@ -55,62 +67,35 @@ const requestPathname = Astro.url.pathname;
     }
 </nav>
 
-<style>
-    nav {
-        padding-block: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1em;
-    }
-
-    a {
-        border-block-end: 2px solid transparent;
-    }
-
-    a:hover,
-    .active {
-        border-bottom-color: var(--theme-accent);
-    }
-
-    .social-link {
-        color: attr(data-attr-color type(<color>));
-    }
-
-    .social-icon {
-        vertical-align: -0.25em;
-    }
-</style>
-
-<script>
-    const runDataAttrCheck = () => {
-        // Check for browser support of css attr
-        const supportsNewAttr = CSS.supports('color: attr(data-attr-color, type(<color>)');
-       
-        if (supportsNewAttr) {
-            return;
+<style is:global>
+    @scope (.footer-nav) {
+        :scope {
+            padding-block: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        // Now check if there are any elements with data-attr-* on them
-        const nodesSnapshot: XPathResult = document.evaluate('//*/attribute::*[starts-with(name(), "data-attr-")]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+        a {
+            border-block-end: 2px solid transparent;
+        }
 
-        for (let i = 0; i < nodesSnapshot.snapshotLength; i++) {
-            const attr = nodesSnapshot.snapshotItem(i);
-            if (!attr) {
-                return
-            }
-            const type = attr.nodeName.replace('data-attr-', '');
-            const value = attr.nodeValue;
+        a:hover,
+        .active {
+            border-bottom-color: var(--theme-accent);
+        }
 
-            // @ts-expect-error
-            attr.ownerElement.style[type] = value;
-        };
+        .social-link {
+            color: attr(data-attr-color type(<color>));
+        }
 
+        .social-icon {
+            vertical-align: -0.25em;
+        }
     }
-    runDataAttrCheck();
-    
-</script>
+</style>

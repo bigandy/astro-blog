@@ -69,11 +69,6 @@ const { title, head, permalink } = Astro.props;
                     text-wrap: pretty;
                 }
 
-                .post-number {
-                    display: none;
-                    /* AHTODO: is it better to use a prop instead? */
-                }
-
                 &:where(a) {
                     text-decoration-thickness: 2px;
                     text-decoration-color: cadetblue;
@@ -149,7 +144,8 @@ const { title, head, permalink } = Astro.props;
     </head>
 
     <body class="full-page-layout">
-        <SiteHeader hidePhoto />
+        <SiteHeader />
+
         <main class="layout">
             <slot />
         </main>

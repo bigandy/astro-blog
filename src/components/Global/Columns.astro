@@ -2,6 +2,19 @@
 const { columns } = Astro.props
 ---
 
+
+<div class="columns">
+  <div
+    class="inner"
+    style={{
+      gridTemplateColumns: `repeat(${columns}, 1fr)`,
+    }}
+  >
+    <slot />
+  </div>
+</div>
+
+
 <style>
   div :global(p) {
     margin: 0;
@@ -11,7 +24,7 @@ const { columns } = Astro.props
     gap: 1rem;
   }
 
-  .wrapper {
+  .columns {
     container: inline-size;
 
     @container (501px > inline-size) {
@@ -31,14 +44,3 @@ const { columns } = Astro.props
     }
   }
 </style>
-
-<div class="wrapper">
-  <div
-    class="inner"
-    style={{
-      gridTemplateColumns: `repeat(${columns}, 1fr)`,
-    }}
-  >
-    <slot />
-  </div>
-</div>

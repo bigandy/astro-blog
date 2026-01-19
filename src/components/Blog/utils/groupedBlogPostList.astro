@@ -1,0 +1,35 @@
+---
+import BlogPostPreview from "@components/Blog/BlogPostPreview.astro";
+import {
+	type Collection,
+	getGroupedPosts,
+} from "@components/Blog/utils/getAllPosts";
+
+// Take 10 latest posts for the moment until I learn how to do pagination with Astro!
+
+interface Props {
+	number?: number;
+	groupByYear?: boolean;
+	collection?: Collection;
+}
+
+const { number = -1, collection = "blog" } = Astro.props;
+
+const posts = await getGroupedPosts(collection, number);
+
+---
+
+{
+    posts.map(([year, posts]) => {
+        return (
+            <h2>{year}</h2>
+            <>
+            {
+                posts?.map((p) => (
+                    <BlogPostPreview post={p} collection={collection} />
+                ))
+            }
+            </>
+        )
+    })
+}
