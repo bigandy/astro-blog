@@ -1,0 +1,123 @@
+<div class="svg-container">
+	<img src="../img/blank-card-opt.svg" class="svg-image" />
+
+	<div class="svg-text-group">
+		<div class="svg-overlay-text" id="title"></div>
+		<div class="svg-overlay-text-sub">a blog post by andrew jd Hudson</div>
+	</div>
+</div>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.svg-container {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+	}
+
+	.svg-image {
+		display: block;
+		width: 1200px;
+		height: 630px;
+		height: auto;
+	}
+
+	.svg-text-group {
+		position: absolute;
+		top: 140px;
+		left: 60px;
+		max-width: 960px;
+	}
+
+	.svg-overlay-text {
+		font-family: "iA Writer Mono", monospace;
+		font-size: clamp(3em, 3vw, 8em);
+		text-wrap: balance;
+		line-height: 1.2;
+		background: #fff;
+		padding: 20px 0 40px 20px;
+		word-break: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.svg-overlay-text-sub {
+		font-family: "iA Writer Mono", monospace;
+		font-size: 3em;
+		line-height: 1.5;
+		color: #96979c;
+		background: #fff;
+		padding-left: 20px;
+		margin-top: -5px;
+	}
+</style>
+
+<script>
+	function decodeHtmlEntities(text) {
+		const textarea = document.createElement("textarea");
+		textarea.innerHTML = text;
+		return textarea.value;
+	}
+
+	const params = new URLSearchParams(window.location.search);
+	const rawTitle = params.get("title") || "Untitled";
+	const title = decodeHtmlEntities(rawTitle);
+	document.getElementById("title").textContent = title;
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const textGroup = document.querySelector(".svg-text-group");
+		const overlayText = document.querySelector(".svg-overlay-text");
+		const overlayTextSub = document.querySelector(".svg-overlay-text-sub");
+
+		if (overlayText) {
+			const minSize = 3;
+			const maxSize = 7.5;
+			const maxHeight = 400;
+
+			let fontSize = maxSize;
+			overlayText.style.fontSize = `${fontSize}em`;
+
+			// Binary search for optimal font size
+			let low = minSize;
+			let high = maxSize;
+
+			while (high - low > 0.1) {
+				fontSize = (low + high) / 2;
+				overlayText.style.fontSize = `${fontSize}em`;
+				overlayText.offsetHeight;
+
+				if (overlayText.scrollHeight > maxHeight) {
+					high = fontSize;
+				} else {
+					low = fontSize;
+				}
+			}
+
+			overlayText.style.fontSize = `${low}em`;
+
+			// Calculate lines after final sizing
+			const lineHeight = parseFloat(getComputedStyle(overlayText).lineHeight);
+			const lines = Math.ceil(overlayText.offsetHeight / lineHeight);
+
+			if (lines >= 3) {
+				textGroup.style.top = "60px";
+			}
+
+			if (lines <= 2) {
+				overlayTextSub.style.paddingBottom = "50px";
+			}
+
+			// Adjust height to be multiple of 100px
+			const computedHeight = textGroup.offsetHeight;
+			const roundedHeight = Math.ceil(computedHeight / 100) * 100;
+			textGroup.style.height = `${roundedHeight}px`;
+		}
+	});
+</script>
