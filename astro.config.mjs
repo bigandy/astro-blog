@@ -6,6 +6,7 @@ import svelte from "@astrojs/svelte";
 import { defineConfig, envField } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
+// import temporalTypesPlugin from "./src/vite-plugins/temporal-types";
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,6 +34,9 @@ export default defineConfig({
 		react(),
 		icon(),
 	],
+	// vite: {
+	// 	plugins: [temporalTypesPlugin()],
+	// },
 	scopedStyleStrategy: "class",
 	server: {
 		port: 8888,

@@ -14,17 +14,17 @@ const { education } = Astro.props;
                 <div class="time">
                     <time
                         class="dt-start"
-                        datetime={education.start.format("YYYY")}
+                        datetime={education.start.year}
                     >
-                        {education.start.format("YYYY")}
+                        {education.start.year}
                     </time>
                     <span>–</span>
                     <time
                         class="dt-end"
-                        datetime={education.end.format("YYYY")}
+                        datetime={education.end.year}
                     >
-                        {education.end.format("YYYY")}
-                    </time> 
+                        {education.end.year}
+                    </time>
                 </div>
             </li>
         );

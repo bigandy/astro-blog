@@ -1,11 +1,11 @@
 ---
 import ExternalLink from "@components/Global/ExternalLink.astro";
+import { Temporal } from "@js-temporal/polyfill";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 
-import dayjs from "dayjs";
-
 const title = "Now";
-const lastUpdated = dayjs(`02/06/2025`);
+const lastUpdated = Temporal.PlainDate.from({year: 2025, month: 6, day: 2})
+
 ---
 
 <DefaultLayout title={title} accent="#fa7e61">
@@ -83,17 +83,17 @@ const lastUpdated = dayjs(`02/06/2025`);
         <!-- <h2>Job<h2>
 
     <p>
-      Heavily applying for jobs. 
+      Heavily applying for jobs.
     </p>
 
     <h2>Family<h2>
     <p>
-       Our children are in international school here which means they get 4 hours a week in English with the rest being in French. Emma is struggling a lot to settle in, especially to make friends and with the school work. Arthur is finding it easier. Emma does art once a week and Arthur plays hockey. We go hiking in the countryside as a family on Sundays. 
+       Our children are in international school here which means they get 4 hours a week in English with the rest being in French. Emma is struggling a lot to settle in, especially to make friends and with the school work. Arthur is finding it easier. Emma does art once a week and Arthur plays hockey. We go hiking in the countryside as a family on Sundays.
     </p> -->
 
         <footer>
             <p>
-                Last updated: {lastUpdated.format("DD.MM.YYYY")}.
+                Last updated: {lastUpdated}.
             </p>
 
             <p>

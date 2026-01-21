@@ -1,21 +1,31 @@
 ---
+import { Temporal } from "@js-temporal/polyfill";
 import type { HTMLAttributes } from "astro/types";
 
-import dayjs from "dayjs";
 
 const { date, showLine = false, ...attrs } = Astro.props;
 
 interface Props extends HTMLAttributes<"h3"> {
-	date: Date;
+	date: string;
 	showLine?: boolean;
 }
+const temporalDate = Temporal.PlainDate.from(date);
+
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+// @ts-expect-error
+const dateString = temporalDate.toLocaleString("en-GB", options);
 ---
 
 <time
     class={`${showLine ? "show-line" : ""} ${attrs.class}`}
     {...attrs}
 >
-    {dayjs(date).format("dddd, DD MMMM YYYY")}
+    {dateString}
 </time>
 
 <style>

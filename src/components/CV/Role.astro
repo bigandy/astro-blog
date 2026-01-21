@@ -1,6 +1,6 @@
 ---
+import { Temporal } from "@js-temporal/polyfill";
 import { type Role } from "@pages/cv/content";
-import dayjs, { type Dayjs } from "dayjs";
 
 interface Props {
 	role: Role;
@@ -10,16 +10,28 @@ interface Props {
 
 const { role, company, overrideFullDates = false } = Astro.props;
 
+const padStartNumber = (number: number) => {
+	return (`0${number}`).slice(-2);
+};
+
 const getDateOutput = (
-	date: Dayjs,
+	date: Temporal.PlainYearMonth,
 	overrideFullDates: boolean,
 	showFulldate: boolean,
 ) => {
+	// const dateTemporal = Temporal.PlainDate.from(date);
+
+	// return getDayMonthYear(date);
+
 	if (overrideFullDates || showFulldate === false) {
-		return dayjs(date).format("YYYY");
+		return date.year;
 	}
 
-	return dayjs(date).format("MM/YYYY");
+	return `${padStartNumber(date.month)}/${date.year}`;
+};
+
+const getDayMonthYear = (date: Temporal.PlainDate) => {
+	return `${padStartNumber(date.day)}-${padStartNumber(date.month)}-${date.year}`;
 };
 ---
 
@@ -39,7 +51,7 @@ const getDateOutput = (
             <p class="entry__time">
                 <time
                     class="dt-start"
-                    datetime={dayjs(role.start).format("DD-MM-YYYY")}
+                    datetime={getDayMonthYear(role.start)}
                     >{
                         getDateOutput(
                             role.start,
@@ -51,7 +63,6 @@ const getDateOutput = (
                 <span>–</span>
                 <time
                     class="dt-end"
-                    datetime={dayjs(role.end).format("DD-MM-YYYY")}
                     >{
                         getDateOutput(
                             role.end,

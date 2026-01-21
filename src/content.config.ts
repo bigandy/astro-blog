@@ -1,4 +1,5 @@
 import { defineCollection } from "astro:content";
+import { Temporal } from "@js-temporal/polyfill";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
@@ -11,12 +12,18 @@ const Template = {
 	FullPage: "full-page",
 } as const;
 
+const postDate = z.date().transform((postDate: Date) => {
+	const date = Temporal.Instant.from(postDate.toISOString()).toZonedDateTimeISO('Europe/Paris').toPlainDate().toString();
+
+	return date;
+});
+
 const blog = defineCollection({
 	loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
 	schema: z.object({
 		title: z.string(),
 		author: z.string().optional(),
-		date: z.coerce.date(),
+		date: postDate,
 		draft: z.boolean().default(false),
 		tags: z.array(z.string().optional()).optional(),
 		template: z.enum(getValues(Template)).optional(),
@@ -27,7 +34,7 @@ const weeknotes = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		author: z.string().optional(),
-		date: z.date().transform((str: string) => new Date(str)),
+		date: postDate,
 		draft: z.boolean().default(false),
 		tags: z.array(z.string().optional()).optional(),
 		template: z.enum(getValues(Template)).optional(),

@@ -1,4 +1,5 @@
-import dayjs, { type Dayjs } from "dayjs";
+import { Temporal } from "@js-temporal/polyfill";
+
 
 export const themeColorKey = "cv-themeColor";
 
@@ -18,8 +19,8 @@ export interface Role {
 	url: string;
 	location: string;
 	title: string;
-	start: Dayjs;
-	end: Dayjs;
+	start: Temporal.PlainYearMonth;
+	end: Temporal.PlainYearMonth;
 	showFullDates: boolean;
 	summary: string[];
 }
@@ -32,8 +33,8 @@ export const roles: Roles = {
 		url: "https://www.scalable.com",
 		location: "Remote, UK",
 		title: "Senior Front-end Engineer",
-		start: dayjs("July 2023"),
-		end: dayjs("August 2024"),
+		start: Temporal.PlainYearMonth.from({ year: 2023, month: 7 }),
+		end: Temporal.PlainYearMonth.from({ year: 2024, month: 8 }),
 		showFullDates: true,
 		summary: [
 			"Front-end React, D3, Typescript development of a web app for large organisations to monitor and improve team productivity.",
@@ -53,8 +54,8 @@ export const roles: Roles = {
 		url: "https://ventureharbour.com",
 		location: "Remote, UK",
 		title: "Senior Software Engineer",
-		start: dayjs("October 2017"),
-		end: dayjs("February 2023"),
+		start: Temporal.PlainYearMonth.from({ year: 2017, month: 10 }),
+		end: Temporal.PlainYearMonth.from({ year: 2023, month: 2 }),
 		showFullDates: true,
 		summary: [
 			"Product-focused full-stack web development on an Electron-based productivity Desktop Application.",
@@ -78,8 +79,8 @@ export const roles: Roles = {
 		url: "https://taylorandfrancis.com",
 		location: "Didcot, UK",
 		title: "Full Stack Web Developer",
-		start: dayjs("October 2016"),
-		end: dayjs("October 2017"),
+		start: Temporal.PlainYearMonth.from({ year: 2016, month: 10 }),
+		end: Temporal.PlainYearMonth.from({ year: 2017, month: 10 }),
 		showFullDates: true,
 		summary: [
 			"Created custom performant WordPress and Expression Engine sites, and maintained existing ones.",
@@ -92,8 +93,8 @@ export const roles: Roles = {
 		url: "https://www.photocrowd.com",
 		location: "Oxford, UK",
 		title: "Front-end React Developer",
-		start: dayjs("March 2016"),
-		end: dayjs("August 2016"),
+		start: Temporal.PlainYearMonth.from({ year: 2016, month: 3 }),
+		end: Temporal.PlainYearMonth.from({ year: 2016, month: 8 }),
 		showFullDates: true,
 		summary: [
 			"Created new components and pages using React/Relay and Less from Photoshop designs.",
@@ -107,8 +108,8 @@ export const roles: Roles = {
 		url: "https://www.electricstudio.co.uk",
 		location: "Didcot, UK",
 		title: "Front-end WordPress Developer",
-		start: dayjs("2013"),
-		end: dayjs("2016"),
+		start: Temporal.PlainYearMonth.from({ year: 2013, month: 1 }), // ??
+		end: Temporal.PlainYearMonth.from({ year: 2016, month: 2 }), // ??
 		showFullDates: true,
 		summary: [
 			"Created highly customised WordPress sites from Photoshop designs, with custom post types, taxonomies, meta boxes, shortcodes and functions.",
@@ -122,8 +123,8 @@ export const roles: Roles = {
 		url: "https://www.heathwallace.com",
 		location: "Reading, UK",
 		title: "Creative UI Developer",
-		start: dayjs("2010"),
-		end: dayjs("2013"),
+		start: Temporal.PlainYearMonth.from({ year: 2010, month: 1 }),
+		end: Temporal.PlainYearMonth.from({ year: 2013, month: 1 }),
 		showFullDates: true,
 		summary: [
 			"I built accessible, usable websites for clients including HSBC, RBS and Grant Thornton.",
@@ -257,14 +258,14 @@ export const education = [
 	{
 		name: "Masters CIW Designer",
 		institution: "Computeach",
-		start: dayjs("2009"),
-		end: dayjs("2010"),
+		start: Temporal.PlainYearMonth.from({ year: 2009, month: 1 }),
+		end: Temporal.PlainYearMonth.from({ year: 2010, month: 1 }),
 	},
 	{
 		name: "MChem (hons) Chemistry with Industrial Experience",
 		institution: "University of Manchester",
-		start: dayjs("1999"),
-		end: dayjs("2003"),
+		start: Temporal.PlainYearMonth.from({ year: 1999, month: 9 }),
+		end: Temporal.PlainYearMonth.from({ year: 2003, month: 7 }),
 	},
 ];
 

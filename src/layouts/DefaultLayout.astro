@@ -3,6 +3,7 @@ import BaseHead from "@components/Global/BaseHead.astro";
 import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
 import SiteHeader from "@components/Global/SiteHeader.astro";
 import FooterNav from "@components/Nav/FooterNav.astro";
+import { Temporal } from "@js-temporal/polyfill";
 
 interface Props {
 	accent?: string;
@@ -45,7 +46,10 @@ const {
 
             <slot />
         </main>
-        <FooterNav />
+        <footer>
+            <FooterNav />
+            <p>&copy; Andrew JD Hudson {Temporal.Now.plainDateISO().year}</p>
+        </footer>
 
         <RotatingScrollLogo />
         <slot name="end-body" />
