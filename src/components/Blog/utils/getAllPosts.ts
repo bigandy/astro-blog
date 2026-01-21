@@ -29,8 +29,6 @@ export const getAllPosts = async (collection: Collection = "blog") => {
 		allPosts = allPosts.filter((post) => {
 			const compare = Temporal.PlainDate.compare(today, Temporal.PlainDate.from(post.data.date))
 
-			console.log({ compare })
-
 			return compare > 0;
 		});
 	}
