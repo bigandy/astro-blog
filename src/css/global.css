@@ -5,6 +5,10 @@
 }
 
 @layer base {
+	a,
+	button {
+		touch-action: manipulation;
+	}
 	:root {
 		--system-ui:
 			system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
