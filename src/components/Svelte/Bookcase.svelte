@@ -1,70 +1,77 @@
 <script lang="ts">
-type Option = "month" | "year";
+    type Option = "month" | "year";
 
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-import type { Book } from "src/utils/getBooksFromNotion";
+    import { Temporal } from "@js-temporal/polyfill";
+    import groupBy from "lodash.groupby";
+    import { getPlainDateFromString, padStartNumber } from "src/utils/dates";
+    import type { Book } from "src/utils/getBooksFromNotion";
+    import Toggle from "./Toggle.svelte";
+    import Warning from "./Warning.svelte";
 
-dayjs.extend(customParseFormat);
+    interface Props {
+        books: Book[];
+    }
 
-import groupBy from "lodash.groupby";
-import Toggle from "./Toggle.svelte";
-import Warning from "./Warning.svelte";
+    let { books }: Props = $props();
 
-interface Props {
-	books: Book[];
-}
+    const groupedBooks = (books: Book[], format: Option) => {
+        const group = groupBy(
+            books,
+            ({ finishedDate }: { finishedDate: Temporal.PlainDate }) => {
+                const date = Temporal.PlainDate.from(finishedDate);
 
-let { books }: Props = $props();
+                if (format === "month") {
+                    return `${padStartNumber(date.month)}-${date.year}`;
+                } else {
+                    return date.year;
+                }
+            },
+        );
 
-const groupedBooks = (books: Book[], format: Option) => {
-	let formatString = "";
+        const groups = Object.entries(group);
 
-	switch (format) {
-		case "month":
-			formatString = "MM-YYYY";
-			break;
-		case "year":
-			formatString = "YYYY";
-			break;
-		default:
-			formatString = "MM-YYYY";
-			break;
-	}
-	const group = groupBy(books, (book) => {
-		return dayjs(book.finishedDate).format(formatString);
-	});
+        const sortedGroups = groups
+            .sort(([a], [b]) => {
+                if (format === "month") {
+                    const aDate = getPlainDateFromString(a);
+                    const bDate = getPlainDateFromString(b);
 
-	const groups = Object.entries(group);
+                    return Temporal.PlainDate.compare(bDate, aDate);
+                }
+                return Number(b) - Number(a);
+            })
+            .map(([key, value]) => {
+                return [key, value] as [string, Book[]];
+            });
 
-	const sortedGroups = groups
-		.sort(([a], [b]) => {
-			return format === "month"
-				? dayjs(b, "MM-YYYY").diff(dayjs(a, "MM-YYYY"))
-				: Number(b) - Number(a);
-		})
-		.map(([key, value]) => {
-			return [
-				key,
-				value.sort((a, b) => dayjs(b.finishedDate).diff(a.finishedDate)),
-			] as [string, Book[]];
-		});
+        return sortedGroups;
+    };
 
-	return sortedGroups;
-};
+    let monthsActive = $state(true);
 
-let monthsActive = $state(true);
+    let groups = $derived(groupedBooks(books, monthsActive ? "month" : "year"));
 
-let filterStart = $derived(monthsActive ? "MM-YYYY" : "YYYY");
-let filterEnd = $derived(monthsActive ? "MMMM YYYY" : "YYYY");
+    function toggle(option: Option) {
+        monthsActive = option === "month";
+    }
 
-let groups = $derived(
-	monthsActive ? groupedBooks(books, "month") : groupedBooks(books, "year"),
-);
+    function getTitle(group: string, monthsActive: boolean) {
+        if (monthsActive) {
+            const plainDate = getPlainDateFromString(group);
 
-function toggle(option: Option) {
-	monthsActive = option === "month";
-}
+            const options = {
+                year: "numeric",
+                month: "long",
+            };
+
+            // @ts-expect-error
+            const dateString = plainDate.toLocaleString("en-GB", options);
+
+            return dateString;
+        } else {
+            return group;
+        }
+    }
 </script>
 
 <div class="bookcase">
@@ -75,7 +82,7 @@ function toggle(option: Option) {
             active={monthsActive ? "month" : "year"}
         />
         {#each groups as [group, books]}
-            {@const title = dayjs(group, filterStart).format(filterEnd)}
+            {@const title = getTitle(group, monthsActive)}
             <h2>
                 {title}
                 <span

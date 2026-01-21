@@ -1,10 +1,4 @@
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-
-dayjs.extend(customParseFormat);
-
 import { NOTION_DB, NOTION_KEY } from "astro:env/server";
-
 import { AssetCache } from "@11ty/eleventy-fetch";
 import { Client } from "@notionhq/client";
 

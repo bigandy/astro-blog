@@ -36,9 +36,7 @@ export const getAllPosts = async (collection: Collection = "blog") => {
 	const allPostCount = allPosts.length;
 
 	allPosts = allPosts.sort(
-		(a, b) => {
-			return Temporal.PlainDate.compare(Temporal.PlainDate.from(b.data.date), Temporal.PlainDate.from(a.data.date))
-		}
+		(a, b) => Temporal.PlainDate.compare(Temporal.PlainDate.from(b.data.date), Temporal.PlainDate.from(a.data.date))
 	);
 
 	return allPosts.map((post, postIndex) => ({
