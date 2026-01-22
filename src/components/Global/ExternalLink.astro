@@ -5,17 +5,17 @@ import { Icon } from "astro-icon/components";
 
 interface Props extends HTMLAttributes<"a"> {
 	href: string;
-	size?: string;
 }
 
-const { href, size = "1rem", ...attrs } = Astro.props;
+const { href, ...attrs } = Astro.props;
 ---
 
 <a href={href} target="_blank" {...attrs}>
-    <slot /><Icon name="external-arrow" size={size ?? ""} />
+    <slot />
+    <Icon name="external-arrow" size="1rem" />
 </a>
 
-<style define:vars={{ size }}>
+<style>
     a {
         padding-right: 1rem;
     }

@@ -15,7 +15,7 @@ const requestPathname = Astro.url.pathname;
         return (
           <li>
             {entry.external ? (
-              <ExternalLink href={entry.url} size="1rem">{entry.title}</ExternalLink>
+              <ExternalLink href={entry.url}>{entry.title}</ExternalLink>
             ) : (
             <a class={className} href={entry.url}>
               {entry.title}
@@ -38,7 +38,7 @@ const requestPathname = Astro.url.pathname;
     border-block-end: 2px solid transparent;
   }
 
- 
+
 
   a:hover,
   .active {
