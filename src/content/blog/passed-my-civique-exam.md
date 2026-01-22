@@ -9,4 +9,6 @@ A week into the new year and I took my civique exam. New this year it is a furth
 
 So I found all the free online tests that I could do and did them over and over, plus revising the content covered during the training and also some of the online material that the French Government provided. I even read a BD on the French Revolution at Marion's parents house over Christmas.
 
-Then the day arrived and with it snow on the ground which then turned to smush under the feet and deep puddles and slippery paths and I walked the paths to the exam center in the center of Grenoble.
+Then the day arrived and with it snow on the ground which then turned to smush under the feet and deep puddles and slippery paths and I walked the paths to the exam center in the center of Grenoble. Slush slosh. A passing car sloshed cold water on me but I continued and arrived at the exam center early. I was able to wait and warm up and read through my notes while the time ticked down to the time of the exam.
+
+The exam was fine and I thought I got more wrong that I did. In the end I only got one wrong. So 39/40. I forgot who Josephine Baker was, but got the rest of the questions correct. Whipeee!
