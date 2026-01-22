@@ -16,8 +16,7 @@ const options = {
   year: "numeric",
   month: "long",
   day: "numeric",
-};
-// @ts-expect-error
+} as const;
 const dateString = temporalDate.toLocaleString("en-GB", options);
 ---
 

@@ -62,9 +62,8 @@
             const options = {
                 year: "numeric",
                 month: "long",
-            };
+            } as const;
 
-            // @ts-expect-error
             const dateString = plainDate.toLocaleString("en-GB", options);
 
             return dateString;
