@@ -13,6 +13,10 @@ import { $ } from "execa";
 
 import fs from "fs-extra";
 
+const padStartNumber = (number) => {
+	return `0${number}`.slice(-2);
+};
+
 const openCodeInCodeEditor = async (newFile) => {
 	const editor = "zed"; // could also be vscode
 
@@ -103,30 +107,6 @@ async function main() {
 		}
 	}
 
-	// if (selection === "build") {
-	//     const files = await fs.readdir("./src/demos");
-
-	//     const demosSelection = await autocomplete({
-	//         message: "Select the demo you want to build",
-	//         initialValue: "",
-	//         maxItems: 1,
-	//         options: files.map((demo) => ({
-	//             value: demo,
-	//             label: demo,
-	//         })),
-	//     });
-
-	//     const selectedDirectory = `src/demos/${demosSelection}`;
-
-	//     try {
-	//         // AHTODO: can this be done in serial?
-	//         await runBuild(selectedDirectory);
-	//         await runPreview(selectedDirectory);
-	//     } catch (error) {
-	//         console.error(error);
-	//     }
-	// }
-
 	if (selection === "create") {
 		const postTitle = await text({
 			message: "Enter your post title (letters and spaces only)",
@@ -141,7 +121,7 @@ async function main() {
 					return "Name can only contain letters, numbers, and hyphens ";
 				}
 
-				const newFile = `src/content/blog/${value.trim().replaceAll(" ", "-")}.md`;
+				const newFile = `src/content/blog/${value.trim().replaceAll(" ", "-").toLowerCase()}.md`;
 
 				if (fs.existsSync(newFile)) {
 					return "file exists already, edit the title and try again";
@@ -155,7 +135,7 @@ async function main() {
 		if (!isCancel(postTitle)) {
 			note(`Valid title: ${postTitle}`, "Success");
 		}
-		const trimmedTitle = postTitle.trim().replaceAll(" ", "-");
+		const trimmedTitle = postTitle.trim().replaceAll(" ", "-").toLowerCase();
 		const newFile = `src/content/blog/${trimmedTitle}.md`;
 		await createPostFile(newFile, postTitle);
 
@@ -181,7 +161,7 @@ const createPostFile = async (newFile, title) => {
 
 			const { day, month, year } = Temporal.PlainDate.from(date);
 
-			const pubDate = `${year}-${month}-${day}`;
+			const pubDate = `${year}-${padStartNumber(month)}-${padStartNumber(day)}`;
 
 			const content = `---
 title: "${title}"

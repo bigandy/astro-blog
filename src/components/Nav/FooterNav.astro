@@ -23,7 +23,7 @@ const requestPathname = Astro.url.pathname;
             })
         }
     </ul>
-
+</nav>
     {
         socialLinks.length > 0 && (
             <ul class="layout-inner nav nav-social">
@@ -56,16 +56,12 @@ const requestPathname = Astro.url.pathname;
 </nav>
 
 <style>
-    nav {
-        padding-block: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
     ul {
         display: flex;
         flex-wrap: wrap;
         gap: 1em;
+        list-style: "";
+        padding: 0;
     }
 
     a {
@@ -85,32 +81,3 @@ const requestPathname = Astro.url.pathname;
         vertical-align: -0.25em;
     }
 </style>
-
-<script>
-    const runDataAttrCheck = () => {
-        // Check for browser support of css attr
-        const supportsNewAttr = CSS.supports('color: attr(data-attr-color, type(<color>)');
-       
-        if (supportsNewAttr) {
-            return;
-        }
-
-        // Now check if there are any elements with data-attr-* on them
-        const nodesSnapshot: XPathResult = document.evaluate('//*/attribute::*[starts-with(name(), "data-attr-")]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-
-        for (let i = 0; i < nodesSnapshot.snapshotLength; i++) {
-            const attr = nodesSnapshot.snapshotItem(i);
-            if (!attr) {
-                return
-            }
-            const type = attr.nodeName.replace('data-attr-', '');
-            const value = attr.nodeValue;
-
-            // @ts-expect-error
-            attr.ownerElement.style[type] = value;
-        };
-
-    }
-    runDataAttrCheck();
-    
-</script>

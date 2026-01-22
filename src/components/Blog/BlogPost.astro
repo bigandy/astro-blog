@@ -16,7 +16,7 @@ const {
 const { Content } = await render(post);
 ---
 
-<article class="content post layout-inner">
+<article class="content post inner">
     <BlogPostHeader
         date={showDate && post.data.date}
         title={post.data.title}
@@ -38,7 +38,7 @@ const { Content } = await render(post);
             />
         )
     }
+    <EditPostOnGithub slug={post.slug} collection={collection} />
 </article>
 
-<EditPostOnGithub slug={post.slug} collection={collection} />
 

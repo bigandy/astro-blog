@@ -12,22 +12,38 @@ const { hidePhoto = false } = Astro.props;
             <a href="/"> Andrew JD Hudson </a>
         </h1>
         <HeaderNav />
-    </div>
 
-    {!hidePhoto && (
+
+    </div>
+{!hidePhoto && (
         <SettingsToggler
             src="/images/cv/andrew-profile.jpg"
             alt="Photo of Andrew JD Hudson"
             themeColorKey={themeColorKey}
         />
     )}
+
 </header>
 
 <style>
     header {
-        padding-block-start: 1rem;
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: subgrid;
+        grid-column: page;
+        /* color: white; */
+        /* background: orangered; */
+
+
+        /* a {
+            color: white;
+        } */
+    }
+
+    .layout-inner {
+        padding-block: calc(var(--column-gap-size) * 3) calc(var(--column-gap-size) * 3);
+        grid-template-columns: subgrid;
+        grid-column: center;
+        grid-row: 1;
     }
 
     h1 {
@@ -44,4 +60,13 @@ const { hidePhoto = false } = Astro.props;
             }
         }
     }
+
+    :global(.settings-toggler) {
+        grid-row: 1;
+        grid-column-end: center-end;
+        direction: rtl;
+        padding-block-start: calc(var(--column-gap-size) * 1.5);
+    }
+
+
 </style>

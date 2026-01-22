@@ -36,6 +36,7 @@ const {
         <SiteHeader />
 
         <main class="content layout">
+            <div class="inner">
             {
                 !hideTitle && title !== "" && (
                     <div class="intro">
@@ -45,10 +46,13 @@ const {
             }
 
             <slot />
+            </div>
         </main>
         <footer>
-            <FooterNav />
-            <p>&copy; Andrew JD Hudson {Temporal.Now.plainDateISO().year}</p>
+            <div class="inner">
+                <FooterNav />
+                <p>&copy; Andrew JD Hudson {Temporal.Now.plainDateISO().year}</p>
+            </div>
         </footer>
 
         <RotatingScrollLogo />

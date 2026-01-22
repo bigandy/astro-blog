@@ -7,7 +7,7 @@ interface Props {
 const { src, alt } = Astro.props;
 ---
 
-<div class="wrapper">
+<div class="settings-toggler">
     <img {src} {alt} height="100" width="100" />
 </div>
 
@@ -16,7 +16,6 @@ const { src, alt } = Astro.props;
         display: block;
         border-radius: 50%;
     }
-
     @media print {
         img {
             filter: none !important;

@@ -15,6 +15,7 @@
 			"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 		--body-font: var(--system-ui);
 		--header-font-family: var(--body-font);
+		--column-gap-size: 18px;
 	}
 
 	html {
@@ -29,12 +30,55 @@
 		font-family: var(--body-font);
 		accent-color: var(--theme-accent);
 		color: var(--theme-text);
-		display: flex;
-		flex-direction: column;
+		/* display: flex; */
+		/* flex-direction: column; */
 		min-height: 100vh;
 		font-size: 18px;
 		line-height: 1.625;
-		padding-inline: 1rem;
+
+		display: grid;
+
+		--first-layer: calc(var(--column-gap-size) * 2);
+		--second-layer: calc(var(--column-gap-size) * 3);
+
+		@media (max-width: 600px) {
+			--first-layer: 0;
+			--second-layer: 0;
+			--column-gap-size: 9px;
+		}
+
+		grid-template-columns: [page-start] var(--first-layer) [bleed-start] var(
+				--second-layer
+			) [center-start] repeat(6, 1fr) [center-end] var(--second-layer) [bleed-end] var(
+				--first-layer
+			) [page-end];
+
+		column-gap: calc(var(--column-gap-size) * 1);
+	}
+
+	main,
+	footer {
+		grid-template-columns: subgrid;
+		grid-column: page;
+		display: grid;
+	}
+
+	footer {
+		padding-block: calc(var(--column-gap-size) * 2);
+		/* background: red;
+		color: white;
+
+		a {
+			color: white;
+		} */
+	}
+
+	footer .inner,
+	main .inner {
+		grid-column: center;
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--column-gap-size) * 2);
 	}
 
 	input,
