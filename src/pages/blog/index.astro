@@ -7,7 +7,9 @@ const title = "Blog";
 ---
 
 <DefaultLayout title={title}>
-  <BlogPostList number={9} />
+  <div class="blog-posts-list">
+      <BlogPostList number={9} />
+  </div>
 
   <ForwardArrow url="/blog/2" title="See more posts" />
 </DefaultLayout>

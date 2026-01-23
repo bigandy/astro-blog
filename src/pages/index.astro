@@ -24,8 +24,9 @@ const themeAccent = "oklch(0.68 0.25 38.61)";
         </div>
     </div>
 
-    <div class="blog-post-list">
+    <div class="posts">
         <h2>Latest Blog Posts</h2>
+
         <BlogPostList number={9} />
 
         <ForwardArrow url="/blog/2" title="See more posts" />
@@ -33,22 +34,18 @@ const themeAccent = "oklch(0.68 0.25 38.61)";
 </DefaultLayout>
 
 <style>
-    .blog-post-list {
+
+    h2 {
+        padding-block-end: calc(var(--column-gap-size) * 1);
+    }
+    .posts {
         padding-block: calc(var(--column-gap-size) * 2);
         display: grid;
         grid-column: center;
     }
-    /* .inner {
-        /* background: purple; */
-        display: grid;
-        grid-template-columns: subgrid;
-        grid-column: page;
-        /* border-block: 1px solid black; */
-    } */
-    .intro {
 
+    .intro {
         padding-block: calc(var(--column-gap-size) * 2);
-        /* color: white; */
         grid-template-columns: subgrid;
         grid-column: 3 / span 3;
     }

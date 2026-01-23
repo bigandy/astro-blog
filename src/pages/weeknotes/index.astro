@@ -7,7 +7,9 @@ const title = "Weeknotes";
 ---
 
 <DefaultLayout title={title}>
-  <BlogPostList number={9} collection="weeknotes" />
+  <div class="blog-posts-list">
+    <BlogPostList number={9} collection="weeknotes" />
+  </div>
 
-  <ForwardArrow url="/weeknotes/2" title="See more posts" />
+  <ForwardArrow url="/weeknotes/2" title="See more weeknotes" />
 </DefaultLayout>

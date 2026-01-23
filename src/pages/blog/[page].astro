@@ -23,12 +23,14 @@ interface Props {
 const { page } = Astro.props;
 ---
 
-<DefaultLayout title={`Blog Archive Page ${page.currentPage}`}> 
+<DefaultLayout title={`Blog Archive Page ${page.currentPage}`}>
   <div class="top-nav">
     <ArchiveNav page={page} />
   </div>
 
+  <div class="blog-posts-list">
   {page.data.map((p) => <BlogPostPreview post={p} postIndex={p.postIndex} />)}
+  </div>
 
   <ArchiveNav page={page} />
 </DefaultLayout>

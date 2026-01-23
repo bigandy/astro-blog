@@ -25,10 +25,13 @@ const { page } = Astro.props;
 
 <DefaultLayout title={`Weeknote Archive Page ${page.currentPage}`}>
   <div class="top-nav">
-    <ArchiveNav page={page} />
+    <ArchiveNav page={page} type="Weeknotes" />
   </div>
 
-  {page.data.map((p) => <BlogPostPreview post={p} />)}
+  <div class="blog-posts-list">
+    {page.data.map((p) => <BlogPostPreview post={p} />)}
+  </div>
+
 
   <ArchiveNav page={page} />
 </DefaultLayout>
