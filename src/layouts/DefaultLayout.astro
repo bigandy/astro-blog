@@ -10,6 +10,7 @@ interface Props {
 	title: string;
 	bodyClass?: string;
 	hideTitle?: boolean;
+    isHomepage?: boolean;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
 	accent = "var(--theme-accent-blue)",
 	bodyClass = "",
 	hideTitle,
+    isHomepage = false
 }: Props = Astro.props;
 ---
 
@@ -42,7 +44,7 @@ const {
                         <h1 class="title">{title}</h1>
                     )
                 }
-                <div class="the-content">
+                <div class:list={[{ "the-content": !isHomepage  }]}>
                     <slot />
                 </div>
             </div>
@@ -50,7 +52,7 @@ const {
         <footer>
             <div class="inner">
                 <FooterNav />
-                <p>&copy; Andrew JD Hudson {Temporal.Now.plainDateISO().year}</p>
+                <p>&copy; {Temporal.Now.plainDateISO().year} Andrew JD Hudson</p>
             </div>
         </footer>
 

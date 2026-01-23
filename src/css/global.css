@@ -82,7 +82,7 @@
 	footer .inner {
 		display: flex;
 		flex-direction: column;
-		gap: calc(var(--column-gap-size) * 2);
+		gap: calc(var(--column-gap-size) * 0.75);
 	}
 
 	.blog-posts-list {

@@ -6,7 +6,7 @@ import DefaultLayout from "@layouts/DefaultLayout.astro";
 const themeAccent = "oklch(0.68 0.25 38.61)";
 ---
 
-<DefaultLayout title="" accent={themeAccent}>
+<DefaultLayout title="" accent={themeAccent} isHomepage>
     <div class="inner">
         <div class="intro">
             <p>
@@ -45,7 +45,7 @@ const themeAccent = "oklch(0.68 0.25 38.61)";
     }
 
     .intro {
-        padding-block: calc(var(--column-gap-size) * 2);
+        padding-block-end: calc(var(--column-gap-size) * 2);
         grid-template-columns: subgrid;
         grid-column: 3 / span 3;
     }
