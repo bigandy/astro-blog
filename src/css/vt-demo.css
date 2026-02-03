@@ -3,8 +3,6 @@
 }
 
 :root {
-	/* view-transition-name: none; */
-
 	color-scheme: light dark;
 
 	--range: 0;
@@ -39,26 +37,22 @@ body {
 	initial-value: 40;
 }
 
-/* ::view-transition {
-    background-color: rgb(0 0 0 / 90%);
-} */
-
 ::view-transition-old(html-after) {
-	animation-name: travelOut;
+	animation-name: --kf-travel-out;
 }
 
 ::view-transition-new(html-after) {
-	animation-name: travelIn;
+	animation-name: --kf-travel-in;
 }
 
-@keyframes travelIn {
+@keyframes --kf-travel-in {
 	from {
 		translateX: -100%;
 		--range: 100;
 	}
 }
 
-@keyframes travelOut {
+@keyframes --kf-travel-out {
 	to {
 		translateX: 100%;
 		--range: 0;
