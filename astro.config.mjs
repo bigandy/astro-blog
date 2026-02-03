@@ -4,7 +4,6 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
 import { defineConfig, envField } from "astro/config";
-import expressiveCode from "astro-expressive-code";
 import icon from "astro-icon";
 
 // https://astro.build/config
@@ -26,13 +25,13 @@ export default defineConfig({
 	},
 	integrations: [
 		svelte(),
-		expressiveCode({
-			emitExternalStylesheet: false,
-		}),
 		mdx(),
 		react(),
 		icon(),
 	],
+	markdown: {
+	   syntaxHighlight: 'prism',
+	},
 	scopedStyleStrategy: "class",
 	server: {
 		port: 8888,
@@ -42,6 +41,6 @@ export default defineConfig({
 		enabled: false,
 	},
 	build: {
-		inlineStylesheets: "always",
+		// inlineStylesheets: "always",
 	},
 });

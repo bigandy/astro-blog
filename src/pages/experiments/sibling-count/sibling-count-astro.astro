@@ -1,11 +1,11 @@
 ---
+import { Code } from "astro:components";
 import Notes from "@components/Global/Notes.astro";
 import AstroSiblingCount from "@components/Global/SiblingCount.astro";
 import FullScreenLayout from "@layouts/FullScreenLayout.astro";
-import { Code } from "astro-expressive-code/components";
 import importedCode from "/src/components/Global/SiblingCount.astro?raw";
 ---
- 
+
 <FullScreenLayout>
     <h1>Sibling Count with Astro</h1>
 
@@ -40,19 +40,19 @@ import importedCode from "/src/components/Global/SiblingCount.astro?raw";
             <p>Create a new Astro component. Let us call it `AstroSiblingCount`.</p>
             <p>In this component:</p>
             <ol><li>First of all you need a library to parse the html, I am using linkedom</li>
-                <li>grab the html content you have passed into the component in the default slot</li> 
+                <li>grab the html content you have passed into the component in the default slot</li>
             <li>using this html I am selecting it all and creating an array of children</li>
             <li>Looping through these children I attach the --sibling-index and --sibling-child inline custom variables.</li>
         </ol>
-            <Code 
-                code={importedCode} 
-                lang="astro" 
-                title="AstroSiblingCount.astro" 
-                mark={[ 
+            <Code
+                code={importedCode}
+                lang="astro"
+                title="AstroSiblingCount.astro"
+                mark={[
                     { label: '1.', range: '2'  },
                     { label: '2.', range: '3'  },
-                    { label: '3.', range: '4'  }, 
-                    { label: '4.', range: '13-19'  } 
+                    { label: '3.', range: '4'  },
+                    { label: '4.', range: '13-19'  }
                 ]}
             >
         </li>
@@ -60,7 +60,7 @@ import importedCode from "/src/components/Global/SiblingCount.astro?raw";
         <li>
             <p>Use the component:</p>
 
-            <Code 
+            <Code
                 code={`
 <ul class="demo">
     <AstroSiblingCount>
@@ -71,15 +71,15 @@ import importedCode from "/src/components/Global/SiblingCount.astro?raw";
         <li></li>
     </AstroSiblingCount>
 </ul>
-                `} 
-                lang="astro" 
-                title="demo.astro" 
-                
+                `}
+                lang="astro"
+                title="demo.astro"
+
             ></Code>
 
             Would yield:
 
-            <Code 
+            <Code
                 code={`
 <ul class="demo">
     <li style="--sibling-index: 1; --sibling-count: 5;"></li>
@@ -88,8 +88,8 @@ import importedCode from "/src/components/Global/SiblingCount.astro?raw";
     <li style="--sibling-index: 4; --sibling-count: 5;></li>
     <li style="--sibling-index: 5; --sibling-count: 5;></li>
 </ul>
-                `} 
-                lang="html" 
+                `}
+                lang="html"
             ></Code>
 
         </li>

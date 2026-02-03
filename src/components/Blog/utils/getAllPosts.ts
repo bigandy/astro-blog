@@ -49,8 +49,12 @@ export const getSomePosts = async (
 	collection: Collection = "blog",
 	numberToReturn?: number,
 ) => {
-	return (await getAllPosts(collection)).slice(
-		0,
-		numberToReturn ? numberToReturn : -1,
-	);
+	// https://allthingssmitty.com/2026/01/12/stop-turning-everything-into-arrays-and-do-less-work-instead/
+
+	return (await getAllPosts(collection))
+		.values()
+		// @ts-expect-error
+		.take(numberToReturn ?? -1)
+
+
 };

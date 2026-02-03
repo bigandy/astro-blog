@@ -3,12 +3,13 @@ interface Props {
 	src: string;
 	alt: string;
 	themeColorKey: string;
+    dimension: number;
 }
-const { src, alt } = Astro.props;
+const { src, alt, dimension = 100 } = Astro.props;
 ---
 
 <div class="settings-toggler">
-    <img {src} {alt} height="100" width="100" />
+    <img {src} {alt} height={dimension} width={dimension} />
 </div>
 
 <style>

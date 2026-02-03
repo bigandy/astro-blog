@@ -1,3 +1,5 @@
+@import "partials/props.media.css";
+
 @layer base, theme;
 
 @view-transition {
@@ -230,11 +232,12 @@
 	}
 
 	pre {
+		--padding-block: 1rem;
+		--padding-inline: 2rem;
+
 		position: relative;
 		background-color: var(--theme-code-bg);
 		color: var(--theme-code-text);
-		--padding-block: 1rem;
-		--padding-inline: 2rem;
 		padding: var(--padding-block) var(--padding-inline);
 		padding-inline-end: calc(var(--padding-inline) * 2);
 		line-height: 1.414;
@@ -252,7 +255,8 @@
 	@container root (min-width: 37.75em) {
 		pre {
 			--padding-inline: 1.25rem;
-			border-radius: var(--border-radius-medium);
+			border-radius: var(--border-radius-large);
+			corner-shape: superellipse(0.5);
 		}
 	}
 
@@ -348,12 +352,14 @@
 		--theme-text-lighter: var(--color-gray-500);
 		--theme-bg: var(--color-white);
 		--theme-code-inline-bg: var(--color-gray-100);
-		--theme-code-text: var(--color-gray-100);
+		--theme-code-text: white;
 		--theme-code-bg: var(--color-gray-700);
-		--border-radius-medium: 8px;
+		--border-radius-small: 8px;
+		--border-radius-medium: 16px;
+		--border-radius-large: 24px;
 	}
 
-	:root {
+	/* :root {
 		@media (prefers-color-scheme: dark) {
 			color-scheme: dark;
 			--theme-accent-blue: #90a6ff;
@@ -367,7 +373,7 @@
 			--theme-code-text: var(--color-gray-200);
 			--theme-code-bg: var(--color-gray-900);
 		}
-	}
+	} */
 
 	/* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
 	.post img {
@@ -381,7 +387,6 @@
 	}
 
 	:is(li, p, h3) {
-		max-width: 60ch;
 		max-width: 80rch;
 	}
 }
@@ -437,17 +442,64 @@
     }
 }*/
 
-@layer expressiveCode {
-	.expressive-code {
-		max-width: 80ch;
-		margin-block: 1rem;
+a {
+	word-wrap: break-word;
+}
 
-		&:hover {
-			scrollbar-color: deepPink transparent;
-		}
+pre[data-language] {
+	scrollbar-color: deeppink;
+
+	color: yellow;
+
+	.comment {
+		color: red;
+		background: white;
+	}
+
+	> code > .punctuation {
+		color: green;
+	}
+
+	.atrule {
+		color: yellow;
+	}
+
+	.atrule .property {
+		color: cyan;
+	}
+
+	.selector {
+		color: deepskyblue;
+	}
+
+	.property {
+		color: orange;
+		/* background-color: orange; */
 	}
 }
 
-a {
-	word-wrap: break-word;
+/* @media (--test) {
+	body {
+		background: greenyellow;
+	}
+}
+
+@media (--mobile) {
+	body {
+		padding: 1rem;
+		background: red;
+	}
+} */
+
+/* screen-reader only */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }

@@ -2,7 +2,6 @@
     type Option = "month" | "year";
 
     import { Temporal } from "@js-temporal/polyfill";
-    import groupBy from "lodash.groupby";
     import { getPlainDateFromString, padStartNumber } from "src/utils/dates";
     import type { Book } from "src/utils/getBooksFromNotion";
     import Toggle from "./Toggle.svelte";
@@ -15,18 +14,15 @@
     let { books }: Props = $props();
 
     const groupedBooks = (books: Book[], format: Option) => {
-        const group = groupBy(
-            books,
-            ({ finishedDate }: { finishedDate: Temporal.PlainDate }) => {
-                const date = Temporal.PlainDate.from(finishedDate);
+        const group = Object.groupBy(books, ({ finishedDate }: Book) => {
+            const date = Temporal.PlainDate.from(finishedDate);
 
-                if (format === "month") {
-                    return `${padStartNumber(date.month)}-${date.year}`;
-                } else {
-                    return date.year;
-                }
-            },
-        );
+            if (format === "month") {
+                return `${padStartNumber(date.month)}-${date.year}`;
+            } else {
+                return date.year;
+            }
+        });
 
         const groups = Object.entries(group);
 

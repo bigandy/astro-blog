@@ -1,46 +1,71 @@
 ---
 const string = "andrew jd hudson :) • ";
 const characters = string.split("");
-const length = characters.length;
-const charCount = length * 2;
 ---
 
-<div class="ring-wrapper">
-    <div class="ring" aria-hidden="true">
-        {
-            [...characters, ...characters].map((char, charIndex) => {
-                return (
-                    <span
-                        class="char"
-                        style={`--sibling-index: ${charIndex}; --sibling-count: ${charCount};`}
-                    >
-                        {char}
-                    </span>
-                );
-            })
-        }
-
+<div class="super-wrapper">
+    <div class="ring-wrapper">
+        <div class="ring" aria-hidden="true">
+            {[...characters, ...characters].map((char) => <span>{char}</span>)}
+        </div>
         <span class="sr-only">{string}</span>
     </div>
 </div>
 
 <style>
+    /* Need to import it here because Astro + postcss not working correctly. A known bug */
+    @import "/src/css/partials/props.media.css";
+
     @layer base, ring, scroll;
 
     @layer scroll {
-        body {
-            view-timeline: --header-vtl;
+        /* Opt-in the whole page to interpolate sizes to/from keywords */
+        :root {
+            interpolate-size: allow-keywords; /* 👈 */
         }
 
-        @keyframes rotation {
-            to {
-                --degrees: calc(360 * 13deg);
+        html {
+            scroll-timeline: --page-scroll block;
+        }
+
+        .super-wrapper {
+            --radius: calc((1 / 0.2) * -2ch);
+            position: fixed;
+            top: 10rem;
+            right: 10rem;
+
+            &::after {
+                clip-path: circle();
+                aspect-ratio: 1;
+                width: calc(100% + calc(var(--radius) * -1) - 40px);
+                height: calc(100% + calc(var(--radius) * -1) - 40px);
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: calc(100% + calc(var(--radius) * 1.4) + 20px);
+                left: calc(100% + calc(var(--radius) * 1.4) + 20px);
+
+                --pink: oklch(55% .45 350 / 0.85);
+                --yellow: oklch(95% .4 95 / 0.85);
+
+                --hdr-gradient: linear-gradient(
+                    to top in oklab,
+                    var(--pink) var(--percent),
+                    var(--yellow) var(--percent)
+                );
+                background: var(--hdr-gradient);
+                z-index: -1;
+                opacity: 0;
+                pointer-events: none;
+                transition:
+                    opacity 300ms,
+                    scale 300ms;
+
             }
         }
 
         .ring {
             --font-size: 0.5;
-
             height: calc(
                 var(--radius) * calc(var(--parent-ring-font-size) * -2.1)
             );
@@ -50,20 +75,17 @@ const charCount = length * 2;
             place-content: center;
 
             &::after {
-                transform: rotate(calc(14deg * var(--degrees)));
+                rotate: calc(14deg * var(--degrees));
                 content: "☝️ Top";
                 font-size: 0.8em;
-                color: var(--theme-accent);
+                /* color: var(--theme-accent); */
+                color: white;
             }
         }
 
         .ring-wrapper {
             display: none;
-            position: fixed;
-            top: calc(var(--radius) * calc(var(--parent-ring-font-size) * -2));
-            right: calc(
-                var(--radius) * calc(var(--parent-ring-font-size) * -2)
-            );
+
             opacity: 0;
             pointer-events: none;
             transition:
@@ -82,23 +104,34 @@ const charCount = length * 2;
 
                 .ring::after {
                     transition: all 0.3s;
-                    color: white;
-                    transform: rotate(calc(360deg - var(--degrees)));
+
+                    rotate: calc(360deg - var(--degrees));
                 }
             }
         }
-        @supports (animation-timeline: scroll()) {
+        @supports (animation-timeline: scroll()) and (z-index: sibling-index()) {
             @container (min-width: 1300px) {
-                @media (prefers-reduced-motion: no-preference) {
-                    .ring-wrapper {
-                        --header-height: 53px;
+                @media (--motionOK) {
+                    .super-wrapper::after {
+                        --header-height: 10px;
 
+                        animation-range:
+                            var(--header-height)
+                                calc(var(--header-height) + 50px),
+                            calc(var(--header-height)) 100%;
+
+                        animation-name: fade-in, grow-progress;
+                        animation-fill-mode: both;
+                        animation-timeline: scroll(), --page-scroll;
+                    }
+
+                    .ring-wrapper {
                         display: block;
                         animation-range:
                             var(--header-height)
                                 calc(var(--header-height) + 50px),
                             calc(var(--header-height)) 100%;
-                        animation-name: fadeIn, rotation;
+                        animation-name: fade-in, rotation;
                         animation-fill-mode: both;
                         animation-timeline: scroll();
 
@@ -113,14 +146,8 @@ const charCount = length * 2;
 
     @layer ring {
         .ring-wrapper {
-            --radius: calc((1 / 0.2) * -2ch);
-
             rotate: var(--degrees);
-            position: fixed;
-            top: 150px;
-            right: 150px;
             aspect-ratio: 1;
-            translate: 0% 0%;
             display: grid;
             place-items: center;
             z-index: 10;
@@ -136,15 +163,16 @@ const charCount = length * 2;
             position: relative;
         }
 
-        .char {
-            --inner-angle: calc((360 / var(--sibling-count)) * 1deg);
+        span {
+            text-box: trim-both cap alphabetic;
+            --inner-angle: calc((360 / sibling-count()) * 1deg);
             display: inline-block;
             position: absolute;
             top: 50%;
             left: 50%;
-            /* color: hsl(calc(var(--char-index) * 10deg) 100% 50%); */
+            color: black;
             transform: translate(-50%, -50%)
-                rotate(calc(var(--inner-angle) * var(--sibling-index)))
+                rotate(calc(var(--inner-angle) * sibling-index()))
                 translateY(var(--radius));
 
             &:nth-child(odd) {
@@ -160,24 +188,20 @@ const charCount = length * 2;
             inherits: true;
         }
 
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
+        @property --percent {
+            syntax: "<percentage>";
+            initial-value: 0%;
+            inherits: true;
         }
 
-        * {
-            box-sizing: border-box;
+        @property --parent-ring-font-size {
+            inherits: true;
+            initial-value: 0.5;
+            syntax: "<number>";
         }
     }
 
-    @keyframes fadeIn {
+    @keyframes fade-in {
         to {
             opacity: 1;
             --parent-ring-font-size: 0.5;
@@ -185,17 +209,32 @@ const charCount = length * 2;
         }
     }
 
-    @property --parent-ring-font-size {
-        inherits: true;
-        initial-value: 0.5;
-        syntax: "<number>";
+    @keyframes grow-progress {
+        from {
+            --percent: 0%;
+        }
+
+        to {
+            --percent: 100%;
+        }
+    }
+    @keyframes rotation {
+        to {
+            --degrees: calc(360 * 13deg);
+        }
     }
 </style>
 
 <script>
-    const rotator = document.querySelector(".ring-wrapper");
+    const supports =
+        CSS.supports("animation-timeline: scroll()") &&
+        CSS.supports("order: sibling-index()");
 
-    rotator?.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    if (supports) {
+        const rotator = document.querySelector(".ring-wrapper");
+
+        rotator?.addEventListener("click", () =>
+            window.scrollTo({ top: 0, behavior: "smooth" }),
+        );
+    }
 </script>

@@ -17,7 +17,7 @@ tags: [""]
 
 - The feature flag I wanted was `CSSScrollDirectionContainerQueries` and in my terminal on MacOS I typed:
 
-```zsh
+```bash
 /Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --enable-features=CSSScrollDirectionContainerQueries
 ```
 
@@ -25,7 +25,7 @@ tags: [""]
 
 I am using ZSH and instead of remembering all of the above each time I want to open Canary I have created a function into which I can pass the flag name(s):
 
-```zsh
+```bash
 function openCanary() {
 	/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --enable-features="$1";
 }
