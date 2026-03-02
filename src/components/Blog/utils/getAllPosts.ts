@@ -51,10 +51,11 @@ export const getSomePosts = async (
 ) => {
 	// https://allthingssmitty.com/2026/01/12/stop-turning-everything-into-arrays-and-do-less-work-instead/
 
+	if (numberToReturn && numberToReturn < 1) {
+		return (await getAllPosts(collection))
+	}
+
 	return (await getAllPosts(collection))
 		.values()
-		// @ts-expect-error
-		.take(numberToReturn ?? -1)
-
-
+		.take(numberToReturn || 1)
 };

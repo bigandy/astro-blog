@@ -16,6 +16,10 @@ const characters = string.split("");
     /* Need to import it here because Astro + postcss not working correctly. A known bug */
     @import "/src/css/partials/props.media.css";
 
+    .super-wrapper {
+        display: none;
+    }
+
     @property --degrees {
         syntax: "<angle>";
         initial-value: 0deg;
@@ -34,13 +38,13 @@ const characters = string.split("");
         syntax: "<number>";
     }
 
-    html {
-        /* scroll-timeline: --page-scroll block; */
-    }
-
     @supports (animation-timeline: scroll()) and (z-index: sibling-index()) {
         @container (min-width: 1300px) {
             @media (--motionOK) {
+                 .super-wrapper {
+                    display: block;
+                }
+
                 .ring-wrapper {
                     rotate: var(--degrees);
                     aspect-ratio: 1;
@@ -167,7 +171,7 @@ const characters = string.split("");
 
                     animation-name: --kf-fade-in, --kf-grow-progress;
                     animation-fill-mode: both;
-                    animation-timeline:  scroll();
+                    animation-timeline: scroll();
                 }
 
                 .ring-wrapper {
@@ -175,7 +179,7 @@ const characters = string.split("");
                     animation-range: entry 0px exit 100px, entry 0px exit 100%;
                     animation-name: --kf-fade-in, --kf-rotation;
                     animation-fill-mode: both;
-                    animation-timeline:  scroll();
+                    animation-timeline: scroll();
 
                     .ring {
                         --font-size: var(--parent-ring-font-size);

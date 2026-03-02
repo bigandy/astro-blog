@@ -85,7 +85,7 @@
                 >
             </h2>
             <ol reversed>
-                {#each books as { bookTitle, bookAuthor, rating }}
+                {#each books as { bookTitle, bookAuthor, rating, bookIsFrench }}
                     <li>
                         &ldquo;{bookTitle}&rdquo; by {bookAuthor}
                         {#if rating}
@@ -93,6 +93,8 @@
                                 >{rating}/10</span
                             >
                         {/if}
+
+                        {bookIsFrench ? "🇫🇷" : ""}
                     </li>
                 {/each}
             </ol>

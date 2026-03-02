@@ -173,26 +173,6 @@
 		gap: 0.5rem;
 	}
 
-	/*a > code:not([class*="language"]) {
-        position: relative;
-        color: var(--theme-accent);
-        background: transparent;
-        text-underline-offset: var(--padding-block);
-    }
-
-    a > code:not([class*="language"])::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: block;
-        background: var(--theme-accent);
-        opacity: var(--theme-accent-opacity);
-        border-radius: var(--border-radius);
-    }*/
-
 	a:hover,
 	a:focus {
 		text-decoration: underline;
@@ -208,7 +188,6 @@
 		color: inherit;
 	}
 
-	/* Supporting Content */
 	code:not([class*="language"]) {
 		--border-radius: 3px;
 		--padding-block: 0.2rem;
@@ -359,22 +338,6 @@
 		--border-radius-large: 24px;
 	}
 
-	/* :root {
-		@media (prefers-color-scheme: dark) {
-			color-scheme: dark;
-			--theme-accent-blue: #90a6ff;
-			--theme-accent-opacity: 0.3;
-			--theme-divider: var(--color-gray-200);
-			--theme-text: var(--color-gray-200);
-			--theme-text-light: var(--color-gray-300);
-			--theme-text-lighter: var(--color-gray-300);
-			--theme-bg: var(--color-black);
-			--theme-code-inline-bg: var(--color-gray-800);
-			--theme-code-text: var(--color-gray-200);
-			--theme-code-bg: var(--color-gray-900);
-		}
-	} */
-
 	/* Harry Roberts' image reset. https://twitter.com/csswizardry/status/1717841334462005661 */
 	.post img {
 		max-width: 100%;
@@ -436,60 +399,9 @@
 	}
 }
 
-/*@layer unsets {
-    li:has(.expressive-code) {
-        max-width: unset;
-    }
-}*/
-
 a {
 	word-wrap: break-word;
 }
-
-pre[data-language] {
-	scrollbar-color: deeppink;
-
-	color: yellow;
-
-	.comment {
-		color: red;
-		background: white;
-	}
-
-	> code > .punctuation {
-		color: green;
-	}
-
-	.atrule {
-		color: yellow;
-	}
-
-	.atrule .property {
-		color: cyan;
-	}
-
-	.selector {
-		color: deepskyblue;
-	}
-
-	.property {
-		color: orange;
-		/* background-color: orange; */
-	}
-}
-
-/* @media (--test) {
-	body {
-		background: greenyellow;
-	}
-}
-
-@media (--mobile) {
-	body {
-		padding: 1rem;
-		background: red;
-	}
-} */
 
 /* screen-reader only */
 .sr-only {

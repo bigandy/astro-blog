@@ -7,7 +7,7 @@ tags: [""]
 
 I recently saw that @custom-media is [available in Firefox under an about:config flag](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/146#:~:text=Custom%20media%20queries%3A%20layout.css.custom%2Dmedia.enabled). I naturally wondered what they were and so I now am recording my findings.
 
-## What is @custom-media? Derp
+## What is @custom-media?
 
 A @custom-media query is custom media query defined by a `name` and a `query`. For example `@custom-media --small-screen (max-width: 500px);` The name is `--small-screen` and the value is `(max-width: 500px)`.
 
@@ -37,8 +37,6 @@ body {
 @custom-media --touch (print);
 
 ```
-
-
 
 ```css title="current-media-queries.css"
 /* Touch Media Query */

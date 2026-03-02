@@ -7,6 +7,7 @@ const notion = new Client({
 });
 
 export type Book = {
+	bookIsFrench: boolean;
 	bookTitle: string;
 	bookAuthor: string;
 	createdDate: string;
@@ -50,6 +51,8 @@ export const getBooks = async () => {
 			const finishedDate = book.properties["Date Finished"]?.date?.start || "";
 			const rating = book.properties["Rating (out of 10)"]?.select?.name;
 			let thumbnail = book.properties?.Image?.url ?? null;
+			const bookIsFrench = book.properties?.['French']?.checkbox;
+			console.log({ bookIsFrench })
 
 			// if we don't have the thumbnail, call googleBookSearch to get from API
 			if (!thumbnail) {
@@ -57,6 +60,7 @@ export const getBooks = async () => {
 			}
 
 			return {
+				bookIsFrench,
 				bookTitle,
 				bookAuthor,
 				finishedDate,
