@@ -52,7 +52,6 @@ export const getBooks = async () => {
 			const rating = book.properties["Rating (out of 10)"]?.select?.name;
 			let thumbnail = book.properties?.Image?.url ?? null;
 			const bookIsFrench = book.properties?.['French']?.checkbox;
-			console.log({ bookIsFrench })
 
 			// if we don't have the thumbnail, call googleBookSearch to get from API
 			if (!thumbnail) {
