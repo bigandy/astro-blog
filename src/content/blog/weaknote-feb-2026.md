@@ -5,7 +5,7 @@ draft: true
 tags: [""]
 ---
 
-I like the idea of weaknotes as I often don't have time to write weekly.
+I love the idea of weaknotes as I often don't have time or the routine to write weekly.
 
 ## learning french
 Starting this week I have begun the daily process of doing structured learning every day.
