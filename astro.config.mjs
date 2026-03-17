@@ -41,7 +41,7 @@ export default defineConfig({
 		enabled: false,
 	},
 	build: {
-		// inlineStylesheets: "always",
+		inlineStylesheets: "always",
 	},
 	experimental: {
 		rustCompiler: true,
