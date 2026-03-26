@@ -1,0 +1,53 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import Bookcase from "src/components/Svelte/Bookcase.svelte";
+
+import { Temporal } from "@js-temporal/polyfill";
+import { getBooks } from "src/utils/getBooksFromNotion";
+
+
+const allBooks = await getBooks();
+const books = allBooks
+	.filter(({ finishedDate }: { finishedDate: string }) => {
+		return finishedDate !== '';
+	})
+	.sort(
+		(a: any, b: any) => {
+      const aDate = a.finishedDate;
+      const bDate = b.finishedDate;
+
+      return Temporal.PlainDate.compare(bDate, aDate);
+    }
+	);
+
+const { title } = Astro.props;
+---
+
+<DefaultLayout title={title} accent="oklch(0.52 0.12 189.58)">
+
+  <slot />
+
+  <Bookcase
+    client:visible
+    books={books}
+    text={Astro.currentLocale === 'fr' ? {
+      fallback: "aucun livre renvoyé par l'API.",
+      completed: "terminés",
+      book: "livre",
+      month: "Mois",
+      year: "Année",
+      by: "de",
+    } : undefined}
+    locale={Astro.currentLocale}
+  />
+</DefaultLayout>
+
+<style>
+  :root {
+    --theme-accent: ;
+  }
+
+  p {
+    margin-block-end: 3rem;
+  }
+</style>

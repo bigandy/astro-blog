@@ -20,7 +20,7 @@ type Grouping = Record<string, Book[]>;
 
 export type GroupedBooks = Grouping[];
 
-export const getBooks = async () => {
+export const getBooks = async (): Promise<Array<Book>> => {
 	try {
 		// check if in cache here.
 		// Pass in your unique custom cache key

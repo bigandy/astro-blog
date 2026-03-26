@@ -3,12 +3,11 @@ import ExternalLink from "@components/Global/ExternalLink.astro";
 import { Temporal } from "@js-temporal/polyfill";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 
-const title = "Now";
 const lastUpdated = Temporal.PlainDate.from({year: 2025, month: 6, day: 2})
 
 ---
 
-<DefaultLayout title={title} accent="#fa7e61">
+<DefaultLayout title="Now" accent="#fa7e61">
     <div class="container">
         <p class="intro">
             After upping our lives and moving country to live in Grenoble in

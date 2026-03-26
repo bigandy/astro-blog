@@ -3,7 +3,7 @@ interface Props {
 	src: string;
 	alt: string;
 	themeColorKey: string;
-    dimension: number;
+    dimension?: number;
 }
 const { src, alt, dimension = 100 } = Astro.props;
 ---

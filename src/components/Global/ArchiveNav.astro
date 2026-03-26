@@ -1,5 +1,5 @@
 ---
-const { page, type = "Posts" } = Astro.props;
+const { page, type = "Posts", prevText = 'Newer Posts', nextText = 'Older Posts' } = Astro.props
 ---
 
 <ul>
@@ -8,6 +8,10 @@ const { page, type = "Posts" } = Astro.props;
   </li>
   <li>
     {page.url.next && <a href={page.url.next}>Older {type} &rarr;</a>}
+    {page.url.prev && <a href={page.url.prev}>&larr; {prevText}</a>}
+  </li>
+  <li>
+    {page.url.next && <a href={page.url.next}>{nextText} &rarr;</a>}
   </li>
 </ul>
 

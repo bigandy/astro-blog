@@ -3,15 +3,16 @@ title: "Displaying CSS variables in CSS Content"
 date: 2025-05-06
 draft: false
 tags: [""]
---- 
+---
 
-import BlobsExample from './BlobsExample.astro';
+import BlobsExample from "./BlobsExample.astro";
 
-I often have the need to see the in-place value of the a CSS variable on the page to help me debug what I am working on. To be able to do this I need to use CSS `counter-reset` in combination with CSS `counter()` to display within CSS content on a before or after pseudo element. 
+I often have the need to see the in-place value of the a CSS variable on the page to help me debug what I am working on. To be able to do this I need to use CSS `counter-reset` in combination with CSS `counter()` to display within CSS content on a before or after pseudo element.
 
 This is for future me as I always need to look it up.
 
 #### CSS
+
 ```css
 .blob {
     --hue: calc(10 * var(--index));
@@ -29,6 +30,7 @@ This is for future me as I always need to look it up.
     }
 }
 ```
+
 #### HTML
 
 ```html
@@ -39,7 +41,6 @@ This is for future me as I always need to look it up.
 <div class="blob" style="--index: 5"></div>
 ```
 
-#### Output: 
+#### Output:
 
 <BlobsExample />
-

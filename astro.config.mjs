@@ -23,6 +23,10 @@ export default defineConfig({
 			}),
 		},
 	},
+	i18n: {
+        locales: ["en", "fr"],
+        defaultLocale: "en",
+    },
 	integrations: [
 		svelte(),
 		mdx(),

@@ -20,9 +20,10 @@ const {
 	hideTitle,
     isHomepage = false
 }: Props = Astro.props;
+const locale = Astro.currentLocale ?? "en";
 ---
 
-<html lang="en">
+<html lang={locale}>
     <head>
         <BaseHead title={title} />
 

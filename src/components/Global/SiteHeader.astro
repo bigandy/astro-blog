@@ -1,28 +1,34 @@
 ---
-import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
 import { themeColorKey } from "@pages/cv/content";
 
 const { hidePhoto = false } = Astro.props;
+import SettingsToggler from "@components/CV/SettingsToggler.astro";
+
+import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
+
+const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
 ---
 
 <header class="layout">
     <div class="layout-inner">
         <h1>
-            <a href="/"> Andrew JD Hudson </a>
+            <a href={homeUrl}> Andrew JD Hudson </a>
         </h1>
         <HeaderNav />
-
-
     </div>
-{!hidePhoto && (
-        <SettingsToggler
-            src="/images/cv/andrew-profile.jpg"
-            alt="Photo of Andrew JD Hudson"
-            themeColorKey={themeColorKey}
-        />
-    )}
 
+
+    <div class="right">
+        <!-- {!hidePhoto && (
+            <SettingsToggler
+                src="/images/cv/andrew-profile.jpg"
+                alt="Photo of Andrew JD Hudson"
+                themeColorKey={themeColorKey}
+            />
+        )} -->
+        <LanguageSwitcher />
+    </div>
 </header>
 
 <style>
@@ -68,5 +74,10 @@ const { hidePhoto = false } = Astro.props;
         /* padding-block-start: calc(var(--column-gap-size) * 1.5); */
     }
 
-
+    .right {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
 </style>

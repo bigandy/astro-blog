@@ -1,14 +1,21 @@
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
-export type Collection = "blog" | "weeknotes";
+export type Collection = "blog" | "weeknotes" | "blog-fr";
 
 import { Temporal } from "@js-temporal/polyfill";
 import { isProduction } from "@utils/isProduction";
+
+export type Item = CollectionEntry<Collection> & {
+    postIndex: number;
+    hasTranslation?: boolean;
+};
 
 export const getAllPosts = async (
     collection: Collection = "blog",
 ) => {
     const showFuturePosts = false;
+
     // Data Fetching: List all Markdown posts in the repo.
     let allPosts = [];
     // const now = new Date();
@@ -18,8 +25,8 @@ export const getAllPosts = async (
     allPosts = await getCollection(collection);
 
     if (isProduction) {
+        // Get rid of draft posts first
         allPosts = allPosts.filter((post) => {
-            // Get rid of draft posts first
             if (post.data.draft && post.data.draft === true) {
                 return false;
             }
@@ -28,6 +35,7 @@ export const getAllPosts = async (
     }
 
     if (isProduction || showFuturePosts === false) {
+        // get rid of future posts
         allPosts = allPosts.filter((post) => {
             const compare = Temporal.PlainDate.compare(
                 today,
@@ -54,6 +62,7 @@ export const getAllPosts = async (
 };
 
 export const getSomePosts = async (
+    locale: "en" | "fr",
     collection: Collection = "blog",
     numberToReturn?: number,
 ) => {

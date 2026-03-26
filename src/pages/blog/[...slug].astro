@@ -25,9 +25,10 @@ export async function getStaticPaths() {
 interface Props {
 	post: CollectionEntry<"blog">;
 	postIndex: number;
+    hasTranslation: boolean;
 }
 
-const { post, postIndex } = Astro.props;
+const { post, postIndex, hasTranslation } = Astro.props;
 const { template, title } = post.data;
 const slug = `blog/${post.id}/`;
 ---
@@ -44,7 +45,7 @@ const slug = `blog/${post.id}/`;
         </FullPageLayout>
     ) : (
         <DefaultLayout title={post.data.title} hideTitle>
-            <BlogPost post={post} postIndex={postIndex} />
+            <BlogPost post={post} postIndex={postIndex} hasTranslation={hasTranslation} />
         </DefaultLayout>
     )
 }

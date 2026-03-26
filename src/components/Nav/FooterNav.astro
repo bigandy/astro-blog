@@ -2,9 +2,13 @@
 import { Icon } from "astro-icon/components";
 import { footerPages } from "./pages";
 import { socialLinks } from "./social-links";
-import { getNavClassName } from "./utils";
+import { getNavClassName } from "./getNavClassName";
 
 const requestPathname = Astro.url.pathname;
+
+const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : "";
+const locale = Astro.currentLocale ?? 'en';
+
 ---
 
 <nav class="layout footer-nav">
@@ -14,46 +18,38 @@ const requestPathname = Astro.url.pathname;
                 const className = getNavClassName(entry.url, requestPathname);
 
                 return (
-                    <li>
-                        <a class={className} href={entry.url}>
-                            {entry.title}
-                        </a>
-                    </li>
+                  <li>
+                    <a class={className} href={prefix + entry.url}>
+                      {(locale === 'fr' && entry.title['fr']) || entry.title.default}
+                    </a>
+                  </li>
                 );
             })
         }
     </ul>
 </nav>
 <nav>
-    {
-        socialLinks.length > 0 && (
-            <ul class="layout-inner nav nav-social">
-                {socialLinks.map(({ url, icon, title }) => {
-                    const className = getNavClassName(url, requestPathname, 'social-link');
 
-                    return (
-                        <li>
-                            <a
-                                class={className}
-                                href={url}
-                                target="_blank"
-                                data-attr-color={icon.color}
-                            >
-                                {icon && (
-                                    <Icon
-                                        class="social-icon"
-                                        name={`fa6-brands:${icon.name}`}
-                                        size="1em"
-                                    />
-                                )}
-                                {title}
-                            </a>
-                        </li>
-                    );
-                })}
-            </ul>
-        )
-    }
+  {socialLinks.length > 0 && (
+  <ul class="layout-inner nav nav-social">
+      {
+        socialLinks.map(({ url, icon, title }) => {
+          const className = getNavClassName(url, requestPathname);
+
+          return (
+            <li>
+              <a class={className} href={url} target="_blank" style={`color: ${icon.color}`}>
+                {icon && (
+                  <Icon name={`fa6-brands:${icon.name}`} size="1em" />
+                )}
+                {title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+    )}
 </nav>
 
 <style>

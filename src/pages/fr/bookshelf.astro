@@ -1,0 +1,23 @@
+---
+import BookshelfLayout from "@layouts/BookshelfLayout.astro";
+
+const title = "Bibliothèque";
+
+---
+
+<BookshelfLayout title={title}>
+  <details open>
+    <summary>introduction</summary>
+    <p>
+      Je stocke les livres que je lis et que j'ai lus dans Notion. J'utilise
+      cette page pour afficher les livres que j'ai lus et le mois où j'ai fini
+      de les lire.
+    </p>
+  </details>
+</BookshelfLayout>
+
+<style>
+  p {
+    margin-block-end: 3rem;
+  }
+</style>
