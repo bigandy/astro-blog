@@ -4,15 +4,14 @@ const requestPathname = Astro.url.pathname;
 
 let newUrl = `/${requestPathname}`;
 
-  // remove the locale from the url
-if (locale === 'fr') {
-  newUrl = Astro.url.pathname.replace(`/${locale}`, "").replace('//', '/');
-  if (newUrl === '') {
-    newUrl = '/'
-  }
-
+// remove the locale from the url
+if (locale === "fr") {
+	newUrl = Astro.url.pathname.replace(`/${locale}`, "").replace("//", "/");
+	if (newUrl === "") {
+		newUrl = "/";
+	}
 } else {
-  newUrl = Astro.url.origin +  '/fr' + requestPathname;
+	newUrl = Astro.url.origin + "/fr" + requestPathname;
 }
 ---
 <div>

@@ -1,19 +1,20 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro';
-const isFrench = Astro.currentLocale === 'fr';
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+const isFrench = Astro.currentLocale === "fr";
 
 const copy = {
 	en: {
-		title: '404',
-		message: 'Page cannot be found',
+		title: "404",
+		message: "Page cannot be found",
 	},
 	fr: {
-		title: '404',
-		message: 'Page non trouvée',
+		title: "404",
+		message: "Page non trouvée",
 	},
 };
 
-const {title, message} = copy[isFrench ? 'fr' : 'en'];
+const { title, message } = copy[isFrench ? "fr" : "en"];
 ---
 
 <DefaultLayout title={title}>

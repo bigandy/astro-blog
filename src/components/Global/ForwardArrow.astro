@@ -7,7 +7,7 @@ interface Props {
 
 const { url, title, isBlog = false } = Astro.props;
 
-const text = Astro.currentLocale ? 'En savoir plus sur' : "Read more about";
+const text = Astro.currentLocale ? "En savoir plus sur" : "Read more about";
 ---
 
 <a href={url}>

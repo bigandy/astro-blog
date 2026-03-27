@@ -10,7 +10,7 @@ class AstroPaintBg {
 		const fillColor = props.get("--color-for-bg");
 		ctx.fillStyle = fillColor;
 
-        ctx.rect(0, 0, size.width, size.height);
+		ctx.rect(0, 0, size.width, size.height);
 		ctx.fill();
 		ctx.beginPath();
 

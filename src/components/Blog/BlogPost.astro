@@ -7,14 +7,15 @@ import BlogContent from "@components/Blog/BlogContent.astro";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import BackArrow from "@components/Global/BackArrow.astro";
 import EditPostOnGithub from "@components/Global/EditPostOnGithub.astro";
-const isFrench = Astro.currentLocale === 'fr';
+
+const isFrench = Astro.currentLocale === "fr";
 interface Props {
-    post: CollectionEntry<"blog" | "weeknotes" | "blog-fr">;
-    showBackLink?: boolean;
-    showDate?: boolean;
-    collection?: "blog" | "weeknotes";
-    postIndex?: number;
-    hasTranslation?: boolean;
+	post: CollectionEntry<"blog" | "weeknotes" | "blog-fr">;
+	showBackLink?: boolean;
+	showDate?: boolean;
+	collection?: "blog" | "weeknotes";
+	postIndex?: number;
+	hasTranslation?: boolean;
 }
 
 const {
@@ -23,21 +24,23 @@ const {
 	showDate = true,
 	collection = "blog",
 	postIndex,
-    hasTranslation,
+	hasTranslation,
 } = Astro.props;
 
 const { Content } = await render(post);
 
 const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
 
-const backLinkText =
-    isFrench
-        ? `retour à tous les articles du ${collection}`
-        : `Back to all ${collection} posts`;
+const backLinkText = isFrench
+	? `retour à tous les articles du ${collection}`
+	: `Back to all ${collection} posts`;
 
-const noTranslationText = Astro.currentLocale === 'fr' ? "Pas de traduction disponible." : "No translation available";
+const noTranslationText =
+	Astro.currentLocale === "fr"
+		? "Pas de traduction disponible."
+		: "No translation available";
 
-const showTranslationText = collection !== 'weeknotes' && !hasTranslation;
+const showTranslationText = collection !== "weeknotes" && !hasTranslation;
 ---
 
 <article class="content post inner">

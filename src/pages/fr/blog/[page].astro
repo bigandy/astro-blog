@@ -1,17 +1,15 @@
 ---
-import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
-
 import BlogPostPreview from "@components/Blog/BlogPostPreview.astro";
+import { getAllPosts } from "@components/Blog/utils/getAllPosts";
 import ArchiveNav from "@components/Global/ArchiveNav.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
-
-import { getAllPosts } from "@components/Blog/utils/getAllPosts";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const allPosts = await getAllPosts('blog', 'fr');
+	const allPosts = await getAllPosts("blog", "fr");
 
-    // Return a paginated collection of paths for all posts
-    return paginate(allPosts, { pageSize: 10 });
+	// Return a paginated collection of paths for all posts
+	return paginate(allPosts, { pageSize: 10 });
 }) satisfies GetStaticPaths;
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;

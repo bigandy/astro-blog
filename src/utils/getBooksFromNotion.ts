@@ -51,7 +51,7 @@ export const getBooks = async (): Promise<Array<Book>> => {
 			const finishedDate = book.properties["Date Finished"]?.date?.start || "";
 			const rating = book.properties["Rating (out of 10)"]?.select?.name;
 			let thumbnail = book.properties?.Image?.url ?? null;
-			const bookIsFrench = book.properties?.['French']?.checkbox;
+			const bookIsFrench = book.properties?.["French"]?.checkbox;
 
 			// if we don't have the thumbnail, call googleBookSearch to get from API
 			if (!thumbnail) {

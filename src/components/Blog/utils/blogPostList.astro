@@ -4,11 +4,11 @@ import {
 	type Collection,
 	getSomePosts,
 } from "@components/Blog/utils/getAllPosts";
-const isFrench = Astro.currentLocale === 'fr';
 
+const isFrench = Astro.currentLocale === "fr";
 
 interface Props {
-  number: number;
+	number: number;
 }
 // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
 
@@ -17,7 +17,7 @@ interface Props {
 	collection?: Collection;
 }
 
-const { number = 9, collection = 'blog' } = Astro.props
+const { number = 9, collection = "blog" } = Astro.props;
 
 const posts = await getSomePosts(collection, number);
 ---

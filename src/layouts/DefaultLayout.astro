@@ -10,7 +10,7 @@ interface Props {
 	title: string;
 	bodyClass?: string;
 	hideTitle?: boolean;
-    isHomepage?: boolean;
+	isHomepage?: boolean;
 }
 
 const {
@@ -18,7 +18,7 @@ const {
 	accent = "var(--theme-accent-blue)",
 	bodyClass = "",
 	hideTitle,
-    isHomepage = false
+	isHomepage = false,
 }: Props = Astro.props;
 const locale = Astro.currentLocale ?? "en";
 ---

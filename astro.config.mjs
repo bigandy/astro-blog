@@ -24,17 +24,12 @@ export default defineConfig({
 		},
 	},
 	i18n: {
-        locales: ["en", "fr"],
-        defaultLocale: "en",
-    },
-	integrations: [
-		svelte(),
-		mdx(),
-		react(),
-		icon(),
-	],
+		locales: ["en", "fr"],
+		defaultLocale: "en",
+	},
+	integrations: [svelte(), mdx(), react(), icon()],
 	markdown: {
-	   syntaxHighlight: 'prism',
+		syntaxHighlight: "prism",
 	},
 	scopedStyleStrategy: "class",
 	server: {
@@ -51,7 +46,7 @@ export default defineConfig({
 		rustCompiler: true,
 		queuedRendering: {
 			enabled: true,
-			contentCache: true
-		}
+			contentCache: true,
+		},
 	},
 });

@@ -1,12 +1,12 @@
 ---
-import { type Item } from "@components/Blog/utils/getAllPosts";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import type { Collection } from "@components/Blog/utils/getAllPosts";
+import { type Item } from "@components/Blog/utils/getAllPosts";
 
 interface Props {
-    post: Item;
-    collection?: Collection;
-    postIndex: number;
+	post: Item;
+	collection?: Collection;
+	postIndex: number;
 }
 
 const {
@@ -18,24 +18,24 @@ const { draft, title, date } = data;
 const future = new Date(date) > new Date();
 const showPostNumber = !draft;
 
-const isFrench = Astro.currentLocale === 'fr';
-const prefix = isFrench ? Astro.currentLocale + '/' : '';
+const isFrench = Astro.currentLocale === "fr";
+const prefix = isFrench ? Astro.currentLocale + "/" : "";
 
-type TextType = { [key: string]: { draft: string, future: string } }
+type TextType = { [key: string]: { draft: string; future: string } };
 
 const text: TextType = {
-  'en': {
-    draft: "draft",
-    future: "future",
-  },
-  'fr': {
-    draft: "brouillon",
-    future: "futur"
-  }
-}
-const articleType = draft ? 'draft' : future ? 'future': "";
+	en: {
+		draft: "draft",
+		future: "future",
+	},
+	fr: {
+		draft: "brouillon",
+		future: "futur",
+	},
+};
+const articleType = draft ? "draft" : future ? "future" : "";
 
-const locale = Astro.currentLocale ?? 'en';
+const locale = Astro.currentLocale ?? "en";
 ---
 
 <article

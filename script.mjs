@@ -35,7 +35,7 @@ const showSuccessMessage = () => {
 opening default browser on http://localhost:8888
 `,
 		"Success",
-	);
+	)
 };
 
 const runDevServer = async () => {

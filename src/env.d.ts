@@ -3,7 +3,7 @@
 declare module "@11ty/eleventy-fetch";
 
 declare namespace CSS {
-    namespace paintWorklet {
-        export function addModule(url: string): void;
-    }
+	namespace paintWorklet {
+		export function addModule(url: string): void;
+	}
 }

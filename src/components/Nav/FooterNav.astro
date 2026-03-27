@@ -1,14 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getNavClassName } from "./getNavClassName";
 import { footerPages } from "./pages";
 import { socialLinks } from "./social-links";
-import { getNavClassName } from "./getNavClassName";
 
 const requestPathname = Astro.url.pathname;
 
-const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : "";
-const locale = Astro.currentLocale ?? 'en';
-
+const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
+const locale = Astro.currentLocale ?? "en";
 ---
 
 <nav class="layout footer-nav">
