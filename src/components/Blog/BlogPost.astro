@@ -7,7 +7,7 @@ import BlogContent from "@components/Blog/BlogContent.astro";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import BackArrow from "@components/Global/BackArrow.astro";
 import EditPostOnGithub from "@components/Global/EditPostOnGithub.astro";
-
+const isFrench = Astro.currentLocale === 'fr';
 interface Props {
     post: CollectionEntry<"blog" | "weeknotes" | "blog-fr">;
     showBackLink?: boolean;
@@ -31,7 +31,7 @@ const { Content } = await render(post);
 const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
 
 const backLinkText =
-    Astro.currentLocale === "fr"
+    isFrench
         ? `retour à tous les articles du ${collection}`
         : `Back to all ${collection} posts`;
 

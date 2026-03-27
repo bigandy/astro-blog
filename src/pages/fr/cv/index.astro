@@ -8,19 +8,20 @@ import PorfolioList from "@components/CV/PorfolioList.astro";
 import RolesList from "@components/CV/RolesList.astro";
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
+import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
 
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
 
 import "src/css/cv.css";
 
 import {
-    education,
-    personalInformation,
-    portfolioLinks, 
-    roles,
-    skills,
-    socialLinks,
-    summary,
+education,
+personalInformation,
+portfolioLinks,
+roles,
+skills,
+socialLinks,
+summary,
 } from "./content";
 
 const overrideFullDates = false;
@@ -47,6 +48,15 @@ const homeUrl = Astro.currentLocale === 'fr' ? `/${Astro.currentLocale}` : "/";
                     <a href={`mailto:${personalInformation.email}`}
                         >{personalInformation.email}</a
                     >
+                    <!-- <a href={personalInformation.website}
+                        >{
+                            personalInformation.website.replace("https://", "")
+                        }</a
+                    > -->
+                    <a href={`tel:${personalInformation.phone}`} class="tel"
+                        >{personalInformation.phone}</a
+                    >
+                    <p class="p-locality">{personalInformation.location}</p>
                 </div>
             </div>
 
@@ -54,6 +64,7 @@ const homeUrl = Astro.currentLocale === 'fr' ? `/${Astro.currentLocale}` : "/";
                 src="/images/cv/andrew-profile.jpg"
                 alt="Photo of Andrew JD Hudson"
             />
+            <LanguageSwitcher />
         </div>
     </header>
 

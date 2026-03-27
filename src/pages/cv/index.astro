@@ -12,15 +12,17 @@ import SocialLinksList from "@components/CV/SocialLinksList.astro";
 
 import "src/css/cv.css";
 
+import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
+
 import {
-	education,
-	personalInformation,
-	portfolioLinks,
-	roles,
-	skills,
-	socialLinks,
-	summary,
-	themeColorKey,
+education,
+personalInformation,
+portfolioLinks,
+roles,
+skills,
+socialLinks,
+summary,
+themeColorKey,
 } from "./content";
 
 const overrideFullDates = false;
@@ -63,6 +65,7 @@ const overrideFullDates = false;
                 themeColorKey={themeColorKey}
                 dimension={70}
             />
+            <LanguageSwitcher />
         </div>
     </header>
 

@@ -1,5 +1,6 @@
 ---
 import DefaultLayout from '@layouts/DefaultLayout.astro';
+const isFrench = Astro.currentLocale === 'fr';
 
 const copy = {
 	en: {
@@ -12,7 +13,7 @@ const copy = {
 	},
 };
 
-const {title, message} = copy[Astro.currentLocale === 'fr' ? 'fr' : 'en'];
+const {title, message} = copy[isFrench ? 'fr' : 'en'];
 ---
 
 <DefaultLayout title={title}>

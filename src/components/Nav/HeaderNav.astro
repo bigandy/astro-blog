@@ -1,5 +1,6 @@
 ---
 import ExternalLink from "@components/Global/ExternalLink.astro";
+import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
 
 import { getNavClassName } from './getNavClassName';
 import { headerPages } from './pages';
@@ -11,7 +12,7 @@ const locale = Astro.currentLocale ?? 'en';
 const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : "";
 ---
 
-<nav class="layout">
+<nav class="layout wrapper">
   <ul class="layout-inner nav">
     {
       headerPages.map((entry) => {
@@ -31,9 +32,17 @@ const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : "";
       })
     }
   </ul>
+  <div class="language-switcher">
+    <LanguageSwitcher />
+  </div>
 </nav>
 
 <style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
   li {
     display: inline-grid;
     margin-right: 1em;
@@ -43,8 +52,6 @@ const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : "";
     border-block-end: 2px solid transparent;
   }
 
-
-
   a:hover,
   .active {
     border-bottom-color: var(--theme-accent);
@@ -53,4 +60,9 @@ const prefix = Astro.currentLocale !== 'en' ? `/${Astro.currentLocale}` : "";
   ul {
     padding-inline-start: 0;
   }
+
+  .language-switcher {
+    margin-left: auto;
+  }
+
 </style>

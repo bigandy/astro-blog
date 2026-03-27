@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
-export type Collection = "blog" | "weeknotes" | "blog-fr";
+export type Collection = "blog" | "weeknotes" | "blog-fr" | "weeknotes-fr";
 
 import { Temporal } from "@js-temporal/polyfill";
 import { isProduction } from "@utils/isProduction";
@@ -18,10 +18,10 @@ export const getAllPosts = async (
 
     // Data Fetching: List all Markdown posts in the repo.
     let allPosts = [];
-    // const now = new Date();
     const today = Temporal.Now.plainDateISO();
 
     // Get all the posts from the posts directory
+    console.log({ collection })
     allPosts = await getCollection(collection);
 
     if (isProduction) {
@@ -62,7 +62,6 @@ export const getAllPosts = async (
 };
 
 export const getSomePosts = async (
-    locale: "en" | "fr",
     collection: Collection = "blog",
     numberToReturn?: number,
 ) => {
@@ -72,7 +71,7 @@ export const getSomePosts = async (
         return await getAllPosts(collection);
     }
 
-    return (await getAllPosts(collection))
+    return [...(await getAllPosts(collection))
         .values()
-        .take(numberToReturn || 1);
+        .take(numberToReturn || 1)];
 };

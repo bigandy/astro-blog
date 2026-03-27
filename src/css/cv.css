@@ -382,7 +382,7 @@
 			display: none;
 		}
 
-		a:not(.switch-portfolio-link) {
+		.main-column a:not(.switch-portfolio-link) {
 			color: inherit;
 
 			/* Hide the external link markers */

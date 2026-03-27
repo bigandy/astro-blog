@@ -29,7 +29,7 @@ const { page } = Astro.props;
   </div>
 
   <div class="blog-posts-list">
-  {page.data.map((p) => <BlogPostPreview post={p} postIndex={p.postIndex} />)}
+    {page.data.map((p) => <BlogPostPreview post={p} postIndex={p.postIndex} />)}
   </div>
 
   <ArchiveNav page={page} />

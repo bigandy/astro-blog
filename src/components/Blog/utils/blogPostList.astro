@@ -4,6 +4,7 @@ import {
 	type Collection,
 	getSomePosts,
 } from "@components/Blog/utils/getAllPosts";
+const isFrench = Astro.currentLocale === 'fr';
 
 
 interface Props {
@@ -16,13 +17,14 @@ interface Props {
 	collection?: Collection;
 }
 
-const locale = Astro.currentLocale === 'fr' ? 'fr' : 'en';
 const { number = 9, collection = 'blog' } = Astro.props
 
-const posts = await getSomePosts(locale, collection, number);
+const posts = await getSomePosts(collection, number);
 ---
 {
-	posts.map(
+	posts.length > 0 ? posts.map(
 		(post) => <BlogPostPreview postIndex={post.postIndex} post={post} collection={collection} />
+	) : (
+		<div>{isFrench ? "Aucun article publié sur le" : "No Posts in"} {collection}</div>
 	)
 }

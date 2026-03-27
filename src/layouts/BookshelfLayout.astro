@@ -4,7 +4,7 @@ import Bookcase from "src/components/Svelte/Bookcase.svelte";
 
 import { Temporal } from "@js-temporal/polyfill";
 import { getBooks } from "src/utils/getBooksFromNotion";
-
+const isFrench = Astro.currentLocale === 'fr';
 
 const allBooks = await getBooks();
 const books = allBooks
@@ -30,7 +30,7 @@ const { title } = Astro.props;
   <Bookcase
     client:visible
     books={books}
-    text={Astro.currentLocale === 'fr' ? {
+    text={isFrench ? {
       fallback: "aucun livre renvoyé par l'API.",
       completed: "terminés",
       book: "livre",

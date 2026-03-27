@@ -1,11 +1,9 @@
 ---
+import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import HeaderNav from "@components/Nav/HeaderNav.astro";
-import { themeColorKey } from "@pages/cv/content";
 
 const { hidePhoto = false } = Astro.props;
-import SettingsToggler from "@components/CV/SettingsToggler.astro";
 
-import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
 
 const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
 ---
@@ -17,18 +15,12 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
         </h1>
         <HeaderNav />
     </div>
-
-
-    <div class="right">
-        <!-- {!hidePhoto && (
-            <SettingsToggler
-                src="/images/cv/andrew-profile.jpg"
-                alt="Photo of Andrew JD Hudson"
-                themeColorKey={themeColorKey}
-            />
-        )} -->
-        <LanguageSwitcher />
-    </div>
+    {!hidePhoto && (
+        <SettingsToggler
+            src="/images/cv/andrew-profile.jpg"
+            alt="Photo of Andrew JD Hudson"
+        />
+    )}
 </header>
 
 <style>
@@ -36,13 +28,6 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
         display: grid;
         grid-template-columns: subgrid;
         grid-column: page;
-        /* color: white; */
-        /* background: orangered; */
-
-
-        /* a {
-            color: white;
-        } */
     }
 
     .layout-inner {
@@ -68,16 +53,9 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
     }
 
     :global(.settings-toggler) {
+        display: none;
         grid-row: 1;
         grid-column-end: center-end;
         direction: rtl;
-        /* padding-block-start: calc(var(--column-gap-size) * 1.5); */
-    }
-
-    .right {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        align-items: center;
     }
 </style>
