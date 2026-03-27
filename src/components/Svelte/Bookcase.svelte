@@ -28,8 +28,8 @@
             fallback: "No books to display",
             completed: "completed",
             book: "book",
-            year: "year",
-            month: "month",
+            year: "Year",
+            month: "Month",
             by: "by",
         },
         locale = "en",
@@ -82,7 +82,9 @@
                 month: "long",
             } as const;
 
-            const dateString = plainDate.toLocaleString("en-GB", options);
+            const localeString = locale === "en" ? "en-GB" : "fr-FR";
+
+            const dateString = plainDate.toLocaleString(localeString, options);
 
             return dateString;
         } else {

@@ -16,21 +16,23 @@ if (locale === 'fr') {
 }
 ---
 
-<box>
-  <a href={newUrl}>{locale === 'fr' ? "English 🏴󠁧󠁢󠁥󠁮󠁧󠁿" : "Français 🇫🇷"}</a>
-</box>
+<a href={newUrl}>{locale === 'fr' ? "English 🏴󠁧󠁢󠁥󠁮󠁧󠁿" : "Français 🇫🇷"}</a>
 
 <style>
-  box {
+  a {
     text-box: trim-both cap alphabetic;
     padding: 0.5rem 1rem;
     border: 1px solid;
     border-radius: 1rem;
-  }
-
-  a {
     color: inherit;
     text-decoration: none;
     outline-color: var(--theme-accent);
+    display: block;
+    width: max-content;
+
+    &:hover {
+      background: black;
+      color: white;
+    }
   }
 </style>
