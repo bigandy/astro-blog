@@ -18,7 +18,8 @@ const { draft, title, date } = data;
 const future = new Date(date) > new Date();
 const showPostNumber = !draft;
 
-const prefix = Astro.currentLocale === 'en' ? '' : Astro.currentLocale + '/';
+const isFrench = Astro.currentLocale === 'fr';
+const prefix = isFrench ? Astro.currentLocale + '/' : '';
 
 type TextType = { [key: string]: { draft: string, future: string } }
 
