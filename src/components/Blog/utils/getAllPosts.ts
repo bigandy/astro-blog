@@ -35,7 +35,6 @@ export const getAllPosts = async (
     }
 
     if (isProduction || showFuturePosts === false) {
-        // get rid of future posts
         allPosts = allPosts.filter((post) => {
             const compare = Temporal.PlainDate.compare(
                 today,

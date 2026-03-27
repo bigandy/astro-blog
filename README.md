@@ -6,11 +6,7 @@ This site is created using Astro and I am currently using the same markdown file
 
 see the file `ec.config.mjs`
 
-| Command              | Action                                              |
-| :------------------- | :-------------------------------------------------- |
-| `npm install`        | Installs dependencies                               |
-| `npm run dev`        | Starts local dev server at `localhost:8888`         |
-| `npm run dev --open` | Starts local dev server and opens in defult browser |
+options here: https://expressive-code.com/key-features/code-component/#usage-in-astro-files
 
 ## Current Content
 
