@@ -1,96 +1,96 @@
 <script lang="ts">
-type Option = "month" | "year";
+		type Option = "month" | "year";
 
-import { Temporal } from "@js-temporal/polyfill";
-import { getPlainDateFromString, padStartNumber } from "src/utils/dates";
-import type { Book } from "src/utils/getBooksFromNotion";
-import Toggle from "./Toggle.svelte";
-import Warning from "./Warning.svelte";
+		import { Temporal } from "temporal-polyfill-lite";
+		import { getPlainDateFromString, padStartNumber } from "src/utils/dates";
+		import type { Book } from "src/utils/getBooksFromNotion";
+		import Toggle from "./Toggle.svelte";
+		import Warning from "./Warning.svelte";
 
-interface Text {
-	fallback: string;
-	completed: string;
-	book: string;
-	year: string;
-	month: string;
-	by: string;
-}
-
-interface Props {
-	books: Book[];
-	locale: string;
-	text: Text;
-}
-
-let {
-	books,
-	text = {
-		fallback: "No books to display",
-		completed: "completed",
-		book: "book",
-		year: "Year",
-		month: "Month",
-		by: "by",
-	},
-	locale = "en",
-}: Props = $props();
-
-const groupedBooks = (books: Book[], format: Option) => {
-	const group = Object.groupBy(books, ({ finishedDate }: Book) => {
-		const date = Temporal.PlainDate.from(finishedDate);
-
-		if (format === "month") {
-			return `${padStartNumber(date.month)}-${date.year}`;
-		} else {
-			return date.year;
+		interface Text {
+			fallback: string;
+			completed: string;
+			book: string;
+			year: string;
+			month: string;
+			by: string;
 		}
-	});
 
-	const groups = Object.entries(group);
+		interface Props {
+			books: Book[];
+			locale: string;
+			text: Text;
+		}
 
-	const sortedGroups = groups
-		.sort(([a], [b]) => {
+		let {
+			books,
+			text = {
+				fallback: "No books to display",
+				completed: "completed",
+				book: "book",
+				year: "Year",
+				month: "Month",
+				by: "by",
+			},
+			locale = "en",
+		}: Props = $props();
+
+		const groupedBooks = (books: Book[], format: Option) => {
+			const group = Object.groupBy(books, ({ finishedDate }: Book) => {
+				const date = Temporal.PlainDate.from(finishedDate);
+
 			if (format === "month") {
-				const aDate = getPlainDateFromString(a);
-				const bDate = getPlainDateFromString(b);
-
-				return Temporal.PlainDate.compare(bDate, aDate);
+				return `${padStartNumber(date.month)}-${date.year}`;
+			} else {
+				return date.year;
 			}
-			return Number(b) - Number(a);
-		})
-		.map(([key, value]) => {
-			return [key, value] as [string, Book[]];
 		});
 
-	return sortedGroups;
-};
+		const groups = Object.entries(group);
 
-let monthsActive = $state(true);
+		const sortedGroups = groups
+			.sort(([a], [b]) => {
+				if (format === "month") {
+					const aDate = getPlainDateFromString(a);
+					const bDate = getPlainDateFromString(b);
 
-let groups = $derived(groupedBooks(books, monthsActive ? "month" : "year"));
+					return Temporal.PlainDate.compare(bDate, aDate);
+				}
+				return Number(b) - Number(a);
+			})
+			.map(([key, value]) => {
+				return [key, value] as [string, Book[]];
+			});
 
-function toggle(option: Option) {
-	monthsActive = option === "month";
-}
+		return sortedGroups;
+	};
 
-function getTitle(group: string, monthsActive: boolean) {
-	if (monthsActive) {
-		const plainDate = getPlainDateFromString(group);
+		let monthsActive = $state(true);
 
-		const options = {
-			year: "numeric",
-			month: "long",
-		} as const;
+		let groups = $derived(groupedBooks(books, monthsActive ? "month" : "year"));
 
-		const localeString = locale === "en" ? "en-GB" : "fr-FR";
+		function toggle(option: Option) {
+			monthsActive = option === "month";
+		}
 
-		const dateString = plainDate.toLocaleString(localeString, options);
+		function getTitle(group: string, monthsActive: boolean) {
+			if (monthsActive) {
+				const plainDate = getPlainDateFromString(group);
 
-		return dateString;
-	} else {
-		return group;
+			const options = {
+				year: "numeric",
+				month: "long",
+			} as const;
+
+			const localeString = locale === "en" ? "en-GB" : "fr-FR";
+
+			const dateString = plainDate.toLocaleString(localeString, options);
+
+			return dateString;
+		} else {
+			return group;
+		}
 	}
-}
 </script>
 
 <div class="bookcase">

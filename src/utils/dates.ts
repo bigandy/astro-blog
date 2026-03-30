@@ -1,4 +1,4 @@
-import { Temporal } from "@js-temporal/polyfill";
+import { Temporal } from "temporal-polyfill-lite";
 
 export const padStartNumber = (number: number) => {
 	return `0${number}`.slice(-2);

@@ -1,6 +1,6 @@
 ---
 import ExternalLink from "@components/Global/ExternalLink.astro";
-import { Temporal } from "@js-temporal/polyfill";
+import { Temporal } from "temporal-polyfill-lite";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 
 const lastUpdated = Temporal.PlainDate.from({ year: 2025, month: 6, day: 2 });
