@@ -29,7 +29,7 @@ const {
 
 const { Content } = await render(post);
 
-const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
+const prefix = Astro.currentLocale === 'fr' ? `/fr` : "";
 
 const backLinkText = isFrench
 	? `retour à tous les articles du ${collection}`
