@@ -1,5 +1,5 @@
 ---
-import SettingsToggler from "@components/CV/SettingsToggler.astro";
+
 import HeaderNav from "@components/Nav/HeaderNav.astro";
 
 const { hidePhoto = false } = Astro.props;
@@ -12,14 +12,9 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
         <h1>
             <a href={homeUrl}> Andrew JD Hudson </a>
         </h1>
-        <HeaderNav />
+        <HeaderNav hidePhoto={hidePhoto} />
     </div>
-    {!hidePhoto && (
-        <SettingsToggler
-            src="/images/cv/andrew-profile.jpg"
-            alt="Photo of Andrew JD Hudson"
-        />
-    )}
+
 </header>
 
 <style>
@@ -49,12 +44,5 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
                 text-decoration: none;
             }
         }
-    }
-
-    :global(.settings-toggler) {
-        display: none;
-        grid-row: 1;
-        grid-column-end: center-end;
-        direction: rtl;
     }
 </style>

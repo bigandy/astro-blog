@@ -35,13 +35,12 @@
 		min-height: 100vh;
 		font-size: 18px;
 		line-height: 1.625;
-
 		display: grid;
 
 		--first-layer: calc(var(--column-gap-size) * 2);
 		--second-layer: calc(var(--column-gap-size) * 3);
 
-		@media (max-width: 600px) {
+		@media (max-width: 900px) {
 			--first-layer: 0;
 			--second-layer: 0;
 			--column-gap-size: 9px;

@@ -1,6 +1,6 @@
 ---
 import ExternalLink from "@components/Global/ExternalLink.astro";
-import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
+import SettingsToggler from "@components/CV/SettingsToggler.astro";
 
 import { getNavClassName } from "./getNavClassName";
 import { headerPages } from "./pages";
@@ -9,10 +9,12 @@ const requestPathname = Astro.url.pathname;
 
 const locale = Astro.currentLocale ?? "en";
 
+const { hidePhoto = false } = Astro.props;
 const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
 ---
 
 <nav class="layout wrapper">
+
   <ul class="layout-inner nav">
     {
       headerPages.map((entry) => {
@@ -32,9 +34,12 @@ const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
       })
     }
   </ul>
-  <div class="language-switcher">
-    <LanguageSwitcher />
-  </div>
+  {!hidePhoto && (
+    <SettingsToggler
+        src="/images/cv/andrew-profile.jpg"
+        alt="Photo of Andrew JD Hudson"
+    />
+  )}
 </nav>
 
 <style>
@@ -64,5 +69,10 @@ const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
   .language-switcher {
     margin-left: auto;
   }
+
+  :global(.settings-toggler) {
+    translate: 0 -35%;
+  }
+
 
 </style>
