@@ -40,7 +40,8 @@ const noTranslationText =
 		? "Pas de traduction disponible."
 		: "No translation available";
 
-const showTranslationText = collection !== "weeknotes" && !hasTranslation;
+// const showTranslationText = collection !== "weeknotes" && !hasTranslation;
+const showTranslationText = false;
 ---
 
 <article class="content post inner">
@@ -53,7 +54,7 @@ const showTranslationText = collection !== "weeknotes" && !hasTranslation;
         date={showDate ? post.data.date : undefined}
         title={post.data.title}
         isPreview={false}
-        slug={post.slug}
+        slug={post.id}
         viewTransitionName={post.id}
         postIndex={postIndex}
     />
