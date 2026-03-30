@@ -15,14 +15,16 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props;
+const prevText = "articles plus récents";
+const nextText = "articles plus anciens";
 ---
 
-<DefaultLayout title={`Weeknote Archive Page ${page.currentPage}`}>
+<DefaultLayout title={`les Weeknotes Archive Page ${page.currentPage}`}>
   <div class="top-nav">
-    <ArchiveNav page={page} />
+    <ArchiveNav page={page} prevText={prevText} nextText={nextText} />
   </div>
 
-  {page.data.map((p, postIndex) => <BlogPostPreview post={p} collection='weeknotes' postIndex={postIndex}/>)}
+  {page.data.map((p, postIndex) => <BlogPostPreview post={p} collection='weeknotes-fr' postIndex={postIndex}/>)}
 
   <ArchiveNav page={page} />
 </DefaultLayout>

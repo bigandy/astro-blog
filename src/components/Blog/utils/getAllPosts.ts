@@ -19,7 +19,6 @@ export const getAllPosts = async (collection: Collection = "blog") => {
 	const today = Temporal.Now.plainDateISO();
 
 	// Get all the posts from the posts directory
-	console.log({ collection });
 	allPosts = await getCollection(collection);
 
 	if (isProduction) {

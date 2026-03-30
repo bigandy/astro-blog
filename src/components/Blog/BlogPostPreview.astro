@@ -19,7 +19,7 @@ const future = new Date(date) > new Date();
 const showPostNumber = !draft;
 
 const isFrench = Astro.currentLocale === "fr";
-const prefix = isFrench ? Astro.currentLocale + "/" : "";
+const prefix = isFrench ? `${Astro.currentLocale}/` : "";
 
 type TextType = { [key: string]: { draft: string; future: string } };
 
@@ -47,7 +47,7 @@ const locale = Astro.currentLocale ?? "en";
     <BlogPostHeader
         date={date}
         title={title}
-        slug={`${prefix}${collection}/${slug}`}
+        slug={`${prefix}${collection.replace('-fr', '')}/${slug}`}
         viewTransitionName={slug}
         isPreview
         postIndex={showPostNumber ? postIndex : undefined}
