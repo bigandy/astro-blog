@@ -1,0 +1,19 @@
+---
+import BlogPostList from "@components/Blog/utils/blogPostList.astro";
+import ForwardArrow from "@components/Global/ForwardArrow.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+let title = "Blog";
+---
+
+<DefaultLayout title={title}>
+  <BlogPostList number={9} collection="blog-fr" />
+
+  <ForwardArrow url="/fr/blog/2" title="Voir plus de publications" />
+</DefaultLayout>
+
+<style>
+  body {
+    --theme-accent: var(--theme-accent-blue);
+  }
+</style>

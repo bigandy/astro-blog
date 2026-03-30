@@ -5,6 +5,10 @@ import {
 	getSomePosts,
 } from "@components/Blog/utils/getAllPosts";
 
+const isFrench = Astro.currentLocale === "fr";
+
+// Take 10 latest posts for the moment until I learn how to do pagination with Astro!
+
 interface Props {
 	number: number;
 	collection?: Collection;
@@ -15,7 +19,9 @@ const { number = 9, collection = "blog" } = Astro.props;
 const posts = await getSomePosts(collection, number);
 ---
 {
-	posts.map(
-		(p) => <BlogPostPreview postIndex={p.postIndex} post={p} collection={collection} />
+	posts.length > 0 ? posts.map(
+		(post) => <BlogPostPreview postIndex={post.postIndex} post={post} collection={collection} />
+	) : (
+		<div>{isFrench ? "Aucun article publié sur le" : "No Posts in"} {collection}</div>
 	)
 }

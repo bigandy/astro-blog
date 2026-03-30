@@ -1,22 +1,37 @@
 ---
+import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
+
 interface Props {
 	src: string;
 	alt: string;
-	themeColorKey: string;
-    dimension: number;
+	dimension?: number;
 }
 const { src, alt, dimension = 100 } = Astro.props;
 ---
 
 <div class="settings-toggler">
     <img {src} {alt} height={dimension} width={dimension} />
+    <!-- <LanguageSwitcher /> -->
 </div>
 
 <style>
-    img {
-        display: block;
-        border-radius: 50%;
+    .settings-toggler {
+        margin-left: auto;
     }
+    img {
+        anchor-name: --me;
+        border-radius: 50%;
+        display: block;
+    }
+
+    :global(.language-switcher) {
+        position: fixed;
+        position-anchor: --me;
+        position-area: bottom;
+        z-index: 1;
+        inset: 40px 0;
+    }
+
     @media print {
         img {
             filter: none !important;

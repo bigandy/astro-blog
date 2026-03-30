@@ -1,7 +1,9 @@
 ---
-import { Temporal } from "@js-temporal/polyfill";
 import type { HTMLAttributes } from "astro/types";
+import { Temporal } from "temporal-polyfill-lite";
 
+
+const isFrench = Astro.currentLocale === "fr";
 
 const { date, showLine = false, ...attrs } = Astro.props;
 
@@ -12,12 +14,16 @@ interface Props extends HTMLAttributes<"h3"> {
 const temporalDate = Temporal.PlainDate.from(date);
 
 const options = {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
+	weekday: "long",
+	year: "numeric",
+	month: "long",
+	day: "numeric",
 } as const;
-const dateString = temporalDate.toLocaleString("en-GB", options);
+
+const dateString = temporalDate.toLocaleString(
+	isFrench ? "fr-FR" : "en-GB",
+	options,
+);
 ---
 
 <time

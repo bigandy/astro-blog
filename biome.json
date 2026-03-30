@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
@@ -15,11 +15,8 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": true,
-          	"suspicious": {
-				"noUnknownFunction": "off"
-          	}
-      	}
+			"recommended": true
+		}
 	},
 	"javascript": {
 		"formatter": {
@@ -30,7 +27,7 @@
 		"enabled": true,
 		"actions": {
 			"source": {
-				"organizeImports": "on"
+				"organizeImports": "off"
 			}
 		}
 	},

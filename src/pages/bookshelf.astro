@@ -1,28 +1,10 @@
 ---
-import { Temporal } from "@js-temporal/polyfill";
-import DefaultLayout from "@layouts/DefaultLayout.astro";
-import Bookcase from "src/components/Svelte/Bookcase.svelte";
-import { getBooks } from "src/utils/getBooksFromNotion";
+import BookshelfLayout from "@layouts/BookshelfLayout.astro";
 
 const title = "Bookshelf";
-
-const allBooks = await getBooks();
-const books = allBooks
-	.filter(({ finishedDate }: { finishedDate: string }) => {
-		return finishedDate !== '';
-	})
-	.sort(
-		(a: any, b: any) => {
-      const aDate = a.finishedDate;
-      const bDate = b.finishedDate;
-
-      return Temporal.PlainDate.compare(bDate, aDate);
-    }
-	);
 ---
-
-<DefaultLayout title={title} accent="oklch(0.52 0.12 189.58)">
-  <details>
+<BookshelfLayout title={title}>
+  <details open>
     <summary>introduction</summary>
     <p>
       I store the books that I am reading and have read in Notion. I am using
@@ -30,9 +12,7 @@ const books = allBooks
       finished reading them.
     </p>
   </details>
-
-  <Bookcase client:visible books={books} />
-</DefaultLayout>
+</BookshelfLayout>
 
 <style>
   p {

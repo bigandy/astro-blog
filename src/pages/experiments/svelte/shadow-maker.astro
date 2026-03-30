@@ -1,16 +1,16 @@
 ---
-import ShadowMaker from "@components/CV/ShadowMaker.svelte";
+import ShadowMakerSvelte from "@components/CV/ShadowMaker.svelte";
 import FullScreenLayout from "@layouts/FullScreenLayout.astro";
 ---
 
 <FullScreenLayout>
     <div class="container">
-        <ShadowMaker client:only>
+        <ShadowMakerSvelte client:only>
             <img
                 src="/images/cv/andrew-profile.jpg"
                 alt="Photo of Andrew JD Hudson"
             />
-        </ShadowMaker>
+        </ShadowMakerSvelte>
     </div>
 </FullScreenLayout>
 

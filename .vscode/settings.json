@@ -1,10 +1,10 @@
 {
-    "[astro]": {
-        "editor.formatOnSave": false
-        // "editor.wordWrap": "on",
-        // "editor.defaultFormatter": "astro-build.astro-vscode"
-    },
-    "[markdown]": {
-        "editor.formatOnSave": false
-    },
+	"[astro]": {
+		"editor.formatOnSave": false
+		// "editor.wordWrap": "on",
+		// "editor.defaultFormatter": "astro-build.astro-vscode"
+	},
+	"[markdown]": {
+		"editor.formatOnSave": false
+	}
 }
