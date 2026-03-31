@@ -1,7 +1,7 @@
 ---
 title: "Another translation test - English"
 date: 2025-06-18
-draft: false
+draft: true
 language: "fr"
 hasTranslation: true
 ---
