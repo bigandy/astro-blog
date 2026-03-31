@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import { getNavClassName } from "./getNavClassName";
 import { footerPages } from "./pages";
 import { socialLinks } from "./social-links";
@@ -38,9 +37,7 @@ const locale = Astro.currentLocale ?? "en";
           return (
             <li>
               <a class={className} href={url} target="_blank" style={`color: ${icon.color}`}>
-                {icon && (
-                  <Icon name={`fa6-brands:${icon.name}`} size="1em" />
-                )}
+                <svg height="1em" width="1em"><use href={`#${icon.name}`}></use></svg>
                 {title}
               </a>
             </li>

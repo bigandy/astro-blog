@@ -4,7 +4,6 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
 import { defineConfig, envField } from "astro/config";
-import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,7 +26,7 @@ export default defineConfig({
 		locales: ["en", "fr"],
 		defaultLocale: "en",
 	},
-	integrations: [svelte(), mdx(), react(), icon()],
+	integrations: [svelte(), mdx(), react()],
 	markdown: {
 		syntaxHighlight: "prism",
 	},

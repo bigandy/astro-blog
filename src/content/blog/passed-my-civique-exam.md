@@ -15,7 +15,7 @@ At the end of 2025 I had taken the compulsory four-day Civique Training which wa
 
 ## Revision
 
-During the course I had made plenty of notes so I went through these again. I also found all the free online tests that I could do and did them over and over. I also read some of the online material on the official [https://formation-civique.interieur.gouv.fr/]. I even read a book on the French Revolution at Marion's parents house over Christmas.
+During the course I had made plenty of notes so I went through these again. I also found all the free online tests that I could do and did them over and over. I also read some of the online material on the official [https://formation-civique.interieur.gouv.fr/](). I even read a book on the French Revolution at Marion's parents house over Christmas.
 
 
 ## The Day

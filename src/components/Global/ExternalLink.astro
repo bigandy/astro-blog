@@ -1,8 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import { Icon } from "astro-icon/components";
-
 interface Props extends HTMLAttributes<"a"> {
 	href: string;
 }
@@ -12,7 +10,9 @@ const { href, ...attrs } = Astro.props;
 
 <a href={href} target="_blank" {...attrs}>
     <slot />
-    <Icon name="external-arrow" size="1rem" />
+    <svg width="1rem" height="1rem">
+        <use href="#external-arrow"></use>
+    </svg>
 </a>
 
 <style>

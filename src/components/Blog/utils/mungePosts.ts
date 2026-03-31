@@ -12,7 +12,7 @@ export const mungePosts = async (locale: "en" | "fr") => {
 
 	const posts = collectionEnglish.map((englishPost) => {
 		const frenchPost = collectionFrench.find(
-			({ slug: frenchPostSlug }) => frenchPostSlug === englishPost.slug,
+			({ id: frenchPostId }: { id: string }) => frenchPostId === englishPost.id,
 		);
 
 		return {
