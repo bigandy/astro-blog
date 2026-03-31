@@ -37,7 +37,9 @@ const locale = Astro.currentLocale ?? "en";
           return (
             <li>
               <a class={className} href={url} target="_blank" style={`color: ${icon.color}`}>
-                <svg height="1em" width="1em"><use href={`#${icon.name}`}></use></svg>
+                <svg height="1em" width="1em">
+                  <use href={`/images/sprite.svg#${icon.name}`}></use>
+                </svg>
                 {title}
               </a>
             </li>

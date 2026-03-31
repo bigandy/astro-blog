@@ -11,7 +11,7 @@ const { href, ...attrs } = Astro.props;
 <a href={href} target="_blank" {...attrs}>
     <slot />
     <svg width="1rem" height="1rem">
-        <use href="#external-arrow"></use>
+        <use href="/images/sprite.svg#external-arrow"></use>
     </svg>
 </a>
 
