@@ -92,7 +92,7 @@ const imagesOut = images.map((_, index) => {
         }
 
         li {
-            /* 
+            /*
             * Snap the item to relative to the parent scrollport
             *  */
             scroll-snap-align: center;
@@ -129,7 +129,7 @@ const imagesOut = images.map((_, index) => {
             right: 0;
             top: 50%;
             content: "arrow_forward" / "Next";
-            margin-left: 1rem;
+            margin-inline-start: 1rem;
 
             &:hover {
                 background: black;
@@ -141,7 +141,7 @@ const imagesOut = images.map((_, index) => {
             left: 0;
             top: 50%;
             content: "arrow_back" / "Previous";
-            margin-right: 1rem;
+            margin-inline-end: 1rem;
         }
 
         &::scroll-button(*):not(:disabled):hover {
@@ -162,8 +162,8 @@ const imagesOut = images.map((_, index) => {
 
         /* Start: Scroll Markers */
         scroll-marker-group: after;
-        padding-bottom: 5em;
-        margin-bottom: 10em;
+        padding-block-end: 5em;
+        margin-block-end: 10em;
 
         &::scroll-marker-group {
             position: fixed;

@@ -48,7 +48,7 @@ const { language, levelText, level } = Astro.props;
 
     ul {
         display: flex;
-        margin-left: auto;
+        margin-inline-start: auto;
         padding-inline-start: 0;
     }
 
@@ -60,7 +60,7 @@ const { language, levelText, level } = Astro.props;
         background-color: var(--dot-color-fallback);
 
         &:not(:last-child) {
-            margin-right: 0.5rem;
+            margin-inline-end: 0.5rem;
         }
     }
 

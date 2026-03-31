@@ -25,7 +25,7 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
     }
 
     .layout-inner {
-        padding-block: calc(var(--column-gap-size) * 3) calc(var(--column-gap-size) * 3);
+        padding-block-start: calc(var(--column-gap-size) * 3);
         grid-template-columns: subgrid;
         grid-column: center;
         grid-row: 1;

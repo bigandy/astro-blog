@@ -21,6 +21,6 @@ let { handleClick, options, active }: Props = $props();
 
 <style>
     label {
-        margin-right: 0.5rem;
+        margin-inline-end: 0.5rem;
     }
 </style>

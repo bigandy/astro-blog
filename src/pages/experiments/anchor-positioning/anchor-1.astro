@@ -15,7 +15,7 @@ const title = "Anchor Positioning a Popover Menu";
 
 <FullScreenLayout title={title}>
   <div class="container">
-    
+
 
     <nav>
         <ul>
@@ -57,7 +57,7 @@ const title = "Anchor Positioning a Popover Menu";
     }
 
     nav {
-        /* margin-top: 100vh; */
+        /* margin-block-start: 100vh; */
         /* max-width: 300px; */
         max-width: calc(90%);
         margin-inline: auto;
@@ -74,7 +74,7 @@ const title = "Anchor Positioning a Popover Menu";
 
         button {
             display: block;
-            margin-left: auto;
+            margin-inline-start: auto;
             anchor-name: --nav;
         }
 
@@ -82,20 +82,20 @@ const title = "Anchor Positioning a Popover Menu";
 
 
     .container:has(#left:checked) {
-        .menu { 
-            position-area: bottom left; 
+        .menu {
+            position-area: bottom left;
         }
     }
 
     .container:has(#right:checked) {
-        .menu { 
-            position-area: bottom right; 
+        .menu {
+            position-area: bottom right;
         }
     }
 
     .container:has(#center:checked) {
-        .menu { 
-            position-area: bottom; 
+        .menu {
+            position-area: bottom;
             width: calc(anchor-size() * 3);
         }
     }
@@ -104,8 +104,8 @@ const title = "Anchor Positioning a Popover Menu";
         padding: 0;
         position-anchor: --nav;
         position-area: bottom span-left;
-        margin-top: 1em;
-        position-try-fallbacks: flip-block flip-inline; 
+        margin-block-start: 1em;
+        position-try-fallbacks: flip-block flip-inline;
         transition: 300ms ease-in-out;
         transition-behavior: allow-discrete;
         --initial-x: -100%;
@@ -145,18 +145,18 @@ const title = "Anchor Positioning a Popover Menu";
             display: grid;
             list-style: "";
             grid-template-columns: repeat(2, 1fr);
-            padding-left: 0;
+            padding-inline-start: 0;
             justify-content: center;
             /* border-bottom: 1px solid; */
 
             li {
                 text-align: center;
-                border-right: 1px solid;
-                border-top: 1px solid;
+                border-inline-end: 1px solid;
+                border-block-start: 1px solid;
 
                 &:nth-child(even) {
-                    border-right: 0;
-                    /* border-left: 1px solid; */
+                    border-inline-end: 0;
+                    /* border-inline-start: 1px solid; */
                 }
             }
 
@@ -177,7 +177,7 @@ const title = "Anchor Positioning a Popover Menu";
         }
     }
 
-    
+
 </style>
 
 
