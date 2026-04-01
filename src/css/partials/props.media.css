@@ -1,8 +1,8 @@
-@custom-media --test true;
-@custom-media --mobile (max-width: 550px);
+/* @custom-media --test true; */
+/* @custom-media --mobile (max-width: 550px); */
 
 @custom-media --motionOK      (prefers-reduced-motion: no-preference);
-@custom-media --motionNotOK   (prefers-reduced-motion: reduce);
+/* @custom-media --motionNotOK   (prefers-reduced-motion: reduce);
 @custom-media --opacityOK     (prefers-reduced-transparency: no-preference);
 @custom-media --opacityNotOK  (prefers-reduced-transparency: reduce);
 @custom-media --useDataOK     (prefers-reduced-data: no-preference);
@@ -45,17 +45,17 @@
 @custom-media --md-only       (480px <= width < 768px);
 @custom-media --md-n-above    (width >= 768px);
 @custom-media --md-n-below    (width < 768px);
-@custom-media --md-phone      (--md-only) and (--portrait);
+@custom-media --md-phone      (--md-only) and (--portrait); */
 
-@custom-media --lg-only       (768px <= width < 1024px);
+/* @custom-media --lg-only       (768px <= width < 1024px); */
 @custom-media --lg-n-above    (width >= 1024px);
 @custom-media --lg-n-below    (width < 1024px);
-@custom-media --lg-phone      (--lg-only) and (--portrait);
+/* @custom-media --lg-phone      (--lg-only) and (--portrait); */
 
-@custom-media --xl-only       (1024px <= width < 1440px);
+/* @custom-media --xl-only       (1024px <= width < 1440px);
 @custom-media --xl-n-above    (width >= 1440px);
 @custom-media --xl-n-below    (width < 1440px);
 
 @custom-media --xxl-only      (1440px <= width < 1920px);
 @custom-media --xxl-n-above   (width >= 1920px);
-@custom-media --xxl-n-below   (width < 1920px);
+@custom-media --xxl-n-below   (width < 1920px); */
