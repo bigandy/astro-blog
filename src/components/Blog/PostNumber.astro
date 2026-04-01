@@ -6,28 +6,21 @@ interface Props {
 
 const { number, isPost } = Astro.props;
 ---
-
 {
     number && (
         <div
             class={`post-number wrapper ${isPost ? "is-post" : ""}`}
             style={`--vt-index: num-${number};`}
-        >
-            <span>{number}</span>
-        </div>
+        >{number}</div>
     )
 }
 
 <style>
     .wrapper {
         view-transition-name: var(--vt-index);
-        font-size: 200%;
+        font-size: 125%;
         font-weight: bold;
         color: var(--theme-accent);
-        position: absolute;
-        top: 50%;
-        translate: 0 -50%;
-        right: 0;
         transition: all 0.3s;
         color: transparent;
         background-clip: text;
@@ -37,6 +30,11 @@ const { number, isPost } = Astro.props;
             hsl(from var(--theme-accent) calc(h + 240) s l),
             hsl(from var(--theme-accent) h s l / 0.8)
         );
+        place-self: center;
+
+        @media (width > 1000px) {
+            font-size: 200%;
+        }
     }
 
     /* When on a post page */
@@ -46,7 +44,6 @@ const { number, isPost } = Astro.props;
         left: 50%;
         right: auto;
         translate: -50% -25%;
-        font-size: 3000%;
         font-size: clamp(14.3rem, 50cqi, 3000%);
         width: max-content;
 

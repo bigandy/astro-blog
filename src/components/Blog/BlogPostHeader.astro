@@ -1,5 +1,5 @@
 ---
-import PostIndex from "./PostIndex.astro";
+import PostNumber from "./PostNumber.astro";
 import PublishDate from "./PublishDate.astro";
 
 interface Props {
@@ -42,12 +42,13 @@ const {
         )
     }
 
-    <PostIndex number={postIndex} isPost={!isPreview} />
+    <PostNumber number={postIndex} isPost={!isPreview} />
 </header>
 
 <style>
     .preview {
         display: grid;
+        grid-template-columns: 1fr auto;
 
         &.header {
             display: flex;
