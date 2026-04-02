@@ -5,13 +5,16 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
+		"build:check": "npm run build && npm run check",
 		"preview": "astro preview",
 		"update": "npx @astrojs/upgrade && npx npm-check-updates -u",
 		"update:beta": "npx @astrojs/upgrade beta && npx npm-check-updates -u",
 		"lint-format": "biome check --write",
-		"create-post": "node ./script.mjs"
+		"create-post": "node ./script.mjs",
+		"check": "astro check --noSync"
 	},
 	"dependencies": {
+		"@astrojs/check": "0.9.8",
 		"@astrojs/compiler-rs": "0.1.6",
 		"@astrojs/mdx": "5.0.3",
 		"@astrojs/react": "5.0.2",
@@ -20,7 +23,8 @@
 		"lightningcss": "1.32.0",
 		"react": "19.2.4",
 		"react-dom": "19.2.4",
-		"svelte": "5.55.1"
+		"svelte": "5.55.1",
+		"typescript": "5.9.3"
 	},
 	"devDependencies": {
 		"@11ty/eleventy-fetch": "5.1.2",

@@ -10,7 +10,6 @@ export type Book = {
 	bookIsFrench: boolean;
 	bookTitle: string;
 	bookAuthor: string;
-	createdDate: string;
 	finishedDate: string;
 	thumbnail: string;
 	rating: number;

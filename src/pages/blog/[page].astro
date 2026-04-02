@@ -1,14 +1,13 @@
 ---
 import { getAllPosts } from "@components/Blog/utils/getAllPosts";
-import ArchivePageLayout from "@layouts/ArchivePageLayout.astro";
+import ArchivePageLayout, { type ArchivePageEntry } from "@layouts/ArchivePageLayout.astro";
 import type { GetStaticPaths } from "astro";
-import type { CollectionEntry } from "astro:content";
 const collection = "blog";
 
 interface Props {
 	page: {
 		currentPage: number;
-		data: CollectionEntry<typeof collection>;
+		data: Array<ArchivePageEntry>;
         url: {
             current: string;
         }

@@ -35,15 +35,13 @@ const text: TextType = {
 	},
 };
 const articleType = draft ? "draft" : future ? "future" : "";
-
-const locale = Astro.currentLocale ?? "en";
 ---
 
 <article
     class={`post-preview layout-inner`}
     data-type={articleType}
-    data-draft={text[locale].draft}
-    data-future={text[locale].future}
+    data-draft={text[isFrench ? 'fr': 'en']!.draft}
+    data-future={text[isFrench ? 'fr': 'en']!.future}
 >
     <BlogPostHeader
         date={date}

@@ -1,5 +1,11 @@
 {
 	"extends": "astro/tsconfigs/strictest",
+	// "exclude": [
+	// 	"./script/*/*.mjs"
+	// ],
+	"include": [
+		"src/**/*"
+	],
 	"compilerOptions": {
 		"paths": {
 			"@css/*": [

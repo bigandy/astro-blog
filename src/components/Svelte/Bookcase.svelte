@@ -19,7 +19,7 @@
     interface Props {
         books: Book[];
         locale: string;
-        text: Text;
+        text: Text | undefined;
     }
 
     let {

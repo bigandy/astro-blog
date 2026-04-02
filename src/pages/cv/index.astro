@@ -12,7 +12,7 @@ import SocialLinksList from "@components/CV/SocialLinksList.astro";
 
 import "@css/cv.css";
 
-import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
+// import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
 
 import {
 	education,
@@ -22,7 +22,6 @@ import {
 	skills,
 	socialLinks,
 	summary,
-	themeColorKey,
 } from "./content";
 
 const overrideFullDates = false;
@@ -62,7 +61,6 @@ const overrideFullDates = false;
             <SettingsToggler
                 src="/images/cv/andrew-profile.jpg"
                 alt="Photo of Andrew JD Hudson"
-                themeColorKey={themeColorKey}
                 dimension={70}
             />
             <!-- <LanguageSwitcher /> -->

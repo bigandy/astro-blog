@@ -3,12 +3,12 @@ import PostNumber from "./PostNumber.astro";
 import PublishDate from "./PublishDate.astro";
 
 interface Props {
-	date?: Date;
+	date?: string | undefined;
 	title: string;
 	isPreview?: boolean;
 	slug: string;
 	viewTransitionName: string;
-	postIndex?: number;
+	postIndex?: number | undefined;
 }
 
 const {

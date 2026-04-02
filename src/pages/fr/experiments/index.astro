@@ -184,10 +184,10 @@ const pages: Pages = {
             Object.keys(pages).map((group) => {
                 return (
                     <section>
-                        <h3>{pages[group].parent}</h3>
+                        <h3>{pages[group]!.parent}</h3>
 
                         <ol>
-                            {pages[group].children
+                            {pages[group]!.children
                                 .filter(({ active }) => active !== false)
                                 .map(({ title, url }) => {
                                     return (

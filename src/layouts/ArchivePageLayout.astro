@@ -6,11 +6,13 @@ import type { CollectionEntry } from "astro:content";
 
 const isBlog = Astro.props.page.url.current.includes('blog');
 
+export type ArchivePageEntry = CollectionEntry<"weeknotes" | "blog" | "blog-fr" | "weeknotes" | "weeknotes-fr"> & { postIndex: number }
+
 interface Props {
     collection: "weeknotes" | "blog" | "blog-fr" | "weeknotes" | "weeknotes-fr";
 	page: {
 		currentPage: number;
-		data: CollectionEntry<"weeknotes" | "blog" | "blog-fr" | "weeknotes" | "weeknotes-fr">;
+		data: Array<ArchivePageEntry>;
         url: {
             current: string;
         }

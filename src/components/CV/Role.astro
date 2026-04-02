@@ -6,7 +6,7 @@ import { Temporal } from "temporal-polyfill-lite";
 interface Props {
 	role: Role;
 	company: string;
-	overrideFullDates?: boolean;
+	overrideFullDates: boolean | undefined;
 }
 
 const { role, company, overrideFullDates = false } = Astro.props;
