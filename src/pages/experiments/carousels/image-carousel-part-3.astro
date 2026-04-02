@@ -1,5 +1,5 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "Carousel - Add the Buttons for Navigating";
 
@@ -10,7 +10,7 @@ const imagesOut = images.map((_, index) => {
 });
 ---
 
-<FullScreenLayout title={""} removePadding={true}>
+<DemoLayout title={""} removePadding={true}>
     <div class="intro">
         <h1>{title}</h1>
         <p>
@@ -35,7 +35,7 @@ const imagesOut = images.map((_, index) => {
             }
         </ul>
     </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
     @font-face {

@@ -1,6 +1,6 @@
 ---
 import Canvas from "@components/Global/Canvas.astro";
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "Canvas 4 - some random squares";
 ---
@@ -10,12 +10,12 @@ const title = "Canvas 4 - some random squares";
 
   const { width, height } = canvas.getBoundingClientRect();
   const ctx = canvas.getContext("2d")!;
-  
-  
+
+
 
 
   const drawSquare = (x: number, y: number, size: number) => {
-    
+
 
     const opacity = Date.now() % 3 === 0 ? "0.75" : "0.24";
 
@@ -55,11 +55,11 @@ const title = "Canvas 4 - some random squares";
       init();
     });
   }
-  
+
 </script>
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <div class="container">
     <Canvas reload />
   </div>
-</FullScreenLayout>
+</DemoLayout>

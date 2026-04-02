@@ -1,9 +1,9 @@
 ---
 import ShadowMakerSvelte from "@components/CV/ShadowMaker.svelte";
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 ---
 
-<FullScreenLayout>
+<DemoLayout>
     <div class="container">
         <ShadowMakerSvelte client:only>
             <img
@@ -12,7 +12,7 @@ import FullScreenLayout from "@layouts/FullScreenLayout.astro";
             />
         </ShadowMakerSvelte>
     </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
     .container {

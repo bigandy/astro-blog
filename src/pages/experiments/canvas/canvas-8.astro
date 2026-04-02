@@ -1,15 +1,15 @@
 ---
 import Canvas from "@components/Global/Canvas.astro";
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "Canvas 8 - spirograph gone crazy";
 ---
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <div class="container">
     <Canvas width={800} height={800} />
   </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <script>
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
@@ -22,8 +22,8 @@ const title = "Canvas 8 - spirograph gone crazy";
 
   // Draw Spirograph
   function drawSpirograph() {
-  
-    
+
+
     var offset = -Math.PI / 2;
 
     // Calculate center point and radius

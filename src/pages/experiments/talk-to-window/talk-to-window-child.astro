@@ -1,17 +1,17 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "Talk to Window Child";
 ---
 
-<FullScreenLayout title={title} backLink={''}>
+<DemoLayout title={title} backLink={''}>
   <form id="form">
     <label for="name">Enter your name</label>
     <input type="text" id="name" />
 
     <button type="submit">Submit</button>
   </form>
-</FullScreenLayout>
+</DemoLayout>
 
 <script>
   const { host, protocol } = window.location;

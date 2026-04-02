@@ -1,24 +1,24 @@
 ---
 import Canvas from "@components/Global/Canvas.astro";
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "Canvas 2 - drawing circles";
 ---
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <div class="container">
     <Canvas />
   </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <script>
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-  
+
   const { width, height } = canvas;
 
   const ctx = canvas.getContext("2d")!;
 
- 
+
 
   const drawCircle = (x: number, y: number, size: number, color = "red") => {
     ctx.beginPath();

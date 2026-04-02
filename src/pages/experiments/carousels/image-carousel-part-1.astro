@@ -1,6 +1,6 @@
 ---
 // import Block from "@components/Global/Block.astro";
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "Carousel - Setup the carousel";
 
@@ -11,7 +11,7 @@ const imagesOut = images.map((_, index) => {
 });
 ---
 
-<FullScreenLayout title={title} removePadding={true}>
+<DemoLayout title={title} removePadding={true}>
     <div class="container">
         <ul class="carousel">
             {
@@ -29,7 +29,7 @@ const imagesOut = images.map((_, index) => {
             }
         </ul>
     </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
     ul {
@@ -62,7 +62,7 @@ const imagesOut = images.map((_, index) => {
         }
 
         li {
-            /* 
+            /*
             * Snap the item to relative to the parent scrollport
             *  */
             scroll-snap-align: center;

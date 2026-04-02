@@ -1,12 +1,12 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 import { Code } from "astro/components";
 
 const title = ":has() - CSS Parent Selector";
 ---
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <div class="container">
     <p>
       Ever wanted to be able to style a parent depending on
@@ -45,7 +45,7 @@ div:has(button) {
       </p>
     </div>
   </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <style style="display: block">
   .example {

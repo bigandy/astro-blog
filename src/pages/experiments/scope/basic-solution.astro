@@ -1,10 +1,10 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "@scope - Solution";
 ---
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <h2>Solution</h2>
   <div class="container dark-theme">
     <h2>Dark-theme section</h2>
@@ -25,7 +25,7 @@ const title = "@scope - Solution";
     With @scope we are being strict that the styles within the @scope selection
     only apply to that scope not other scopes.
   </p>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
   [class*="-theme"] {

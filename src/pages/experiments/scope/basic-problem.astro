@@ -1,10 +1,10 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "@scope - Problem";
 ---
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <h2>Problem</h2>
   <div class="container dark-theme">
     <h2>Dark-theme section</h2>
@@ -25,7 +25,7 @@ const title = "@scope - Problem";
     Because the css for .light-theme comes last any nested dark-theme will be
     overruled by the light-theme style.
   </p>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
   [class*="-theme"] {

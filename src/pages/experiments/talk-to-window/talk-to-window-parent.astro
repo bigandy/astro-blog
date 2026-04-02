@@ -1,10 +1,10 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "Talk to Window Parent";
 ---
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <p>
     Communicate from the popup back to the parent window.
     Click on the button to open the popup window, then in
@@ -18,7 +18,7 @@ const title = "Talk to Window Parent";
   <button id="open">Open Window</button>
 
   <div id="output"></div>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
   p {

@@ -1,12 +1,12 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 ---
 
-<FullScreenLayout>
+<DemoLayout>
   <div class="container">
     <button id="doSomething">Trigger View Transition</button>
   </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <script>
     const updateTheDOMSomehow = () => {
@@ -33,7 +33,7 @@ button?.addEventListener('click', handleClick)
 html::view-transition-old(container) {
     animation-duration: 1s;
     transition: 100px;
-    
+
 
     animation-name: derp;
     animation-fill-mode: forwards;

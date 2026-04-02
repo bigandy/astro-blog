@@ -1,8 +1,8 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 ---
 
-<FullScreenLayout>
+<DemoLayout>
     <main>
   <div class="container">
     <button id="doSomething">Trigger View Transition</button>
@@ -16,7 +16,7 @@ import FullScreenLayout from "@layouts/FullScreenLayout.astro";
     </div>
   </div>
 </main>
-</FullScreenLayout>
+</DemoLayout>
 
 <script>
     const updateTheDOMSomehow = () => {
@@ -74,7 +74,7 @@ html::view-transition-group(--vt-container) {
 
 html::view-transition-group(--vt-blob) {
     animation-duration: 300ms;
-    animation-timing-function: linear; 
+    animation-timing-function: linear;
 }
 
 html::view-transition-group(--vt-blob2) {
@@ -97,7 +97,7 @@ html::view-transition-group(--vt-blob2) {
 [class^=blob] {
     background: white;
 }
- 
+
 .blob {
     view-transition-name: --vt-blob;
     contain: layout;

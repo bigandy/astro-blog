@@ -1,15 +1,15 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 ---
 
-<FullScreenLayout>
+<DemoLayout>
   <div class="container">
     <ol>
         <li>Scroll down to see the red blob animate across the page. This is handled by scroll-driven view() animations - when the blob is fully inside the scrollport I activate the animation, ending it when the blob reaches the top of the scrollport. I have added some margin </li>
     </ol>
     <div class="blob"></div>
   </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
 
@@ -45,12 +45,12 @@ body {
 
     --view-timeline-inset: 10px;
 
-    animation-range: 
-        entry-crossing calc(100% + var(--view-timeline-inset)) 
+    animation-range:
+        entry-crossing calc(100% + var(--view-timeline-inset))
         exit-crossing calc(0% - var(--view-timeline-inset));
 
 }
-    
+
 
 
 @keyframes moveRight {

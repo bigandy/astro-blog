@@ -1,12 +1,12 @@
 ---
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 
 const title = "Houdini Paint 1 - Checkerboard";
 const color1 = "#00FFFF"; // cyan
 const color2 = "#FF69B4"; // hotpink
 ---
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <div id="controls">
     <label for="color1">Color 1</label>
     <input
@@ -36,7 +36,7 @@ const color2 = "#FF69B4"; // hotpink
   </div>
 
   <div class="container" id="container"></div>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
   #controls {

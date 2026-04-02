@@ -2,11 +2,11 @@
 import { Code } from "astro:components";
 import Notes from "@components/Global/Notes.astro";
 import AstroSiblingCount from "@components/Global/SiblingCount.astro";
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 import importedCode from "/src/components/Global/SiblingCount.astro?raw";
 ---
 
-<FullScreenLayout>
+<DemoLayout>
     <h1>Sibling Count with Astro</h1>
 
     <ul class="demo">
@@ -95,7 +95,7 @@ import importedCode from "/src/components/Global/SiblingCount.astro?raw";
 
         </li>
     </ol>
-</FullScreenLayout>
+</DemoLayout>
 
 <style is:global>
 .demo {

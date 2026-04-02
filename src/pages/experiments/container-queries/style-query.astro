@@ -1,19 +1,19 @@
 ---
 import Block from "@components/Global/Block.astro";
 import ContainerStyleQuerySupport from "@components/Global/ContainerStyleQuerySupport.astro";
-import FullScreenLayout from "@layouts/FullScreenLayout.astro";
+import DemoLayout from "@layouts/DemoLayout.astro";
 import "src/css/container-queries-2.css";
 
 const title = "Style Container Queries";
 ---
 
-<FullScreenLayout title={title}>
+<DemoLayout title={title}>
   <ContainerStyleQuerySupport />
 
   <div class="container">
     <label for="checkbox">Use Debugging?</label>
     <input type="checkbox" id="checkbox"/>
-    
+
     <div>
       <Block />
       <Block />
@@ -22,7 +22,7 @@ const title = "Style Container Queries";
     </div>
 
   </div>
-</FullScreenLayout>
+</DemoLayout>
 
 <style>
   .container {
@@ -32,7 +32,7 @@ const title = "Style Container Queries";
   .container:has(#checkbox:checked) {
     --debug: true;
   }
-  
+
   @container style(--debug: true) {
     .container :global(*) {
       outline: 1px dashed red;
