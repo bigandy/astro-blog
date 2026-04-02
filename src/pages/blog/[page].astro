@@ -1,13 +1,14 @@
 ---
-import ArchivePageLayout from "@layouts/ArchivePageLayout.astro";
-import type { CollectionEntry } from "astro:content";
 import { getAllPosts } from "@components/Blog/utils/getAllPosts";
+import ArchivePageLayout from "@layouts/ArchivePageLayout.astro";
 import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+const collection = "blog";
 
 interface Props {
 	page: {
 		currentPage: number;
-		data: CollectionEntry<"weeknotes">;
+		data: CollectionEntry<typeof collection>;
         url: {
             current: string;
         }
@@ -17,7 +18,7 @@ interface Props {
 const { page } = Astro.props;
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allPosts = await getAllPosts("blog");
+	const allPosts = await getAllPosts(collection);
 
 	// Return a paginated collection of paths for all posts
 	return paginate(allPosts, { pageSize: 10 });
@@ -25,4 +26,4 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 ---
 
-<ArchivePageLayout page={page} />
+<ArchivePageLayout page={page} collection={collection} />

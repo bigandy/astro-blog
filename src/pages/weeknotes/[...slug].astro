@@ -1,15 +1,21 @@
 ---
 import { type CollectionEntry } from "astro:content";
 
-import BlogPost from "@components/Blog/BlogPost.astro";
 import { getAllPosts } from "@components/Blog/utils/getAllPosts";
-import DefaultLayout from "@layouts/DefaultLayout.astro";
-import FullPageLayout from "@layouts/FullPageLayout.astro";
-
+import SlugPageLayout from "@layouts/SlugPageLayout.astro";
 export const prerender = true;
 
+const collection = "weeknotes";
+
+interface Props {
+	post: CollectionEntry<typeof collection>;
+	postIndex: number;
+}
+
+const { post, postIndex } = Astro.props;
+
 export async function getStaticPaths() {
-	const posts = await getAllPosts("weeknotes");
+	const posts = await getAllPosts(collection);
 
 	return posts.map((post) => {
 		return {
@@ -21,31 +27,5 @@ export async function getStaticPaths() {
 		};
 	});
 }
-
-interface Props {
-	post: CollectionEntry<"weeknotes">;
-	postIndex: number;
-	hasTranslation: boolean;
-}
-
-const { post, postIndex, hasTranslation } = Astro.props;
-const { template, title } = post.data;
-const slug = `blog/${post.id}/`;
 ---
-
-{
-    template === "full-page" ? (
-        <FullPageLayout title={title} permalink={slug}>
-            <BlogPost
-                post={post}
-                showBackLink={true}
-                permalink={post.id}
-                postIndex={postIndex}
-            />
-        </FullPageLayout>
-    ) : (
-        <DefaultLayout title={post.data.title} hideTitle>
-            <BlogPost post={post} postIndex={postIndex} hasTranslation={hasTranslation} />
-        </DefaultLayout>
-    )
-}
+<SlugPageLayout postIndex={postIndex} collection={collection} post={post} />

@@ -7,16 +7,17 @@ import type { CollectionEntry } from "astro:content";
 const isBlog = Astro.props.page.url.current.includes('blog');
 
 interface Props {
+    collection: "weeknotes" | "blog" | "blog-fr" | "weeknotes" | "weeknotes-fr";
 	page: {
 		currentPage: number;
-		data: CollectionEntry<"weeknotes" | "blog">;
+		data: CollectionEntry<"weeknotes" | "blog" | "blog-fr" | "weeknotes" | "weeknotes-fr">;
         url: {
             current: string;
         }
 	};
 }
 
-const { page } = Astro.props;
+const { page, collection } = Astro.props;
 const title = `${isBlog ? "Blog" : "Weeknote"} Archive Page ${page.currentPage}`;
 ---
 
@@ -26,7 +27,7 @@ const title = `${isBlog ? "Blog" : "Weeknote"} Archive Page ${page.currentPage}`
     </div>
 
     {
-        page.data.map((post) => <BlogPostPreview post={post} postIndex={post.postIndex} collection={isBlog ? 'blog' : 'weeknotes' } /> )
+        page.data.map((post) => <BlogPostPreview post={post} postIndex={post.postIndex} collection={collection} /> )
     }
 
     <ArchiveNav page={page} />

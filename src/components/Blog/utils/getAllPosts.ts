@@ -11,7 +11,7 @@ export type Item = CollectionEntry<Collection> & {
 	hasTranslation?: boolean;
 };
 
-export const getAllPosts = async (collection: Collection = "blog") => {
+export const getAllPosts = async (collection: Collection) => {
 	const showFuturePosts = false;
 
 	// Data Fetching: List all Markdown posts in the repo.

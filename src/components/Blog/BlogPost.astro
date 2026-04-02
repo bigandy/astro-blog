@@ -7,13 +7,14 @@ import BlogContent from "@components/Blog/BlogContent.astro";
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import BackArrow from "@components/Global/BackArrow.astro";
 import EditPostOnGithub from "@components/Global/EditPostOnGithub.astro";
+import { isProduction } from "@utils/isProduction";
 
 const isFrench = Astro.currentLocale === "fr";
 interface Props {
-	post: CollectionEntry<"blog" | "weeknotes" | "blog-fr">;
+	post: CollectionEntry<"blog" | "weeknotes" | "blog-fr" | "weeknotes-fr">;
 	showBackLink?: boolean;
 	showDate?: boolean;
-	collection?: "blog" | "weeknotes";
+	collection: "blog" | "weeknotes" | "blog-fr" | "weeknotes-fr";
 	postIndex?: number;
 	hasTranslation?: boolean;
 }
@@ -68,7 +69,9 @@ const showTranslationText = false;
             <BackArrow url={`${prefix}/${collection}/`} title={backLinkText} />
         )
     }
-    <EditPostOnGithub slug={post.id} collection={collection} />
+    {isProduction && (
+        <EditPostOnGithub slug={post.id} collection={collection} />
+    )}
 </article>
 
 
