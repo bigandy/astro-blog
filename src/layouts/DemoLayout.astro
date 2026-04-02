@@ -2,18 +2,19 @@
 import BaseHead from "@components/Global/BaseHead.astro";
 
 interface Props {
-	title?: string;
-	backLink?: string;
+	title: string;
+	hideBackLink?: boolean;
 	removePadding?: boolean;
 }
 
 const {
 	title = "",
-	backLink = "/experiments/",
+    hideBackLink = false,
 	removePadding = false,
 } = Astro.props;
 
 const padding = !removePadding ? "1em" : "";
+const backLink = "/experiments/";
 ---
 
 <html lang="en">
@@ -29,19 +30,27 @@ const padding = !removePadding ? "1em" : "";
             :global(body) {
                 padding: 0;
             }
+
+            .title {
+                margin-block: 2rem;
+            }
         </style>
     </head>
 
     <body>
-        <section class="slot">
-            {backLink && <a href={backLink}>&larr; Back</a>}
-            {title !== "" && <h1 class="title">{title}</h1>}
-            <slot />
-        </section>
+        <main class="layout">
+            <div class="inner">
+                <section class="slot">
+                    {!hideBackLink && <a href={backLink} class="back-link">&larr; Back</a>}
+                    {title !== "" && <h1 class="title">{title}</h1>}
+                    <slot />
+                </section>
+            </div>
         <style>
             body {
                 --theme-accent: #52b788;
             }
         </style>
+        </main>
     </body>
 </html>
