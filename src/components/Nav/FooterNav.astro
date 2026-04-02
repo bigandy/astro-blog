@@ -1,5 +1,5 @@
 ---
-import { getNavClassName } from "./utils";
+import { getNavClassName, getUrlWithFinalSlash } from "./utils";
 import { footerPages } from "./pages";
 import { socialLinks } from "./social-links";
 
@@ -14,10 +14,11 @@ const locale = Astro.currentLocale ?? "en";
         {
             footerPages.map((entry) => {
                 const className = getNavClassName(entry.url, requestPathname);
+                const href = getUrlWithFinalSlash(prefix + entry.url);
 
                 return (
                   <li>
-                    <a class={className} href={prefix + entry.url}>
+                    <a class={className} href={href}>
                       {(locale === 'fr' && entry.title['fr']) || entry.title.default}
                     </a>
                   </li>

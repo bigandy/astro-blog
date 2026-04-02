@@ -15,7 +15,7 @@ export const getNavClassName = (url: string, requestPathname: string) => {
 	return requestPathname.replace("/fr", "") === url ? "active" : "";
 };
 
-export const addFinalSlash = (url: string) => {
+export const getUrlWithFinalSlash = (url: string) => {
 	if (url === '/') {
 		return '/'
 	}

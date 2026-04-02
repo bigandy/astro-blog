@@ -2,7 +2,7 @@
 import ExternalLink from "@components/Global/ExternalLink.astro";
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
 
-import { getNavClassName, addFinalSlash } from "./utils";
+import { getNavClassName, getUrlWithFinalSlash } from "./utils";
 import { headerPages } from "./pages";
 
 const requestPathname = Astro.url.pathname;
@@ -19,7 +19,8 @@ const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
     {
       headerPages.map((entry) => {
         const className = getNavClassName(entry.url, requestPathname);
-        const href = addFinalSlash(prefix + entry.url);
+        const href = getUrlWithFinalSlash(prefix + entry.url);
+
         return (
           <li>
             {entry.external ? (
