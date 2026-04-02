@@ -14,6 +14,7 @@ const {
 	collection = "blog",
 	postIndex,
 } = Astro.props;
+
 const { draft, title, date } = data;
 const future = new Date(date) > new Date();
 const showPostNumber = !draft;

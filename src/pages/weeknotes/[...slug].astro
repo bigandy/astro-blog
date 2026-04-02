@@ -5,35 +5,32 @@ import BlogPost from "@components/Blog/BlogPost.astro";
 import { getAllPosts } from "@components/Blog/utils/getAllPosts";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import FullPageLayout from "@layouts/FullPageLayout.astro";
+
 export const prerender = true;
-
-const collection = "weeknotes";
-
-interface Props {
-	post: CollectionEntry<"weeknotes">;
-	postIndex: number;
-}
-
-const { post, postIndex } = Astro.props;
-const { template, title } = post.data;
-
-const slug = `/fr/weeknotes/${post.id}`;
 
 export async function getStaticPaths() {
 	const posts = await getAllPosts("weeknotes");
 
 	return posts.map((post) => {
 		return {
-			params: {
-				slug: post.id,
-			},
+			params: { slug: post.id },
 			props: {
-				post,
 				postIndex: post.postIndex,
+				post,
 			},
 		};
 	});
 }
+
+interface Props {
+	post: CollectionEntry<"weeknotes">;
+	postIndex: number;
+	hasTranslation: boolean;
+}
+
+const { post, postIndex, hasTranslation } = Astro.props;
+const { template, title } = post.data;
+const slug = `blog/${post.id}/`;
 ---
 
 {
@@ -41,15 +38,14 @@ export async function getStaticPaths() {
         <FullPageLayout title={title} permalink={slug}>
             <BlogPost
                 post={post}
-                showBackLink={false}
-                showDate={false}
-                collection={collection}
+                showBackLink={true}
+                permalink={post.id}
+                postIndex={postIndex}
             />
         </FullPageLayout>
     ) : (
         <DefaultLayout title={post.data.title} hideTitle>
-            <BlogPost post={post} collection={collection} postIndex={postIndex} />
+            <BlogPost post={post} postIndex={postIndex} hasTranslation={hasTranslation} />
         </DefaultLayout>
     )
 }
-

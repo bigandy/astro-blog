@@ -20,7 +20,7 @@ const posts = await getSomePosts(collection, number);
 ---
 {
 	posts.length > 0 ? posts.map(
-		(post) => <BlogPostPreview postIndex={post.postIndex} post={post} collection={collection} />
+		(post) => <BlogPostPreview post={post} postIndex={post.postIndex} collection={collection} />
 	) : (
 		<div>{isFrench ? "Aucun article publié sur le" : "No Posts in"} {collection}</div>
 	)
