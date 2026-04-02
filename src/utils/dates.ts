@@ -13,8 +13,8 @@ export const getPlainDateFromString = (monthYearString: string) => {
 
 	const plainDate = Temporal.PlainDate.from({
 		day: 1,
-		month: +month,
-		year: +year,
+		month: +month!,
+		year: +year!,
 	});
 
 	return plainDate;

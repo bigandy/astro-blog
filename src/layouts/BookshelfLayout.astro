@@ -1,8 +1,8 @@
 ---
 import { Temporal } from "temporal-polyfill-lite";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
-import Bookcase from "src/components/Svelte/Bookcase.svelte";
-import { getBooks } from "src/utils/getBooksFromNotion";
+import Bookcase from "@components/Svelte/Bookcase.svelte";
+import { getBooks } from "@utils/getBooksFromNotion";
 
 const isFrench = Astro.currentLocale === "fr";
 
