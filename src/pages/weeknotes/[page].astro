@@ -18,7 +18,7 @@ interface Props {
 const { page } = Astro.props;
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allPosts = await getAllPosts(collection);
+	const allPosts = await getAllPosts("weeknotes");
 
 	// Return a paginated collection of paths for all posts
 	return paginate(allPosts, { pageSize: 10 });

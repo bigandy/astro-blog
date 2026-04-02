@@ -11,7 +11,7 @@ I often have the need to see the in-place value of the a CSS variable on the pag
 
 This is for future me as I always need to look it up.
 
-#### CSS
+### CSS
 
 ```css
 .blob {
@@ -19,7 +19,7 @@ This is for future me as I always need to look it up.
 
     background: hsl(calc(var(--hue) * 1deg) 100% 50%);
 
-    /* the counter name must be of type <custom-ident>. See https://developer.mozilla.org/en-US/docs/Web/CSS/counter-reset and https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident 
+    /* the counter name must be of type <custom-ident>. See https://developer.mozilla.org/en-US/docs/Web/CSS/counter-reset and https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident
     The second value must be an integer (i.e. cannot have a unit so 30deg would not work here).
     */
     counter-reset: hue var(--hue);
@@ -31,7 +31,7 @@ This is for future me as I always need to look it up.
 }
 ```
 
-#### HTML
+### HTML
 
 ```html
 <div class="blob" style="--index: 1"></div>
@@ -41,6 +41,6 @@ This is for future me as I always need to look it up.
 <div class="blob" style="--index: 5"></div>
 ```
 
-#### Output:
+### Output:
 
 <BlobsExample />

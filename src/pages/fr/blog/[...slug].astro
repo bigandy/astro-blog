@@ -15,7 +15,7 @@ interface Props {
 const { post, postIndex } = Astro.props;
 
 export async function getStaticPaths() {
-	const posts = await getAllPosts(collection);
+	const posts = await getAllPosts("blog-fr");
 
 	return posts.map((post) => {
 		return {
