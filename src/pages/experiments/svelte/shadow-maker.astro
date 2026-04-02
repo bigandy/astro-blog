@@ -5,7 +5,28 @@ import DemoLayout from "@layouts/DemoLayout.astro";
 
 <DemoLayout title="Shadow Maker">
     <div class="container">
+
+        <h2>Vanilla</h2>
+
         <ShadowMakerSvelte client:only>
+            <img
+                src="/images/cv/andrew-profile.jpg"
+                alt="Photo of Andrew JD Hudson"
+            />
+        </ShadowMakerSvelte>
+
+        <h2>Adjusting the spread with the spread prop</h2>
+
+        <ShadowMakerSvelte client:only spread={1}>
+            <img
+                src="/images/cv/andrew-profile.jpg"
+                alt="Photo of Andrew JD Hudson"
+            />
+        </ShadowMakerSvelte>
+
+        <h2>Adjusting the color with the color prop</h2>
+
+        <ShadowMakerSvelte client:only color="green">
             <img
                 src="/images/cv/andrew-profile.jpg"
                 alt="Photo of Andrew JD Hudson"
@@ -18,5 +39,6 @@ import DemoLayout from "@layouts/DemoLayout.astro";
     .container {
         display: grid;
         place-content: center;
+        gap: 3rem;
     }
 </style>
