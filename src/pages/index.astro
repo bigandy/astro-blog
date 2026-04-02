@@ -1,5 +1,5 @@
 ---
-import BlogPostList from "@components/Blog/utils/blogPostList.astro";
+import BlogPostList from "@components/Blog/BlogPostList.astro";
 import ForwardArrow from "@components/Global/ForwardArrow.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 
@@ -29,7 +29,7 @@ const themeAccent = "oklch(0.68 0.25 38.61)";
 
         <BlogPostList number={21} />
 
-        <ForwardArrow url="/blog/2" title="See more posts" />
+        <ForwardArrow url="/blog/2/" title="See more posts" />
     </div>
 </DefaultLayout>
 

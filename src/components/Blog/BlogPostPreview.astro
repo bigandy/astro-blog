@@ -47,7 +47,7 @@ const locale = Astro.currentLocale ?? "en";
     <BlogPostHeader
         date={date}
         title={title}
-        slug={`${prefix}${collection.replace('-fr', '')}/${slug}`}
+        slug={`${prefix}${collection.replace('-fr', '')}/${slug}/`}
         viewTransitionName={slug}
         isPreview
         postIndex={showPostNumber ? postIndex : undefined}

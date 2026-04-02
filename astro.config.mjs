@@ -7,6 +7,7 @@ import { defineConfig, envField } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+	trailingSlash: 'always',
 	env: {
 		schema: {
 			NOTION_DB: envField.string({
@@ -46,6 +47,17 @@ export default defineConfig({
 		queuedRendering: {
 			enabled: true,
 			contentCache: true,
+		},
+	},
+	vite: {
+		css: {
+			transformer: "lightningcss",
+			lightningcss: {
+                drafts: {
+                    customMedia: true,
+                },
+                // targets: browserslistToTargets(browsersList),
+            },
 		},
 	},
 });

@@ -1,5 +1,5 @@
 ---
-import BlogPostList from "@components/Blog/utils/blogPostList.astro";
+import BlogPostList from "@components/Blog/BlogPostList.astro";
 import ForwardArrow from "@components/Global/ForwardArrow.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 
@@ -11,5 +11,5 @@ const title = "Blog";
       <BlogPostList number={9} />
   </div>
 
-  <ForwardArrow url="/blog/2" title="See more posts" />
+  <ForwardArrow url="/blog/2/" title="See more posts" />
 </DefaultLayout>
