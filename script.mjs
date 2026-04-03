@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
 	autocomplete,
 	isCancel,
@@ -168,6 +167,7 @@ title: "${title}"
 date: ${pubDate}
 draft: false
 tags: [""]
+description: ""
 ---
 
 `;

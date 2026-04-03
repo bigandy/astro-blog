@@ -3,9 +3,8 @@ title: "weaknote 01 2026"
 date: 2026-03-02
 draft: true
 tags: [""]
+description: "I love the idea of weaknotes as I often don't have time or the routine to write weekly."
 ---
-
-I love the idea of weaknotes as I often don't have time or the routine to write weekly.
 
 ## learning french
 Starting this week I have begun the daily process of doing structured learning every day.

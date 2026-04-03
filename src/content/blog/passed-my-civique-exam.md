@@ -3,9 +3,9 @@ title: "Passed my Civique Exam!"
 date: 2026-01-22
 draft: false
 tags: [""]
+description: "I took my Civique Exam in the first week of January and I passed with flying colours!"
 ---
 
-I took my Civique Exam in the first week of January and I passed with flying colours!
 
 ## What is it?
 New this year the civique exam is an additional pre-requisit for getting a multi-year Titre de Sejour in France.

@@ -10,6 +10,7 @@ import EditPostOnGithub from "@components/Global/EditPostOnGithub.astro";
 import { isProduction } from "@utils/isProduction";
 
 const isFrench = Astro.currentLocale === "fr";
+
 interface Props {
 	post: CollectionEntry<"blog" | "weeknotes" | "blog-fr" | "weeknotes-fr">;
 	showBackLink?: boolean;
@@ -61,6 +62,10 @@ const showTranslationText = false;
     />
 
     <BlogContent>
+        {post.data.description && (
+            <p>{post.data.description}</p>
+        )}
+
         <Content />
     </BlogContent>
 

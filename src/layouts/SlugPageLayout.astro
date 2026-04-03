@@ -3,8 +3,9 @@ import BlogPost from "@components/Blog/BlogPost.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import FullPageLayout from "@layouts/FullPageLayout.astro";
 
-const { collection, post, postIndex} = Astro.props;
-const { template, title } = post.data;
+const { collection, post, postIndex } = Astro.props;
+const { template, title, description } = post.data;
+
 ---
 {
     template === "full-page" ? (
@@ -17,7 +18,7 @@ const { template, title } = post.data;
             />
         </FullPageLayout>
     ) : (
-        <DefaultLayout title={post.data.title} hideTitle>
+        <DefaultLayout title={post.data.title} hideTitle description={description}>
             <BlogPost post={post} collection={collection} postIndex={postIndex} />
         </DefaultLayout>
     )

@@ -25,6 +25,7 @@ const blog = defineCollection({
 	loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
 	schema: z.object({
 		title: z.string(),
+		description: z.string().optional(),
 		author: z.string().optional(),
 		date: postDate,
 		draft: z.boolean().default(false),
@@ -37,6 +38,7 @@ const blogFr = defineCollection({
 	loader: glob({ base: "./src/content/blog-fr", pattern: "**/*.{md,mdx}" }),
 	schema: z.object({
 		title: z.string(),
+		description: z.string().optional(),
 		author: z.string().optional(),
 		date: postDate,
 		draft: z.boolean().default(false),
@@ -49,6 +51,7 @@ const weeknotes = defineCollection({
 	loader: glob({ base: "./src/content/weeknotes", pattern: "**/*.{md,mdx}" }),
 	schema: z.object({
 		title: z.string(),
+		description: z.string().optional(),
 		author: z.string().optional(),
 		date: postDate,
 		draft: z.boolean().default(false),
@@ -64,6 +67,7 @@ const weeknotesFr = defineCollection({
 	}),
 	schema: z.object({
 		title: z.string(),
+		description: z.string().optional(),
 		author: z.string().optional(),
 		date: postDate,
 		draft: z.boolean().default(false),
