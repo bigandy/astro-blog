@@ -35,7 +35,7 @@ const getSomePosts = async () => {
 }
 
 async function generateOGImages() {
-	const posts = await getSomePosts();
+
 	// const templatePath = path.join(__dirname, "../../dist/open-graph/index.html");
 
 	// const distDir = path.join(__dirname, "../../dist");
