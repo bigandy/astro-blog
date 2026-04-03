@@ -6,19 +6,15 @@ import "@css/global.css";
 interface Props {
 	title: string;
 	description?: string;
-	permalink?: string;
 }
 
 const descriptionFallback = "Senior Software Engineer looking for answers.";
-const permalinkFallback = "https://andrewhudson.dev/";
 
 const {
 	title,
 	description = descriptionFallback,
-	permalink = permalinkFallback,
 } = Astro.props;
 
-const permalinkUrl = new URL(permalink ?? "", Astro.url.origin).href;
 ---
 
 <!-- Global Metadata -->
@@ -41,7 +37,7 @@ const permalinkUrl = new URL(permalink ?? "", Astro.url.origin).href;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={permalinkUrl} />
+<meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 
