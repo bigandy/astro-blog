@@ -11,7 +11,7 @@ interface Props {
 const descriptionFallback = "Senior Software Engineer looking for answers.";
 
 const {
-	title,
+	title = descriptionFallback,
 	description = descriptionFallback,
 } = Astro.props;
 
@@ -24,7 +24,7 @@ const {
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 <!-- Primary Meta Tags -->
-<title>Andrew JD Hudson - {title !== "" ? title : descriptionFallback}</title>
+<title>{title !== "" ? `${title} - ` : ""}Andrew JD Hudson</title>
 <meta name="title" content={title !== "" ? title : descriptionFallback} />
 <meta name="description" content={description} />
 
