@@ -1,0 +1,24 @@
+---
+import DemoLayout from "@layouts/DemoLayout.astro";
+
+import { AHElementV1 } from '@components/Lit/ah-web-component-v1';
+import { AHElementV2 } from '@components/Lit/ah-web-component-v2';
+---
+
+
+<DemoLayout title="Shadow Maker">
+    <div class="container">
+
+        <h2>Vanilla Web Component</h2>
+        <AHElementV1 name="Andrew" client:visible />
+        <AHElementV2 client:visible />
+        <!-- <ah-web-component-v1 title="Andrew"  client:visible /> -->
+
+    </div>
+</DemoLayout>
+
+<style>
+    .container {
+
+    }
+</style>

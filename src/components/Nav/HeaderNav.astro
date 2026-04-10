@@ -1,9 +1,9 @@
 ---
-import ExternalLink from "@components/Global/ExternalLink.astro";
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
+import ExternalLink from "@components/Global/ExternalLink.astro";
 
-import { getNavClassName, getUrlWithFinalSlash } from "./utils";
 import { headerPages } from "./pages";
+import { getNavClassName } from "./utils";
 
 const requestPathname = Astro.url.pathname;
 
@@ -12,14 +12,12 @@ const locale = Astro.currentLocale ?? "en";
 const { hidePhoto = false } = Astro.props;
 const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
 ---
-
 <nav class="layout wrapper">
-
   <ul class="layout-inner nav">
     {
       headerPages.map((entry) => {
         const className = getNavClassName(entry.url, requestPathname);
-        const href = getUrlWithFinalSlash(prefix + entry.url);
+        const href = prefix + entry.url;
 
         return (
           <li>
@@ -74,6 +72,4 @@ const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
   :global(.settings-toggler) {
     translate: 0 -35%;
   }
-
-
 </style>

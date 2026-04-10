@@ -11,45 +11,55 @@ export type Item = CollectionEntry<Collection> & {
 	hasTranslation?: boolean;
 };
 
+const removeDrafts = (post: Item) => {
+	if (post.data.draft && post.data.draft === true) {
+		return false;
+	}
+	return post;
+}
+
+const today = Temporal.Now.plainDateISO();
+
+const removeFuturePosts = (post: Item) => {
+	const compare = Temporal.PlainDate.compare(
+		today,
+		Temporal.PlainDate.from(post.data.date),
+	);
+
+	return compare > -1;
+}
+
+
+
+const sortByLatest = (a: Item, b: Item) =>
+	Temporal.PlainDate.compare(
+		Temporal.PlainDate.from(b.data.date),
+		Temporal.PlainDate.from(a.data.date),
+	);
+
+
 export const getAllPosts = async (collection: Collection) => {
 	const showFuturePosts = false;
 
 	// Data Fetching: List all Markdown posts in the repo.
 	let allPosts = [];
-	const today = Temporal.Now.plainDateISO();
+
 
 	// Get all the posts from the posts directory
 	allPosts = await getCollection(collection);
 
 	if (isProduction) {
 		// Get rid of draft posts first
-		allPosts = allPosts.filter((post) => {
-			if (post.data.draft && post.data.draft === true) {
-				return false;
-			}
-			return post;
-		});
+		allPosts = allPosts.filter(removeDrafts);
 	}
 
 	if (isProduction || showFuturePosts === false) {
-		allPosts = allPosts.filter((post) => {
-			const compare = Temporal.PlainDate.compare(
-				today,
-				Temporal.PlainDate.from(post.data.date),
-			);
-
-			return compare > -1;
-		});
+		allPosts = allPosts.filter(removeFuturePosts);
 	}
 
 	const allPostCount = allPosts.length;
 
-	allPosts = allPosts.sort((a, b) =>
-		Temporal.PlainDate.compare(
-			Temporal.PlainDate.from(b.data.date),
-			Temporal.PlainDate.from(a.data.date),
-		),
-	);
+	allPosts = allPosts.sort(sortByLatest);
 
 	return allPosts.map((post, postIndex) => ({
 		...post,
@@ -69,5 +79,14 @@ export const getSomePosts = async (
 
 	return [
 		...(await getAllPosts(collection)).values().take(numberToReturn || 1),
+	];
+};
+
+export const getRSSPosts = async () => {
+	return [
+		...(await getAllPosts('blog')).values()
+			.filter(removeDrafts)
+			.filter(removeFuturePosts)
+			.take(Infinity),
 	];
 };

@@ -7,6 +7,8 @@
 		"src/**/*"
 	],
 	"compilerOptions": {
+		"experimentalDecorators": true,
+		"useDefineForClassFields": false,
 		"paths": {
 			"@css/*": [
 				"./src/css/*"
@@ -24,5 +26,5 @@
 				"./src/utils/*"
 			]
 		}
-	}
+	},
 }

@@ -1,7 +1,7 @@
 ---
-import { getNavClassName, getUrlWithFinalSlash } from "./utils";
 import { footerPages } from "./pages";
 import { socialLinks } from "./social-links";
+import { getNavClassName } from "./utils";
 
 const requestPathname = Astro.url.pathname;
 
@@ -14,7 +14,7 @@ const locale = Astro.currentLocale ?? "en";
         {
             footerPages.map((entry) => {
                 const className = getNavClassName(entry.url, requestPathname);
-                const href = getUrlWithFinalSlash(prefix + entry.url);
+                const href = prefix + entry.url;
 
                 return (
                   <li>
