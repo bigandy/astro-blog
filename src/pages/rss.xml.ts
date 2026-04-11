@@ -23,9 +23,9 @@ export const GET = (async (context) => {
       pubDate: post.data.date as unknown as Date,
       description: post.data.description,
       link: `/blog/${post.id}/`,
-      content: post.body && sanitizeHtml(parser.render(post.body), {
+      content: post.body ? sanitizeHtml(parser.render(post.body), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
-      }),
+      }) : undefined,
     })),
     // (optional) inject custom xml
     customData: `<language>en-gb</language><generator>Astro</generator>`,
