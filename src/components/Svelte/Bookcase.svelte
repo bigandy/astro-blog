@@ -142,7 +142,7 @@
     h2 span {
         vertical-align: middle;
         font-size: 1rem;
-        color: var(--color-gray-500);
+        color: var(--color-grey-lighter);
     }
 
     .rating {

@@ -1,0 +1,43 @@
+---
+---
+<div class="theme-switcher">
+  <button popovertarget="theme-switcher-modal">
+    <slot />
+    <span class="sr-only">Toggle The Modal
+      </span>
+    </button>
+  <div popover id="theme-switcher-modal">
+    <!-- <AHThemeSwitcher client:only="lit" /> -->
+    <ah-theme-switcher></ah-theme-switcher>
+  </div>
+</div>
+
+<script>
+  import '@components/Lit/ah-theme-switcher.js';
+</script>
+
+<style>
+  button {
+    all: unset;
+    border-radius: 50%;
+    &:hover,
+    &:focus {
+      outline: 2px dashed;
+      cursor: pointer;
+    }
+  }
+    [popover] {
+      /* display: block; */
+      /* background: orange; */
+      margin: 0;
+      inset: auto;
+      top: calc(anchor(bottom) + 1rem);
+      right: anchor(right);
+      justify-self: anchor-center;
+      padding: 0;
+      border: none;
+      overflow: unset;
+      background: transparent;
+      /* min-height: 400px; */
+  }
+</style>
