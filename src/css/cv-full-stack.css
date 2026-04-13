@@ -280,6 +280,11 @@
 			time:nth-child(1) + span {
 				margin-inline-start: 0;
 			}
+
+			span {
+				display: inline-block;
+				margin-inline-start: 0.25rem;
+			}
 		}
 
 		.entrylist {
