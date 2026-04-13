@@ -14,7 +14,9 @@ const characters = string.split("");
 
 <style>
     /* Need to import it here because Astro + postcss not working correctly. A known bug */
-    @import "/src/css/partials/props.media.css";
+    /* @import "/src/css/partials/props.media.css"; */
+
+    /* @custom-media --motionOK      (prefers-reduced-motion: no-preference); */
 
     .super-wrapper {
         display: none;
@@ -40,7 +42,8 @@ const characters = string.split("");
 
     @supports (animation-timeline: scroll()) and (z-index: sibling-index()) {
         @container (min-width: 1300px) {
-            @media (--motionOK) {
+            /* @media (--motionOK) { */
+            @media (prefers-reduced-motion: no-preference) {
                  .super-wrapper {
                     display: block;
                 }
@@ -168,7 +171,6 @@ const characters = string.split("");
                     --header-height: 10px;
 
                     animation-range: entry 0px exit 100px, entry 0px exit 100%;
-
                     animation-name: --kf-fade-in, --kf-grow-progress;
                     animation-fill-mode: both;
                     animation-timeline: scroll();

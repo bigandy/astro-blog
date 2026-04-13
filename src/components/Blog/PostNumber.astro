@@ -17,7 +17,7 @@ const { number, isPost } = Astro.props;
 
 <style>
     /* Need to import it here because Astro + postcss not working correctly. A known bug */
-    @import "/src/css/partials/props.media.css";
+    /* @import "/src/css/partials/props.media.css"; */
 
     .wrapper {
         view-transition-name: var(--vt-index);
@@ -35,7 +35,8 @@ const { number, isPost } = Astro.props;
         );
         place-self: center;
 
-        @media (--lg-n-above) {
+        /* @media (--lg-n-above) { */
+        @media (width >= 1024px) {
             font-size: 200%;
         }
     }

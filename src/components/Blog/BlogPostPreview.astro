@@ -2,6 +2,7 @@
 import BlogPostHeader from "@components/Blog/BlogPostHeader.astro";
 import type { Collection } from "@components/Blog/utils/getAllPosts";
 import { type Item } from "@components/Blog/utils/getAllPosts";
+import { isProduction } from "@utils/isProduction";
 
 interface Props {
 	post: Item;
@@ -37,12 +38,13 @@ const text: TextType = {
 const articleType = draft ? "draft" : future ? "future" : "";
 ---
 
-<article
-    class={`post-preview layout-inner`}
-    data-type={articleType}
-    data-draft={text[isFrench ? 'fr': 'en']!.draft}
-    data-future={text[isFrench ? 'fr': 'en']!.future}
->
+    <article
+        class={`post-preview layout-inner`}
+        data-type={!isProduction && articleType}
+        data-draft={!isProduction && text[isFrench ? 'fr': 'en']!.draft}
+        data-future={!isProduction && text[isFrench ? 'fr': 'en']!.future}
+    >
+
     <BlogPostHeader
         date={date}
         title={title}

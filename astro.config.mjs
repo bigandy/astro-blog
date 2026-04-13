@@ -55,15 +55,16 @@ export default defineConfig({
 			contentCache: true,
 		},
 	},
-	vite: {
-		css: {
-			transformer: "lightningcss",
-			lightningcss: {
-                drafts: {
-                    customMedia: true,
-                },
-                // targets: browserslistToTargets(browsersList),
-            },
-		},
-	},
+	// vite: {
+	// 	css: {
+	// 		transformer: "lightningcss",
+	// 		lightningcss: {
+    //             drafts: {
+    //                 customMedia: true,
+    //             },
+	// 			targets: {},
+    //             // targets: browserslistToTargets(browsersList),
+    //         },
+	// 	},
+	// },
 });

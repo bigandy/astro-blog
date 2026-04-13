@@ -1,4 +1,4 @@
-@import "partials/props.media.css";
+/* @import "partials/props.media.css"; */
 
 @layer base, theme;
 
@@ -40,7 +40,8 @@
 		--first-layer: calc(var(--column-gap-size) * 2);
 		--second-layer: calc(var(--column-gap-size) * 3);
 
-		@media (--lg-n-below) {
+		/* @media (--lg-n-below) { */
+		@media (width < 1024px) {
 			--first-layer: 0;
 			--second-layer: 0;
 			--column-gap-size: 9px;

@@ -90,10 +90,8 @@ const { title, head } = Astro.props;
                     }
                 }
 
-                nav,
-                > header h1 {
+                header h1 {
                     text-align: center;
-                    max-width: unset;
                 }
 
                 article h1 {
@@ -102,7 +100,9 @@ const { title, head } = Astro.props;
                 }
 
                 nav {
-                    margin-inline-start: 1rem;
+                    width: max-content;
+                    margin-inline: auto;
+                    margin-block-start: 2rem;
                 }
 
                 nav li {
