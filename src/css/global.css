@@ -25,7 +25,7 @@
 		container: root layout / inline-size;
 		block-size: 100%;
 		scrollbar-gutter: stable;
-		color-scheme: light dark;
+		/* color-scheme: light dark; */
 	}
 
 	body {
@@ -119,6 +119,7 @@
 	:where(h1, h2, h3, h4) {
 		font-weight: var(--f-body-weight);
 		font-family: var(--settings-heading-font, var(--header-font-family));
+		color: var(--header-color, reset-rule);
 	}
 
 	:where(h1, h2, h3, h4, button) {
@@ -271,6 +272,61 @@
 	li ul li {
 		list-style-type: disc;
 	}
+
+	.list--dashed {
+		> li {
+			/* --border-color: rgb(from var(--theme-accent) r g b / 0.5); */
+			/* margin-block-end: 1.5rem; */
+			padding-block-end: 1rem;
+			--border-color: transparent;
+			margin-block-end: 0;
+
+			&:not(:last-of-type) {
+				border-bottom: 1px dashed;
+				border-bottom-color: var(--border-color);
+			}
+		}
+
+		&.list--compact {
+			> li {
+				margin-block-end: 0.5rem;
+				padding-block-end: 0.5rem;
+			}
+		}
+	}
+
+	.list--plain {
+		padding-inline-start: 0;
+		list-style: "";
+	}
+
+	.nav a:hover {
+		/* This is because we're using border for the underline effect */
+		text-decoration: none;
+	}
+
+	.debug {
+		* {
+			outline: 1px dotted red;
+		}
+	}
+
+	a {
+		word-wrap: break-word;
+	}
+
+	/* screen-reader only */
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
 }
 
 @layer theme {
@@ -345,57 +401,60 @@
 	}
 }
 
-.list--dashed {
-	> li {
-		/* --border-color: rgb(from var(--theme-accent) r g b / 0.5); */
-		/* margin-block-end: 1.5rem; */
-		padding-block-end: 1rem;
-		--border-color: transparent;
-		margin-block-end: 0;
+@layer themes {
+	[data-theme="dark"] {
+		--theme: dark;
+	}
+	[data-theme="light"] {
+		--theme: light;
+	}
+	[data-theme="neon"] {
+		--theme: neon;
+	}
 
-		&:not(:last-of-type) {
-			border-bottom: 1px dashed;
-			border-bottom-color: var(--border-color);
+	@media (prefers-color-scheme: dark) {
+		html:not([data-theme]),
+		html[data-theme=""],
+		html[data-theme="system"] {
+			--theme: dark;
 		}
 	}
 
-	&.list--compact {
-		> li {
-			margin-block-end: 0.5rem;
-			padding-block-end: 0.5rem;
+	@media (prefers-color-scheme: light) {
+		html:not([data-theme]),
+		html[data-theme=""],
+		html[data-theme="system"] {
+			--theme: light;
 		}
 	}
-}
 
-.list--plain {
-	padding-inline-start: 0;
-	list-style: "";
-}
-
-.nav a:hover {
-	/* This is because we're using border for the underline effect */
-	text-decoration: none;
-}
-
-.debug {
-	* {
-		outline: 1px dotted red;
+	@container style(--theme: light) {
+		body {
+			color-scheme: light;
+		}
 	}
-}
 
-a {
-	word-wrap: break-word;
-}
+	@container style(--theme: dark) {
+		body {
+			color-scheme: dark;
+			background: black;
+		}
+	}
 
-/* screen-reader only */
-.sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
-	border-width: 0;
+	@layer neon {
+		[data-theme="neon"] {
+			--pink: oklch(55% 0.45 350);
+			--orange: oklch(95% 0.4 95);
+			--shadow-color: blue;
+			--header-color: var(--pink);
+
+			body {
+				background: var(--orange);
+			}
+
+			h2 {
+				filter: drop-shadow(-10px 10px 3px var(--shadow-color, red));
+			}
+		}
+	}
 }
