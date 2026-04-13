@@ -1,0 +1,50 @@
+---
+import BaseHead from "@components/Global/BaseHead.astro";
+import { Temporal } from "temporal-polyfill-lite";
+
+interface Props {
+	accent?: string;
+	title: string;
+	bodyClass?: string;
+    description?: string;
+}
+
+const {
+	title,
+	accent = "var(--theme-accent-blue)",
+	bodyClass = "",
+    description
+}: Props = Astro.props;
+const locale = Astro.currentLocale ?? "en";
+---
+
+<html lang={locale}>
+    <head>
+        <BaseHead title={title} description={description} />
+
+        <style define:vars={{ accent }}>
+            body {
+                --theme-accent: var(--accent);
+            }
+        </style>
+        <!-- <slot name="inside-head" /> -->
+    </head>
+
+    <body class={bodyClass}>
+        <main class="content layout">
+            <div class="inner">
+                <div class="the-content">
+                    <slot />
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="inner">
+                <p>&copy; {Temporal.Now.plainDateISO().year} Andrew JD Hudson</p>
+            </div>
+        </footer>
+
+        <!-- <slot name="end-body" /> -->
+    </body>
+</html>
+

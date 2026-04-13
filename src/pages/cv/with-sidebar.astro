@@ -1,5 +1,5 @@
 ---
-import DefaultLayout from "@layouts/DefaultLayout.astro";
+import CVLayout from "@layouts/CVLayout.astro";
 
 // CV Specific Components
 
@@ -27,9 +27,8 @@ import {
 const overrideFullDates = false;
 ---
 
-<DefaultLayout
+<CVLayout
     title="CV with sidebar"
-    hideTitle
     bodyClass="cv force-print cv-with-sidebar"
     accent="#008cff"
 >
@@ -131,4 +130,4 @@ const overrideFullDates = false;
     <div class="hide-print switch-portfolio-link">
         <a href="/cv/">Switch to version of CV with no sidebar</a>
     </div>
-</DefaultLayout>
+</CVLayout>

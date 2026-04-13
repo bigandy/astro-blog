@@ -3,8 +3,9 @@ import ExternalLink from "@components/Global/ExternalLink.astro";
 
 interface Props {
 	links: any[];
+    hideDash?: boolean;
 }
-const { links } = Astro.props;
+const { links, hideDash = false } = Astro.props;
 ---
 
 <ul class="cv-portfolio-list">
@@ -14,7 +15,7 @@ const { links } = Astro.props;
                 <ExternalLink href={link.href} data-url={link.shortLink}>
                     {link.name}
                 </ExternalLink>{" "}
-                - {link.description}
+                {!hideDash && "- "}{link.description}
             </li>
         ))
     }

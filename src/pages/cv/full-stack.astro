@@ -1,6 +1,7 @@
 ---
-// CV Specific Components
 import CVLayout from "@layouts/CVLayout.astro";
+
+// CV Specific Components
 
 import EducationList from "@components/CV/EducationList.astro";
 import PorfolioList from "@components/CV/PorfolioList.astro";
@@ -9,7 +10,7 @@ import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
 
-import "@css/cv.css";
+import "@css/cv-full-stack.css";
 
 import {
 	education,
@@ -18,15 +19,21 @@ import {
 	roles,
 	skills,
 	socialLinks,
-	summary,
 } from "./content";
 
 const overrideFullDates = false;
+
+const summaryFullStack = `I am a senior software engineer with 14+ years of experience creating highly performant and usable
+products, websites, desktop applications, and browser extensions using Node, PHP, JS, CSS, a Database via APIs`;
+
+const personalInformationFullStack = {
+	title: "Senior Full Stack Engineer",
+};
 ---
 
 <CVLayout
-    title="CV"
-    bodyClass="force-print cv-no-sidebar"
+    title="CV Full Stack"
+    bodyClass="full-stack"
     accent="#008cff"
 >
     <header>
@@ -37,16 +44,11 @@ const overrideFullDates = false;
                 </h1>
                 <div class="meta">
                     <p class="contact-title">
-                        <strong>{personalInformation.title}</strong>
+                        <strong>{personalInformationFullStack.title}</strong>
                     </p>
                     <a href={`mailto:${personalInformation.email}`}
                         >{personalInformation.email}</a
                     >
-                    <!-- <a href={personalInformation.website}
-                        >{
-                            personalInformation.website.replace("https://", "")
-                        }</a
-                    > -->
                     <a href={`tel:${personalInformation.phone}`} class="tel"
                         >{personalInformation.phone}</a
                     >
@@ -59,19 +61,20 @@ const overrideFullDates = false;
                 alt="Photo of Andrew JD Hudson"
                 dimension={70}
             />
-            <!-- <LanguageSwitcher /> -->
         </div>
     </header>
 
-    <section>
-        <h2>Summary</h2>
 
-        <p>
-            {summary}
-        </p>
-    </section>
 
     <section class="main-column">
+        <section class="summary">
+            <h2>Summary</h2>
+
+            <p>
+                {summaryFullStack}
+            </p>
+        </section>
+
         <section>
             <h2 id="experience">Experience</h2>
 
@@ -83,26 +86,28 @@ const overrideFullDates = false;
             </ol>
         </section>
 
-        <section>
-            <h2 id="relevant-experience">Selected Portfolio</h2>
 
-            <PorfolioList links={portfolioLinks} />
-        </section>
     </section>
 
     <aside>
         <section>
-            <h2 id="key-achievements">Key Achievements</h2>
+            <h2 id="skills">Skills</h2>
 
-            <ul>
-                <li><strong>Performance Boost</strong></li>
+            <SkillsList skills={skills} />
+        </section>
+
+
+        <section>
+            <h2 id="education">Education</h2>
+            <ul class="list--dashed list--plain list--compact cv-education-list">
+                <EducationList education={education} />
             </ul>
         </section>
 
         <section>
-            <h2 id="skills">Skills</h2>
+            <h2 id="relevant-experience">Selected Portfolio</h2>
 
-            <SkillsList skills={skills} />
+            <PorfolioList hideDash links={portfolioLinks} />
         </section>
 
         <section>
@@ -110,13 +115,6 @@ const overrideFullDates = false;
 
             <ul class="cv-social list--dashed list--compact">
                 <SocialLinksList links={socialLinks} />
-            </ul>
-        </section>
-
-        <section>
-            <h2 id="education">Education</h2>
-            <ul class="list--dashed list--plain list--compact cv-education-list">
-                <EducationList education={education} />
             </ul>
         </section>
     </aside>
