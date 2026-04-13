@@ -1,0 +1,63 @@
+---
+import SettingsToggler from "@components/CV/SettingsToggler.astro";
+
+const pages = [
+    {
+        url: "/cv/",
+        title: "front-end one column",
+    },
+    {
+        url: "/cv/with-sidebar/",
+        title: "front-end with sidebar",
+    },
+    {
+        url: "/cv/full-stack/",
+        title: "full stack"
+    }
+];
+---
+
+<SettingsToggler
+    src="/images/cv/andrew-profile.jpg"
+    alt="Photo of Andrew JD Hudson"
+    dimension={70}
+>
+    <Fragment slot="menu">
+        <div class="popover-insides">
+            <h2>CV Pages</h2>
+            <ul>
+                {pages.map(page => {
+                    const currentPage = Astro.url.pathname === page.url;
+                    return (
+                        <li><a class:list={[{ "active": currentPage  }]} href={page.url}>{page.title}</a></li>
+                    )
+                })}
+            </ul>
+        </div>
+    </Fragment>
+</SettingsToggler>
+
+<style>
+    .popover-insides {
+        padding: 1rem;
+        min-width: 300px;
+
+        --link-color: var(--theme-accent, blue);
+
+        a {
+            text-decoration: underline;
+            color: var(--link-color);
+            display: block;
+
+            &.active {
+                color: hsl(from var(--link-color) calc(h + 45) s l);
+            }
+        }
+
+        ul {
+            list-style: "";
+            padding: 0;
+            margin: 0;
+        }
+    }
+</style>

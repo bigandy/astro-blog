@@ -6,7 +6,7 @@ import CVLayout from "@layouts/CVLayout.astro";
 import EducationList from "@components/CV/EducationList.astro";
 import PorfolioList from "@components/CV/PorfolioList.astro";
 import RolesList from "@components/CV/RolesList.astro";
-import SettingsToggler from "@components/CV/SettingsToggler.astro";
+import CVSettingsToggler from "@components/CV/CVSettingsToggler.astro";
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
 
@@ -17,9 +17,8 @@ import {
 	personalInformation,
 	portfolioLinks,
 	roles,
-	skills,
 	socialLinks,
-} from "./content";
+} from "./utils/content";
 
 const overrideFullDates = false;
 
@@ -29,6 +28,33 @@ products, websites, desktop applications, and browser extensions using Node, PHP
 const personalInformationFullStack = {
 	title: "Senior Full Stack Engineer",
 };
+
+const fullstackSkills = [
+    "Node.js",
+	"Databases (Firebase, Postgres, MySQL)",
+	"Typescript",
+	"CSS",
+	"React",
+	"Next.js",
+	"Astro",
+	"Svelte",
+	"Lit",
+    "Web Components",
+	"Electron",
+	"GraphQL",
+	"Sass",
+	"CSS-in-JS",
+	"Website Performance Optimisation",
+	"Chrome Extension Development",
+	"Serverless functions (Firebase, AWS)",
+	"Storybook",
+	"Testing with Cypress and Jest",
+	"Accessibility",
+	"Git",
+];
+
+
+
 ---
 
 <CVLayout
@@ -56,11 +82,7 @@ const personalInformationFullStack = {
                 </div>
             </div>
 
-            <SettingsToggler
-                src="/images/cv/andrew-profile.jpg"
-                alt="Photo of Andrew JD Hudson"
-                dimension={70}
-            />
+            <CVSettingsToggler />
         </div>
     </header>
 
@@ -93,7 +115,7 @@ const personalInformationFullStack = {
         <section>
             <h2 id="skills">Skills</h2>
 
-            <SkillsList skills={skills} />
+            <SkillsList skills={fullstackSkills} />
         </section>
 
 
@@ -118,8 +140,5 @@ const personalInformationFullStack = {
             </ul>
         </section>
     </aside>
-
-    <div class="hide-print switch-portfolio-link">
-        <a href="/cv/with-sidebar/">Switch to version of CV with sidebar</a>
-    </div>
 </CVLayout>
+

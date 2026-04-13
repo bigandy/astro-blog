@@ -136,20 +136,19 @@ export const roles: Roles = {
 };
 
 export const skills = [
-	"Web Scraping",
 	"Chrome Extension Development",
 	"Redux and other React state libraries",
 	"React",
 	"Typescript",
-	"CSS",
 	"Next.js",
 	"Astro",
-	"Svelte",
 	"Lit",
+	"Web Components",
 	"Svelte",
 	"Electron",
 	"GraphQL",
 	"Sass",
+	"CSS",
 	"CSS-in-JS",
 	"Website Performance Optimisation",
 	"Databases (Firebase, Postgres, MySQL)",
@@ -159,6 +158,7 @@ export const skills = [
 	"Accessibility",
 	"SEO",
 	"Git",
+	"Web Scraping",
 ];
 
 export interface SocialLink {

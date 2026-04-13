@@ -10,7 +10,17 @@ const { src, alt, dimension = 100 } = Astro.props;
 ---
 
 <div class="settings-toggler">
-    <img {src} {alt} height={dimension} width={dimension} />
+    {Astro.slots.has('menu') ? (
+        <button popovertarget="settings-toggler-menu"><img {src} {alt} height={dimension} width={dimension} /></button>
+
+        <div popover id="settings-toggler-menu">
+            <slot name="menu" />
+        </div>
+    ) : (
+        <img {src} {alt} height={dimension} width={dimension} />
+    )}
+
+    <slot />
     <!-- <LanguageSwitcher /> -->
 </div>
 
@@ -18,10 +28,37 @@ const { src, alt, dimension = 100 } = Astro.props;
     .settings-toggler {
         margin-inline-start: auto;
     }
+
     img {
         anchor-name: --me;
         border-radius: 50%;
         display: block;
+    }
+
+    button {
+        all: unset;
+        border-radius: 50%;
+        &:hover,
+        &:focus {
+        outline: 2px dashed;
+        cursor: pointer;
+        }
+    }
+
+    [popover] {
+        /* display: block; */
+        /* background: orange; */
+        margin: 0;
+        inset: auto;
+        top: calc(anchor(bottom) + 1rem);
+        right: anchor(right);
+        justify-self: anchor-center;
+        padding: 0;
+        /* border: none; */
+        overflow: unset;
+        /* background: transparent; */
+        /* min-height: 400px; */
+
     }
 
     :global(.language-switcher) {
@@ -34,7 +71,7 @@ const { src, alt, dimension = 100 } = Astro.props;
 
     @media print {
         img {
-            filter: none !important;
+            /* filter: none !important; */
         }
     }
 </style>

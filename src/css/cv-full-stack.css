@@ -13,6 +13,10 @@
 			margin-block-start: 3rem;
 		} */
 
+		a {
+			color: black;
+		}
+
 		li,
 		p {
 			max-width: unset;
@@ -229,19 +233,6 @@
 			font-size: 16px;
 		}
 
-		main {
-			display: grid;
-			column-gap: 2rem;
-
-			&.content {
-				margin-block: 1rem;
-			}
-		}
-
-		main {
-			--theme-accent: black;
-		}
-
 		/* Hiding for now. */
 		/* #key-achievements {
 			&,
@@ -261,7 +252,6 @@
 		}
 
 		.name {
-			color: var(--theme-accent);
 			display: block;
 			font-size: 16px;
 			margin-block-start: 0.25rem;
@@ -312,8 +302,8 @@
 			display: none;
 		}
 
-		.main-column a:not(.switch-portfolio-link) {
-			color: inherit;
+		.main-column a {
+			/* color: inherit; */
 
 			/* Hide the external link markers */
 			&::after {
@@ -394,25 +384,6 @@
 				list-style: "";
 			}
 		}
-	}
-
-	.switch-portfolio-link {
-		color: var(--theme-accent);
-		text-align: center;
-		grid-column: 1 / -1;
-		width: 100%;
-		pointer-events: none;
-
-		a {
-			background: white;
-			pointer-events: all;
-		}
-	}
-
-	.switch-portfolio-link {
-		position: absolute;
-		right: 1rem;
-		width: unset;
 	}
 
 	.hide-print {

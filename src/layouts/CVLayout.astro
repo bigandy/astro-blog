@@ -1,5 +1,6 @@
 ---
 import BaseHead from "@components/Global/BaseHead.astro";
+import { url } from "astro:schema";
 import { Temporal } from "temporal-polyfill-lite";
 
 interface Props {
@@ -15,7 +16,11 @@ const {
 	bodyClass = "",
     description
 }: Props = Astro.props;
+
 const locale = Astro.currentLocale ?? "en";
+
+
+
 ---
 
 <html lang={locale}>

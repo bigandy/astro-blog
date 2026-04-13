@@ -7,7 +7,7 @@ import EducationList from "@components/CV/EducationList.astro";
 import LanguagesList from "@components/CV/LanguagesList.astro";
 import PorfolioList from "@components/CV/PorfolioList.astro";
 import RolesList from "@components/CV/RolesList.astro";
-import SettingsToggler from "@components/CV/SettingsToggler.astro";
+import CVSettingsToggler from "@components/CV/CVSettingsToggler.astro";
 import SkillsList from "@components/CV/SkillsList.astro";
 import SocialLinksList from "@components/CV/SocialLinksList.astro";
 
@@ -22,7 +22,7 @@ import {
 	skills,
 	socialLinks,
 	summary,
-} from "./content";
+} from "./utils/content";
 
 const overrideFullDates = false;
 ---
@@ -57,10 +57,7 @@ const overrideFullDates = false;
                 </div>
             </div>
 
-            <SettingsToggler
-                src="/images/cv/andrew-profile.jpg"
-                alt="Photo of Andrew JD Hudson"
-                dimension={70}
+            <CVSettingsToggler
             />
         </div>
     </header>
@@ -127,7 +124,4 @@ const overrideFullDates = false;
             </ul>
         </section>
     </aside>
-    <div class="hide-print switch-portfolio-link">
-        <a href="/cv/">Switch to version of CV with no sidebar</a>
-    </div>
 </CVLayout>
