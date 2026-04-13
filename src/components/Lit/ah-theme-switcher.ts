@@ -169,6 +169,9 @@ export class AHThemeSwitcher extends LitElement {
 
         // UPDATE localStorage
         localStorage.setItem(storageKey, theme);
+
+        // UPDATE the data-theme on the body
+        document.documentElement.setAttribute('data-theme', theme);
     }
 
     /* https://davidwalsh.name/detect-system-theme-preference-change-using-javascript#:~:text=To%20detect%20a%20system%20theme,if%20(matches)%20%7B%20console.

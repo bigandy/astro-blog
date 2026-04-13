@@ -46,3 +46,8 @@ const {
     title={"Andrew JD Hudson - Senior Front-end Engineer"}
     href={new URL("rss.xml", Astro.site)}
 />
+<script>
+    const storageKey = 'ah-theme';
+    const localStorageTheme = localStorage.getItem(storageKey);
+    document.documentElement.setAttribute('data-theme', localStorageTheme!);
+</script>
