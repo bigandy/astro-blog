@@ -1,16 +1,21 @@
 ---
 // import LanguageSwitcher from "@components/Nav/LanguageSwitcher.astro";
+import ThemeSwitcher from "@components/Nav/ThemeSwitcher.astro";
 
 interface Props {
 	src: string;
 	alt: string;
 	dimension?: number;
+    showThemeSwitcher?: boolean;
 }
-const { src, alt, dimension = 100 } = Astro.props;
+const { src, alt, dimension = 100, showThemeSwitcher } = Astro.props;
 ---
 
 <div class="settings-toggler">
-    <img {src} {alt} height={dimension} width={dimension} />
+
+    {showThemeSwitcher && (<ThemeSwitcher><img {src} {alt} height={dimension} width={dimension} /></ThemeSwitcher>)}
+
+    {!showThemeSwitcher && (<img {src} {alt} height={dimension} width={dimension} />)}
     <!-- <LanguageSwitcher /> -->
 </div>
 
