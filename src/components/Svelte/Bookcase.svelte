@@ -114,7 +114,7 @@
                 >
             </h2>
             <ol reversed>
-                {#each books as { bookTitle, bookAuthor, rating, bookIsFrench }}
+                {#each books as { bookTitle, bookAuthor, rating, bookIsFrench, bookIsAudio }}
                     <li>
                         &ldquo;{bookTitle}&rdquo; {text.by}
                         {bookAuthor}
@@ -124,7 +124,7 @@
                             >
                         {/if}
 
-                        {bookIsFrench ? "🇫🇷" : ""}
+                        {bookIsFrench ? "🇫🇷" : ""}{" "}{bookIsAudio ? "🎵" : ""}
                     </li>
                 {/each}
             </ol>
