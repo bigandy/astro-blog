@@ -401,32 +401,12 @@
 			order: 2;
 		}
 
-		section {
-			order: 3;
-		}
-
 		.contact-title {
 			display: block;
 		}
 
 		.entry__time {
 			margin-inline-start: 0.5rem;
-		}
-	}
-
-	@container (min-width: 768px) {
-		.cv {
-			.the-content {
-				background: red;
-			}
-
-			.main-column {
-				background: red;
-			}
-
-			aside {
-				order: 3;
-			}
 		}
 	}
 
