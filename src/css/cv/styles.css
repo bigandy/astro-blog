@@ -1,6 +1,15 @@
+.cv,
+.cv-no-sidebar {
+	--first-layer: 0;
+	--second-layer: 0;
+	padding-block-start: 1.5em;
+}
+
 .cv {
 	--lightgrey: grey;
 	--lightergrey: #ccc;
+	--first-layer: 0;
+	--second-layer: 0;
 
 	.footer-nav {
 		margin-block-start: 3rem;
@@ -274,12 +283,10 @@
 		}
 
 		main {
-			display: grid;
-			column-gap: 2rem;
-
-			&.content {
+			/* display: grid; */
+			/* &.content {
 				margin-block: 1rem;
-			}
+			} */
 		}
 
 		/* Hiding for now. */
@@ -559,8 +566,11 @@
 
 .cv-with-sidebar .the-content {
 	display: grid;
-	grid-template-columns: 66.6666% auto;
 	gap: 3rem;
+
+	@media (min-width: 800px) {
+		grid-template-columns: 66.6666% auto;
+	}
 
 	.main-column {
 		display: flex;
@@ -570,10 +580,6 @@
 
 	header {
 		grid-column: 1 / -1;
-		order: 0;
-	}
-
-	aside {
 		order: 0;
 	}
 
