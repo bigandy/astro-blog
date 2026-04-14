@@ -38,13 +38,13 @@ const text: TextType = {
 const articleType = draft ? "draft" : future ? "future" : "";
 ---
 
+{!isProduction ? (
     <article
-        class={`post-preview layout-inner`}
-        data-type={!isProduction && articleType}
-        data-draft={!isProduction && text[isFrench ? 'fr': 'en']!.draft}
-        data-future={!isProduction && text[isFrench ? 'fr': 'en']!.future}
-    >
-
+    class={`post-preview layout-inner`}
+    data-type={articleType}
+    data-draft={text[isFrench ? 'fr': 'en']!.draft}
+    data-future={text[isFrench ? 'fr': 'en']!.future}
+>
     <BlogPostHeader
         date={date}
         title={title}
@@ -54,6 +54,21 @@ const articleType = draft ? "draft" : future ? "future" : "";
         postIndex={showPostNumber ? postIndex : undefined}
     />
 </article>
+): (
+    <article
+    class={`post-preview layout-inner`}
+>
+    <BlogPostHeader
+        date={date}
+        title={title}
+        slug={`${prefix}${collection.replace('-fr', '')}/${slug}/`}
+        viewTransitionName={slug}
+        isPreview
+        postIndex={showPostNumber ? postIndex : undefined}
+    />
+</article>
+)}
+
 
 <style>
     .post-preview {
@@ -97,15 +112,24 @@ const articleType = draft ? "draft" : future ? "future" : "";
             }
         }
 
-        --border-color: if(
-            style(--type: 'draft'): color-mix(
-                in lch,
-                var(--theme-accent),
-                var(--theme-divider) 50%
-            );
-            style(--type: 'future'): color-mix(in lch, var(--theme-accent), red)
+        --border-color: color-mix(
+            in lch,
+            var(--theme-accent),
+            var(--theme-divider) 50%
         );
 
-        --content: if(style(--type : 'draft'): attr(data-draft); style(--type: 'future'): attr(data-future));
+        @supports (width: if(media(any-pointer: fine): 30px; else: 44px)) {
+            --border-color: if(
+                style(--type: 'draft'): color-mix(
+                    in lch,
+                    var(--theme-accent),
+                    var(--theme-divider) 50%
+                );
+                style(--type: 'future'): color-mix(in lch, var(--theme-accent), red)
+            );
+        }
+
+
+        --content: attr(data-type);
     }
 </style>

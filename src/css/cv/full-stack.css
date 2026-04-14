@@ -55,8 +55,6 @@
 			}
 
 			.meta * {
-				margin-inline-end: 1rem;
-
 				@container (min-width: 768px) {
 					display: inline-block;
 				}
@@ -124,7 +122,7 @@
 		}
 
 		.entry__content ul {
-			padding-inline-start: 1.2rem;
+			padding-inline-start: 0.875rem;
 			list-style: disc;
 		}
 
@@ -179,7 +177,8 @@
 
 		.meta .contact-title {
 			font-size: 16px;
-			margin-inline-end: 0.75rem;
+			/* margin-inline-end: 0.75rem; */
+			margin-inline-end: 0;
 		}
 
 		ol {
