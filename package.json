@@ -15,25 +15,24 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.8",
-		"@astrojs/compiler-rs": "0.1.6",
+		"@astrojs/compiler-rs": "0.1.8",
 		"@astrojs/mdx": "5.0.3",
 		"@astrojs/react": "5.0.3",
 		"@astrojs/rss": "4.0.18",
 		"@astrojs/svelte": "8.0.5",
 		"@lit-labs/preact-signals": "1.0.3",
 		"@semantic-ui/astro-lit": "5.3.0",
-		"astro": "6.1.6",
-		"lightningcss": "1.32.0",
+		"astro": "6.1.8",
 		"react": "19.2.5",
 		"react-dom": "19.2.5",
-		"svelte": "5.55.3",
-		"typescript": "6.0.2"
+		"svelte": "5.55.4",
+		"typescript": "6.0.3"
 	},
 	"devDependencies": {
 		"@11ty/eleventy-fetch": "5.1.2",
-		"@biomejs/biome": "2.4.11",
+		"@biomejs/biome": "2.4.12",
 		"@clack/prompts": "1.2.0",
-		"@notionhq/client": "5.18.0",
+		"@notionhq/client": "5.20.0",
 		"@types/lodash": "4.17.24",
 		"@types/markdown-it": "14.1.2",
 		"@types/sanitize-html": "2.16.1",
@@ -43,7 +42,7 @@
 		"markdown-it": "14.1.1",
 		"postcss-custom-media": "12.0.1",
 		"postcss-import": "16.1.1",
-		"sanitize-html": "2.17.2",
-		"temporal-polyfill-lite": "0.3.4"
+		"sanitize-html": "2.17.3",
+		"temporal-polyfill-lite": "0.3.5"
 	}
 }
