@@ -11,7 +11,7 @@ export const GET = (async (context) => {
   const posts = await getRSSPosts();
 
   return rss({
-    title: "Andrew JD Hudson's Blog",
+    title: "Andrew Hudson",
     description: "Recent content in Articles & Experiments by Andrew JD Hudson",
     // Pull in your project "site" from the endpoint context
     // https://docs.astro.build/en/reference/api-reference/#site
