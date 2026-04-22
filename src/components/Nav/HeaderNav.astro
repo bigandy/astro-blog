@@ -1,6 +1,7 @@
 ---
 import SettingsToggler from "@components/CV/SettingsToggler.astro";
 import ExternalLink from "@components/Global/ExternalLink.astro";
+import ThemeSwitcher from '@components/Nav/ThemeSwitcher.astro';
 
 import { headerPages } from "./pages";
 import { getNavClassName } from "./utils";
@@ -37,7 +38,11 @@ const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
     <SettingsToggler
         src="/images/cv/andrew-profile.jpg"
         alt="Photo of Andrew JD Hudson"
-    />
+    >
+      <Fragment slot="menu">
+        <ThemeSwitcher  client:visible />
+      </Fragment>
+    </SettingsToggler>
   )}
 </nav>
 

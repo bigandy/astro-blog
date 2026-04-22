@@ -6,7 +6,7 @@ interface Props {
 	alt: string;
 	dimension?: number;
 }
-const { src, alt, dimension = 100 } = Astro.props;
+const { src, alt, dimension = 100  } = Astro.props;
 ---
 
 <div class="settings-toggler">
@@ -21,6 +21,7 @@ const { src, alt, dimension = 100 } = Astro.props;
     )}
 
     <slot />
+
     <!-- <LanguageSwitcher /> -->
 </div>
 
@@ -38,10 +39,11 @@ const { src, alt, dimension = 100 } = Astro.props;
     button {
         all: unset;
         border-radius: 50%;
+
         &:hover,
         &:focus {
-        outline: 2px dashed;
-        cursor: pointer;
+            outline: 2px dashed;
+            cursor: pointer;
         }
     }
 
@@ -54,24 +56,24 @@ const { src, alt, dimension = 100 } = Astro.props;
         right: anchor(right);
         justify-self: anchor-center;
         padding: 0;
-        /* border: none; */
+        border: none;
         overflow: unset;
         /* background: transparent; */
         /* min-height: 400px; */
 
     }
 
-    :global(.language-switcher) {
+    /* :global(.language-switcher) {
         position: fixed;
         position-anchor: --me;
         position-area: bottom;
         z-index: 1;
         inset: 40px 0;
-    }
+    } */
 
-    @media print {
+    /* @media print {
         img {
-            /* filter: none !important; */
+            filter: none !important;
         }
-    }
+    } */
 </style>

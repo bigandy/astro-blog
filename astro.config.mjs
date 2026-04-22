@@ -62,8 +62,10 @@ export default defineConfig({
     //             drafts: {
     //                 customMedia: true,
     //             },
-	// 			targets: {},
-    //             // targets: browserslistToTargets(browsersList),
+	// 			targets: {
+	// 				// https://github.com/parcel-bundler/lightningcss/issues/773#issuecomment-2270330817
+	// 				chrome: 126 << 16,
+	// 			}
     //         },
 	// 	},
 	// },

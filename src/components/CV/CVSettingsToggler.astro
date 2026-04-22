@@ -39,10 +39,15 @@ const pages = [
 
 <style>
     .popover-insides {
+        --link-color: var(--theme-accent, blue);
+
         padding: 1rem;
         min-width: 300px;
+        border: 2px solid var(--link-color);
 
-        --link-color: var(--theme-accent, blue);
+        h2 {
+            margin-block-start: 0;
+        }
 
         a {
             text-decoration: underline;
