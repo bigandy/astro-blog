@@ -20,7 +20,7 @@ Yesterday I was coding an app with solid and I wanted to use the new `selectedco
 <SelectExample isModern={true} />
 
 <Code
-    language="jsx"
+    lang="jsx"
     title="LanguageSelector.tsx"
     code={`
 export const LanguageSelector = () => {
@@ -35,30 +35,7 @@ export const LanguageSelector = () => {
                 </span>
                 English
             </option>
-            <option value="fr">
-                <span class="icon" aria-hidden="true">
-                    🇫🇷
-                </span>
-                French
-            </option>
-            <option value="de">
-                <span class="icon" aria-hidden="true">
-                    🇩🇪
-                </span>
-                German
-            </option>
-            <option value="it">
-                <span class="icon" aria-hidden="true">
-                    🇮🇹
-                </span>
-                Italian
-            </option>
-            <option value="es">
-                <span class="icon" aria-hidden="true">
-                    🇪🇸
-                </span>
-                Spanish
-            </option>
+            {...other options}
         </select>
     );
 };`}
