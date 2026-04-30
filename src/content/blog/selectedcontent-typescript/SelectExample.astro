@@ -1,0 +1,83 @@
+---
+const { isModern = false } = Astro.props;
+
+---
+<div  class={`${isModern ? 'is-modern' : ''}`}>
+<select id="languageSelection">
+    <button>
+        <selectedcontent></selectedcontent>
+    </button>
+    <option value="en">
+        <span class="icon" aria-hidden="true">🇬🇧</span>
+        English
+    </option>
+    <option value="fr">
+        <span class="icon" aria-hidden="true">🇫🇷</span>
+        French
+    </option>
+    <option value="de">
+        <span class="icon" aria-hidden="true">🇩🇪</span>
+        German
+    </option>
+    <option value="it">
+        <span class="icon" aria-hidden="true">🇮🇹</span>
+        Italian
+    </option>
+    <option value="es">
+        <span class="icon" aria-hidden="true">🇪🇸</span>
+        Spanish
+    </option>
+</select>
+</div>
+<style is:inline>
+    .is-modern {
+        ::picker(select),
+        select {
+            appearance: base-select;
+            border-color: var(--_border-color);
+        }
+
+        selectedcontent {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 1rem;
+        }
+
+        option::checkmark {
+            display: none;
+        }
+
+        select {
+            margin-inline: auto;
+            display: flex;
+            cursor: pointer;
+            max-width: 110rch;
+            width: 100%;
+        }
+
+        option,
+        select {
+            padding: 1rem;
+        }
+
+        option:checked {
+            background-color: var(--_border-color);
+            color: contrast-color(var(--_border-color));
+        }
+
+        ::picker-icon {
+            color: var(--_border-color);
+        }
+
+        select:open {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+
+            &::picker-icon {
+                rotate: 180deg;
+            }
+        }
+    }
+
+
+</style>

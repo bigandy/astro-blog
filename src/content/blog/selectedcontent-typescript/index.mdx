@@ -1,0 +1,97 @@
+---
+title: "How to use <selectedcontent> with Typescript in JSX"
+date: 2026-04-28 09:00:00
+draft: true
+description: ""
+tags: ["TIL"]
+author: "Andrew"
+template: "full-page"
+---
+
+import { Code } from "astro-expressive-code/components";
+import SelectExample from "./SelectExample.astro";
+import SolidSnippet from "./solid-code-snippet.astro";
+import ReactSnippet from "./react-code-snippet.astro";
+
+<SelectExample />
+
+Yesterday I was coding an app with solid and I wanted to use the new `selectedcontent` html element that is available inside `<select>` elements. Combined with some CSS it enables you to be able to style dropdowns in any way you want. `selectedcontent` specifically allows you to have custom html within the options and be able to style the selected option:
+
+<SelectExample isModern={true} />
+
+<Code
+    language="jsx"
+    title="LanguageSelector.tsx"
+    code={`
+export const LanguageSelector = () => {
+    return (
+        <select id="languageSelection">
+            <button>
+                <selectedcontent />
+            </button>
+            <option value="en">
+                <span class="icon" aria-hidden="true">
+                    🇬🇧
+                </span>
+                English
+            </option>
+            <option value="fr">
+                <span class="icon" aria-hidden="true">
+                    🇫🇷
+                </span>
+                French
+            </option>
+            <option value="de">
+                <span class="icon" aria-hidden="true">
+                    🇩🇪
+                </span>
+                German
+            </option>
+            <option value="it">
+                <span class="icon" aria-hidden="true">
+                    🇮🇹
+                </span>
+                Italian
+            </option>
+            <option value="es">
+                <span class="icon" aria-hidden="true">
+                    🇪🇸
+                </span>
+                Spanish
+            </option>
+        </select>
+    );
+};`}
+/>
+
+```css title="index.css"
+::picker(select),
+select {
+    appearance: base-select;
+}
+
+selectedcontent {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+}
+```
+
+### The Error
+
+<Code
+    language="shell"
+    code={`Property 'selectedcontent' does not exist on type 'JSX.IntrinsicElements'.ts(2339)`}
+/>
+
+### How to fix the error
+
+1. create a global.d.ts file.this will go at the root of the project or the root of where your tsconfig.json file is pointing at e.g.the src folder.
+
+<SolidSnippet />
+
+<ReactSnippet />
+
+## Notes
+
+Source https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/71395#discussioncomment-11525908

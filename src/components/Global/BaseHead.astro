@@ -1,11 +1,12 @@
 ---
 import { isProduction } from "@utils/isProduction";
 import SpeculationRules from "./SpeculationRules.astro";
-import "@css/global.css";
+import css from "@css/global.css?raw";
 
 interface Props {
 	title: string;
 	description?: string | undefined;
+	useGlobalCSS?: boolean;
 }
 
 const descriptionFallback = "Senior Software Engineer looking for answers.";
@@ -13,6 +14,7 @@ const descriptionFallback = "Senior Software Engineer looking for answers.";
 const {
 	title = descriptionFallback,
 	description = descriptionFallback,
+	useGlobalCSS = true
 } = Astro.props;
 
 ---
@@ -21,6 +23,10 @@ const {
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+{useGlobalCSS && (
+    <style set:html={css}></style>
+)}
 
 <title>{title !== "" ? `${title} - ` : ""}Andrew JD Hudson</title>
 <meta name="title" content={title !== "" ? title : descriptionFallback} />

@@ -1,0 +1,25 @@
+---
+import { Code } from "astro-expressive-code/components";
+---
+
+<details>
+    <summary>React</summary>
+
+    <Code lang="html" title="global.d.ts for React"
+    code =`
+    // For React
+    import "react";
+
+    declare module "react" {
+        namespace JSX {
+            interface IntrinsicElements {
+                /**
+                * The <selectedcontent> element displays a clone of the currently
+                * selected <option>'s content inside a customizable <select>.
+                */
+                selectedcontent: object;
+            }
+        }
+    }`
+    />
+</details>

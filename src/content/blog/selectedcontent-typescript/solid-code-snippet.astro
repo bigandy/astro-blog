@@ -1,0 +1,25 @@
+---
+import { Code } from "astro-expressive-code/components";
+---
+
+<details open>
+    <summary>Solid</summary>
+
+    <Code lang="tsx" title="global.d.ts for Solid"
+    code =`
+    // For Solid
+    import "solid-js";
+
+    declare module "solid-js" {
+        namespace JSX {
+            interface IntrinsicElements {
+                /**
+                * The <selectedcontent> element displays a clone of the currently
+                * selected <option>'s content inside a customizable <select>.
+                */
+                selectedcontent: object;
+            }
+        }
+    }`
+    />
+</details>

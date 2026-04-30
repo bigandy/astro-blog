@@ -1,16 +1,21 @@
 ---
 import BaseHead from "@components/Global/BaseHead.astro";
-
 import SiteHeader from "@components/Global/SiteHeader.astro";
 
-const { title, head } = Astro.props;
+import "@css/full-page-template.css";
+
+const { title, head, accentColor = "" } = Astro.props;
+
+
 ---
 
-<html lang="en">
+<html lang="en" >
     <head>
-        <BaseHead title={title} />
+        <BaseHead title={title} useGlobalCSS={true} />
 
         {head}
+
+        <!-- <link rel="stylesheet" href="/src/css/full-page-template.css" /> -->
 
         <link
             rel="preconnect"
@@ -25,132 +30,11 @@ const { title, head } = Astro.props;
             href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Mono&display=swap"
             rel="stylesheet"
         />
-
-        <style>
-            .full-page-layout {
-                font-family: "PT Mono", monospace;
-                font-weight: 400;
-                font-style: normal;
-
-                --header-font-family:
-                    "Libre Baskerville", serif;
-
-                :where(li, p, h1, h2, h3, h4) {
-                    max-width: 100rch;
-                    margin-inline: auto;
-                }
-
-                .expressive-code .frame {
-                    box-shadow: none;
-                }
-
-                :where(.expressive-code) {
-                    ::selection {
-                        background: orange;
-                        color: color-mix(white, currentColor);
-                    }
-
-                    @media (width > 800px) {
-                        margin-inline-start: calc(
-                            50vw - 50rch - 20px
-                        );
-                    }
-                }
-
-                :where(article > a) {
-                    @media (width > 800px) {
-                        margin-inline-start: calc(
-                            50vw - 50rch - 25px
-                        );
-                    }
-                }
-
-                :where(h1, h2, h3) {
-                    text-wrap: pretty;
-                }
-
-                .post-number {
-                    display: none;
-                    /* AHTODO: is it better to use a prop instead? */
-                }
-
-                &:where(a) {
-                    text-decoration-thickness: 2px;
-                    text-decoration-color: cadetblue;
-                    text-decoration-line: underline;
-                    text-underline-offset: 0.25em;
-
-                    &:active,
-                    &:focus {
-                        text-decoration: unset;
-                    }
-
-                    &:hover {
-                        text-decoration-thickness: 1px;
-                    }
-                }
-
-                header h1 {
-                    text-align: center;
-                }
-
-                article h1 {
-                    max-width: unset;
-                    text-align: center;
-                }
-
-                nav {
-                    width: max-content;
-                    margin-inline: auto;
-                    margin-block-start: 2rem;
-                }
-
-                nav li {
-                    margin-inline-end: 1rem;
-                }
-            }
-
-            .full-page-layout :global(ul, ol) {
-                margin-block: 1.5rem;
-
-                ::marker {
-                    color: orangered;
-                }
-            }
-
-            .full-page-layout :global(ol) {
-                li:nth-child(odd) {
-                    &::marker {
-                        color: magenta;
-                    }
-                }
-            }
-
-            .full-page-layout :global(h2) {
-                font-size: var(--font-size-1);
-            }
-
-            .full-page-layout :global(li) {
-                &:has(input:checked) {
-                    text-decoration: line-through;
-                }
-            }
-
-            .full-page-layout :global(time) {
-                display: inline-grid;
-                width: min(100rch, 100%);
-            }
-
-            .full-page-layout :global(article > header) {
-                text-align: center;
-                margin-block: 1rem 4rem;
-            }
-        </style>
     </head>
 
-    <body class="full-page-layout">
+    <body class="full-page-layout" style=`${accentColor !== '' && `--theme-accent-override: ${accentColor}`}`>
         <SiteHeader hidePhoto />
-        <main class="layout">
+        <main class="layout full-page-content">
             <slot />
         </main>
     </body>
