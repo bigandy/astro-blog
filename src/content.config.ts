@@ -1,7 +1,6 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
-import { Temporal } from "temporal-polyfill-lite";
 
 // See https://github.com/colinhacks/zod/discussions/2125#discussioncomment-5202525
 function getValues<T extends Record<string, any>>(obj: T) {

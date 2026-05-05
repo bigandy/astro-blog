@@ -6,7 +6,6 @@ import {
 	select,
 	text,
 } from "@clack/prompts";
-import { Temporal } from "temporal-polyfill-lite";
 
 import { $ } from "execa";
 

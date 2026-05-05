@@ -1,5 +1,3 @@
-import { Temporal } from "temporal-polyfill-lite";
-
 export const themeColorKey = "cv-themeColor";
 
 export const summary = `I am a senior software engineer with 14+ years of experience creating highly performant and usable

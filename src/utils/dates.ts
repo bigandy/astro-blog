@@ -1,4 +1,4 @@
-import { Temporal } from "temporal-polyfill-lite";
+import { Temporal } from "temporal-polyfill-lite"; // This is needed here because Bookcase.svelte uses it, and Safari does not support Temporal yet.
 
 export const padStartNumber = (number: number) => {
 	return `0${number}`.slice(-2);

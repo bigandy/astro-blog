@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 export type Collection = "blog" | "weeknotes" | "blog-fr" | "weeknotes-fr";
 
 import { isProduction } from "@utils/isProduction";
-import { Temporal } from "temporal-polyfill-lite";
 
 export type Item = CollectionEntry<Collection> & {
 	postIndex: number;
