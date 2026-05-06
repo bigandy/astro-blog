@@ -1,8 +1,5 @@
 <script lang="ts">
-    type Option = "month" | "year";
-
-    import { Temporal } from "temporal-polyfill-lite";
-    import { getPlainDateFromString, padStartNumber } from "@utils/dates";
+    import { getPlainDateFromString, groupedBooks } from "@utils/dates";
     import type { Book } from "@utils/getBooksFromNotion";
     import Toggle from "./Toggle.svelte";
     import Warning from "./Warning.svelte";
@@ -35,41 +32,13 @@
         locale = "en",
     }: Props = $props();
 
-    const groupedBooks = (books: Book[], format: Option) => {
-        const group = Object.groupBy(books, ({ finishedDate }: Book) => {
-            const date = Temporal.PlainDate.from(finishedDate);
-
-            if (format === "month") {
-                return `${padStartNumber(date.month)}-${date.year}`;
-            } else {
-                return date.year;
-            }
-        });
-
-        const groups = Object.entries(group);
-
-        const sortedGroups = groups
-            .sort(([a], [b]) => {
-                if (format === "month") {
-                    const aDate = getPlainDateFromString(a);
-                    const bDate = getPlainDateFromString(b);
-
-                    return Temporal.PlainDate.compare(bDate, aDate);
-                }
-                return Number(b) - Number(a);
-            })
-            .map(([key, value]) => {
-                return [key, value] as [string, Book[]];
-            });
-
-        return sortedGroups;
-    };
-
     let monthsActive = $state(true);
 
-    let groups = $derived(groupedBooks(books, monthsActive ? "month" : "year"));
+    let groups = $derived(
+        await groupedBooks(books, monthsActive ? "month" : "year"),
+    );
 
-    function toggle(option: Option) {
+    function toggle(option: string) {
         monthsActive = option === "month";
     }
 

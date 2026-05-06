@@ -56,7 +56,8 @@ export const getBooks = async (): Promise<Array<Book>> => {
 
 			// if we don't have the thumbnail, call googleBookSearch to get from API
 			if (!thumbnail) {
-				thumbnail = await googleBookSearch(bookTitle, bookAuthor);
+				// thumbnail = await googleBookSearch(bookTitle, bookAuthor);
+				thumbnail = '';
 			}
 
 			return {
@@ -72,9 +73,20 @@ export const getBooks = async (): Promise<Array<Book>> => {
 
 		const books = await Promise.all([...list]);
 
-		await asset.save(books, "json");
+		const sortedBooks = books
+			.filter(({ finishedDate }: { finishedDate: string }) => {
+				return finishedDate !== "";
+			})
+			.sort((a: any, b: any) => {
+				const aDate = a.finishedDate;
+				const bDate = b.finishedDate;
 
-		return books;
+				return Temporal.PlainDate.compare(bDate, aDate);
+			});
+
+		await asset.save(sortedBooks, "json");
+
+		return sortedBooks;
 	} catch (error) {
 		console.error("error in getting books", error);
 
@@ -82,20 +94,20 @@ export const getBooks = async (): Promise<Array<Book>> => {
 	}
 };
 
-const googleBookSearch = async (title: string, author: string) => {
-	try {
-		const results = await fetch(
-			`https://www.googleapis.com/books/v1/volumes?q=${encodeURI(
-				title + author,
-			)}`,
-		);
-		const json = await results.json();
+// const googleBookSearch = async (title: string, author: string) => {
+// 	try {
+// 		const results = await fetch(
+// 			`https://www.googleapis.com/books/v1/volumes?q=${encodeURI(
+// 				title + author,
+// 			)}`,
+// 		);
+// 		const json = await results.json();
 
-		// take the first, assume that it is the correct one.
-		const thumbnail = json?.items[0].volumeInfo?.imageLinks?.thumbnail ?? null;
-		return thumbnail;
-	} catch (error) {
-		console.error(error);
-		return "";
-	}
-};
+// 		// take the first, assume that it is the correct one.
+// 		const thumbnail = json?.items[0].volumeInfo?.imageLinks?.thumbnail ?? null;
+// 		return thumbnail;
+// 	} catch (error) {
+// 		console.error(error);
+// 		return "";
+// 	}
+// };

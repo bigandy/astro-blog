@@ -5,17 +5,7 @@ import { getBooks } from "@utils/getBooksFromNotion";
 
 const isFrench = Astro.currentLocale === "fr";
 
-const allBooks = await getBooks();
-const books = allBooks
-	.filter(({ finishedDate }: { finishedDate: string }) => {
-		return finishedDate !== "";
-	})
-	.sort((a: any, b: any) => {
-		const aDate = a.finishedDate;
-		const bDate = b.finishedDate;
-
-		return Temporal.PlainDate.compare(bDate, aDate);
-	});
+const books = await getBooks();
 
 const { title } = Astro.props;
 ---
@@ -23,6 +13,8 @@ const { title } = Astro.props;
 <DefaultLayout title={title} accent="oklch(0.52 0.12 189.58)">
 
   <slot />
+
+
 
   <Bookcase
     client:visible
