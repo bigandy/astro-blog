@@ -23,7 +23,7 @@ const openCodeInCodeEditor = async (newFile) => {
 	// await $`${editor} ${newDirectory}/index.html:2:5 -g`;
 	// -g does not work with zed
 	// 8th line. first character 8:1
-	await $`${editor} ${newFile}:8:8 ${editor === 'code' ? '-g' : ''`;
+	await $`${editor} ${newFile}:8:8 ${editor === 'code' ? '-g' : ''}`;
 	return;
 };
 
