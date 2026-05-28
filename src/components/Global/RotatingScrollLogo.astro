@@ -86,7 +86,8 @@ const characters = string.split("");
                 .super-wrapper {
                     --radius: calc((1 / 0.2) * -2ch);
                     position: fixed;
-                    bottom: 3rem;
+                    /* AHTODO: Currently these two values are hard-coded. Would be good to get them from the dimensions of the container. */
+                    bottom: 4rem;
                     right: 4rem;
 
                     &::after {

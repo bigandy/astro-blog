@@ -1,3 +1,7 @@
+
+// Get internals from --getAlpha as an array
+// for example --getAlpha(rgb(128, 0 ,0), 0.24);
+// Should result in [rgb(128, 0 ,0), 0.24]
 function extractParentheses(str) {
 	const results = [];
 	const stack = [];
@@ -18,17 +22,17 @@ function extractParentheses(str) {
 	return results;
 }
 
-export default (opts) => {
+const plugin = (opts) => {
 	opts = opts || {};
 	const units = opts.units || [
 		{
 			functionName: "--unit",
 			function: `calc(var(--column-gap-size) * $1)`,
 		},
-		{
-			functionName: "--getAlpha",
-			function: "$1(from $2 $3 / $4)",
-		},
+		// {
+		// 	functionName: "--getAlpha",
+		// 	function: "$1(from $2 $3 / $4)",
+		// },
 	];
 
 	return {
@@ -39,7 +43,7 @@ export default (opts) => {
 			units.forEach((unit) => {
 				if (decl.value.includes(unit.functionName)) {
 					// Get values inside the (), split into an array on the comma.
-					// AHTODO: handle e.g. --getAlpha(rgb(128, 0 ,0), 0.24);
+
 					const [value] = extractParentheses(decl.value);
 
 					if (value.includes(",")) {
@@ -65,3 +69,6 @@ export default (opts) => {
 		},
 	};
 };
+
+plugin.postcss = true;
+export default plugin;
