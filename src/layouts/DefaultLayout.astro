@@ -11,6 +11,7 @@ interface Props {
 	hideTitle?: boolean;
 	isHomepage?: boolean;
     description?: string;
+    isBlogPost?: boolean;
 }
 
 const {
@@ -19,7 +20,8 @@ const {
 	bodyClass = "",
 	hideTitle,
 	isHomepage = false,
-    description
+    description,
+    isBlogPost
 }: Props = Astro.props;
 const locale = Astro.currentLocale ?? "en";
 ---
@@ -46,7 +48,7 @@ const locale = Astro.currentLocale ?? "en";
                         <h1 class="title">{title}</h1>
                     )
                 }
-                <div class:list={[{ "the-content": !isHomepage  }]}>
+                <div class:list={[{ "the-content": !isHomepage && !isBlogPost  }]}>
                     <slot />
                 </div>
             </div>
@@ -69,6 +71,7 @@ const locale = Astro.currentLocale ?? "en";
     }
 
     .the-content {
-        padding-block: calc(var(--column-gap-size) * 2);
+        border-top: 10px solid orangered;
+        padding-block: --unit(2);
     }
 </style>

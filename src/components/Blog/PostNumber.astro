@@ -19,7 +19,8 @@ const { number, isPost } = Astro.props;
     /* Need to import it here because Astro + postcss not working correctly. A known bug */
     /* @import "/src/css/partials/props.media.css"; */
 
-    .wrapper {
+    .post-number {
+        font-family: var(--header-font-family);
         view-transition-name: var(--vt-index);
         font-size: 125%;
         font-weight: bold;

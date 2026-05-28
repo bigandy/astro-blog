@@ -19,18 +19,14 @@ const prefix = Astro.currentLocale ? `/${Astro.currentLocale}` : "";
     niveau. Je viens de passer à Astro (à partir de 11ty) et jusqu'à présent,
     l'expérience et le produit final sont de premier ordre.
   </p>
-  <div class="blog-post-list">
-    <h2>Derniers articles du blog</h2>
-    <BlogPostList number={9} collection="blog-fr" />
+  <h2>Derniers articles du blog</h2>
 
-    <ForwardArrow url={prefix + blogHomeUrl} title="Voir plus de publications" />
-  </div>
+  <BlogPostList number={9} collection="blog-fr" />
+
+  <ForwardArrow url={prefix + blogHomeUrl} title="Voir plus de publications" />
 </DefaultLayout>
 
 <style>
-  .blog-post-list {
-    margin-block-start: 3rem;
-  }
   body {
     --theme-accent: #cb4f00;
   }

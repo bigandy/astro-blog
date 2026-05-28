@@ -44,7 +44,10 @@ const noTranslationText =
 
 // const showTranslationText = collection !== "weeknotes" && !hasTranslation;
 const showTranslationText = false;
+
+const isYoutube = post.data.tags?.includes('youtube');
 ---
+
 
 <article class="content post inner">
     {
@@ -89,3 +92,9 @@ const showTranslationText = false;
         text-align: center;
     }
 </style>
+
+
+{isYoutube && (
+    <script type="module" src="/js/lite-yt-embed.js"></script>
+    <link rel="stylesheet" href="/css/lite-yt-embed.css" />
+)}

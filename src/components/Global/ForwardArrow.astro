@@ -3,14 +3,15 @@ interface Props {
 	url: string;
 	title: string;
 	isBlog?: boolean;
+  extraClass?: string;
 }
 
-const { url, title, isBlog = false } = Astro.props;
+const { url, title, isBlog = false, extraClass } = Astro.props;
 
 const text = Astro.currentLocale ? "En savoir plus sur" : "Read more about";
 ---
 
-<a href={url}>
+<a href={url} class={`forward-arrow ${extraClass}`}>
   {isBlog ? <>{text} &ldquo;{title}&rdquo;</> : title} &rarr;
 </a>
 <style>

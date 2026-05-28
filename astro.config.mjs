@@ -44,11 +44,11 @@ export default defineConfig({
     build: {
         inlineStylesheets: "always",
     },
-    experimental: {
-        rustCompiler: true,
-        queuedRendering: {
-            enabled: true,
-            contentCache: true,
-        },
-    },
+    // experimental: {
+    //     rustCompiler: true,
+    //     queuedRendering: {
+    //         enabled: true,
+    //         contentCache: true,
+    //     },
+    // },
 });

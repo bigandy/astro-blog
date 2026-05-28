@@ -18,7 +18,7 @@ const { template, title, description } = post.data;
             />
         </FullPageLayout>
     ) : (
-        <DefaultLayout title={post.data.title} hideTitle description={description}>
+        <DefaultLayout title={post.data.title} hideTitle description={description} isBlogPost>
             <BlogPost post={post} collection={collection} postIndex={postIndex} />
         </DefaultLayout>
     )

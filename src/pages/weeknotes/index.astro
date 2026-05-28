@@ -7,9 +7,13 @@ const title = "Weeknotes";
 ---
 
 <DefaultLayout title={title}>
-  <div class="blog-posts-list">
-    <BlogPostList number={9} collection="weeknotes" />
-  </div>
+  <BlogPostList number={9} collection="weeknotes" />
 
-  <ForwardArrow url="/weeknotes/2/" title="See more weeknotes" />
+  <ForwardArrow url="/weeknotes/2/" title="See more weeknotes" extraClass="forward-arrow" />
 </DefaultLayout>
+
+<style is:global>
+  .forward-arrow {
+    margin-block-start: --unit(2);
+  }
+</style>

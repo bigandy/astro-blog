@@ -1,11 +1,12 @@
 ---
-import BlogPostPreview from "@components/Blog/BlogPostPreview.astro";
 import {
-	type Collection,
-	getSomePosts,
+type Collection,
+getSomePosts,
 } from "@components/Blog/utils/getAllPosts";
 
 const isFrench = Astro.currentLocale === "fr";
+
+import UnstyledPostList from "@components/Blog/UnstyledPostList.astro";
 
 // Take 10 latest posts for the moment until I learn how to do pagination with Astro!
 
@@ -19,8 +20,8 @@ const { number = 9, collection = "blog" } = Astro.props;
 const posts = await getSomePosts(collection, number);
 ---
 {
-	posts.length > 0 ? posts.map(
-		(post) => <BlogPostPreview post={post} postIndex={post.postIndex} collection={collection} />
+	posts.length > 0 ? (
+		<UnstyledPostList posts={posts} collection={collection} />
 	) : (
 		<div>{isFrench ? "Aucun article publié sur le" : "No Posts in"} {collection}</div>
 	)

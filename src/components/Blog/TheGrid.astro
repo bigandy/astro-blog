@@ -1,0 +1,31 @@
+---
+interface Props {
+    columns?: number;
+}
+
+const { columns = 2 } = Astro.props;
+---
+<container>
+    <the-grid class="the-grid">
+        <slot />
+    </the-grid>
+</container>
+
+<style define:vars={{ columns }}>
+    @scope (container) {
+        the-grid {
+            --_columns: 1;
+
+            display: grid;
+            grid-template-columns: repeat(var(--_columns, 1), 1fr);
+            gap: --unit(2);
+            margin-block: --unit(2);
+            rule: 1px solid;
+            rule-break: intersection;
+
+            @container (inline-size > 700px) {
+                --_columns: var(--columns, 2);
+            }
+        }
+    }
+</style>

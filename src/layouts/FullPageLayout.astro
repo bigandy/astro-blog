@@ -6,16 +6,12 @@ import "@css/full-page-template.css";
 
 const { title, head, accentColor = "" } = Astro.props;
 
-
 ---
-
-<html lang="en" >
+<html lang="en">
     <head>
-        <BaseHead title={title} useGlobalCSS={true} />
+        <BaseHead title={title} useGlobalCSS={false} />
 
         {head}
-
-        <!-- <link rel="stylesheet" href="/src/css/full-page-template.css" /> -->
 
         <link
             rel="preconnect"
@@ -32,7 +28,7 @@ const { title, head, accentColor = "" } = Astro.props;
         />
     </head>
 
-    <body class="full-page-layout" style=`${accentColor !== '' && `--theme-accent-override: ${accentColor}`}`>
+    <body class="full-page-layout" style={`${accentColor !== '' && `--theme-accent-override: ${accentColor}`}`}>
         <SiteHeader hidePhoto />
         <main class="layout full-page-content">
             <slot />

@@ -24,29 +24,25 @@ const themeAccent = "oklch(0.68 0.25 38.61)";
         </div>
     </div>
 
-    <div class="posts">
-        <h2>Latest Blog Posts</h2>
+    <h2>Latest Blog Posts</h2>
 
-        <BlogPostList number={21} />
+    <BlogPostList number={21} />
 
-        <ForwardArrow url="/blog/2/" title="See more posts" />
-    </div>
+    <ForwardArrow url="/blog/2/" title="See more posts" />
 </DefaultLayout>
 
 <style>
-
     h2 {
-        padding-block-end: calc(var(--column-gap-size) * 1);
-    }
-    .posts {
-        padding-block: calc(var(--column-gap-size) * 2);
-        display: grid;
-        grid-column: center;
+        padding-block-end: --unit(1);
     }
 
     .intro {
-        padding-block-end: calc(var(--column-gap-size) * 2);
+        padding-block-end: --unit(2);
         grid-template-columns: subgrid;
         grid-column: 3 / span 3;
+    }
+
+    :global(.forward-arrow) {
+        margin-block-start: --unit(2);
     }
 </style>

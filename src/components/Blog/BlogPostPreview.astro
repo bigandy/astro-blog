@@ -72,9 +72,9 @@ const articleType = draft ? "draft" : future ? "future" : "";
 
 <style>
     .post-preview {
-        margin-block-end: 1rem;
-        padding-block-end: 1rem;
-        border-block-end: 4px solid var(--theme-divider);
+        /* margin-block-end: 1rem; */
+        /* padding-block-end: 1rem; */
+        /* border-block-end: 4px solid var(--theme-divider); */
         position: relative;
 
         a:not(:focus-visible) {
@@ -128,7 +128,6 @@ const articleType = draft ? "draft" : future ? "future" : "";
                 style(--type: 'future'): color-mix(in lch, var(--theme-accent), red)
             );
         }
-
 
         --content: attr(data-type);
     }
