@@ -6,7 +6,7 @@ tags: [""]
 description: ""
 ---
 
-Did you know that node 26 now supports the Temporal API for date manipulation.
+Did you know that node 26 now supports the Temporal API for date manipulation?
 
 I have been following the development process closely and found myself wanting to update to different versions of node.
 
@@ -25,6 +25,7 @@ function updateNode() {
 ```
 
 and use it like so:
+
 ```bash
 updateNode 26.2.0
 ```
