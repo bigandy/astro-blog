@@ -417,5 +417,15 @@ container {
 }
 
 /* body {
+	background: --getAlphaOklab(rgb(255, 100, 0), 0.1);
+} */
+
+.expressive-code {
+	isolation: isolate;
+	margin-block: --unit(2) --unit(1);
+}
+
+/* .test {
+	margin-block: --test(2) --test(3);
 	background: --getAlphaOklab(rgb(128, 255, 0), 0.95);
 } */
