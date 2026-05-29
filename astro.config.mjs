@@ -30,9 +30,6 @@ export default defineConfig({
         defaultLocale: "en",
     },
     integrations: [expressiveCode(), svelte(), mdx(), react(), lit()],
-    // markdown: {
-    // 	syntaxHighlight: "prism",
-    // },
     scopedStyleStrategy: "class",
     server: {
         port: 8888,
