@@ -32,6 +32,8 @@ const {
 <meta name="title" content={title !== "" ? title : descriptionFallback} />
 <meta name="description" content={description} />
 
+<link rel="preload" href="/fonts/Syne-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+
 {isProduction && (
     <SpeculationRules />
 )}
