@@ -38,7 +38,6 @@
 		"@clack/prompts": "1.5.1",
 		"@expressive-code/plugin-line-numbers": "0.42.0",
 		"@notionhq/client": "5.22.0",
-		"@types/lodash": "4.17.24",
 		"@types/markdown-it": "14.1.2",
 		"@types/sanitize-html": "2.16.1",
 		"execa": "9.6.1",
