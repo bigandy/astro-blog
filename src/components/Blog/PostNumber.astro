@@ -45,15 +45,14 @@ const { number, isPost } = Astro.props;
     /* When on a post page */
     .is-post {
         position: fixed;
-        top: 50%;
-        left: 50%;
+        top: max(50dvh, 400px);
+        left: 50dvw;
         right: auto;
-        translate: -50% -25%;
+        translate: -50% -50%;
         font-size: clamp(14.3rem, 50cqi, 3000%);
         width: max-content;
-
         line-height: 1;
-        z-index: -2;
+        z-index: 1;
         opacity: 0.1;
 
         background-image: linear-gradient(
