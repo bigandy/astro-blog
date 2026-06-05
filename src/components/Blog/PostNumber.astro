@@ -20,6 +20,7 @@ const { number, isPost } = Astro.props;
     /* @import "/src/css/partials/props.media.css"; */
 
     .post-number {
+        text-decoration: none;
         font-family: var(--header-font-family);
         view-transition-name: var(--vt-index);
         font-size: 125%;
@@ -46,15 +47,15 @@ const { number, isPost } = Astro.props;
     .is-post {
         pointer-events: none;
         position: fixed;
-        top: 50dvh;
+        top: 50svh;
         left: 50dvw;
         right: auto;
         translate: -50% -50%;
         font-size: clamp(14.3rem, 50cqi, 3000%);
         width: max-content;
         line-height: 1;
-        z-index: -1;
-        opacity: 0.1;
+        z-index: -2;
+        opacity: 0.3;
 
         background-image: linear-gradient(
             to right,

@@ -31,6 +31,8 @@ const {
                 <h2 class="title">{title}</h2>
 
                 {date && <PublishDate date={date} class="publish-date" />}
+
+                <PostNumber number={postIndex} isPost={!isPreview} />
             </a>
         ) : (
             <Fragment>
@@ -38,11 +40,11 @@ const {
                 {date && (
                     <PublishDate date={date} class="publish-date" showLine />
                 )}
+
+                <PostNumber number={postIndex} isPost={!isPreview} />
             </Fragment>
         )
     }
-
-    <PostNumber number={postIndex} isPost={!isPreview} />
 </header>
 
 <style>
@@ -50,17 +52,21 @@ const {
         display: grid;
         grid-template-columns: 1fr auto;
 
-        &.header {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            align-items: flex-start;
-            justify-content: center;
-            padding-block-end: 1rem;
-        }
 
         a {
             display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0;
+
+            .title,
+            .publish-date {
+                grid-column-start: 1;
+            }
+
+            .post-number {
+                grid-row: 1 / span 2;
+                grid-column: 2;
+            }
         }
 
         .title,
