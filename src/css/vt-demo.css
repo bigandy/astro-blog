@@ -28,7 +28,7 @@ html::after {
 
 html,
 body {
-	height: 100%;
+	block-size: 100%;
 }
 
 @property --range {

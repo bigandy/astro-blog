@@ -10,16 +10,15 @@ const themeAccent = "oklch(0.68 0.25 38.61)";
     <div class="inner">
         <div class="intro">
             <p>
-                I'm Andrew and I am a senior front-end software
-                engineer based in Grenoble, France.
+                I'm Andrew and I am a senior front-end software engineer based
+                in Grenoble, France.
             </p>
 
             <p>
-                This site was created with Zed and strong black
-                coffee, with Astro as the framework of choice with a
-                bit of Svelte (for the bookshelf) but mostly vanilla
-                html and css using markdown to write the blog posts
-                and articles.
+                This site was created with Zed and strong black coffee, with
+                Astro as the framework of choice with a bit of Svelte (for the
+                bookshelf) but mostly vanilla html and css using markdown to
+                write the blog posts and articles.
             </p>
         </div>
     </div>
@@ -33,16 +32,23 @@ const themeAccent = "oklch(0.68 0.25 38.61)";
 
 <style>
     h2 {
-        padding-block-end: --unit(1);
+        padding-block-end: 0;
+        margin-block-end: 0;
     }
 
     .intro {
-        padding-block-end: --unit(2);
+        padding-block-end: --spacing(2);
         grid-template-columns: subgrid;
         grid-column: 3 / span 3;
     }
 
     :global(.forward-arrow) {
-        margin-block-start: --unit(2);
+        margin-block-start: --spacing(2);
+    }
+
+    :global(.blog-post-list) {
+        border-block-start: 10px solid #ff4500;
+        margin-block-start: 0;
+        padding-block-start: --spacing(2);
     }
 </style>

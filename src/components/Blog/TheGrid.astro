@@ -5,6 +5,7 @@ interface Props {
 
 const { columns = 2 } = Astro.props;
 ---
+
 <container>
     <the-grid class="the-grid">
         <slot />
@@ -18,8 +19,8 @@ const { columns = 2 } = Astro.props;
 
             display: grid;
             grid-template-columns: repeat(var(--_columns, 1), 1fr);
-            gap: --unit(2);
-            margin-block: --unit(2);
+            gap: --spacing(2);
+            margin-block: --spacing(2);
             rule: 1px solid;
             rule-break: intersection;
 

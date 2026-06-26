@@ -4,7 +4,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
 import { defineConfig, envField } from "astro/config";
-import lit from "@semantic-ui/astro-lit";
+import lit from "@awesome.me/astro-lit";
 import expressiveCode from "astro-expressive-code";
 import { satteri } from "@astrojs/markdown-satteri";
 
@@ -41,13 +41,6 @@ export default defineConfig({
 	},
 	build: {
 		inlineStylesheets: "always",
-	},
-	experimental: {
-		rustCompiler: true,
-		queuedRendering: {
-			enabled: true,
-			contentCache: true,
-		},
 	},
 	markdown: {
 		processor: satteri({

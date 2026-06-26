@@ -12,70 +12,70 @@ const locale = Astro.currentLocale ?? "en";
 const { hidePhoto = false } = Astro.props;
 const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
 ---
-<nav class="layout wrapper">
-  <ul class="layout-inner nav">
+
+<nav>
+    <div class="links">
+        {
+            headerPages.map((entry) => {
+                const className = getNavClassName(entry.url, requestPathname);
+                const href = prefix + entry.url;
+
+                return (
+                    <>
+                        {entry.external ? (
+                            <ExternalLink href={entry.url}>
+                                {entry.title}
+                            </ExternalLink>
+                        ) : (
+                            <a class={className} href={href}>
+                                {(locale === "fr" && entry.title["fr"]) ||
+                                    entry.title.default}
+                            </a>
+                        )}
+                    </>
+                );
+            })
+        }
+    </div>
     {
-      headerPages.map((entry) => {
-        const className = getNavClassName(entry.url, requestPathname);
-        const href = prefix + entry.url;
-
-        return (
-          <li>
-            {entry.external ? (
-              <ExternalLink href={entry.url}>{entry.title}</ExternalLink>
-            ) : (
-            <a class={className} href={href}>
-              {(locale === 'fr' && entry.title['fr']) || entry.title.default}
-            </a>
-            )}
-          </li>
-        );
-      })
+        !hidePhoto && (
+            <SettingsToggler
+                src="/images/cv/andrew-profile.jpg"
+                alt="Photo of Andrew JD Hudson"
+            />
+        )
     }
-  </ul>
-  {!hidePhoto && (
-    <SettingsToggler
-        src="/images/cv/andrew-profile.jpg"
-        alt="Photo of Andrew JD Hudson"
-    />
-  )}
 </nav>
-
 <style>
-  .wrapper {
-    /* display: grid; */
-    /* grid-template-columns: auto auto; */
-    position: relative;
-    /* border: 2px solid orangered; */
-  }
+    nav {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+    }
 
-  li {
-    display: inline-grid;
-    margin-inline-end: 1em;
-  }
+    a {
+        /* text-decoration: none; */
+        /* border-block-end: 2px solid transparent; */
+    }
 
-  a {
-    border-block-end: 2px solid transparent;
-  }
+    a:hover,
+    .active {
+        border-bottom-color: var(--theme-accent);
+    }
 
-  a:hover,
-  .active {
-    border-bottom-color: var(--theme-accent);
-  }
+    ul {
+        /* display: flex;
+        gap: --spacing(1); */
+    }
 
-  ul {
-    padding-inline-start: 0;
+    .links {
+        display: flex;
+        flex-wrap: wrap;
 
-  }
+        gap: --spacing(1);
+    }
 
-  .language-switcher {
-    margin-inline-start: auto;
-  }
-
-  :global(.settings-toggler) {
-    position: absolute;
-    right: 0;
-    top: 0;
-    translate: 0 -35%;
-  }
+    .language-switcher {
+        margin-inline-start: auto;
+    }
 </style>

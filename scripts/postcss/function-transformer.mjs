@@ -4,7 +4,7 @@ const plugin = (opts) => {
 	opts = opts || {};
 	const functions = opts.functions || [
 		{
-			functionName: "--unit",
+			functionName: "--spacing",
 			function: `calc(var(--column-gap-size) * $1)`,
 		},
 	];

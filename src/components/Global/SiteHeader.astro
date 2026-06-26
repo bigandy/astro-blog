@@ -1,5 +1,4 @@
 ---
-
 import HeaderNav from "@components/Nav/HeaderNav.astro";
 
 const { hidePhoto = false } = Astro.props;
@@ -7,14 +6,13 @@ const { hidePhoto = false } = Astro.props;
 const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
 ---
 
-<header class="layout">
+<header>
     <div class="layout-inner">
         <h1>
             <a href={homeUrl}> Andrew JD Hudson </a>
         </h1>
         <HeaderNav hidePhoto={hidePhoto} />
     </div>
-
 </header>
 
 <style>
@@ -26,7 +24,7 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
     }
 
     .layout-inner {
-        padding-block-start: --unit(3);
+        padding-block-start: --spacing(3);
         grid-template-columns: subgrid;
         grid-column: center;
         grid-row: 1;

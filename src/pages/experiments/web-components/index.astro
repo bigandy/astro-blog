@@ -1,24 +1,31 @@
 ---
 import DemoLayout from "@layouts/DemoLayout.astro";
 
-import { AHElementV1 } from '@components/Lit/ah-web-component-v1';
-import { AHElementV2 } from '@components/Lit/ah-web-component-v2';
+// server imports.
+// import "@components/Lit/ah-web-component-v1";
+// import "@components/Lit/ah-web-component-v2";
+// import { AHElementV2 } from "@components/Lit/ah-web-component-v2";
 ---
-
 
 <DemoLayout title="Shadow Maker">
     <div class="container">
-
         <h2>Vanilla Web Component</h2>
-        <AHElementV1 name="Andrew" client:visible />
-        <AHElementV2 client:visible />
-        <!-- <ah-web-component-v1 title="Andrew"  client:visible /> -->
-
+        <ah-web-component-v1 title="Andrew"></ah-web-component-v1>
+        <ah-web-component-v2 title="Andrew"></ah-web-component-v2>
     </div>
 </DemoLayout>
 
 <style>
     .container {
-
     }
 </style>
+
+<script>
+    // **!! VERY IMPORTANT !!**
+    // These 2 imports must come first before importing any components on the client. If not, you will end up with things rendering more than once and things will look very, very broken.
+    import "@awesome.me/astro-lit/dsd-polyfill.js";
+    import "@awesome.me/astro-lit/hydration-support.js";
+
+    import "@components/Lit/ah-web-component-v1.js";
+    import "@components/Lit/ah-web-component-v2.js";
+</script>

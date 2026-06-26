@@ -4,6 +4,6 @@ p:first-of-type::first-letter {
 	font-weight: bold;
 	padding: 1.5rem 1rem;
 	border: 1px solid;
-	float: left;
+	float: inline-start;
 	margin-inline-end: 1rem;
 }

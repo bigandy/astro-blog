@@ -17,38 +17,46 @@ const locale = Astro.currentLocale ?? "en";
                 const href = prefix + entry.url;
 
                 return (
-                  <li>
-                    <a class={className} href={href}>
-                      {(locale === 'fr' && entry.title['fr']) || entry.title.default}
-                    </a>
-                  </li>
+                    <li>
+                        <a class={className} href={href}>
+                            {(locale === "fr" && entry.title["fr"]) ||
+                                entry.title.default}
+                        </a>
+                    </li>
                 );
             })
         }
     </ul>
 </nav>
 <nav>
+    {
+        socialLinks.length > 0 && (
+            <ul class="layout-inner nav nav-social">
+                {socialLinks.map(({ url, icon, title }) => {
+                    const className = getNavClassName(url, requestPathname);
 
-  {socialLinks.length > 0 && (
-  <ul class="layout-inner nav nav-social">
-      {
-        socialLinks.map(({ url, icon, title }) => {
-          const className = getNavClassName(url, requestPathname);
-
-          return (
-            <li>
-              <a class={className} rel="me" href={url} target="_blank" style={`color: ${icon.color}`}>
-                <svg height="1em" width="1em">
-                  <use href={`/images/sprite.svg#${icon.name}`}></use>
-                </svg>
-                {title}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-    )}
+                    return (
+                        <li>
+                            <a
+                                class={className}
+                                rel="me"
+                                href={url}
+                                target="_blank"
+                                style={`color: ${icon.color}`}
+                            >
+                                <svg height="1em" width="1em">
+                                    <use
+                                        href={`/images/sprite.svg#${icon.name}`}
+                                    />
+                                </svg>
+                                {title}
+                            </a>
+                        </li>
+                    );
+                })}
+            </ul>
+        )
+    }
 </nav>
 
 <style>
@@ -66,11 +74,11 @@ const locale = Astro.currentLocale ?? "en";
 
     a:hover,
     .active {
-        border-bottom-color: var(--theme-accent);
+        border-block-end-color: var(--theme-accent);
     }
 
     .social-link {
-      color: attr(data-attr-color type(<color>));
+        color: attr(data-attr-color type(<color>));
     }
 
     .social-icon {

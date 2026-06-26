@@ -3,21 +3,21 @@ import PostNumber from "./PostNumber.astro";
 import PublishDate from "./PublishDate.astro";
 
 interface Props {
-	date?: string | undefined;
-	title: string;
-	isPreview?: boolean;
-	slug: string;
-	viewTransitionName: string;
-	postIndex?: number | undefined;
+    date?: string | undefined;
+    title: string;
+    isPreview?: boolean;
+    slug: string;
+    viewTransitionName: string;
+    postIndex?: number | undefined;
 }
 
 const {
-	date,
-	title,
-	isPreview = false,
-	slug,
-	viewTransitionName,
-	postIndex,
+    date,
+    title,
+    isPreview = false,
+    slug,
+    viewTransitionName,
+    postIndex,
 } = Astro.props;
 ---
 
@@ -51,7 +51,6 @@ const {
     .preview {
         display: grid;
         grid-template-columns: 1fr auto;
-
 
         a {
             display: grid;
@@ -95,7 +94,7 @@ const {
 
     /* BlogPost */
     .post {
-        padding-block-end: --unit(1);
+        padding-block-end: --spacing(1);
 
         & p,
         & li {
@@ -109,7 +108,7 @@ const {
         .title {
             line-height: 1;
             text-wrap: pretty;
-            border-bottom: 10px solid orangered;
+            border-block-end: 10px solid orangered;
         }
     }
 

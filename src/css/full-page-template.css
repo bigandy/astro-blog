@@ -31,7 +31,7 @@
     }
 
     nav {
-        width: max-content;
+        inline-size: max-content;
         margin-inline: auto;
         margin-block-start: 2rem;
 
@@ -78,8 +78,8 @@
                 background: var(--_border-color);
                 aspect-ratio: 1;
                 display: inline-block;
-                height: 10px;
-                margin-right: 0.5rem;
+                block-size: 10px;
+                margin-inline-end: 0.5rem;
             }
 
             &::before,
@@ -148,7 +148,7 @@
 
         :where(article > a) {
             @media (width > 800px) {
-                margin-inline-start: calc(50vw - 50rch - 25px);
+                margin-inline-start: calc(50vi - 50rch - 25px);
             }
         }
 
@@ -186,7 +186,7 @@
 
         time {
             display: inline-grid;
-            width: min(100rch, 100%);
+            inline-size: min(100rch, 100%);
         }
 
         article > header {

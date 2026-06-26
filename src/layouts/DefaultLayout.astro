@@ -5,23 +5,23 @@ import SiteHeader from "@components/Global/SiteHeader.astro";
 import FooterNav from "@components/Nav/FooterNav.astro";
 
 interface Props {
-	accent?: string;
-	title: string;
-	bodyClass?: string;
-	hideTitle?: boolean;
-	isHomepage?: boolean;
+    accent?: string;
+    title: string;
+    bodyClass?: string;
+    hideTitle?: boolean;
+    isHomepage?: boolean;
     description?: string;
     isBlogPost?: boolean;
 }
 
 const {
-	title,
-	accent = "var(--theme-accent-blue)",
-	bodyClass = "",
-	hideTitle,
-	isHomepage = false,
+    title,
+    accent = "var(--theme-accent-blue)",
+    bodyClass = "",
+    hideTitle,
+    isHomepage = false,
     description,
-    isBlogPost
+    isBlogPost,
 }: Props = Astro.props;
 const locale = Astro.currentLocale ?? "en";
 ---
@@ -43,12 +43,10 @@ const locale = Astro.currentLocale ?? "en";
 
         <main class="content layout">
             <div class="inner">
-                {
-                    !hideTitle && title !== "" && (
-                        <h1 class="title">{title}</h1>
-                    )
-                }
-                <div class:list={[{ "the-content": !isHomepage && !isBlogPost  }]}>
+                {!hideTitle && title !== "" && <h1 class="title">{title}</h1>}
+                <div
+                    class:list={[{ "the-content": !isHomepage && !isBlogPost }]}
+                >
                     <slot />
                 </div>
             </div>
@@ -56,7 +54,9 @@ const locale = Astro.currentLocale ?? "en";
         <footer>
             <div class="inner">
                 <FooterNav />
-                <p>&copy; {Temporal.Now.plainDateISO().year} Andrew JD Hudson</p>
+                <p>
+                    &copy; {Temporal.Now.plainDateISO().year} Andrew JD Hudson
+                </p>
             </div>
         </footer>
 
@@ -71,7 +71,7 @@ const locale = Astro.currentLocale ?? "en";
     }
 
     .the-content {
-        border-top: 10px solid orangered;
-        padding-block: --unit(2);
+        border-block-start: 10px solid orangered;
+        padding-block: --spacing(2);
     }
 </style>

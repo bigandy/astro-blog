@@ -1,25 +1,28 @@
 ---
 import BlogPostPreview from "@components/Blog/BlogPostPreview.astro";
-import {
-	type Collection,
-} from "@components/Blog/utils/getAllPosts";
+import { type Collection } from "@components/Blog/utils/getAllPosts";
 interface Props {
-	posts: Array<any>;// AHTODO: get this sorted
-	collection?: Collection;
+    posts: Array<any>; // AHTODO: get this sorted
+    collection?: Collection;
 }
-const {posts, collection} = Astro.props;
+const { posts, collection } = Astro.props;
 ---
+
 <div class="blog-post-list">
     {
-        posts.map(
-            (post) => <BlogPostPreview post={post} postIndex={post.postIndex} collection={collection} />
-        )
+        posts.map((post) => (
+            <BlogPostPreview
+                post={post}
+                postIndex={post.postIndex}
+                collection={collection}
+            />
+        ))
     }
 </div>
 <style>
-	.blog-post-list {
+    .blog-post-list {
         display: grid;
-        gap: --unit(2);
+        gap: --spacing(2);
         rule: 1px dashed var(--theme-accent);
     }
 </style>
