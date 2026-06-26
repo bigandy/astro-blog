@@ -22,6 +22,9 @@
 	"[typescriptreact]": {
 		"editor.defaultFormatter": "oxc.oxc-vscode"
 	},
+	"[css]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	},
 	"oxc.fmt.configPath": "./vite.config.ts",
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "file",

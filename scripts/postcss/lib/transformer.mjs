@@ -53,7 +53,7 @@ export const transform = (codeString, functions) => {
 		return outputString;
 
 	} catch (e) {
-		// console.error("Transform ERROR::", codeString);
+		console.error("Transform ERROR::", e);
 		return codeString;
 	}
 };
