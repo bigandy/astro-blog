@@ -47,4 +47,10 @@ export default defineConfig({
 			features: { directive: true },
 		}),
 	},
+	// This prevents lightning css manage the css build process.
+	vite: {
+		build: {
+			cssMinify: "esbuild"
+		}
+	}
 });

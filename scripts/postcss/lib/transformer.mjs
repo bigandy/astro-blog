@@ -53,7 +53,9 @@ export const transform = (codeString, functions) => {
 		return outputString;
 
 	} catch (e) {
-		console.error("Transform ERROR::", e);
+		// console.error("Plugin Transform ERROR::", codeString);
+		// uncomment if you want to see it
+		// console.error(e);
 		return codeString;
 	}
 };
