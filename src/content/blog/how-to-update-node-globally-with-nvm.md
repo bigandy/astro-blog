@@ -4,7 +4,7 @@ date: 2026-05-28
 draft: false
 tags: [""]
 description: ""
-bskyPostUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/app.bsky.feed.post/3mrrnib7gb22g"
+bskyPostId: "3mrrnib7gb22g"
 ---
 
 Did you know that node 26 now supports the Temporal API for date manipulation?

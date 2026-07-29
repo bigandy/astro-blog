@@ -28,7 +28,7 @@ const sharedPostSchema = {
 	draft: z.boolean().default(false),
 	tags: z.array(z.string().optional()).optional(),
 	template: z.enum(getValues(Template)).optional(),
-	bskyPostUri: z.string().optional(),
+	bskyPostId: z.string().optional(),
 };
 
 const blog = defineCollection({
