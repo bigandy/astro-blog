@@ -1,10 +1,18 @@
 ---
+import Comments from "@kckempf/astro-standard-site/components/Comments.astro";
 
+const { bskyPostUri } = Astro.props.frontmatter;
 ---
 
 <div>
     <slot />
 </div>
+
+{
+    bskyPostUri && (
+        <Comments bskyPostUri={bskyPostUri} canonicalUrl={Astro.url.href} />
+    )
+}
 
 <style>
     div :global(h2) {
@@ -25,8 +33,8 @@
     }
 
     div :global(table) {
-        width: 100%;
-        max-width: 600px;
+        inline-size: 100%;
+        max-inline-size: 600px;
         margin-block: 2rem;
         table-layout: fixed;
         border-collapse: collapse;

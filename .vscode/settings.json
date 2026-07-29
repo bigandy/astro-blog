@@ -34,5 +34,6 @@
 	"stylelint.validate": [
 		"astro",
 		"css"
-	]
+	],
+	"js/ts.experimental.useTsgo": false
 }

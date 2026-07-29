@@ -13,6 +13,7 @@ export default defineConfig({
 	trailingSlash: "always",
 	env: {
 		schema: {
+
 			NOTION_DB: envField.string({
 				context: "server",
 				access: "secret",
@@ -23,6 +24,21 @@ export default defineConfig({
 				access: "secret",
 				optional: false,
 				startsWith: "secret_",
+			}),
+			ATPROTO_APP_PASSWORD: envField.string({
+				context: "server",
+				access: "secret",
+				optional: false,
+			}),
+			ATPROTO_DID: envField.string({
+				context: "server",
+				access: "secret",
+				optional: false,
+			}),
+			ATPROTO_PUBLICATION_RKEY: envField.string({
+				context: "server",
+				access: "secret",
+				optional: false,
 			}),
 		},
 	},

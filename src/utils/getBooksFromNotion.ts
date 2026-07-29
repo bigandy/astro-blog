@@ -57,7 +57,7 @@ export const getBooks = async (): Promise<Array<Book>> => {
 			// if we don't have the thumbnail, call googleBookSearch to get from API
 			if (!thumbnail) {
 				// thumbnail = await googleBookSearch(bookTitle, bookAuthor);
-				thumbnail = '';
+				thumbnail = "";
 			}
 
 			return {
