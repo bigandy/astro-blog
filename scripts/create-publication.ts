@@ -19,6 +19,9 @@ const result = await publisher.publishPublication({
 		accent: { r: 74, g: 124, b: 155 },
 		accentForeground: { r: 255, g: 255, b: 255 },
 	},
+	preferences: {
+		showInDiscover: true,
+	},
 });
 
 console.log("Publication created!");

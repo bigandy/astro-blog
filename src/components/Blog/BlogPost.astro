@@ -64,7 +64,7 @@ const isYoutube = post.data.tags?.includes('youtube');
         postIndex={postIndex}
     />
 
-    <BlogContent>
+    <BlogContent frontmatter={post.data}>
         {post.data.description && (
             <p>{post.data.description}</p>
         )}

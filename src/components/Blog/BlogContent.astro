@@ -10,11 +10,25 @@ const { bskyPostUri } = Astro.props.frontmatter;
 
 {
     bskyPostUri && (
-        <Comments bskyPostUri={bskyPostUri} canonicalUrl={Astro.url.href} />
+        <Comments
+            bskyPostUri={bskyPostUri}
+            canonicalUrl={Astro.url.href}
+            showReplyLink={true}
+            class="comments"
+        />
     )
 }
 
 <style>
+    .comments {
+        /* --color-border-soft: transparent; */
+        --color-text-primary: var(--theme-accent);
+        --color-text-secondary: black;
+        --color-text-muted: gray;
+        --color-text-link: var(--theme-accent);
+        /* --color-bg-elevated: pink; */
+    }
+
     div :global(h2) {
         font-size: var(--font-size-2);
     }
