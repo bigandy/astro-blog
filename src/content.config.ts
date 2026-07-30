@@ -28,6 +28,7 @@ const sharedPostSchema = {
 	draft: z.boolean().default(false),
 	tags: z.array(z.string().optional()).optional(),
 	template: z.enum(getValues(Template)).optional(),
+	bskyPostId: z.string().optional(),
 	atUri: z.string().optional(),
 };
 
