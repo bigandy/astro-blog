@@ -12,6 +12,9 @@
 }
 
 @layer base {
+	@function --spacing(--input) {
+		result: calc(var(--column-gap-size) * var(--input))
+	}
 	a,
 	button {
 		touch-action: manipulation;
@@ -42,7 +45,9 @@
 		line-height: 1.625;
 		display: grid;
 
+		--first-layer: --fb-spacing(2);
 		--first-layer: --spacing(2);
+		--second-layer: --fb-spacing(3);
 		--second-layer: --spacing(3);
 
 		/* @media (--lg-n-below) { */
@@ -59,6 +64,7 @@
 			)
 			[page-end];
 
+		column-gap: --fb-spacing(1);
 		column-gap: --spacing(1);
 		grid-template-rows: auto 1fr auto;
 	}
@@ -71,6 +77,7 @@
 	}
 
 	footer {
+		padding-block: --fb-spacing(2);
 		padding-block: --spacing(2);
 	}
 
@@ -82,10 +89,12 @@
 	footer .inner {
 		display: flex;
 		flex-direction: column;
+		gap: --fb-spacing(0.75);
 		gap: --spacing(0.75);
 	}
 
 	.blog-posts-list {
+		padding-block: --fb-spacing(2);
 		padding-block: --spacing(2);
 	}
 
@@ -422,6 +431,7 @@ container {
 
 .expressive-code {
 	isolation: isolate;
+	margin-block: --fb-spacing(2) --fb-spacing(1);
 	margin-block: --spacing(2) --spacing(1);
 }
 

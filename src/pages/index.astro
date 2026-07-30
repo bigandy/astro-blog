@@ -37,18 +37,21 @@ const themeAccent = "oklch(0.68 0.25 38.61)";
     }
 
     .intro {
+        padding-block-end: --fb-spacing(2);
         padding-block-end: --spacing(2);
         grid-template-columns: subgrid;
         grid-column: 3 / span 3;
     }
 
     :global(.forward-arrow) {
+        margin-block-start: --fb-spacing(2);
         margin-block-start: --spacing(2);
     }
 
     :global(.blog-post-list) {
         border-block-start: 10px solid #ff4500;
         margin-block-start: 0;
+        padding-block-start: --fb-spacing(2);
         padding-block-start: --spacing(2);
     }
 </style>

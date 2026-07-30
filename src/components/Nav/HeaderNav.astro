@@ -53,25 +53,16 @@ const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
         align-items: center;
     }
 
-    a {
-        /* text-decoration: none; */
-        /* border-block-end: 2px solid transparent; */
-    }
-
     a:hover,
     .active {
-        border-bottom-color: var(--theme-accent);
-    }
-
-    ul {
-        /* display: flex;
-        gap: --spacing(1); */
+        border-block-end-color: var(--theme-accent);
     }
 
     .links {
         display: flex;
         flex-wrap: wrap;
 
+        gap: --fb-spacing(1);
         gap: --spacing(1);
     }
 

@@ -4,7 +4,7 @@ const plugins = [
 	functionTransformer({
 		functions: [
 			{
-				name: "--spacing",
+				name: "--fb-spacing",
 				code: `calc(var(--column-gap-size) * $1)`,
 			},
 			// {

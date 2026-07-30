@@ -19,7 +19,9 @@ const { columns = 2 } = Astro.props;
 
             display: grid;
             grid-template-columns: repeat(var(--_columns, 1), 1fr);
+            gap: --fb-spacing(2);
             gap: --spacing(2);
+            margin-block: --fb-spacing(2);
             margin-block: --spacing(2);
             rule: 1px solid;
             rule-break: intersection;
