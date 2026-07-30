@@ -40,6 +40,16 @@ export default defineConfig({
 				access: "secret",
 				optional: false,
 			}),
+			ATPROTO_SERVICE: envField.string({
+				context: "server",
+				access: "secret",
+				optional: false,
+			}),
+			ATPROTO_IDENTIFIER: envField.string({
+				context: "server",
+				access: "secret",
+				optional: false,
+			}),
 		},
 	},
 	i18n: {

@@ -27,8 +27,7 @@ const locale = Astro.currentLocale ?? "en";
             })
         }
     </ul>
-</nav>
-<nav>
+
     {
         socialLinks.length > 0 && (
             <ul class="layout-inner nav nav-social">
@@ -60,16 +59,29 @@ const locale = Astro.currentLocale ?? "en";
 </nav>
 
 <style>
+    nav {
+        gap: 1rem;
+        display: inline-flex;
+    }
     ul {
-        display: flex;
+        display: inline-flex;
         flex-wrap: wrap;
         gap: 1em;
         list-style: "";
         padding: 0;
     }
 
+    .nav-social {
+        gap: 0.75rem;
+    }
+
     a {
         border-block-end: 2px solid transparent;
+    }
+
+    svg {
+        margin-inline-end: 0.25rem;
+        vertical-align: -0.2rem;
     }
 
     a:hover,

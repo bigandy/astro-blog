@@ -1,42 +1,41 @@
 ---
 import DefaultLayout from "@layouts/DefaultLayout.astro";
 import Bookcase from "@components/Svelte/Bookcase.svelte";
-import { getBooks } from "@utils/getBooksFromNotion";
+import { getBooksFromNotion } from "@utils/getBooksFromNotion";
 
 const isFrench = Astro.currentLocale === "fr";
 
-const books = await getBooks();
+const books = await getBooksFromNotion();
 
 const { title } = Astro.props;
 ---
 
 <DefaultLayout title={title} accent="oklch(0.52 0.12 189.58)">
+    <slot />
 
-  <slot />
-
-
-
-  <Bookcase
-    client:visible
-    books={books}
-    text={isFrench ? {
-      fallback: "aucun livre renvoyé par l'API.",
-      completed: "terminés",
-      book: "livre",
-      month: "Mois",
-      year: "Année",
-      by: "de",
-    } : undefined}
-    locale={Astro.currentLocale || 'en'}
-  />
+    <Bookcase
+        client:visible
+        books={books}
+        text={isFrench
+            ? {
+                  fallback: "aucun livre renvoyé par l'API.",
+                  completed: "terminés",
+                  book: "livre",
+                  month: "Mois",
+                  year: "Année",
+                  by: "de",
+              }
+            : undefined}
+        locale={Astro.currentLocale || "en"}
+    />
 </DefaultLayout>
 
 <style>
-  :root {
-    --theme-accent: ;
-  }
+    :root {
+        --theme-accent: ;
+    }
 
-  p {
-    margin-block-end: 3rem;
-  }
+    p {
+        margin-block-end: 3rem;
+    }
 </style>

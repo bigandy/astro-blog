@@ -53,10 +53,10 @@ const locale = Astro.currentLocale ?? "en";
         </main>
         <footer>
             <div class="inner">
-                <FooterNav />
                 <p>
                     &copy; {Temporal.Now.plainDateISO().year} Andrew JD Hudson
                 </p>
+                <FooterNav />
             </div>
         </footer>
 
@@ -73,5 +73,12 @@ const locale = Astro.currentLocale ?? "en";
     .the-content {
         border-block-start: 10px solid orangered;
         padding-block: --spacing(2);
+    }
+    footer .inner {
+        flex-direction: row;
+    }
+
+    footer :global(a) {
+        text-decoration: underline;
     }
 </style>

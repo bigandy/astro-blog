@@ -68,6 +68,15 @@ const pages: {
 		},
 	},
 
+	bsky: {
+		url: "/bsky-feed/",
+		title: {
+			default: "Bluesky Feed",
+			fr: "Bluesky Feed",
+		},
+		location: "header",
+	},
+
 	rss: {
 		url: "/rss.xml",
 		location: "footer",
@@ -75,7 +84,7 @@ const pages: {
 			default: "RSS",
 			fr: "RSS",
 		},
-	}
+	},
 };
 
 export const headerPages = Object.values(pages).filter(({ location }) =>

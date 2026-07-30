@@ -20,7 +20,7 @@ type Grouping = Record<string, Book[]>;
 
 export type GroupedBooks = Grouping[];
 
-export const getBooks = async (): Promise<Array<Book>> => {
+export const getBooksFromNotion = async (): Promise<Array<Book>> => {
 	try {
 		// check if in cache here.
 		// Pass in your unique custom cache key
@@ -93,21 +93,3 @@ export const getBooks = async (): Promise<Array<Book>> => {
 		return [];
 	}
 };
-
-// const googleBookSearch = async (title: string, author: string) => {
-// 	try {
-// 		const results = await fetch(
-// 			`https://www.googleapis.com/books/v1/volumes?q=${encodeURI(
-// 				title + author,
-// 			)}`,
-// 		);
-// 		const json = await results.json();
-
-// 		// take the first, assume that it is the correct one.
-// 		const thumbnail = json?.items[0].volumeInfo?.imageLinks?.thumbnail ?? null;
-// 		return thumbnail;
-// 	} catch (error) {
-// 		console.error(error);
-// 		return "";
-// 	}
-// };
