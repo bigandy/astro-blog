@@ -47,8 +47,6 @@ const showTranslationText = false;
 
 const isYoutube = post.data.tags?.includes('youtube');
 ---
-
-
 <article class="content post inner">
     {
         showTranslationText && (
@@ -85,10 +83,10 @@ const isYoutube = post.data.tags?.includes('youtube');
 
 <style>
     .no-translation {
-        width: 100%;
+        inline-size: 100%;
         padding: 1rem;
         border: 0.25rem dotted red;
-        max-width: unset;
+        max-inline-size: unset;
         text-align: center;
     }
 </style>

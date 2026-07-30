@@ -5,8 +5,8 @@ import FullPageLayout from "@layouts/FullPageLayout.astro";
 
 const { collection, post, postIndex } = Astro.props;
 const { template, title, description } = post.data;
-
 ---
+
 {
     template === "full-page" ? (
         <FullPageLayout title={title}>
@@ -18,8 +18,18 @@ const { template, title, description } = post.data;
             />
         </FullPageLayout>
     ) : (
-        <DefaultLayout title={post.data.title} hideTitle description={description} isBlogPost>
-            <BlogPost post={post} collection={collection} postIndex={postIndex} />
+        <DefaultLayout
+            title={post.data.title}
+            hideTitle
+            description={description}
+            isBlogPost
+            bskyPostId={post.data.bskyPostId}
+        >
+            <BlogPost
+                post={post}
+                collection={collection}
+                postIndex={postIndex}
+            />
         </DefaultLayout>
     )
 }
