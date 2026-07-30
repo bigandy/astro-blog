@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2sts252l"
 ---
 
 What began as a simple entry to life as a developer has quickly descended into a life with ten thousand different strands each taking up all of my time resources and abilities. I'm a beginner and have not done the vast number of things that they're asking me to do before. Yes I'll get quicker when I have mastered how to do it all, but for now I am very stressed.

@@ -5,6 +5,7 @@ draft: false
 description: "I detail how to automate the opening of Zoom on MacOS using crontab."
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2jxrz522"
 ---
 
 At work we have daily standups using Zoom and my colleague Ryo asked if it was possible to automate the opening of the Zoom app in the correct meeting group at a specific time every day.

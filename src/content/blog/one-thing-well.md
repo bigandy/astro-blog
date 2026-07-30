@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["design"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2l6oxt2k"
 ---
 
 Here's a [list of things](https://medium.com/small-giants/just-right-list-da769c3c25b9) that show product design that focuses on doing one thing excellently well not trying to do everything at an average standard.

@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["Running"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2v5gps2p"
 ---
 
 Second run of the week and it was damp foggy and dark. I've run this route in the daytime but in the dark it was much better. Sections of unlit running along and before the river. Legs hurt but this is expected after 2 runs in week after not running for so long. 19'13" for 2.68 miles. [short river](http://www.gmap-pedometer.com/?r=3360812).

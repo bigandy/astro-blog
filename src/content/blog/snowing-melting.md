@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2wdds623"
 ---
 
 wow, another white morning. [Marion](http://www.marionmouttou.co.uk) gets the day off of work because people cannot get to work but I have to now go outside in the wet slushy snow and cycle to work. I cannot wait!

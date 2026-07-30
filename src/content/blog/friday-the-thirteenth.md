@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2f3k7x2k"
 ---
 
 A quick post at the end of a very busy week of work. I am getting my head around SVN and the workings of life as a developer. I'm looking forward to learning more and increasing my skillset. I am reading a book about Accessability "Building Accessible Websites" in the evenings and beginning to pick up some jQuery too. The more you know the better a developer you are. So I've been told!

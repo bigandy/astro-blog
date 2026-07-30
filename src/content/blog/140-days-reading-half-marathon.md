@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["Reading half marathon", "Running", "Running", "training"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2p2kl623"
 ---
 
 Today marks the end of British Summer Time (BST) and start of Reading Half-marathon training. Today also marks 140 days until the race and its the first time I've run in over a month. Just a small run to get me back into it and I plan to go running on Tuesday to continue my training process. Start small aim big! Looking forward to Tuesday!

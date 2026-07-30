@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2syvk623"
 ---
 
 Every time I open up the "New Post" section of my blog admin and wait for the words to come to my fingers. The space to write is so large (I have a 23" monitor and it spans the entire width of the page) that I am always put off. So I now will try other methods to put down my words.

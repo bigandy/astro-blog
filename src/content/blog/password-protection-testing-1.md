@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2wycow23"
 ---
 
 grrrrreat... a way to stop your boss and prospective other nosy-dozy folks from reading your intimate secrets (if you ever post them on the internet). Password protection.

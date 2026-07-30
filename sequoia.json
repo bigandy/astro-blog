@@ -1,0 +1,14 @@
+{
+  "$schema": "https://tangled.org/stevedylan.dev/sequoia/raw/main/sequoia.schema.json",
+  "siteUrl": "https://andrewhudson.dev",
+  "contentDir": "./src/content/blog",
+  "outputDir": "./dist",
+  "publicationUri": "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.publication/3mrujvyr6y22p",
+  "frontmatter": {
+    "publishDate": "date"
+  },
+  "publishContent": true,
+  "bluesky": {
+    "enabled": true
+  }
+}

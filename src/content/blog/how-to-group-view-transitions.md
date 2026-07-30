@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["css", "view-transitions"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2bohyh2k"
 ---
 
 I am currently learning about view-transitions with CSS in great detail.

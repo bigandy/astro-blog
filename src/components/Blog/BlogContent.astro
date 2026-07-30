@@ -1,13 +1,7 @@
 ---
 import Comments from "@kckempf/astro-standard-site/components/Comments.astro";
 
-import { ATPROTO_DID } from "astro:env/server";
-
-const { bskyPostId } = Astro.props.frontmatter;
-
-const bskyPostUri = bskyPostId
-    ? `at://${ATPROTO_DID}/app.bsky.feed.post/${bskyPostId}`
-    : "";
+const { atUri } = Astro.props.frontmatter;
 ---
 
 <div>
@@ -15,9 +9,9 @@ const bskyPostUri = bskyPostId
 </div>
 
 {
-    bskyPostUri && (
+    atUri && (
         <Comments
-            bskyPostUri={bskyPostUri}
+            bskyPostUri={atUri}
             canonicalUrl={Astro.url.href}
             showReplyLink={true}
             class="comments"

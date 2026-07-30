@@ -4,8 +4,6 @@ import RotatingScrollLogo from "@components/Global/RotatingScrollLogo.astro";
 import SiteHeader from "@components/Global/SiteHeader.astro";
 import FooterNav from "@components/Nav/FooterNav.astro";
 
-import { ATPROTO_DID } from "astro:env/server";
-
 interface Props {
     accent?: string;
     title: string;
@@ -14,7 +12,7 @@ interface Props {
     isHomepage?: boolean;
     description?: string;
     isBlogPost?: boolean;
-    bskyPostId?: string;
+    atUri?: string;
 }
 
 const {
@@ -25,12 +23,8 @@ const {
     isHomepage = false,
     description,
     isBlogPost,
-    bskyPostId,
 }: Props = Astro.props;
 const locale = Astro.currentLocale ?? "en";
-const bskyPostUri = bskyPostId
-    ? `at://${ATPROTO_DID}/app.bsky.feed.post/${bskyPostId}`
-    : "";
 ---
 
 <html lang={locale}>
@@ -43,14 +37,7 @@ const bskyPostUri = bskyPostId
             }
         </style>
         <slot name="inside-head" />
-        {
-            bskyPostUri && (
-                <link
-                    rel="site.standard.document"
-                    href={`at://${ATPROTO_DID}/site.standard.document/3mrrvlja57k3c`}
-                />
-            )
-        }
+        {atUri && <link rel="site.standard.document" href={atUri} />}
     </head>
 
     <body class={bodyClass}>

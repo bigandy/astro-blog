@@ -5,6 +5,7 @@ date: 2019-03-20
 author: "Andrew"
 
 tags: ["exercise"]
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2buhqe23"
 ---
 
 In the first of possibly more than one I review what I have been doing in terms of exercise in the last week. I will see how I feel about them. Could be changed to monthly.

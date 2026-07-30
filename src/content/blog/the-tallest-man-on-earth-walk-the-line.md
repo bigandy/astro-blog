@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["music", "Video"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2n6szn2l"
 ---
 
 I've been listening to The Tallest Man on Earth all morning and I really like it. Shades of José Gonzalez, amazing voice and guitar singer songwriter. http://www.youtube.com/watch?v=3sndqSG-h\_E

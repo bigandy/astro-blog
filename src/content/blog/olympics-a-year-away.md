@@ -15,6 +15,7 @@ tags:
         "Aside",
     ]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2qfh7f2l"
 ---
 
 Today marks start ofÂ  one-year count-down to the 2012 London Olympics. Already there is much in the press and warm-up events that are here to help prepare for next summer. One event that I am really interested in is the Olympic Cycling [Road Race warm-up](http://www.cyclingweekly.co.uk/news/latest/529520/stars-line-up-for-olympic-road-race-test-event.html) to be held on the 14th of August. The event includes many riders from this years Tour de France, including sprinters Mark Cavendish and Tom Boonen.

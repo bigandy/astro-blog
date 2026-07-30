@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk352q4n2a"
 ---
 
 ("yeah its a mirror. see what I did there!") [tony parsons' mirror column](http://www.mirror.co.uk/news/columnists/parsons/)

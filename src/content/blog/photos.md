@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2vusff22"
 ---
 
 Sorting out photos on the computer. Have not put any photos online in a long time but looking into sorting that out. Also looking into batch processing, web optimising and such like.

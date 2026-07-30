@@ -5,6 +5,7 @@ draft: false
 description: "I have wanted to attend FFConf for as many years as it has been running and this year I was lucky to attend. Here are my notes from the talks which stood out to me..."
 tags: ["dev"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2c6nq22p"
 ---
 
 [FFConf](https://2016.ffconf.org/) is a front-end conference held in Brighton every year and here are my notes from the talks that stood out:

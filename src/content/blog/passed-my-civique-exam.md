@@ -4,6 +4,7 @@ date: 2026-01-22
 draft: false
 tags: [""]
 description: "I took my Civique Exam in the first week of January and I passed with flying colours!"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2ijftx2k"
 ---
 
 

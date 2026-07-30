@@ -5,6 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2riijs2p"
 ---
 
 This is the first time that I have started to make a plugin and here I shall write about the process of making it. To begin with I will explain why you might want to make a plugin, then I will go into the process behind creating one.
