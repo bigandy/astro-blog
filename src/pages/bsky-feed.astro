@@ -1,12 +1,13 @@
 ---
-import BskyLayout from "@layouts/BskyLayout.astro";
-
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import BskyFeedList from "@components/BskyFeed/FeedList.astro";
 const title = "BSKY FEED";
 ---
 
-<BskyLayout title={title}>
+<DefaultLayout title={title}>
     <p>Here is my bsky feed, populated each time I build this site.</p>
-</BskyLayout>
+    <BskyFeedList />
+</DefaultLayout>
 
 <style>
     p {

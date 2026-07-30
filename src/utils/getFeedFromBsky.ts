@@ -27,9 +27,26 @@ const padStartNumber = (number: number) => {
 	return `0${number}`.slice(-2);
 };
 
-const formatDateTime = (dateTime: Temporal.ZonedDateTime) => {
-	return `${dateTime.day}/${dateTime.month}/${dateTime.year} at ${padStartNumber(dateTime.hour)}:${padStartNumber(dateTime.minute)}`;
+const formatDate = (dateTime: Temporal.ZonedDateTime) => {
+	return `${dateTime.day}/${dateTime.month}/${dateTime.year}`;
 };
+const formatTime = (dateTime: Temporal.ZonedDateTime) => {
+	return `${padStartNumber(dateTime.hour)}:${padStartNumber(dateTime.minute)}`;
+};
+
+export interface BskyRecord {
+	text: string;
+	createdAt: {
+		date: string;
+		time: string;
+	};
+	url: string;
+	author: {
+		href: string;
+		handle: string;
+		imgSrc: string | undefined;
+	};
+}
 
 export const getFeedFromBsky = async () => {
 	const cacheKey = "atPosts";
@@ -47,7 +64,7 @@ export const getFeedFromBsky = async () => {
 	try {
 		const agent = await authenticate(account);
 
-		const allPosts = [];
+		const allPosts: Array<BskyRecord> = [];
 
 		let cursor;
 
@@ -91,10 +108,17 @@ export const getFeedFromBsky = async () => {
 					const url = `https://bsky.app/profile/${record.post.uri.replace("app.bsky.feed.post", "post").replace("at://", "")}`;
 
 					return {
-						...record, // ADD ALL OF RECORD. CAN THEN CHOOSE IN FUTURE WHAT TO KEEP.
-						text: record.post.record.text,
-						createdAt: formatDateTime(createdAt),
+						text: record.post.record.text as unknown as string,
+						createdAt: {
+							date: formatDate(createdAt),
+							time: formatTime(createdAt),
+						},
 						url,
+						author: {
+							href: `https://bsky.app/profile/${record.post.author.did}`,
+							imgSrc: record.post.author.avatar,
+							handle: record.post.author.handle,
+						},
 					};
 				});
 
@@ -112,71 +136,6 @@ export const getFeedFromBsky = async () => {
 		await asset.save(allPosts, "json");
 
 		return allPosts;
-
-		// console.log(`Authenticated as from: ${agent.sessionManager.did}`);
-
-		// const response = await agent.getAuthorFeed({
-		// 	actor: ATPROTO_IDENTIFIER, // i.e. me!
-		// 	cursor: "",
-		// 	limit: 100, // Max limit per cursor
-
-		// 	// For now, I'm just doing root level posts. Maybe as this   evolves I'll bring in replies too.
-		// 	filter: "posts_no_replies",
-		// });
-		// console.log({ response: response.data.feed });
-
-		// ALTERNATE METHOD USING LEXICON
-		// const client = new Client(session);
-
-		// const allPosts = [];
-
-		// let cursor: string | undefined;
-
-		// while (true) {
-		// 	// Fetch this cursor from the feed of items
-		// 	const result = await client.list(app.bsky.feed.post, {
-		// 		limit: 100,
-		// 		cursor,
-		// 	});
-
-		// 	const newRecords = result.records
-		// 		// filter out unwanted replies
-		// 		// AHTODO: add back nested replies.
-		// 		.filter((record) => {
-		// 			return !record.value.reply;
-		// 		})
-		// 		// Get rid of embeds, for now.
-		// 		// AHTODO: add back embeds.
-		// 		.filter((record) => {
-		// 			return !record.value.embed;
-		// 		})
-		// 		.map((record) => {
-		// 			const createdAt = Temporal.Instant.from(
-		// 				record.value.createdAt,
-		// 			).toZonedDateTimeISO("UTC");
-		// 			const url = `https://bsky.app/profile/${record.uri.replace("app.bsky.feed.post", "post").replace("at://", "")}`;
-
-		// 			return {
-		// 				text: record.value.text,
-		// 				createdAt,
-		// 				url,
-		// 			};
-		// 		});
-
-		// 	allPosts.push(...newRecords);
-
-		// 	// Set the next cursor and break the loop if we're at the end
-		// 	cursor = result.cursor;
-		// 	console.log("CURSOR", result.cursor);
-		// 	if (!cursor) {
-		// 		break;
-		// 	}
-		// }
-
-		// // Cache so it doesn't take forever to work on this locally
-		// await asset.save(allPosts, "json");
-
-		// return allPosts;
 	} catch (error) {
 		console.error("Error fetching feed:", error);
 	}

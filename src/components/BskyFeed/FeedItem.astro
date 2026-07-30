@@ -1,0 +1,68 @@
+---
+import type { BskyRecord } from "@utils/getFeedFromBsky";
+
+interface Props {
+    item: BskyRecord;
+}
+
+const { item } = Astro.props;
+---
+
+<li class="item">
+    <a class="item-author" href={item.author.href} target="_blank">
+        <img src={item.author.imgSrc} alt="" height="30" width="30" />
+        <p>{item.author.handle}</p>
+    </a>
+
+    <div class="text">{item.text}</div>
+
+    <div class="posted-at">
+        posted on {item.createdAt.date} at {item.createdAt.time}
+    </div>
+    <a target="_blank" href={item.url}> see original post on bsky.app </a>
+</li>
+
+<style>
+    .text {
+        margin-block-end: 0.25rem;
+    }
+
+    a {
+        margin-inline-start: 1rem;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+
+    a,
+    .posted-at {
+        display: inline-block;
+        font-size: 80%;
+        color: var(--color-gray-500);
+    }
+
+    .item-author {
+        margin-block-end: 0.5rem;
+        margin-inline-start: 0;
+
+        &:hover,
+        &:focus {
+            p {
+                text-decoration: underline;
+            }
+        }
+
+        img {
+            border-radius: calc(Infinity * 1px);
+            margin-inline-end: 0.5rem;
+            vertical-align: -0.6rem;
+        }
+
+        p,
+        img {
+            display: inline-block;
+        }
+    }
+</style>

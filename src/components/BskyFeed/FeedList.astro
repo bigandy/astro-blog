@@ -1,0 +1,26 @@
+---
+import BskyFeedItem from "@components/BskyFeed/FeedItem.astro";
+import { getFeedFromBsky, type BskyRecord } from "@utils/getFeedFromBsky";
+
+const feed = await getFeedFromBsky();
+---
+
+<ul>
+    {
+        feed && feed?.length > 0 ? (
+            feed.map((item: BskyRecord) => <BskyFeedItem item={item} />)
+        ) : (
+            <div>No feed</div>
+        )
+    }
+</ul>
+
+<style>
+    ul {
+        display: grid;
+        gap: 2rem;
+        list-style: "";
+        padding: 0;
+        rule: 1px solid var(--color-gray-300);
+    }
+</style>
