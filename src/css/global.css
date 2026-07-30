@@ -46,9 +46,13 @@
 		display: grid;
 
 		--first-layer: --fb-spacing(2);
-		--first-layer: --spacing(2);
 		--second-layer: --fb-spacing(3);
-		--second-layer: --spacing(3);
+
+		@supports (order: --test(2)){
+			--first-layer: --spacing(2);
+			--second-layer: --spacing(3);
+		}
+
 
 		/* @media (--lg-n-below) { */
 		@media (width < 1024px) {
