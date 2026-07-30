@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["wordpress"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2r3s2f2l"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5osxow23"
 ---
 
 I love speed, everything to do to get something done faster is must for me. This week I finally have fiber-optic internet and now I am looking to extend my passion for speed through in relation to THIS website. Why am I going to do this? I hate waiting for a website to load, you hate it too, right? There's far too much you'd prefer to be doing than waiting for a download to happen or a web page to open. How am I going to do this?

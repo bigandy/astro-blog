@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["cat photos", "cats", "cats", "kittens", "Image"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2edqzr24"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5bmsvo23"
 ---
 
 Kittens now are ~4 weeks old still being nursed by their mum.

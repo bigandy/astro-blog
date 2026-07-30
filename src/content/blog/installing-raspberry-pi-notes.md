@@ -4,7 +4,7 @@ date: 2021-04-10
 draft: false
 tags: ["how-to"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2brplv2a"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun57ahiw2j"
 ---
 
 - get the image: https://www.raspberrypi.org/software/operating-systems/

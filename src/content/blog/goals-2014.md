@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2cuf222p"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5abivf2e"
 ---
 
 My key goals for the current year are:

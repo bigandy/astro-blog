@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2f6kyn2a"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5cepvm2k"
 ---
 
 Today marks the end of my career as a chemist, something that I have been working and studying for 13 years (since the start of my A-levels in 1997). Its been a long windy road with lots of fantastic moments meeting loads of great wonderful people, I think that now is the time for different more exciting and interesting challenges. Now I must cycle to the lab and one last time I will put on my white lab coat safety specs and mad scientist voice... and then on Monday I will be free to follow my heart and take my first step as a Front-End Web Developer.

@@ -15,7 +15,7 @@ tags:
         "wordpress",
     ]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2nxpm32k"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5lcaa62j"
 ---
 
 At the end of December I accepted an offer to become a front-end WordPress developer with [Electric Studio](http://www.electricstudio.co.uk/) a WordPress studio in Abingdon, Oxfordshire and I am really looking forward to it. The new position will focus on building responsive, highly optimised and mobile-first sites powered by WordPress. It will be my chance to learn a great deal - JavaScript, PHP, mobile and RWD - and a chance to be a professional (rather than working for friends - for free) WordPress developer, something that I have been looking for for a very long time!

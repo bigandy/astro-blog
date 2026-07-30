@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2xa5d72k"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5updt22p"
 ---
 
 hi, took CompTIA A+ IT Technician Exam and got 93%!!! So now qualified and can progress onto CIW Associate Training. Glad that it's out of the way and that I can say Im a tech. Looking forward to the CIW part of the course.

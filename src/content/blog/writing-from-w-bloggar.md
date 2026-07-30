@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2sodcp2k"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5qhipe2k"
 ---
 
 While I listen to the latest podcast from [The Big Web Show](http://5by5.tv/bigwebshow/16 "big web show #16") (a weekly show about different topics related to the web, hosted by [Zeldman](http://www.zeldman.com/ "Jeffrey Zeldman's Site") and [Dan Benjamin](http://hivelogic.com/ "Dan Benjamin's Hivelogic Website")) I try out a new tool for blogging.

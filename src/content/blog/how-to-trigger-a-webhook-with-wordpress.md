@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2bwyk52a"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun57fgjs2p"
 ---
 
 I have a Gatsby site [andrewhudson.me](http://andrewhudson.me) which is a static Server Side Rendered (SSR) site built using React and hosted on Netlify. I wanted to trigger a build when I published a new post (or updated an existing one) in WordPress and here's how I did it.

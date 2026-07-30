@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["2012", "life", "summary"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2nzte72k"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5lez5623"
 ---
 
 Here are the highlights of 2012:

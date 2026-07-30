@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2rpe3x2k"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5phatn2e"
 ---
 
 The draw for the quarter-finals of the Champions League was made earlier this morning and ManU were drawn against Chelsea. Here's the full draw :

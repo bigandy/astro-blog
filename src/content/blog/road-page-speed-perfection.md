@@ -5,7 +5,7 @@ draft: false
 description: "A tweet inspired me to improve my page speed score and I managed to get both mobile and desktop to 100."
 tags: ["dev"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2ll5pf2l"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5iufsj2a"
 ---
 
 This morning Smashing Magazine tweeted about their latest Page Speed Score: https://twitter.com/smashingmag/status/502334585511084033 And I wanted to know if it was possible if I could achieve that or better (preferably better!). Someone replied to the initial tweet saying that there was already a tutorial by Dave Rupert in [two](http://daverupert.com/2014/07/rwd-bloat/) [parts](http://daverupert.com/2014/07/rwd-bloat-part-ii/), I read the articles and applied what Dave learnt to my site. I have achieved 100 in both Mobile and Desktop and here's [my score](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fbig-andy.co.uk).

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["Running"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2dlhav2a"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5awnw623"
 ---
 
 Ran tonight with Marion along the river. 4.0 miles in 37:32. Took my weekly total to 20.3 miles which I think must be a _lifetime record_ for me!

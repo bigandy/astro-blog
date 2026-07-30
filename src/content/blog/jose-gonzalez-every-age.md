@@ -5,7 +5,7 @@ draft: false
 description: "I've always loved the music of José Gonzalez after hearing “Heartbeats” in 2004. Now he's released a new track “Every Age” and here's the video of it."
 tags: ["music"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2clrih2k"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun57zbom24"
 ---
 
 The new song by José Gonzalez : https://www.youtube.com/watch?v=I\_iY2RQWNzM

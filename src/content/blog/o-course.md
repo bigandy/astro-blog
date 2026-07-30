@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2xdbyh2e"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5uru2g2j"
 ---
 
 sitting here in kidderminster on CompTIA A+ Essentials workshop just had first mock exam waiting for the others to finish so can have results. think I need a lot of revision and further work before can take the exam but will see. looking forward to drive home... looking forward to getting home. Update: I passed the mock with 77/100 (needed 70% to pass, will need 75% in real exam) and journey back went well.

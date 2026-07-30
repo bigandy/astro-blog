@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["Films", "life", "movies", "oscars"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2zlyyf2l"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5wr4ag2e"
 ---
 
 The nominations for the 80th edition of the Oscars [have been announced](http://www.imdb.com/features/rto/2008/oscars)

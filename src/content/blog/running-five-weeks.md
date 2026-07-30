@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["Running"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2oo6sv2a"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5m2dqw23"
 ---
 
 Last five weeks have been really good as I have been running on average least twice a week every week since October 28th when I woke up early to go running along the river. I have been helped by going running with a friend and also the work running club. It helps with the motivation if you have other people to go running with - at least in the tricky first month.

@@ -3,7 +3,7 @@ title: "Good Friday not Celebrated in France"
 date: 2025-04-18
 draft: false
 tags: [""]
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2bmmlc2p"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun573g6j2a"
 ---
 
 First year living in France and it is very strange because in Grenoble where we live the schools are still not on holiday and today is Good Friday.

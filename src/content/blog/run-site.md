@@ -5,7 +5,7 @@ draft: false
 description: "Skills that I’ve learned in my day job have enabled working on the latest version of this site much more simple and pleasurable than previously. I use Gulp, Bower and Continuous deployment to streamline everything."
 tags: ["developing"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2lnomn22"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5iwlku24"
 ---
 
 Skills that I've learned in my day job have enabled working on the latest version of this site much more simple and pleasurable than previously. I use Gulp, Bower and Continuous deployment to streamline everything.

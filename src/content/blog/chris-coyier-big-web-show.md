@@ -14,7 +14,7 @@ tags:
         "zeldman",
     ]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2pddbf22"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5mrjvo2j"
 ---
 
 Right now listening to the [latest Big Web Show](http://5by5.tv/bigwebshow/74) with [Chris Coyier](http://css-tricks.com/) being interviewed by [Jeffrey Zeldman](http://www.zeldman.com/)

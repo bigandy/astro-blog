@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2g6qbp2e"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5dbgtu2k"
 ---
 
 hands even colder than earlier. now trying out [scribefire](http://www.scribefire.com) utlity for blogging to my wordpress blog from firefox (rather than logging in everytime onto my blog). Other ways of posting include using a 3rd party tool such as w.bloggar (for windows) or drivel (for linux), and also posting by email. I will try all of these options and get back to you.

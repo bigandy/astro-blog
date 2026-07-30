@@ -5,7 +5,7 @@ draft: false
 description: "Last night I watched this video about connecting socket.io and WordPress for realtime update of WordPress content. This is incredible!"
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2kgzuo23"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5hmobv2e"
 ---
 
 Last night I watched this video about connecting socket.io and WordPress for realtime update of WordPress content. This is incredible! https://videopress.com/v/FzBGgDr9 Related to this I have been learning about programming IOT (Internet of Things; in my case it is Arduino and Raspberry Pi and electronic components) that I want to be able to control via a webpage and store the information in a Database. I have already followed a tutorial connecting a Angular page with my Arduino board.

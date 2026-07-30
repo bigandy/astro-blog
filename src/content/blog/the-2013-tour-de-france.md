@@ -17,7 +17,7 @@ tags:
         "trip",
     ]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2p77gn22"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5mmiso23"
 ---
 
 Every year since the first time that I went to see the Tour de France go up Alpe d'Huez in 2003 - I've wanted to go back to France and see some more live action. I managed to see it when in 2007 it came to London but not been over to see it in France. Until now. My wife Marion, my bro Rob, and my cousins' boyfriends Rich and Nick are all planning to go and see some stages of next years - the 100th edition - race. For [full stage details check this inrng post](http://inrng.com/2012/10/2013-tour-de-france/)

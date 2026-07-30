@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["wordpress"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk2rawx522"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5oxmlz22"
 ---
 
 I have found out what I was doing wrong to cause my wordpress [plugin to throw up an error](http://blog.big-andy.co.uk/wordpress/plugin-error/ "Plugin Error") and it was this: On activation you put a piece of code that says

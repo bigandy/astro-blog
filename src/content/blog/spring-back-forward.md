@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mruk34hbzx2e"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5ywesb22"
 ---
 
 Monday: Shoes are really dying, causing feet to hurt. Time for a replacement. We did "Stables" and it was a bloody nice day, nice change from the wintry return of last week. Shame it was this route but good to be outside running :>
