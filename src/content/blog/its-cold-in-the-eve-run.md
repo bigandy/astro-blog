@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5e3ecn2e"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunpwsdy724"
 ---
 
 Running: Tonight: "Devil's Highway Nature" in 42mins (crowthorne end first). Began running at 1850 so was quite cold in places in the woods, and quite dark too. Bumped into the beginners group of Sandhurst Joggers, recognised the girl who was leading the run. My run however was a slow one intentionally so as not to knacker myself too much. Bit stressed lately because of the job search, so was nice to get fresh air and blast away the cobwebs in the autumnal air.

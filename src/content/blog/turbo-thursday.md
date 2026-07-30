@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["cycling"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5lq7io2j"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq5wici2e"
 ---
 
 I did 31 minutes on the turbo trainer tonight, first time I've done any form of cycling as exercise since August. It took absolutely ages to start because all of the kit was scattered round the house, the tires needed pumping up and I needed to remember how to cycle again. Was good though!

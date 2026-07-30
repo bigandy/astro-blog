@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["Running"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5lsyww2l"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq5yguy2p"
 ---
 
 Last night I went running with the work running group and we did Whitley. Was pretty cold but good to do a route that didn't involve Caversham, Prospect Park or the river. 5.9 miles in 55:56.

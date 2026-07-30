@@ -14,7 +14,7 @@ tags:
         "Web host",
     ]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5mbq3g23"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq6fvhq2e"
 ---
 
 For the last six years my sites have been hosted by Dreamhost and for the vast majority of that time I have been a happy customer. Unlimited email addresses, sites, sub-domains, and databases. Easy to use web interface, and excellent customer support. So why am I looking to move away?

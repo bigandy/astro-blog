@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["Running"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5jebso2j"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq3qxqb2a"
 ---
 
 Look at how astronauts on the ISS can run in space. https://www.youtube.com/watch?v=\_ikouWcXhd0

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5t5qlr22"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunqewtak2j"
 ---
 
 Outta the window, out there, it's just wonderful. Blue sky. Wonderful blue sky. I love it! => Link [60 Unusual Business Cards](http://www.noupe.com/design/60-unusual-business-card-ideas.html)

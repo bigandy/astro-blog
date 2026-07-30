@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["technology"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun57sycw23"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunpsnsk22j"
 ---
 
 This is an excellent TEDx talk about distractions from technology, and value to be gained from spending our time well. https://www.youtube.com/watch?v=jT5rRh9AZf4

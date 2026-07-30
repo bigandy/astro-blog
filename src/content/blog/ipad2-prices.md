@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["technology"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5btdb42k"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunpum56u22"
 ---
 
 Looks like the iPad2 is cheaper than the original iPad. 16GB wifi is Â£399 whereas original was Â£429 (source: [Guardian](http://www.guardian.co.uk/technology/blog/2011/mar/22/ipad-apple)).

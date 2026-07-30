@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["big css", "css", "css", "developing", "oocss", "Gallery", "speakerdeck"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5ne6lg2j"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq7phsv23"
 ---
 
 [Presentation](https://speakerdeck.com/u/csswizardry/p/big-css) by Harry Roberts (@csswizardry) at canvas conf

@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5xf64623"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunqjaqvu2l"
 ---
 
 Running: Today: "Reverse Ridges Ambarrow" in 33mins. Really hot, quite knackered in second half of run. It's the weekend its the weekend! Yah yay sweeeeeet. Have a great weekend!!!

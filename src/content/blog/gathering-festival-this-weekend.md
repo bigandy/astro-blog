@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["music", "Aside"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5bbiko2j"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunpu3l6z2a"
 ---
 
 Looking forward to going to Gathering festival this Saturday in Oxford. Features bands including George Ezra, Swiss Lips and Paws. [Gathering Festival - October 20th - various venues in Oxford](http://gatheringfestival.tumblr.com/)

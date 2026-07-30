@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["css", "demo"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5g5aqj2a"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunpyx6bx2k"
 ---
 
 Following on from last year's [cool demos june 2023](/blog/cool-demos-june-2023) I want to showcase some of the cool demos I created in the month of June 2024. I really got in the groove and created a new demo every day for two weeks, each building on the previous.

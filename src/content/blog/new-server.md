@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["developing"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5j43mr22"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq3hdtm22"
 ---
 
 Logged into server last night. "The server operating system has reached the end of its life, please upgrade to Ubuntu 14.04". I'd wanted to try out the new London Digital Ocean droplet, update to 14.04, and install some extra such as Varnish\*. This was a perfect oportunity! \*although now that I've setup spdy and https varnish is no longer an option.

@@ -15,7 +15,7 @@ tags:
         "optimisation",
     ]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5m76lo2l"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq6da5h2k"
 ---
 
 Following up from my decision to [change web host](http://big-andy.co.uk/blog/changing-web-hosts/) I have decided to go with AWS. Now I've migrated this site to a Amazon Web Services (AWS) EC2 Micro instance (free for 1 year) and after getting used to the different way of doing things (control is all command line, no web interface at all) I'm extremely happy with the outcome.

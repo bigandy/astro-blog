@@ -3,7 +3,7 @@ title: "Experimenting on the bleeding edge in Chrome Canary with command line Fe
 date: 2025-05-13
 draft: false
 tags: [""]
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5fpnvj22"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunpylivf23"
 ---
 
 - I am following the work on a prototype of a new CSS feature that will enable the ability to know which direction the user is scrolling a scrollport _aka_ [Support scroll direction in @scroll-state](https://issues.chromium.org/issues/414556050)

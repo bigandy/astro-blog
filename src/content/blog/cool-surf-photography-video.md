@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["photography", "Video"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5jmtbw23"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq4263x24"
 ---
 
 CREATORS: Clark Little on Staring Down Shorebreak for The Perfect Shot http://vimeo.com/92529798

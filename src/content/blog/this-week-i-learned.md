@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["learning"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5g2eqg2l"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunpyunlq2e"
 ---
 
 ## Netlify Redirects with Astro

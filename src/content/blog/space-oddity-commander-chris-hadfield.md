@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["music", "Video"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5kpans2p"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq4zjrk2j"
 ---
 
 This is what the internet was made for. Incredible! http://www.youtube.com/watch?v=KaOC9danxNo

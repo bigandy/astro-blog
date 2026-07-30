@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["life"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5u7xhg2k"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunqfxj5c2j"
 ---
 
 is what everyone really needs on a cold Tuesday morning. [thanks idodds](http://www.flickr.com/photos/ldodds/). ggggGoing to work now.

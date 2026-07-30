@@ -5,7 +5,7 @@ draft: false
 description: ""
 tags: ["music", "Video"]
 author: "Andrew"
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5kc3gz22"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunq4muv72k"
 ---
 
 http://www.youtube.com/watch?v=VTYJZtnUuF0 I've not heard this in a long time, way back at uni, but listening to the new LP by Jon Hopkins something clicked and I had to check this out.

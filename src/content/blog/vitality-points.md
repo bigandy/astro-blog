@@ -2,7 +2,7 @@
 title: Addicted to Vitality Points.
 description: This is a post on My Blog about my addiction to Vitality Points.
 date: 2019-03-12
-atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrun5gsans2p"
+atUri: "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.document/3mrunpzhqom22"
 ---
 
 ## Introduction
