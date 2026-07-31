@@ -5,6 +5,8 @@ import FullPageLayout from "@layouts/FullPageLayout.astro";
 
 const { collection, post, postIndex } = Astro.props;
 const { template, title, description } = post.data;
+
+const ogImage = `/og/${post.id}.png`;
 ---
 
 {
@@ -24,6 +26,7 @@ const { template, title, description } = post.data;
             description={description}
             isBlogPost
             atUri={post.data.atUri}
+            ogImage={ogImage}
         >
             <BlogPost
                 post={post}

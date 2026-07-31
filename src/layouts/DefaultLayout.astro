@@ -13,6 +13,7 @@ interface Props {
     description?: string;
     isBlogPost?: boolean;
     atUri?: string;
+    ogImage?: string;
 }
 
 const {
@@ -24,13 +25,16 @@ const {
     description,
     isBlogPost,
     atUri,
+    ogImage,
 }: Props = Astro.props;
 const locale = Astro.currentLocale ?? "en";
+
+console.log(ogImage);
 ---
 
 <html lang={locale}>
     <head>
-        <BaseHead title={title} description={description} />
+        <BaseHead title={title} description={description} ogImage={ogImage} />
 
         <style define:vars={{ accent }}>
             body {
