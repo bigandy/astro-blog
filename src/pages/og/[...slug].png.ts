@@ -18,6 +18,7 @@ export const GET: APIRoute = async ({ props }) => {
 	const orange = "#ff4500";
 	const blobColor = "#ffc500";
 	const anotherBlobColor = "#ff003b";
+	const titleColor = "#1f2937";
 
 	const markup = h(
 		"div",
@@ -32,41 +33,41 @@ export const GET: APIRoute = async ({ props }) => {
 				background: "#fff",
 			},
 		},
-		h(
-			"div",
-			{
-				style: {
-					display: "flex",
-					marginBottom: "24px",
-					gap: 12,
-					alignItems: "flex-end",
-				},
-			},
-			h("div", {
-				style: {
-					width: blobDimension * (1 / 3),
-					height: blobDimension * (1 / 3),
-					borderRadius: `${100 * (1 / 3)}%`,
-					background: anotherBlobColor,
-				},
-			}),
-			h("div", {
-				style: {
-					width: blobDimension * (2 / 3),
-					height: blobDimension * (2 / 3),
-					borderRadius: `${100 * (1 / 3)}%`,
-					background: blobColor,
-				},
-			}),
-			h("div", {
-				style: {
-					width: blobDimension * (1 / 3),
-					height: blobDimension * (1 / 3),
-					borderRadius: `${100 * (1 / 3)}%`,
-					background: anotherBlobColor,
-				},
-			}),
-		),
+		// h(
+		// 	"div",
+		// 	{
+		// 		style: {
+		// 			display: "flex",
+		// 			marginBottom: "24px",
+		// 			gap: 12,
+		// 			alignItems: "flex-end",
+		// 		},
+		// 	},
+		// 	h("div", {
+		// 		style: {
+		// 			width: blobDimension * (1 / 3),
+		// 			height: blobDimension * (1 / 3),
+		// 			borderRadius: `${100 * (1 / 3)}%`,
+		// 			background: anotherBlobColor,
+		// 		},
+		// 	}),
+		// 	h("div", {
+		// 		style: {
+		// 			width: blobDimension * (2 / 3),
+		// 			height: blobDimension * (2 / 3),
+		// 			borderRadius: `${100 * (1 / 3)}%`,
+		// 			background: blobColor,
+		// 		},
+		// 	}),
+		// 	h("div", {
+		// 		style: {
+		// 			width: blobDimension * (1 / 3),
+		// 			height: blobDimension * (1 / 3),
+		// 			borderRadius: `${100 * (1 / 3)}%`,
+		// 			background: anotherBlobColor,
+		// 		},
+		// 	}),
+		// ),
 		h(
 			"div",
 			{
@@ -74,9 +75,11 @@ export const GET: APIRoute = async ({ props }) => {
 					display: "flex",
 					fontSize: "64px",
 					fontWeight: 800,
-					color: orange,
-					lineHeight: 1.1,
+					color: titleColor,
+					lineHeight: 1,
+					padding: 0,
 					maxWidth: "1000px",
+					borderBottom: `5px solid ${orange}`,
 				},
 			},
 			title,
