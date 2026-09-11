@@ -9,7 +9,8 @@ import {
 
 import { $ } from "execa";
 
-import fs from "fs-extra";
+import { readdir, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 
 const padStartNumber = (number) => {
 	return `0${number}`.slice(-2);
@@ -23,7 +24,7 @@ const openCodeInCodeEditor = async (newFile) => {
 	// await $`${editor} ${newDirectory}/index.html:2:5 -g`;
 	// -g does not work with zed
 	// 8th line. first character 8:1
-	await $`${editor} ${newFile}:8:8 ${editor === 'code' ? '-g' : ''}`;
+	await $`${editor} ${newFile}:8:8 ${editor === "code" ? "-g" : ""}`;
 	return;
 };
 
@@ -33,7 +34,7 @@ const showSuccessMessage = () => {
 opening default browser on http://localhost:8888
 `,
 		"Success",
-	)
+	);
 };
 
 const runDevServer = async () => {
@@ -76,7 +77,7 @@ async function main() {
 	});
 
 	if (selection === "edit") {
-		const files = await fs.readdir("./src/content/blog");
+		const files = await readdir("./src/content/blog");
 		const filteredFiles = files.filter((file) => file.includes(".md"));
 
 		const postToEdit = await autocomplete({
@@ -121,7 +122,7 @@ async function main() {
 
 				const newFile = `src/content/blog/${value.trim().replaceAll(" ", "-").toLowerCase()}.md`;
 
-				if (fs.existsSync(newFile)) {
+				if (existsSync(newFile)) {
 					return "file exists already, edit the title and try again";
 				}
 
@@ -154,7 +155,7 @@ async function main() {
 
 const createPostFile = async (newFile, title) => {
 	try {
-		if (!fs.existsSync(newFile)) {
+		if (!existsSync(newFile)) {
 			const date = Temporal.Now.plainDateISO();
 
 			const { day, month, year } = Temporal.PlainDate.from(date);
@@ -171,7 +172,7 @@ description: ""
 
 `;
 
-			await fs.writeFile(newFile, content);
+			await writeFile(newFile, content);
 			note("success! New Post created");
 		} else {
 			throw new Error("post exists already. Show error");

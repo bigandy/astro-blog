@@ -24,6 +24,7 @@ export async function getStaticPaths() {
 				postIndex: post.postIndex,
 				post,
 			},
+			cacheKey: post.digest,
 		};
 	});
 }

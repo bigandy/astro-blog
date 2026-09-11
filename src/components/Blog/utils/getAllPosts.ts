@@ -15,7 +15,7 @@ const removeDrafts = (post: Item) => {
 		return false;
 	}
 	return post;
-}
+};
 
 const today = Temporal.Now.plainDateISO();
 
@@ -26,9 +26,7 @@ const removeFuturePosts = (post: Item) => {
 	);
 
 	return compare > -1;
-}
-
-
+};
 
 const sortByLatest = (a: Item, b: Item) =>
 	Temporal.PlainDate.compare(
@@ -36,13 +34,11 @@ const sortByLatest = (a: Item, b: Item) =>
 		Temporal.PlainDate.from(a.data.date),
 	);
 
-
 export const getAllPosts = async (collection: Collection) => {
 	const showFuturePosts = false;
 
 	// Data Fetching: List all Markdown posts in the repo.
 	let allPosts = [];
-
 
 	// Get all the posts from the posts directory
 	allPosts = await getCollection(collection);
@@ -63,6 +59,7 @@ export const getAllPosts = async (collection: Collection) => {
 	return allPosts.map((post, postIndex) => ({
 		...post,
 		postIndex: allPostCount - postIndex,
+		cacheKey: post.digest,
 	}));
 };
 
@@ -83,7 +80,8 @@ export const getSomePosts = async (
 
 export const getRSSPosts = async () => {
 	return [
-		...(await getAllPosts('blog')).values()
+		...(await getAllPosts("blog"))
+			.values()
 			.filter(removeDrafts)
 			.filter(removeFuturePosts)
 			.take(Infinity),

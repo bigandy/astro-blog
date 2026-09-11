@@ -16,6 +16,8 @@ const {
     description = descriptionFallback,
     ogImage = "/og.png",
 } = Astro.props;
+
+const skipOGGeneration = process.env.SKIP_OG === "true";
 ---
 
 <meta charset="utf-8" />
@@ -43,7 +45,12 @@ const {
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(ogImage, Astro.url)} />
+
+{
+    !skipOGGeneration && (
+        <meta property="og:image" content={new URL(ogImage, Astro.url)} />
+    )
+}
 
 <meta name="fediverse:creator" content="@bigandy@indieweb.social" />
 

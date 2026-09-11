@@ -13,7 +13,6 @@ export default defineConfig({
 	trailingSlash: "always",
 	env: {
 		schema: {
-
 			NOTION_DB: envField.string({
 				context: "server",
 				access: "secret",
@@ -76,7 +75,11 @@ export default defineConfig({
 	// This prevents lightning css manage the css build process.
 	vite: {
 		build: {
-			cssMinify: "esbuild"
-		}
-	}
+			cssMinify: "esbuild",
+		},
+	},
+	experimental: {
+		incrementalBuild: true,
+	},
+	session: false,
 });

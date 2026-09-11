@@ -16,6 +16,12 @@ const fonts = [
 	},
 ];
 
+export async function renderNoOGImage(): Promise<Response> {
+	return new Response(null, {
+		headers: { "Content-Type": "image/png" },
+	});
+}
+
 export async function renderOGImage(
 	jsx: Parameters<typeof satori>[0],
 ): Promise<Response> {

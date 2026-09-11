@@ -1,17 +1,19 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { createElement as h } from "react";
-import { renderOGImage } from "@utils/og";
+import { renderOGImage, renderNoOGImage } from "@utils/og";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
 	return posts.map((post) => ({
 		params: { slug: post.id },
 		props: { title: post.data.title },
+		cacheKey: post.digest,
 	}));
 }
 
 export const GET: APIRoute = async ({ props }) => {
+	const skipOGGeneration = process.env.SKIP_OG === "true";
 	const { title } = props;
 
 	const blobDimension = 64;
@@ -107,5 +109,5 @@ export const GET: APIRoute = async ({ props }) => {
 		),
 	);
 
-	return renderOGImage(markup);
+	return skipOGGeneration ? renderNoOGImage() : renderOGImage(markup);
 };

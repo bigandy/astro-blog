@@ -24,8 +24,10 @@ export async function getStaticPaths() {
 				postIndex: post.postIndex,
 				post,
 			},
+			cacheKey: post.digest,
 		};
 	});
 }
 ---
+
 <SlugPageLayout postIndex={postIndex} collection={collection} post={post} />

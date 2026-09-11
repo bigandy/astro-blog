@@ -1,16 +1,17 @@
 {
-  "$schema": "https://tangled.org/stevedylan.dev/sequoia/raw/main/sequoia.schema.json",
-  "siteUrl": "did:plc:v2g2eg4yqzdvaszx573z6hwi",
-  "contentDir": "./src/content/blog",
-  "outputDir": "./dist",
-  "pathPrefix": "/blog",
-  "publicationUri": "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.publication/3mrunkgkgs22l",
-  "frontmatter": {
-    "publishDate": "date"
-  },
-  "publishContent": true,
-  "bluesky": {
-    "enabled": true,
-    "maxAgeDays": 100
-  }
+	"$schema": "https://tangled.org/stevedylan.dev/sequoia/raw/main/sequoia.schema.json",
+	"siteUrl": "did:plc:v2g2eg4yqzdvaszx573z6hwi",
+	"contentDir": "./src/content/blog",
+	"outputDir": "./dist",
+	"pathPrefix": "/blog",
+	"publicationUri": "at://did:plc:v2g2eg4yqzdvaszx573z6hwi/site.standard.publication/3mrunkgkgs22l",
+	"frontmatter": {
+		"publishDate": "date"
+	},
+	"publishContent": true,
+	"bluesky": {
+		"enabled": true,
+		"maxAgeDays": 100
+	},
+	"ignore": ["future-post.md"]
 }

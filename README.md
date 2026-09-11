@@ -35,3 +35,5 @@ https://nazhamid.com/journal/
 I am really digging the style of https://maggieappleton.com/now so this could be something that I use going forwards for my now page
 
 https://avalonstar.com/
+https://tonsky.me/
+
