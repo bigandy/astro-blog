@@ -6,7 +6,7 @@ lite-youtube {
 	background-position: center center;
 	background-size: cover;
 	cursor: pointer;
-	max-inline-size: 720px;
+	/* max-inline-size: 720px; */
 }
 
 /* gradient */

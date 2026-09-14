@@ -1,13 +1,14 @@
 ---
 interface Props {
     columns?: number;
+    style?: string;
 }
 
-const { columns = 2 } = Astro.props;
+const { columns = 2, style } = Astro.props;
 ---
 
 <container>
-    <the-grid class="the-grid">
+    <the-grid class="the-grid" style={style}>
         <slot />
     </the-grid>
 </container>
@@ -15,20 +16,22 @@ const { columns = 2 } = Astro.props;
 <style define:vars={{ columns }}>
     @scope (container) {
         the-grid {
-            --_columns: 1;
+            /* --_columns: 1; */
 
             display: grid;
-            grid-template-columns: repeat(var(--_columns, 1), 1fr);
+            /* grid-template-columns: repeat(var(--_columns, 1), 1fr); */
             gap: --fb-spacing(2);
             gap: --spacing(2);
             margin-block: --fb-spacing(2);
             margin-block: --spacing(2);
             rule: 1px solid;
             rule-break: intersection;
+            /* row-rule-visibility-items: between; */
+            column-rule-visibility-items: between;
 
-            @container (inline-size > 700px) {
+            /* @container (inline-size > 700px) {
                 --_columns: var(--columns, 2);
-            }
+            } */
         }
     }
 </style>

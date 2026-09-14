@@ -37,3 +37,5 @@ I am really digging the style of https://maggieappleton.com/now so this could be
 https://avalonstar.com/
 https://tonsky.me/
 
+
+Love the headline fonts on this one: https://collusion.wiki/
