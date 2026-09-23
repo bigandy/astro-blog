@@ -91,11 +91,13 @@ const characters = string.split("");
                     inset-inline-end: 4rem;
 
                     &::after {
+                        filter: drop-shadow(0 0 0.75rem var(--theme-accent));
+                        border-radius: 50%;
                         --reduction: calc(var(--font-size--2) * 1.3);
                         --pink: oklch(55% 0.45 350 / 0.85);
                         --yellow: oklch(95% 0.4 95 / 0.85);
 
-                        clip-path: circle();
+                        clip-path: circle(100%);
                         aspect-ratio: 1;
                         inline-size: calc(
                             100% + calc(var(--radius) * -1) -

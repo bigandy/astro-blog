@@ -209,6 +209,13 @@
         border-radius: 1rem;
         corner-shape: bevel;
 		margin-block-end: 1rem;
+		overflow: auto;
+		max-inline-size: 100%;
+		scrollbar-color: #868e96 #0000;
+
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
     }
 
 	p + pre {
