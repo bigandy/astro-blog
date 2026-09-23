@@ -3,7 +3,6 @@ const pages: {
 		url: string;
 		title: { default: string; fr?: string };
 		location: "header" | "footer";
-		external?: boolean;
 	};
 } = {
 	about: {
@@ -12,34 +11,34 @@ const pages: {
 			default: "About",
 			fr: "À propos",
 		},
-		location: "header",
+		location: "footer",
 	},
 
 	demos: {
 		url: "/experiments/",
-		location: "footer",
 		title: {
 			default: "Experiments",
 			fr: "Expériences",
 		},
+		location: "footer",
 	},
 
-	blog: {
-		url: "/",
-		title: {
-			default: "Archive",
-			fr: "Les Archives",
-		},
-		location: "header",
-	},
+	// blog: {
+	// 	url: "/",
+	// 	title: {
+	// 		default: "Archive",
+	// 		fr: "Les Archives",
+	// 	},
+	// 	location: "header",
+	// },
 
-	weeknotes: {
-		url: "/weeknotes/",
-		location: "header",
-		title: {
-			default: "Weeknotes",
-		},
-	},
+	// weeknotes: {
+	// 	url: "/weeknotes/",
+	// 	title: {
+	// 		default: "Weeknotes",
+	// 	},
+	// 	location: "header",
+	// },
 
 	now: {
 		url: "/now/",
@@ -56,16 +55,16 @@ const pages: {
 			default: "Bookshelf",
 			fr: "Bibliothèque",
 		},
-		location: "header",
+		location: "footer",
 	},
 
 	cv: {
 		url: "/cv/",
-		location: "header",
 		title: {
 			default: "CV",
 			fr: "CV",
 		},
+		location: "footer",
 	},
 
 	bsky: {
@@ -74,16 +73,16 @@ const pages: {
 			default: "Bluesky Feed",
 			fr: "Bluesky Feed",
 		},
-		location: "header",
+		location: "footer",
 	},
 
 	rss: {
 		url: "/rss.xml",
-		location: "footer",
 		title: {
 			default: "RSS",
 			fr: "RSS",
 		},
+		location: "footer",
 	},
 };
 

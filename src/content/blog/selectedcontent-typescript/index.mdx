@@ -8,10 +8,7 @@ author: "Andrew"
 template: "full-page"
 ---
 
-import { Code } from "astro-expressive-code/components";
 import SelectExample from "./SelectExample.astro";
-import SolidSnippet from "./solid-code-snippet.astro";
-import ReactSnippet from "./react-code-snippet.astro";
 
 <SelectExample />
 
@@ -19,10 +16,7 @@ Yesterday I was coding an app with solid and I wanted to use the new `selectedco
 
 <SelectExample isModern={true} />
 
-<Code
-    lang="jsx"
-    title="LanguageSelector.tsx"
-    code={`
+```javascript
 export const LanguageSelector = () => {
     return (
         <select id="languageSelection">
@@ -38,8 +32,7 @@ export const LanguageSelector = () => {
             {...other options}
         </select>
     );
-};`}
-/>
+};```
 
 ```css title="index.css"
 ::picker(select),
@@ -56,18 +49,56 @@ selectedcontent {
 
 ### The Error
 
-<Code
-    language="shell"
-    code={`Property 'selectedcontent' does not exist on type 'JSX.IntrinsicElements'.ts(2339)`}
-/>
+```bash
+Property 'selectedcontent' does not exist on type 'JSX.IntrinsicElements'.ts(2339)
+```
 
 ### How to fix the error
 
 1. create a global.d.ts file.this will go at the root of the project or the root of where your tsconfig.json file is pointing at e.g.the src folder.
 
-<SolidSnippet />
+<details open>
+    <summary>Solid</summary>
 
-<ReactSnippet />
+```javascript
+// global.d.ts for Solid
+
+import "solid-js";
+
+declare module "solid-js" {
+    namespace JSX {
+        interface IntrinsicElements {
+            /**
+            * The <selectedcontent> element displays a clone of the currently
+            * selected <option>'s content inside a customizable <select>.
+            */
+            selectedcontent: object;
+        }
+    }
+}
+```
+</details>
+
+<details>
+    <summary>React</summary>
+
+```javascript
+// global.d.ts for React
+import "react";
+
+declare module "react" {
+    namespace JSX {
+        interface IntrinsicElements {
+            /**
+            * The <selectedcontent> element displays a clone of the currently
+            * selected <option>'s content inside a customizable <select>.
+            */
+            selectedcontent: object;
+        }
+    }
+}
+```
+</details>
 
 ## Notes
 

@@ -60,11 +60,12 @@ const locale = Astro.currentLocale ?? "en";
 
 <style>
     nav {
-        gap: 1rem;
-        display: inline-flex;
+        gap: inherit;
+        display: flex;
+        flex-direction: column;
     }
     ul {
-        display: inline-flex;
+        display: flex;
         flex-wrap: wrap;
         gap: 1em;
         list-style: "";

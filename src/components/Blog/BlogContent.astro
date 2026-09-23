@@ -1,41 +1,12 @@
 ---
-import Comments from "@kckempf/astro-standard-site/components/Comments.astro";
 
-import { ATPROTO_DID } from "astro:env/server";
-
-const { bskyPostId } = Astro.props.frontmatter;
-
-const bskyPostUri = bskyPostId
-    ? `at://${ATPROTO_DID}/app.bsky.feed.post/${bskyPostId}`
-    : "";
 ---
 
 <div>
     <slot />
 </div>
 
-{
-    bskyPostUri && (
-        <Comments
-            bskyPostUri={bskyPostUri}
-            canonicalUrl={Astro.url.href}
-            showReplyLink={true}
-            class="comments"
-            maxDepth={9}
-        />
-    )
-}
-
 <style>
-    .comments {
-        /* --color-border-soft: transparent; */
-        --color-text-primary: var(--theme-accent);
-        --color-text-secondary: black;
-        --color-text-muted: gray;
-        --color-text-link: var(--theme-accent);
-        /* --color-bg-elevated: pink; */
-    }
-
     div :global(h2) {
         font-size: var(--font-size-2);
     }

@@ -5,7 +5,6 @@ import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
 import { defineConfig, envField } from "astro/config";
 import lit from "@awesome.me/astro-lit";
-import expressiveCode from "astro-expressive-code";
 import { satteri } from "@astrojs/markdown-satteri";
 
 // https://astro.build/config
@@ -55,7 +54,7 @@ export default defineConfig({
 		locales: ["en", "fr"],
 		defaultLocale: "en",
 	},
-	integrations: [expressiveCode(), svelte(), mdx(), react(), lit()],
+	integrations: [svelte(), mdx(), react(), lit()],
 	scopedStyleStrategy: "class",
 	server: {
 		port: 8888,
@@ -71,6 +70,7 @@ export default defineConfig({
 		processor: satteri({
 			features: { directive: true },
 		}),
+		syntaxHighlight: false,
 	},
 	// This prevents lightning css manage the css build process.
 	vite: {

@@ -1,0 +1,29 @@
+---
+
+---
+
+<div class="intro">
+    <slot />
+</div>
+
+<style>
+    .intro {
+        font-size: 110%;
+        line-height: 1.5;
+        font-weight: 555;
+        margin-block-end: 2rem;
+        padding: 1em;
+        background: oklch(
+            from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25
+        );
+        border-inline-start: 0.5em solid;
+        border-color: oklch(
+            from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25
+        );
+
+        :global(p) {
+            max-inline-size: 100%;
+            margin-block-end: 0;
+        }
+    }
+</style>

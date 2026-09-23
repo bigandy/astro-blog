@@ -31,6 +31,10 @@ const {
 
 const { Content } = await render(post);
 
+const hasCodeSnippet = post.body?.includes('```') || post.body?.includes('<pre><code');
+
+console.log({hasCodeSnippet})
+
 const prefix = Astro.currentLocale === 'fr' ? `/fr` : "";
 
 const backLinkText = isFrench
@@ -46,8 +50,10 @@ const noTranslationText =
 const showTranslationText = false;
 
 const isYoutube = post.data.tags?.includes('youtube');
+// const available_themes = ["cobalt2","dracula","flexoki","github","gruvbox","index","min","monokai","night-owl","solarized-light","tokyo-night","vesper","vscode-plus"]
+const theme = "flexoki";
 ---
-<article class="content post inner">
+<article class="content post inner" data-syntax-theme={theme}>
     {
         showTranslationText && (
             <p class="no-translation">{noTranslationText}</p>
@@ -69,6 +75,7 @@ const isYoutube = post.data.tags?.includes('youtube');
 
         <Content />
     </BlogContent>
+
 
     {
         showBackLink && (
@@ -96,3 +103,14 @@ const isYoutube = post.data.tags?.includes('youtube');
     <script type="module" src="/js/lite-yt-embed.js"></script>
     <link rel="stylesheet" href="/css/lite-yt-embed.css" />
 )}
+{hasCodeSnippet && (
+    <link
+        rel="stylesheet"
+        href={`https://cdn.jsdelivr.net/npm/microlighter@2/dist/themes/${theme}.css`}
+    />
+    <script
+        type="module"
+        src="https://cdn.jsdelivr.net/npm/microlighter@2/dist/microlighter.min.js"
+    ></script>
+    )
+}

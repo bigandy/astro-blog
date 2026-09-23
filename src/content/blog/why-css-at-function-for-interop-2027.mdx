@@ -1,0 +1,97 @@
+---
+title: "why CSS @function for interop 2027?"
+date: 2026-09-15
+draft: true
+tags: [""]
+description: ""
+---
+
+import Intro from "@components/Blog/Intro.astro";
+
+<Intro>
+
+I created the interop issue for [CSS @function](https://github.com/web-platform-tests/interop/issues/1357) as part of the suggesting features for Interop 2027.
+
+</Intro>
+
+
+## What is the new @function custom at-rule?
+
+Have you ever wanted a piece of code that you can call over and over without worrying that you might get the details wrong between uses of it?
+
+You have a design system and want to apply a variant of a spacing token. Say you want a spacing of 3 tokens.
+
+To do this in the past you would have had to multiply the spacing token by 3:
+
+```css
+.component {
+    padding: calc(var(--spacing) * 3);
+}
+```
+
+```css
+/* Define the function once */
+@function --spacing(--multiplier) {
+    result: calc(var(--spacing) * var(--multiplier));
+}
+/* use the function multiple times */
+.component {
+    padding: --spacing(3);
+    margin-block-end: --spacing(1);
+}
+```
+
+### Default value of function parameter
+```css
+@function --spacing(--multiplier: 1) {
+    result: calc(var(--spacing) * var(--multiplier));
+}
+
+/* will allow you to use it like so without a value */
+.component {
+    padding: --spacing();
+    /* is the same as */
+    padding: --spacing(1);
+}
+```
+
+### Define the type of each function parameter
+```css
+@function --spacing(--multiplier <number>: 1) {
+    result: calc(var(--spacing) * var(--multiplier));
+}
+/* works ✅ */
+.component {
+    padding: --spacing(3);
+}
+
+/* will not work ❌ */
+.component {
+    padding: --spacing(3px);
+}
+```
+
+### Specify the type that is returned by the function
+```css
+@function --spacing(--multiplier <number>: 1) returns <number> {
+    result: calc(var(--spacing) * var(--multiplier));
+}
+```
+
+## Ideas on naming conventions
+I think that it is easy to get confused between all of the `<dashed-indent>`s that are now available in CSS. Custom variables, @keyframes, anchor-name, animation-name, container-names, view-transition-names... and now @function.
+
+In my own code I have begun using the `--f-` prefix so that it is obvious that I am intending to use a @function. For example:
+
+```css
+@function --f-spacing(--multiplier <number>: 1) {
+    result: calc(var(--spacing) * var(--multiplier));
+}
+.component {
+    padding: --f-spacing(3);
+}
+```
+
+
+## References
+[css-mixins-1 csswg draft spec](https://drafts.csswg.org/css-mixins-1/#custom-function)
