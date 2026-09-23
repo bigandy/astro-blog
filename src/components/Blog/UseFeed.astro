@@ -1,0 +1,29 @@
+<script type="module">
+    const apiUrl = "/api/posts.json";
+
+    const { posts } = await fetch(apiUrl).then((res) => res.json());
+
+    // create list.
+    const root = document.getElementById("root");
+    const list = document.createElement("ul");
+
+    posts.forEach((item) => {
+        const listItem = document.createElement("li");
+
+        listItem.innerHTML = `
+        <a href="${item.link}">
+        <h2>${item.title}</h2></a>
+        ${item.content}`;
+
+        list.appendChild(listItem);
+    });
+
+    root?.appendChild(list);
+
+    // tell the syntax-highlight to re-run.
+    // because it won't be applied to dynamically
+    // added content.
+    document.dispatchEvent(
+        new CustomEvent("syntax-highlight", { bubbles: true }),
+    );
+</script>

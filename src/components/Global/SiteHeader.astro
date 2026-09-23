@@ -8,10 +8,10 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
 
 <header>
     <div class="layout-inner">
+        <HeaderNav hidePhoto={hidePhoto} />
         <h1>
             <a href={homeUrl}> Andrew JD Hudson </a>
         </h1>
-        <HeaderNav hidePhoto={hidePhoto} />
     </div>
 </header>
 
@@ -20,27 +20,76 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
         display: grid;
         grid-template-columns: subgrid;
         grid-column: page;
-        /* margin-block-end: 2rem; */
+        padding-block-start: --fb-spacing(3);
+        padding-block-start: --spacing(3);
+        margin-block-end: --fb-spacing(3);
+        margin-block-end: --spacing(3);
+        background: black;
+
+        h1 {
+            a:focus,
+            a:hover {
+                text-decoration: none;
+                outline: none;
+            }
+        }
     }
 
     .layout-inner {
         padding-block-start: --fb-spacing(3);
         padding-block-start: --spacing(3);
         grid-template-columns: subgrid;
-        grid-column: center;
+        grid-column: bleed;
         grid-row: 1;
+        display: grid;
     }
 
     h1 {
-        margin-block-end: 0.5rem;
-        font-size: 1.5rem;
+        --stroke-width: 5px;
+        min-font-size: 3.5rem;
+        text-box: trim-both cap alphabetic;
+        margin-block: 0;
+        translate: 0 -10px;
+        color: yellow;
+
+        paint-order: stroke fill;
+        -webkit-text-stroke: var(--stroke-width) var(--theme-accent);
+
+        @supports (text-fit: grow consistent) {
+            max-inline-size: 2000px;
+            text-fit: grow consistent;
+            grid-column-start: 2;
+            grid-column-end: -2;
+        }
+
+        @supports not (text-fit: grow consistent) {
+            font-size: calc(var(--progress) * 120px + 28px);
+            --stroke-width: 10px;
+            --progress: calc(progress(100vi, 400px, 2000px));
+            grid-column-start: 2;
+            grid-column-end: -1;
+
+            /* counter-reset: p calc(100 * var(--progress)); */
+
+            /* &::after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 30px;
+                color: white;
+                content: "progress is:" counter(p);
+            } */
+        }
 
         a {
-            vertical-align: -1px;
+            color: hsl(from var(--theme-accent) h s calc(l / 2));
             font-weight: bold;
-            display: inline-flex;
 
             &:hover {
+                -webkit-text-stroke-color: hsl(
+                    from var(--theme-accent) h s calc(l / 2)
+                );
+                color: revert-layer;
                 text-decoration: none;
             }
         }

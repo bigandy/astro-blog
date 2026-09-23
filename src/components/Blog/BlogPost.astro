@@ -33,7 +33,7 @@ const { Content } = await render(post);
 
 const hasCodeSnippet = post.body?.includes('```') || post.body?.includes('<pre><code');
 
-console.log({hasCodeSnippet})
+// console.log({hasCodeSnippet})
 
 const prefix = Astro.currentLocale === 'fr' ? `/fr` : "";
 
@@ -75,7 +75,6 @@ const theme = "flexoki";
 
         <Content />
     </BlogContent>
-
 
     {
         showBackLink && (

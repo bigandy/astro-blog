@@ -199,51 +199,17 @@
 		color: inherit;
 	}
 
-	code:not([class*="language"]) {
-		--code-background: pink;
-		font-family: var(--font-mono);
-		background: var(--code-background);
-		padding: 4px;
-		border-radius: 4px;
-		color: var(--rich-text-text-color, rgb(114, 47, 83));
-		font-size: 0.85em;
-	}
-
-	pre > code:not([class*="language"]) {
-		background-color: transparent;
-		padding: 0;
-		margin: 0;
-		border-radius: 0;
-		color: inherit;
-	}
-
 	pre {
-		--padding-block: 1rem;
-		--padding-inline: 2rem;
+        padding: 1.5rem 1rem;
+        display: block;
+        border: 1px solid light-dark(currentColor, deepPink);
+        border-radius: 1rem;
+        corner-shape: bevel;
+		margin-block-end: 1rem;
+    }
 
-		position: relative;
-		background-color: var(--theme-code-bg);
-		color: var(--theme-code-text);
-		padding: var(--padding-block) var(--padding-inline);
-		padding-inline-end: calc(var(--padding-inline) * 2);
-		line-height: 1.414;
-		max-inline-size: calc(100% + (var(--padding-inline) * 2));
-		overflow-block: hidden;
-		overflow-inline: auto;
-		margin-block: 1rem;
-
-		::selection {
-			background: white;
-			color: black;
-		}
-	}
-
-	@container root (min-width: 37.75em) {
-		pre {
-			--padding-inline: 1.25rem;
-			border-radius: var(--border-radius-large);
-			corner-shape: superellipse(0.5);
-		}
+	p + pre {
+		margin-block-start: 1rem;
 	}
 
 	.flex {
@@ -455,16 +421,12 @@ body > footer, */
 
 	.blog-post-list {
 		article header time {
-			font-size: 12px !important;
-			margin-block-end: 0.5em !important;
-			display: block;
-		}
-
-		article header h2 {
 			font-size: 16px !important;
+			margin-block-end: 0.5em !important;
 		}
 
 		article header h2 {
+			font-size: 22px !important;
 			padding: 0 !important;
 		}
 	}

@@ -1,0 +1,31 @@
+---
+// const available_themes = ["cobalt2","dracula","flexoki","github","gruvbox","index","min","monokai","night-owl","solarized-light","tokyo-night","vesper","vscode-plus"]
+const theme = "flexoki";
+---
+
+<html>
+    <body>
+        <main class="content layout" data-syntax-theme={theme}>
+            <slot />
+        </main>
+
+        <link
+            rel="stylesheet"
+            href={`https://cdn.jsdelivr.net/npm/microlighter@2/dist/themes/${theme}.css`}
+        />
+        <script
+            type="module"
+            src="https://cdn.jsdelivr.net/npm/microlighter@2/dist/microlighter.min.js"
+        ></script>
+    </body>
+</html>
+
+<style is:global>
+    pre code {
+        padding: 1.5rem 1rem;
+        display: block;
+        border: 1px solid;
+        border-radius: 1rem;
+        corner-shape: bevel;
+    }
+</style>

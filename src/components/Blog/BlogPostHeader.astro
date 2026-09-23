@@ -32,7 +32,7 @@ const {
 
                 {date && <PublishDate date={date} class="publish-date" />}
 
-                <PostNumber number={postIndex} isPost={!isPreview} />
+                {/* <PostNumber number={postIndex} isPost={!isPreview} /> */}
             </a>
         ) : (
             <Fragment>
@@ -41,7 +41,7 @@ const {
                     <PublishDate date={date} class="publish-date" showLine />
                 )}
 
-                <PostNumber number={postIndex} isPost={!isPreview} />
+                {/* <PostNumber number={postIndex} isPost={!isPreview} /> */}
             </Fragment>
         )
     }
@@ -50,12 +50,12 @@ const {
 <style>
     .preview {
         display: grid;
-        grid-template-columns: 1fr auto;
+        /* grid-template-columns: 1fr auto; */
 
         a {
             display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 0;
+            /* grid-template-columns: 1fr auto; */
+            /* gap: 0; */
 
             .title,
             .publish-date {

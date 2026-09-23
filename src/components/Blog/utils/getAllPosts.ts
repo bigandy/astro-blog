@@ -34,7 +34,7 @@ const sortByLatest = (a: Item, b: Item) =>
 		Temporal.PlainDate.from(a.data.date),
 	);
 
-export const getAllPosts = async (collection: Collection) => {
+export const getAllPosts = async (collection: Collection, getAll = true) => {
 	const showFuturePosts = false;
 
 	// Data Fetching: List all Markdown posts in the repo.
@@ -43,12 +43,12 @@ export const getAllPosts = async (collection: Collection) => {
 	// Get all the posts from the posts directory
 	allPosts = await getCollection(collection);
 
-	if (isProduction) {
+	if (isProduction || getAll === false) {
 		// Get rid of draft posts first
 		allPosts = allPosts.filter(removeDrafts);
 	}
 
-	if (isProduction || showFuturePosts === false) {
+	if (isProduction || showFuturePosts === false || getAll === false) {
 		allPosts = allPosts.filter(removeFuturePosts);
 	}
 

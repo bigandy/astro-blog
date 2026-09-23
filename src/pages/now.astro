@@ -1,6 +1,7 @@
 ---
 import ExternalLink from "@components/Global/ExternalLink.astro";
 import DefaultLayout from "@layouts/DefaultLayout.astro";
+import Intro from "@components/Blog/Intro.astro";
 
 const lastUpdated = Temporal.PlainDate.from({
     day: 18,
@@ -11,21 +12,32 @@ const lastUpdated = Temporal.PlainDate.from({
 
 <DefaultLayout title="Now" accent="#fa7e61">
     <div class="container">
-        <p class="intro">
-            We moved to live in Grenoble in
-            2025 (from UK) and we've now been here for a year and a half. I am studying French and looking for a job. Marion continues to work at her job and our children are at International school and now are in their second year. It would be a lie to say that everything is perfect but living here in the heart of the french alps we have just to look at the horizon or take a short car journey
-            and be in the middle of nature.
-        </p>
+        <Intro>
+            <p>
+                We moved to live in Grenoble in 2025 (from UK) and we've now
+                been here for a year and a half. I am studying French and
+                looking for a job. Marion continues to work at her job and our
+                children are at International school and now are in their second
+                year. It would be a lie to say that everything is perfect but
+                living here in the heart of the french alps we have just to look
+                at the horizon or take a short car journey and be in the middle
+                of nature.
+            </p>
+        </Intro>
 
         <h2>Learning</h2>
 
         <p>
-            Learning French. I am now having weekly French
-            conversation 1-2-1 lessons. I stopped Duolingo after it became a chore and offered no real learning other than a few new words here and there and anoying barrage of notifications, passive agressive icon changes and without the paid version no real ability to practice without going crazy with all the adverts.
+            Learning French. I am now having weekly French conversation 1-2-1
+            lessons. I stopped Duolingo after it became a chore and offered no
+            real learning other than a few new words here and there and anoying
+            barrage of notifications, passive agressive icon changes and without
+            the paid version no real ability to practice without going crazy
+            with all the adverts.
         </p>
         <p>
-            I am also using some textbooks and working through the pages
-            and doing the exercises. I listen to the radio and watch TV in French.
+            I am also using some textbooks and working through the pages and
+            doing the exercises. I listen to the radio and watch TV in French.
         </p>
 
         <p>
@@ -51,12 +63,14 @@ const lastUpdated = Temporal.PlainDate.from({
         <h2>Podcasts</h2>
 
         <p>
-            I have a ton of podcasts I am subscribed to but currently I don't regularly listen. The only one I do listen is The Shop Talk Show.
+            I have a ton of podcasts I am subscribed to but currently I don't
+            regularly listen. The only one I do listen is The Shop Talk Show.
         </p>
 
         <h2>Fitness</h2>
         <p>
-            Mum visited this weekend and we went on hikes every day showing different parts of the mountains around us.
+            Mum visited this weekend and we went on hikes every day showing
+            different parts of the mountains around us.
         </p>
 
         <footer>
@@ -94,26 +108,6 @@ const lastUpdated = Temporal.PlainDate.from({
         ul {
             margin-block: 1rem;
             padding-inline-start: 1.5rem;
-        }
-
-        .intro,
-        footer {
-            max-width: unset;
-        }
-
-        .intro {
-            font-size: 110%;
-            line-height: 1.5;
-            font-weight: 555;
-            margin-block-end: 2rem;
-            padding: 1em;
-            background: oklch(
-                from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25
-            );
-            border-inline-start: 0.5em solid;
-            border-color: oklch(
-                from var(--theme-accent) l calc(c + 0.1) calc(h + 15) / 0.25
-            );
         }
 
         h2 {

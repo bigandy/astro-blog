@@ -25,5 +25,16 @@ const { posts, collection } = Astro.props;
         gap: --fb-spacing(2);
         gap: --spacing(2);
         rule: 1px dashed var(--theme-accent);
+
+        @supports not (rule: 1px solid) {
+            gap: --fb-spacing(1);
+            gap: --spacing(1);
+
+            > :global(*):not(:last-of-type) {
+                padding-block-end: --fb-spacing(1);
+                padding-block-end: --spacing(1);
+                border-block-end: 1px solid;
+            }
+        }
     }
 </style>
