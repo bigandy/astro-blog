@@ -26,6 +26,8 @@
 		--body-font: var(--system-ui);
 		--header-font-family: "Syne", sans-serif;
 		--column-gap-size: 18px;
+
+
 	}
 
 	html {
@@ -53,6 +55,7 @@
 			--second-layer: --spacing(3);
 		}
 
+		--darker-theme-accent: hsl(from var(--theme-accent) h s calc(l / 2));
 
 		/* @media (--lg-n-below) { */
 		@media (width < 1024px) {

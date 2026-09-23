@@ -50,8 +50,6 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
         text-box: trim-both cap alphabetic;
         margin-block: 0;
         translate: 0 -10px;
-        color: yellow;
-
         paint-order: stroke fill;
         -webkit-text-stroke: var(--stroke-width) var(--theme-accent);
 
@@ -68,27 +66,14 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
             --progress: calc(progress(100vi, 400px, 2000px));
             grid-column-start: 2;
             grid-column-end: -1;
-
-            /* counter-reset: p calc(100 * var(--progress)); */
-
-            /* &::after {
-                position: absolute;
-                top: 0;
-                right: 0;
-                font-size: 30px;
-                color: white;
-                content: "progress is:" counter(p);
-            } */
         }
 
         a {
-            color: hsl(from var(--theme-accent) h s calc(l / 2));
+            color: var(--darker-theme-accent);
             font-weight: bold;
 
             &:hover {
-                -webkit-text-stroke-color: hsl(
-                    from var(--theme-accent) h s calc(l / 2)
-                );
+                -webkit-text-stroke-color: var(--darker-theme-accent);
                 color: revert-layer;
                 text-decoration: none;
             }
