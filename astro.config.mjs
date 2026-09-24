@@ -7,7 +7,6 @@ import { defineConfig, envField } from "astro/config";
 import lit from "@awesome.me/astro-lit";
 import { satteri } from "@astrojs/markdown-satteri";
 
-// https://astro.build/config
 export default defineConfig({
 	trailingSlash: "always",
 	env: {
@@ -50,11 +49,11 @@ export default defineConfig({
 			}),
 		},
 	},
-	i18n: {
-		locales: ["en", "fr"],
-		defaultLocale: "en",
-	},
-	integrations: [svelte(), mdx(), react(), lit()],
+	// i18n: {
+	// 	locales: ["en", "fr"],
+	// 	defaultLocale: "en",
+	// },
+	integrations: [svelte(), mdx(), react({ compiler: true }), lit()],
 	scopedStyleStrategy: "class",
 	server: {
 		port: 8888,
@@ -70,7 +69,7 @@ export default defineConfig({
 		processor: satteri({
 			features: { directive: true },
 		}),
-		syntaxHighlight: false,
+		syntaxHighlight: false, // using microlighter to do this now!
 	},
 	// This prevents lightning css manage the css build process.
 	vite: {
