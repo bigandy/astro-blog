@@ -337,10 +337,6 @@
 	}
 }
 
-:root {
-	--is-styling: 1;
-}
-
 .list--dashed {
 	> li {
 		--border-color: rgb(from var(--theme-accent) r g b / 0.5);
@@ -350,11 +346,6 @@
 		&:not(:last-of-type) {
 			border-block-end: 1px dashed;
 			border-block-end-color: var(--border-color);
-		}
-
-		@container style(--is-styling: 1) {
-			--border-color: transparent;
-			margin-block-end: 0;
 		}
 	}
 

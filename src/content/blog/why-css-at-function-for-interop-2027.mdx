@@ -1,18 +1,45 @@
 ---
-title: "why CSS @function for interop 2027?"
+title: "Nominating the CSS @function for Interop 2027"
 date: 2026-09-15
 draft: true
 tags: [""]
 description: ""
+template: "full-page"
 ---
 
 import Intro from "@components/Blog/Intro.astro";
 
+I submitted the CSS @function proposal for 2027 Interop. [Please vote for it on the Interop Github Issue](https://github.com/web-platform-tests/interop/issues/1357).
+
+## What is the CSS @function?
+Like functions in JavaScript the CSS @function allows the developer to write a custom expression contianing variables, variables, @media and @container queries. You can then use this function in any place where you would normally use a value.
+
+```css
+@function --spacing(--multiplier <number>, --unit: 16px <length>) {
+    result: calc(var(--multiplier) * var(--unit));
+}
+
+header {
+    margin-block: --spacing(3); /* outputs: 48px (3 * 16px)
+    /* or with a different unit */
+    margin-inline: --spacing(3, 1rem); /* outputs: 3rem */
+}
+
+```
+
+## What is Interop?
+Every year the main browser engines (Chrome, Safari, Firefox, and Edge) put up a call for the submissions. It is called Interop. It is an effort to improve the web in areas that developers want. These features are not brand new but have to be in at least one browser and have associated web platform tests and W3C specification. That way the Interop work is SMART:
+
+
+
+<details>
+<summary>todo</summary>
 <Intro>
 
 I created the interop issue for [CSS @function](https://github.com/web-platform-tests/interop/issues/1357) as part of the suggesting features for Interop 2027.
 
 </Intro>
+
 
 
 ## What is the new @function custom at-rule?
@@ -95,3 +122,4 @@ In my own code I have begun using the `--f-` prefix so that it is obvious that I
 
 ## References
 [css-mixins-1 csswg draft spec](https://drafts.csswg.org/css-mixins-1/#custom-function)
+</details>

@@ -27,7 +27,7 @@
     }
 
     h1 {
-        text-align: center;
+        text-align: start;
     }
 
     nav {
@@ -40,17 +40,16 @@
         }
     }
 
-    h1 {
-        max-inline-size: unset;
-    }
+    /* h1 { */
+        /* max-inline-size: unset; */
+    /* } */
 }
 
 /* content specific */
 .full-page-content {
-    @slayer {
+    @layer {
         a {
             text-decoration-thickness: 2px;
-            /*text-decoration-color: var;*/
             text-decoration-line: underline;
             text-underline-offset: 0.25em;
 
@@ -122,9 +121,7 @@
                 background: color-mix(currentColor 10%, transparent);
             }
         }
-    }
 
-    @slayer {
         .inner {
             grid-column: 1 / -1;
             max-inline-size: 110rch;
@@ -152,13 +149,13 @@
             }
         }
 
-        :where(h1, h2, h3) {
+        /* :where(h1, h2, h3) {
             text-wrap: pretty;
-        }
+        } */
 
         h1 {
-            max-inline-size: 180rch;
-            text-align: center;
+            /* max-inline-size: 180rch; */
+            /* text-align: center; */
         }
 
         ul,
@@ -191,7 +188,7 @@
 
         article > header {
             text-align: center;
-            margin-block: 1rem 4rem;
+            margin-block: 3rem 2rem;
         }
     }
 }

@@ -27,6 +27,8 @@ const homeUrl = Astro.currentLocale === "fr" ? `/${Astro.currentLocale}` : "/";
         background: black;
 
         h1 {
+            view-transition-name: main-title;
+
             a:focus,
             a:hover {
                 text-decoration: none;

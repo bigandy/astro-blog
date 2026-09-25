@@ -26,6 +26,10 @@ const { columns = 2, style } = Astro.props;
             rule: 1px solid;
             rule-break: intersection;
             column-rule-visibility-items: between;
+
+            @media (max-width: 500px) {
+                grid-template-columns: 1fr !important;
+            }
         }
     }
 </style>

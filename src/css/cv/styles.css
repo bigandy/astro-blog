@@ -373,6 +373,14 @@
 			}
 		}
 
+		.cv-social {
+			padding-inline-start: 1rem;
+
+			a {
+				row-gap: 0;
+			}
+		}
+
 		.cv-social,
 		.cv-portfolio-list {
 			a {
@@ -465,13 +473,6 @@
 			margin-block-end: 1rem;
 			border-block-end: 1px solid var(--theme-accent);
 			border-color: currentColor;
-
-			@container style(--is-styling: 1) {
-				/* margin-block-start: 0; */
-				margin-block-start: 0.75rem;
-				margin-block-end: 0.25rem;
-				border-block-end: none;
-			}
 		}
 
 		.cv-education-list {
@@ -505,60 +506,6 @@
 
 @page {
 	margin: 3rem;
-}
-
-@container style(--is-styling: 1) {
-	.cv-no-sidebar main {
-		/* --theme-accent: black; */
-		max-inline-size: 800px;
-		margin-inline: auto;
-	}
-
-	.content h3::after {
-		content: "-";
-		padding-inline: 0.2rem;
-	}
-
-	.content .list--languages h3::after {
-		display: none;
-	}
-
-	.list--languages h4 {
-		color: var(--lightgrey);
-	}
-
-	.content h3,
-	.content .entry__organization,
-	.cv-education-list .education-name,
-	.cv-education-list .name {
-		display: inline-block;
-		font-size: 1em;
-		line-height: 1;
-	}
-
-	.content .cv-social {
-		padding-inline-start: 1.2rem;
-
-		a span:nth-child(2) {
-			display: none;
-		}
-
-		a {
-			display: flex;
-		}
-
-		li {
-			display: list-item;
-			margin-block-end: 0;
-			padding-block-end: 0.25rem;
-		}
-	}
-
-	.cv {
-		.cv-social {
-			padding-inline-start: 0;
-		}
-	}
 }
 
 .cv-with-sidebar .the-content {

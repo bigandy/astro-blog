@@ -49,10 +49,10 @@ export default defineConfig({
 			}),
 		},
 	},
-	// i18n: {
-	// 	locales: ["en", "fr"],
-	// 	defaultLocale: "en",
-	// },
+	i18n: {
+		locales: ["en", "fr"],
+		defaultLocale: "en",
+	},
 	integrations: [svelte(), mdx(), react({ compiler: true }), lit()],
 	scopedStyleStrategy: "class",
 	server: {
