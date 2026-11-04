@@ -4,9 +4,13 @@ import { socialLinks } from "./social-links";
 import { getNavClassName } from "./utils";
 
 const requestPathname = Astro.url.pathname;
-
-const prefix = Astro.currentLocale !== "en" ? `/${Astro.currentLocale}` : "";
-const locale = Astro.currentLocale ?? "en";
+let prefix = "";
+let locale = "en";
+const isFrench = Astro.currentLocale === "fr";
+if (isFrench) {
+    prefix = `/${Astro.currentLocale}`;
+    locale = Astro.currentLocale;
+}
 ---
 
 <nav class="layout footer-nav">

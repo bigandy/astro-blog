@@ -26,8 +26,7 @@
 		--body-font: var(--system-ui);
 		--header-font-family: "Syne", sans-serif;
 		--column-gap-size: 18px;
-
-
+		color-scheme: light dark;
 	}
 
 	html {
@@ -303,13 +302,12 @@
 		--font-size-4: clamp(1.8144rem, 0.9594rem + 4.2749vi, 4.2725rem);
 		--font-size-5: clamp(2.1773rem, 1.077rem + 5.5014vi, 5.3406rem);
 
-		color-scheme: light;
 		--theme-accent-blue: oklch(0.49 0.31 263.23);
 		--theme-accent: var(--color-purple);
 		--theme-accent-rgb: var(--color-purple-rgb);
 		--theme-accent-opacity: 0.1;
 		--theme-divider: var(--color-gray-100);
-		--theme-text: var(--color-gray-800);
+		--theme-text: light-dark(var(--color-gray-800), white);
 		--theme-text-light: var(--color-gray-600);
 		--theme-text-lighter: var(--color-gray-500);
 		--theme-bg: var(--color-white);
@@ -430,5 +428,38 @@ body > footer, */
 			font-size: 22px !important;
 			padding: 0 !important;
 		}
+	}
+}
+
+@scope (.interop) {
+	:scope, li {
+		margin-trim: block;
+	}
+
+	:scope {
+		padding-inline-start: 0;
+	}
+
+	::marker {
+		content: '';
+	}
+
+	a {
+		margin-block-end: .75rem;
+		display: flex;
+		gap: 0.5rem;
+
+		&::before {
+			content: counter(d) ".";
+		}
+	}
+
+	li {
+		counter-increment: d;
+		corner-shape: squircle;
+		border: 1px solid;
+		border-radius: 1rem;
+		padding: 1rem;
+		--list-bottom: 1rem;
 	}
 }
