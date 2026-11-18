@@ -1,0 +1,18 @@
+---
+import {picks} from './interop-2027-picks.ts';
+---
+<ol class="interop">
+    {
+        picks.map(pick => {
+            return (
+                <li>
+                    <a href={pick.link}>
+                    {pick.title}
+                    </a>
+                    <p>{pick.description}</p>
+                    <p><strong>Why I chose this feature:</strong> {pick.why!== '' ? pick.why : "TODO"}</p>
+                </li>
+            )
+        })
+    }
+</ol>
